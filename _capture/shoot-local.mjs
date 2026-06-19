@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+import fs from 'fs';
+const slug = process.argv[2] || 'home';
+const route = process.argv[3] || '/';
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const p = await ctx.newPage();
+await p.goto('http://localhost:8120' + route, { waitUntil: 'networkidle', timeout: 60000 }).catch(()=>{});
+await p.evaluate(async () => { await new Promise(r=>{let t=0;const i=setInterval(()=>{window.scrollBy(0,500);t+=500;if(t>=document.body.scrollHeight+1500){clearInterval(i);r();}},80);}); window.scrollTo(0,0); });
+await p.waitForTimeout(1000);
+fs.mkdirSync('_capture/local', { recursive: true });
+await p.screenshot({ path: `_capture/local/${slug}.png`, fullPage: true });
+console.log('shot', slug);
+await browser.close();

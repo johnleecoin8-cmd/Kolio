@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   MODASH DESIGN SYSTEM  —  extracted 1:1 from modash.io ground truth.
+   Display font: "Mosans" (Mo Sans, Modash's custom Webflow webfont).
+   Body font:    Inter.
+   Edit the :root tokens below to re-skin the entire site.
+   ========================================================================= */
+
+/* --- Modash custom display webfont (served from Webflow CDN) --- */
+@font-face {
+  font-family: "Mosans";
+  src: url("https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/68934a4feeb4c496ee3a3cc8_MoSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter (body) is loaded via <link> in index.html (avoids CSS @import ordering). */
+
+:root {
+  /* ---- Core surfaces & text (HSL channel triplets for tailwind alpha) ---- */
+  --background: 0 0% 100%;          /* #ffffff  product background primary  */
+  --background-soft: 60 11% 96%;    /* #f6f6f4  background secondary / sand-light */
+  --background-warm: 30 25% 96%;    /* #f7f5f3  web-3.0 page background      */
+  --foreground: 0 0% 8%;            /* #141414  content primary (near-black) */
+  --foreground-muted: 0 0% 8%;      /* #141414bf via /75 — use text-foreground/75 */
+
+  /* ---- Brand neutral / ink ---- */
+  --ink: 0 0% 8%;                   /* #141414  primary interactive / borders-accent */
+  --sand: 51 23% 89%;               /* #ebe9e0  sand primary (cards / product fills) */
+  --sand-dark: 41 27% 75%;          /* #cfc4af  sand dark / product fills primary */
+
+  /* ---- Accent brand colors (the colored feature blocks) ---- */
+  --pink: 327 100% 82%;             /* #ffa3d1  PRIMARY ACCENT (interactive accent) */
+  --pink-hover: 326 100% 79%;       /* #ff95ca  */
+  --pink-light: 327 100% 93%;       /* #ffdaed  */
+  --pink-bg: 327 100% 96%;          /* #ffedf6  */
+  --pink-dark: 327 100% 30%;        /* #99004a  */
+  --pink-hot: 326 95% 75%;          /* #fc83bf  button hover variant */
+
+  --lime: 72 100% 50%;              /* #ddff00 (#df0)  bright lime — fn-button / accents */
+
+  --purple: 282 81% 80%;            /* #e0a3f5  */
+  --purple-light: 287 80% 92%;      /* #f3dafb  */
+  --purple-bg: 287 81% 96%;         /* #f9edfd  */
+  --purple-dark: 281 39% 35%;       /* #65367d  */
+
+  --violet: 255 100% 86%;           /* #c9b8ff  */
+  --violet-light: 251 100% 94%;     /* #e9e3ff  */
+  --violet-bg: 252 100% 97%;        /* #f4f1ff  */
+  --violet-dark: 240 39% 25%;       /* #262659  */
+
+  --coral: 0 100% 80%;              /* #ff9999 (#f99)  */
+  --coral-hover: 0 100% 77%;        /* #ff8b8b  */
+  --coral-light: 0 100% 92%;        /* #ffd6d6  */
+  --coral-bg: 0 100% 96%;           /* #ffebeb  */
+  --coral-dark: 348 80% 40%;        /* #b81430  */
+
+  --orange: 16 100% 85%;            /* #ffc6b2  */
+  --orange-light: 17 100% 94%;      /* #ffe8e0  */
+  --orange-bg: 18 100% 97%;         /* #fff4f0  */
+  --orange-dark: 27 60% 20%;        /* #522c14  */
+
+  /* ---- Untitled-UI gray scale (used by buttons / nav / borders) ---- */
+  --gray-50: 210 40% 98%;           /* #f9fafb */
+  --gray-100: 220 43% 95%;          /* #f2f4f7 */
+  --gray-200: 220 26% 93%;          /* #eaecf0 */
+  --gray-300: 216 24% 84%;          /* #d0d5dd */
+  --gray-400: 218 15% 65%;          /* #98a2b3 */
+  --gray-500: 220 16% 46%;          /* #667085 */
+  --gray-600: 218 24% 30%;          /* #475467 */
+  --gray-700: 217 23% 27%;          /* #344054 */
+  --gray-900: 219 43% 11%;          /* #101828 */
+
+  /* ---- Status ---- */
+  --positive: 142 71% 36%;          /* #16a34a */
+  --negative: 0 72% 51%;            /* #dc2626 */
+
+  /* ---- Radius scale (Webflow: 8px sm, 12px md, 16px nav/card, 100px pill) ---- */
+  --radius-sm: 0.5rem;              /* 8px  */
+  --radius: 0.75rem;               /* 12px */
+  --radius-lg: 1rem;                /* 16px nav / large cards */
+  --radius-xl: 1.5rem;              /* 24px */
+  --radius-pill: 100px;
+
+  /* ---- Layout ---- */
+  --container: 1136px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Display / heading helper */
+.font-display { font-family: "Mosans", "Inter", Arial, sans-serif; }

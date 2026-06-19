@@ -1,0 +1,25 @@
+import Hero from '@/components/pages/features-discovery-tiktok/Hero';
+import UnmatchedScale from '@/components/pages/features-discovery-tiktok/UnmatchedScale';
+import PerformanceTabs from '@/components/pages/features-discovery-tiktok/PerformanceTabs';
+import FeatureRows from '@/components/pages/features-discovery-tiktok/FeatureRows';
+import Testimonial from '@/components/pages/features-discovery-tiktok/Testimonial';
+import Faq from '@/components/pages/features-discovery-tiktok/Faq';
+import CtaBand from '@/components/pages/features-discovery-tiktok/CtaBand';
+
+/**
+ * modash.io /features/influencer-discovery/tiktok — 1:1 clone.
+ * Sections render top-to-bottom.
+ */
+export default function FeaturesDiscoveryTiktok() {
+  return (
+    <main>
+      <Hero />
+      <UnmatchedScale />
+      <PerformanceTabs />
+      <FeatureRows />
+      <Testimonial />
+      <Faq />
+      <CtaBand />
+    </main>
+  );
+}
