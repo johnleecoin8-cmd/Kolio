@@ -1,4 +1,5 @@
 import Hero from '@/components/pages/influencer-database/Hero';
+import LiveDiscovery from '@/components/pages/influencer-database/LiveDiscovery';
 import SearchFilterFeature from '@/components/pages/influencer-database/SearchFilterFeature';
 import FeatureSection from '@/components/pages/influencer-database/FeatureSection';
 import EverythingElse from '@/components/pages/influencer-database/EverythingElse';
@@ -12,6 +13,8 @@ export default function InfluencerDatabase() {
   return (
     <main>
       <Hero />
+
+      <LiveDiscovery />
 
       <SearchFilterFeature />
 
