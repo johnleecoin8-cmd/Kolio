@@ -13,11 +13,11 @@ type Props = {
 /** Alternating text + product-screenshot feature row. */
 export default function FeatureRow({ title, body, img, imgAlt, reverse }: Props) {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="bg-background pt-20 pb-10 md:pt-40 md:pb-16">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className={reverse ? 'md:order-2' : ''}>
-            <h2 className="font-display text-h3 leading-tight text-foreground">
+            <h2 className="max-w-[14ch] text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               {title}
             </h2>
             <p className="mt-5 max-w-[480px] text-body-md text-foreground/70">{body}</p>

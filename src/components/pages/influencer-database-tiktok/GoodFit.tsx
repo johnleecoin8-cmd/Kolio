@@ -18,7 +18,7 @@ export default function GoodFit() {
         />
       }
     >
-      <h2 className="font-display text-h3 leading-tight text-foreground">
+      <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
         Make sure creators are a good fit BEFORE you reach out
       </h2>
       <p className="mt-6 max-w-[480px] text-body-md text-foreground/70">

@@ -14,7 +14,7 @@ export default function ResultsPanel() {
         <div className="rounded-xl bg-background-soft p-6 md:p-10">
           {/* Title bar */}
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <h2 className="max-w-[640px] font-display text-[1.75rem] leading-tight text-foreground md:text-[2.25rem]">
+            <h2 className="max-w-[640px] text-[1.5rem] font-semibold leading-tight text-foreground md:text-[2.25rem]">
               We found 690 fitness Influencers in United States
             </h2>
             <div className="flex shrink-0 items-center gap-3">

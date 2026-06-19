@@ -39,7 +39,7 @@ export default function FeatureSection({
           </div>
 
           <div className={reverse ? 'order-1' : 'order-1 md:order-2'}>
-            <h2 className="font-display text-h4 leading-tight text-foreground">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               {title}
             </h2>
             <div className="mt-6 text-body text-foreground/70">{body}</div>

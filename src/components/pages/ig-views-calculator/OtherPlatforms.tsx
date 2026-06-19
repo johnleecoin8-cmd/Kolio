@@ -1,4 +1,4 @@
-import Container from '@/components/ui/Container';
+import WideContainer from './WideContainer';
 
 const CARDS = [
   {
@@ -19,7 +19,7 @@ const CARDS = [
 export default function OtherPlatforms() {
   return (
     <section className="bg-background py-16 md:py-24">
-      <Container>
+      <WideContainer>
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="font-display text-5xl lg:text-7xl font-normal leading-tight text-foreground">
             Check average views on other platforms
@@ -47,7 +47,7 @@ export default function OtherPlatforms() {
             </a>
           ))}
         </div>
-      </Container>
+      </WideContainer>
     </section>
   );
 }

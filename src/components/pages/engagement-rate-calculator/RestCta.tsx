@@ -7,7 +7,7 @@ export default function RestCta() {
       <Container>
         <div className="box-border flex w-full flex-col items-center justify-center rounded-xl bg-pink px-4 py-12 md:py-20">
           <div className="flex w-full flex-col items-center justify-start gap-6 lg:max-w-[60rem]">
-            <h2 className="whitespace-pre-line text-center font-display text-[2.5rem] font-normal leading-tight text-ink lg:text-[4rem]">
+            <h2 className="whitespace-pre-line text-center font-display text-[2.75rem] font-normal leading-[1.05] text-ink lg:text-[5rem]">
               {'Checking engagement rates is just the beginning \nModash does the rest too'}
             </h2>
             <p className="w-full text-center text-body-md leading-snug text-ink lg:max-w-[35rem]">

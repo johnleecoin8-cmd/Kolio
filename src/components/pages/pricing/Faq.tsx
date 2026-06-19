@@ -51,39 +51,42 @@ const FAQS = [
 
 /** Pricing FAQ accordion. */
 export default function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background pb-8">
       <Container>
-        <h2 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
-          Frequently asked questions
-        </h2>
+        <div className="rounded-2xl bg-gray-50 px-6 py-12 md:px-16 md:py-16">
+          <h2 className="mb-8 text-[1.75rem] font-bold leading-tight text-foreground md:text-[2rem]">
+            Frequently asked questions
+          </h2>
 
-        <div className="mx-auto max-w-[820px] divide-y divide-black/10 border-y border-black/10">
-          {FAQS.map((f, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={f.q} className="py-5">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 text-left"
-                >
-                  <span className="text-body-md font-semibold text-foreground">
-                    {f.q}
-                  </span>
-                  <span className="shrink-0 text-foreground">
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
-                  </span>
-                </button>
-                {isOpen && (
-                  <p className="mt-4 max-w-[720px] text-body text-foreground/75">
-                    {f.a}
-                  </p>
-                )}
-              </div>
-            );
-          })}
+          <div className="divide-y divide-black/10 border-y border-black/10">
+            {FAQS.map((f, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={f.q} className="py-3">
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="flex w-full items-center justify-between gap-6 py-2 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-body-md font-semibold text-foreground">
+                      {f.q}
+                    </span>
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gray-100 text-foreground">
+                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <p className="mt-2 max-w-[820px] text-body-sm leading-relaxed text-foreground/75">
+                      {f.a}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>

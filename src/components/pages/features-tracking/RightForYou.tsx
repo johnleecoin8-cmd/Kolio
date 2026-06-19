@@ -17,7 +17,7 @@ export default function RightForYou() {
       <Container>
         <div className="rounded-xl bg-background-soft p-8 md:p-14">
           <div className="mx-auto max-w-[680px] text-center">
-            <h2 className="font-display text-[1.75rem] leading-[1.1] text-foreground md:text-[2.25rem]">
+            <h2 className="text-[1.5rem] font-bold leading-[1.15] text-foreground md:text-[1.875rem]">
               Is Modash Track right for you?
             </h2>
             <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">

@@ -43,7 +43,7 @@ export default function CreatorBenefits() {
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="mx-auto mb-10 max-w-[640px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+          <h2 className="text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
             Built for brands. Better for creators.
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">

@@ -8,7 +8,7 @@ export default function WhatListeners() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-display text-h4 md:text-h3 leading-tight text-[#1b1b4d]">
+            <h2 className="font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
               What listeners can expect
             </h2>
             <p className="mt-6 text-body-sm text-foreground/70 max-w-[420px]">

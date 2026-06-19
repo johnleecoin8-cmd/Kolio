@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import { cn } from '@/lib/cn';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
@@ -52,67 +53,61 @@ export default function Testimonials() {
   const [i, setI] = useState(0);
   const prev = () => setI((v) => (v - 1 + ITEMS.length) % ITEMS.length);
   const next = () => setI((v) => (v + 1) % ITEMS.length);
-  const t = ITEMS[i];
 
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-10 max-w-[760px] text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          <p className="text-body-sm font-bold text-foreground/50">
             Testimonials
           </p>
-          <h2 className="mt-3 font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
+          <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
             From teams who used to do a lot of unnecessary manual work
           </h2>
-        </div>
 
-        <div className="mx-auto max-w-[656px]">
-          <div className="rounded-xl bg-pink-bg p-8 md:p-12">
-            <img src={t.logo} alt="" className="h-8 w-auto object-contain" />
-            <p className="mt-6 text-body-lg text-foreground">{t.quote}</p>
-            <div className="mt-8 flex items-center gap-4">
-              <img
-                src={t.avatar}
-                alt={t.name}
-                width={56}
-                className="h-14 w-14 rounded-full object-cover"
-              />
-              <div>
-                <div className="text-body font-semibold text-foreground">{t.name}</div>
-                <div className="text-eyebrow text-foreground/60">{t.role}</div>
-              </div>
-            </div>
-          </div>
-
-          {/* controls */}
-          <div className="mt-8 flex items-center justify-center gap-4">
+          {/* square arrow controls */}
+          <div className="mt-8 flex items-center justify-center gap-3">
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 bg-white text-foreground transition hover:bg-gray-50"
+              className="flex h-11 w-11 items-center justify-center rounded-sm bg-ink text-white transition hover:opacity-90"
             >
               <ChevronLeft size={18} />
             </button>
-            <div className="flex items-center gap-2">
-              {ITEMS.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setI(idx)}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    idx === i ? 'w-6 bg-ink' : 'w-2 bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 bg-white text-foreground transition hover:bg-gray-50"
+              className="flex h-11 w-11 items-center justify-center rounded-sm bg-ink text-white transition hover:opacity-90"
             >
               <ChevronRight size={18} />
             </button>
           </div>
+        </div>
+
+        {/* two visible cards (alternating warm tints) */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {[0, 1].map((off) => {
+            const item = ITEMS[(i + off) % ITEMS.length];
+            const tint = off === 0 ? 'bg-orange-light' : 'bg-pink-light';
+            return (
+              <div key={off} className={cn('flex flex-col rounded-xl p-8 md:p-10', tint)}>
+                <img src={item.logo} alt="" className="h-7 w-auto self-start object-contain" />
+                <p className="mt-6 text-body-md text-foreground">{item.quote}</p>
+                <div className="mt-auto flex items-center gap-4 pt-10">
+                  <img
+                    src={item.avatar}
+                    alt={item.name}
+                    width={48}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="text-body font-semibold text-foreground">{item.name}</div>
+                    <div className="text-body-sm text-foreground/60">{item.role}</div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

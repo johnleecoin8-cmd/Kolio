@@ -5,9 +5,9 @@ const CDN = 'https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719';
 /** Large featured article: cover image left, category tag + title + excerpt + author right. */
 export default function FeaturedArticle() {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="bg-background pb-12 pt-16 md:pb-16 md:pt-20">
       <Container className="max-w-[896px]">
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+        <div className="grid items-stretch gap-6 md:grid-cols-2">
           <a
             href="/blog/creator-gifting-survey"
             className="block overflow-hidden rounded-xl"
@@ -16,11 +16,11 @@ export default function FeaturedArticle() {
               src={`${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`}
               alt=""
               loading="lazy"
-              className="aspect-[4/3] w-full object-cover"
+              className="h-full w-full object-cover"
             />
           </a>
 
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start justify-center rounded-xl bg-background-soft p-8 md:p-10">
             <a
               href="/category/influencer-programs"
               className="rounded-pill px-3 py-1 text-eyebrow font-semibold"
@@ -30,7 +30,7 @@ export default function FeaturedArticle() {
             </a>
             <a
               href="/blog/creator-gifting-survey"
-              className="mt-4 font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.25rem]"
+              className="mt-4 text-[1.75rem] font-bold leading-[1.2] text-foreground md:text-[2rem]"
             >
               [Survey] Are Creators Really Over Gifting?
             </a>

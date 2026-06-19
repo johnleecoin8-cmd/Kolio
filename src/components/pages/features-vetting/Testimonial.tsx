@@ -7,14 +7,15 @@ export default function Testimonial() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
+        <div className="mx-auto flex max-w-[1040px] flex-col items-center text-center">
           <img
             src={`${CDN}/682ded8928b2561009cb96af_%E2%80%9C.png`}
             alt=""
-            className="h-9 w-auto"
+            width={45}
+            className="w-[34px] md:w-[45px]"
             loading="lazy"
           />
-          <p className="mt-6 text-body-lg leading-snug text-foreground">
+          <p className="mt-6 text-[1.625rem] leading-[1.2] text-foreground md:text-[2rem]">
             Using Modash, we&rsquo;ve been able to contract 70+ influencers and 500+
             nano influencers — and we plan to scale internationally! We start every
             campaign by using the influencer discovery tools, and Modash also makes it

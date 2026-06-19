@@ -23,11 +23,11 @@ function FilterList({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
       <h3 className="mb-4 text-body font-bold text-foreground">{title}</h3>
-      <ul className="space-y-3">
+      <ul className="space-y-5">
         {items.map((item) => (
           <li
             key={item}
-            className="flex items-center gap-3 border-b border-black/5 pb-3 text-body text-foreground/80"
+            className="flex items-center gap-3 text-body text-foreground/80"
           >
             <CheckCircle2 className="h-5 w-5 shrink-0 fill-ink text-white" />
             {item}
@@ -44,18 +44,18 @@ export default function SearchFilter() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div className="rounded-xl bg-background-soft p-6 md:p-10">
+          <div className="rounded-xl bg-background-soft p-8 md:p-12">
             <img
               src={`${CDN}/691b219111448c1977bfbc9b_img_tiktok_database_01.avif`}
               width={560}
               alt="Search and filter TikTok influencers"
               loading="lazy"
-              className="mx-auto w-full max-w-[480px]"
+              className="mx-auto w-full max-w-[520px]"
             />
           </div>
 
           <div>
-            <h2 className="font-display text-h3 leading-tight text-foreground">
+            <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
               Search &amp; filter TikTok influencers
             </h2>
             <div className="mt-8 grid gap-10 sm:grid-cols-2">

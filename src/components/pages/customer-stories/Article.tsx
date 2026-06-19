@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import Container from '@/components/ui/Container';
+import { cn } from '@/lib/cn';
 
 const CASE_SCREENSHOT =
   'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6434210cad5ead1505f6c9f5_NordVPN%20Case%20Study.webp';
@@ -11,9 +12,20 @@ const FACTS = [
   { label: 'Platforms', value: 'YouTube, Instagram' },
 ];
 
-function Eyebrow({ children }: { children: ReactNode }) {
+function Eyebrow({
+  children,
+  color,
+}: {
+  children: ReactNode;
+  color: string;
+}) {
   return (
-    <p className="text-eyebrow font-semibold uppercase tracking-wide text-purple-dark">
+    <p
+      className={cn(
+        'text-eyebrow font-semibold uppercase tracking-wide',
+        color,
+      )}
+    >
       {children}
     </p>
   );
@@ -21,7 +33,7 @@ function Eyebrow({ children }: { children: ReactNode }) {
 
 function Heading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mt-3 font-display text-h4 leading-tight text-foreground md:text-h3">
+    <h2 className="mt-3 font-display text-h4 leading-tight text-violet-dark md:text-h3">
       {children}
     </h2>
   );
@@ -33,7 +45,7 @@ function P({ children }: { children: ReactNode }) {
 
 function Pullquote({ children }: { children: ReactNode }) {
   return (
-    <blockquote className="border-l-4 border-purple py-1 pl-5 text-body-md font-medium italic text-foreground">
+    <blockquote className="border-l-4 border-violet py-1 pl-5 text-body-md font-bold italic text-violet-dark">
       {children}
     </blockquote>
   );
@@ -61,7 +73,7 @@ export default function Article() {
           <div className="max-w-2xl space-y-12">
             {/* CHALLENGE */}
             <div className="space-y-5">
-              <Eyebrow>Challenge</Eyebrow>
+              <Eyebrow color="text-purple-dark">Challenge</Eyebrow>
               <Heading>
                 Digging through 51 million YouTube channels to find the right
                 influencers
@@ -95,7 +107,7 @@ export default function Article() {
 
             {/* SOLUTION */}
             <div className="space-y-5">
-              <Eyebrow>Solution</Eyebrow>
+              <Eyebrow color="text-coral-dark">Solution</Eyebrow>
               <Heading>
                 Using Modash to find YouTube creators with the right audience
                 demographics
@@ -156,7 +168,7 @@ export default function Article() {
 
             {/* IMPACT */}
             <div className="space-y-5">
-              <Eyebrow>Impact</Eyebrow>
+              <Eyebrow color="text-pink-hot">Impact</Eyebrow>
               <Heading>2 hours saved a day by removing manual vetting</Heading>
               <P>
                 Today, influencer marketing at NordVPN supports all other

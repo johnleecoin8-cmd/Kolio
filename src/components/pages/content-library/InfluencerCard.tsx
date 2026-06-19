@@ -7,8 +7,8 @@ import {
   BarChart3,
   Play,
   Instagram,
-  Lock,
 } from 'lucide-react';
+import { cn } from '@/lib/cn';
 import type { Influencer, LocationStat } from './data';
 
 function StatPill({
@@ -21,12 +21,12 @@ function StatPill({
   value: string;
 }) {
   return (
-    <div className="flex items-center justify-between rounded-lg border border-black/5 bg-white px-4 py-3">
-      <span className="flex items-center gap-2 text-body-sm text-foreground/70">
-        <span className="text-gray-400">{icon}</span>
+    <div className="flex items-center justify-between rounded-lg bg-white p-4">
+      <span className="flex items-center gap-2 text-sm text-foreground/80">
+        <span className="text-foreground/60">{icon}</span>
         {label}
       </span>
-      <span className="text-body-sm font-semibold text-foreground">{value}</span>
+      <span className="text-base text-foreground">{value}</span>
     </div>
   );
 }
@@ -39,31 +39,39 @@ function LocationBars({
   rows: LocationStat[];
 }) {
   return (
-    <div className="relative">
-      <p className="mb-2 text-body-sm font-medium text-foreground/70">{title}</p>
-      <div className="space-y-2">
-        {rows.map((r) => (
-          <div key={r.name} className="flex items-center gap-3">
-            <span className="w-28 shrink-0 truncate text-[11px] text-foreground/60">
-              {r.name}
-            </span>
-            <span className="h-1.5 flex-1 rounded-full bg-gray-100">
-              <span
-                className="block h-full rounded-full bg-gray-300"
-                style={{ width: r.pct }}
-              />
-            </span>
-            <span className="w-12 shrink-0 text-right text-[11px] text-foreground/60">
-              {r.pct}
-            </span>
-          </div>
-        ))}
-      </div>
-      {/* unlock overlay teaser */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex h-10 items-end justify-center bg-gradient-to-t from-white via-white/80 to-transparent">
-        <span className="flex items-center gap-1 text-[10px] font-medium text-foreground/50">
-          <Lock size={10} /> Start a Free Trial to Unlock
-        </span>
+    <div className="flex w-full flex-1 flex-col">
+      <span className="text-sm font-semibold text-foreground">{title}</span>
+      <div className="mt-2 flex flex-col gap-2">
+        {rows.map((r, i) => {
+          const blur = i > 1;
+          const width = parseFloat(r.pct);
+          return (
+            <div key={r.name} className="flex flex-col justify-center">
+              <div
+                className={cn(
+                  'flex justify-between text-sm',
+                  blur && 'blur-sm opacity-40',
+                )}
+              >
+                <span className="min-w-0 flex-1 truncate text-foreground/80">
+                  {r.name}
+                </span>
+                <span className="text-foreground/80">{r.pct}</span>
+              </div>
+              <div
+                className={cn(
+                  'mt-0.5 h-2 rounded-lg bg-gray-100',
+                  blur && 'blur opacity-40',
+                )}
+              >
+                <span
+                  className="block h-full rounded-lg bg-ink"
+                  style={{ width: `${Math.min(width, 100)}%` }}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -71,31 +79,44 @@ function LocationBars({
 
 export default function InfluencerCard({ data }: { data: Influencer }) {
   return (
-    <div className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[280px_1fr]">
-      {/* ---- left: identity ---- */}
-      <div>
-        <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-100">
-          <img
-            src={data.avatar}
-            alt={data.name}
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
+    <div className="grid grid-cols-1 gap-4 rounded-lg bg-background-soft p-4 xl:grid-cols-7 xl:p-6">
+      {/* ---- left: identity (white panel) ---- */}
+      <div className="flex h-full w-full flex-col gap-4 rounded-lg bg-white p-4 xl:col-span-2">
+        {/* avatar + name row (stacks on lg) */}
+        <div className="flex flex-row items-start gap-4 lg:flex-col">
+          <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full bg-gray-100 lg:h-25 lg:w-25">
+            <img
+              src={data.avatar}
+              alt={data.name}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl font-semibold leading-tight text-foreground lg:text-2xl">
+              {data.rank}. {data.name}
+            </h2>
+            <p className="mt-1 text-body-sm text-foreground/60">
+              {data.location}
+            </p>
+          </div>
         </div>
-        <h2 className="mt-4 text-[1.375rem] font-semibold leading-tight text-foreground">
-          {data.rank}. {data.name}
-        </h2>
-        <p className="mt-1 text-body-sm text-foreground/60">{data.location}</p>
 
-        <div className="mt-3 space-y-0.5 text-body-sm text-foreground/70">
-          {data.bio.map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+        {/* bio box */}
+        <div className="mt-3 rounded-lg border border-black/[0.08] px-2.5 py-1">
+          <p className="line-clamp-3 whitespace-pre-line text-body-sm leading-relaxed text-foreground">
+            {data.bio.join('\n')}
+          </p>
         </div>
 
-        <p className="mt-3 text-body-sm font-semibold text-foreground">
+        {/* handle */}
+        <a
+          href="#"
+          className="mt-3 flex items-center gap-2 text-body-sm text-foreground/80 no-underline hover:underline"
+        >
+          <Instagram size={18} className="shrink-0" />
           {data.handle}
-        </p>
+        </a>
 
         <div className="mt-4 space-y-2">
           <button className="flex items-center gap-2 text-body-sm font-medium text-foreground/80 hover:text-foreground">
@@ -121,84 +142,72 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
         </button>
       </div>
 
-      {/* ---- right: data ---- */}
-      <div className="space-y-5">
-        {/* top stat pills */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <StatPill
-            icon={<AlertTriangle size={15} />}
-            label="Fake followers"
-            value={data.fakeFollowers}
-          />
-          <StatPill
-            icon={<Heart size={15} />}
-            label="Average likes"
-            value={data.avgLikes}
-          />
-          <StatPill
-            icon={<TrendingUp size={15} />}
-            label="Engagement rate"
-            value={data.engagementRate}
-          />
-          <StatPill
-            icon={<MessageCircle size={15} />}
-            label="Average comments"
-            value={data.avgComments}
-          />
-        </div>
+      {/* ---- right: data grid (modash named-area layout) ---- */}
+      <div className="space-y-4 xl:col-span-5">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-6 lg:[grid-template-areas:'fakeFollowers_fakeFollowers_fakeFollowers_averageLikes_averageLikes_averageLikes''engagementRate_engagementRate_engagementRate_averageComments_averageComments_averageComments''audienceCountries_audienceCountries_audienceCities_audienceCities_brandPost_brandPost''genderSplit_genderSplit_genderSplit_genderSplit_brandPost_brandPost']">
+          {/* stat tiles */}
+          <div style={{ gridArea: 'fakeFollowers' }} className="col-span-2 lg:col-auto">
+            <StatPill icon={<AlertTriangle size={16} />} label="Fake followers" value={data.fakeFollowers} />
+          </div>
+          <div style={{ gridArea: 'averageLikes' }} className="col-span-2 lg:col-auto">
+            <StatPill icon={<Heart size={16} />} label="Average likes" value={data.avgLikes} />
+          </div>
+          <div style={{ gridArea: 'engagementRate' }} className="col-span-2 lg:col-auto">
+            <StatPill icon={<TrendingUp size={16} />} label="Engagement rate" value={data.engagementRate} />
+          </div>
+          <div style={{ gridArea: 'averageComments' }} className="col-span-2 lg:col-auto">
+            <StatPill icon={<MessageCircle size={16} />} label="Average comments" value={data.avgComments} />
+          </div>
 
-        {/* location + post */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_220px]">
-          <div className="space-y-5">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <LocationBars
-                title="Audience location by country"
-                rows={data.countries}
-              />
-              <LocationBars
-                title="Audience location by city"
-                rows={data.cities}
-              />
-            </div>
-            {/* gender */}
-            <div className="relative">
-              <p className="mb-2 text-body-sm font-medium text-foreground/70">
+          {/* audience countries */}
+          <div style={{ gridArea: 'audienceCountries' }} className="col-span-2 flex rounded-lg bg-white p-4 lg:col-auto">
+            <LocationBars title="Audience location by country" rows={data.countries} />
+          </div>
+          {/* audience cities */}
+          <div style={{ gridArea: 'audienceCities' }} className="col-span-2 flex rounded-lg bg-white p-4 lg:col-auto">
+            <LocationBars title="Audience location by city" rows={data.cities} />
+          </div>
+
+          {/* gender split (blurred) */}
+          <div style={{ gridArea: 'genderSplit' }} className="col-span-2 flex rounded-lg bg-white p-4 lg:col-auto">
+            <div className="flex w-full flex-1 flex-col">
+              <span className="text-sm font-semibold text-foreground">
                 Audience gender
-              </p>
-              <div className="flex h-2 w-full overflow-hidden rounded-full bg-gray-100">
-                <span
-                  className="h-full bg-pink"
-                  style={{ width: `${data.genderFemale}%` }}
-                />
-                <span
-                  className="h-full bg-violet"
-                  style={{ width: `${100 - data.genderFemale}%` }}
-                />
-              </div>
-              <div className="mt-1 flex justify-between text-[11px] text-foreground/50">
-                <span>female {data.genderFemale}%</span>
-                <span>male {100 - data.genderFemale}%</span>
+              </span>
+              <div className="relative mt-4">
+                <div className="flex select-none flex-col gap-2 blur-[5px]">
+                  <div className="flex flex-col justify-center">
+                    <div className="flex justify-between text-sm text-foreground/80">
+                      <span className="min-w-0 flex-1 truncate">female</span>
+                      <span>{data.genderFemale}.57%</span>
+                    </div>
+                    <div className="mt-0.5 h-2 rounded-lg bg-gray-100">
+                      <span className="block h-full rounded-lg bg-coral" style={{ width: `${data.genderFemale}%` }} />
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <div className="flex justify-between text-sm text-foreground/80">
+                      <span className="min-w-0 flex-1 truncate">male</span>
+                      <span>{100 - data.genderFemale}.43%</span>
+                    </div>
+                    <div className="mt-0.5 h-2 rounded-lg bg-gray-100">
+                      <span className="block h-full rounded-lg bg-violet" style={{ width: `${100 - data.genderFemale}%` }} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* brand post thumbnail */}
-          <div className="overflow-hidden rounded-lg border border-black/5">
+          {/* brand post thumbnail (spans 2 rows) */}
+          <div style={{ gridArea: 'brandPost' }} className="col-span-2 overflow-hidden rounded-lg bg-white lg:col-auto">
             <div className="flex items-center gap-2 px-3 py-2">
               <span className="h-7 w-7 overflow-hidden rounded-full bg-gray-100">
-                <img
-                  src={data.avatar}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
+                <img src={data.avatar} alt="" className="h-full w-full object-cover" />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-[11px] font-semibold text-foreground">
-                  {data.name}
-                </p>
-                <p className="truncate text-[10px] text-foreground/50">
-                  {data.handle}
-                </p>
+                <p className="truncate text-[11px] font-semibold text-foreground">{data.name}</p>
+                <p className="truncate text-[10px] text-foreground/50">{data.handle}</p>
               </div>
               <Instagram size={14} className="shrink-0 text-foreground/60" />
             </div>
@@ -215,19 +224,11 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
             </div>
             <div className="px-3 py-2">
               <div className="flex items-center gap-3 text-[11px] text-foreground/60">
-                <span className="flex items-center gap-1">
-                  <Heart size={11} /> {data.post.likes}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MessageCircle size={11} /> {data.post.comments}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Play size={11} /> {data.post.views}
-                </span>
+                <span className="flex items-center gap-1"><Heart size={11} /> {data.post.likes}</span>
+                <span className="flex items-center gap-1"><MessageCircle size={11} /> {data.post.comments}</span>
+                <span className="flex items-center gap-1"><Play size={11} /> {data.post.views}</span>
               </div>
-              <p className="mt-1.5 line-clamp-2 text-[11px] text-foreground/70">
-                {data.post.caption}
-              </p>
+              <p className="mt-1.5 line-clamp-2 text-[11px] text-foreground/70">{data.post.caption}</p>
             </div>
           </div>
         </div>

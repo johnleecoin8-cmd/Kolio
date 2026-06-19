@@ -44,7 +44,7 @@ export default function LogoBar() {
     <section className="bg-white pb-16 pt-20 md:pb-24 md:pt-28">
       <Container>
         <div className="mb-10 text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          <p className="text-body-sm font-bold text-foreground/50">
             Customers
           </p>
           <h2 className="mt-3 font-display text-h4 text-foreground md:text-[2.5rem]">

@@ -4,10 +4,10 @@ import { ButtonA } from '@/components/ui/Button';
 /** Closing pink CTA band. */
 export default function CtaBanner() {
   return (
-    <section className="bg-pink">
-      <Container className="py-16 md:py-24">
+    <section className="rounded-t-[32px] bg-pink md:rounded-t-[48px]">
+      <Container className="py-20 md:py-32">
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display text-[2.25rem] uppercase leading-[1.04] text-ink sm:text-[3rem] md:text-[3.75rem]">
+          <h2 className="font-display text-[2.75rem] uppercase leading-[1.02] text-ink sm:text-[4rem] md:text-[5rem] lg:text-[5.75rem]">
             Recruit influencers
             <br />
             faster, with more

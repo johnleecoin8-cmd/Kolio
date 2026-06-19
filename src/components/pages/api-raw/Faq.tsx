@@ -82,8 +82,8 @@ export default function Faq() {
   return (
     <section className="bg-background py-12 md:py-20">
       <Container>
-        <div className="rounded-xl bg-sand p-8 md:p-14">
-          <h2 className="mb-8 font-display text-[1.75rem] leading-[1.1] text-foreground md:text-[2.25rem]">
+        <div className="rounded-xl bg-background-soft p-8 md:p-14">
+          <h2 className="mb-8 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
             Frequently asked questions
           </h2>
           <div className="divide-y divide-black/10">

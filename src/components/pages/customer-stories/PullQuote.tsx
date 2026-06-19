@@ -10,20 +10,23 @@ export default function PullQuote() {
   return (
     <section className="bg-background">
       <Container className="py-16 md:py-24">
-        <div className="flex justify-center">
-          <img src={QUOTE_MARK} alt="" className="h-10 w-10" aria-hidden />
-        </div>
-        <div className="mt-8 grid grid-cols-1 items-center gap-10 md:grid-cols-[auto_1fr]">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
           <div className="flex justify-center">
             <img
               src={AUTHOR_IMG}
               alt="Laura Garsdal, Influencer Marketing Manager at NordVPN"
-              className="h-56 w-56 rounded-full object-cover"
+              className="h-56 w-56 rounded-full object-cover md:h-64 md:w-64"
               loading="lazy"
             />
           </div>
           <div>
-            <p className="font-display text-h4 leading-snug text-foreground">
+            <img
+              src={QUOTE_MARK}
+              alt=""
+              className="mb-6 h-8 w-8"
+              aria-hidden
+            />
+            <p className="font-display text-h4 leading-snug text-violet-dark">
               Before Modash, I had to search for profiles manually. With Modash,
               I find creators that actually match our targets &amp; our needs and
               I do it faster!
@@ -33,7 +36,7 @@ export default function PullQuote() {
                 Laura Garsdal
               </span>
               <br />
-              Influencer Marketing Manager, NordVPN
+              Influencer Marketing Manager NordVPN
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ export default function TeamSpeed() {
             Creators are paid quickly
           </span>
 
-          <h2 className="font-display text-[2.25rem] uppercase leading-[0.95] text-ink sm:text-[3rem] md:text-[4.25rem]">
+          <h2 className="font-display text-[2.5rem] uppercase leading-[0.95] text-ink sm:text-[3.5rem] md:text-[5rem]">
             When Modash handles payments, your whole team moves faster
           </h2>
         </div>

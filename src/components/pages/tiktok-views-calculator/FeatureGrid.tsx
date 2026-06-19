@@ -40,7 +40,7 @@ export default function FeatureGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[20ch] text-center font-display text-[2.25rem] uppercase leading-[1.05] text-foreground md:text-[3.5rem]">
+        <h2 className="mx-auto max-w-[20ch] text-center font-display text-[2.5rem] uppercase leading-[1.02] text-foreground md:text-[4rem]">
           An influencer marketing platform built to scale with you
         </h2>
         <p className="mx-auto mt-5 max-w-[560px] text-center text-body text-foreground/75 md:text-body-md">

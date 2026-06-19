@@ -36,7 +36,7 @@ export default function FeatureRow({
             />
           </div>
           <div className={reversed ? 'md:order-1' : ''}>
-            <h2 className="font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2rem]">
+            <h2 className="text-[1.5rem] font-semibold leading-[1.15] text-foreground md:text-[1.75rem]">
               {title}
             </h2>
             <p className="mt-4 text-body-md text-foreground/70">{intro}</p>

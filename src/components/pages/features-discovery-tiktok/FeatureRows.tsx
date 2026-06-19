@@ -8,6 +8,7 @@ export default function FeatureRows() {
     <>
       <FeatureRow
         imageOn="right"
+        bg="violet"
         heading="Find the perfect TikTok audiences for your brand"
         ctaLabel="Try for free"
         img={`${CDN}/5f4f61fbca8cb4f5cdfd17c4_Web_illustration_feature_02.svg`}
@@ -62,14 +63,14 @@ export default function FeatureRows() {
               influencer in the world, on 3 major platforms:{' '}
               <a
                 href="https://www.modash.io/features/influencer-discovery/youtube"
-                className="font-semibold text-foreground underline"
+                className="font-semibold text-violet-dark underline"
               >
                 YouTube
               </a>
               ,{' '}
               <a
                 href="https://www.modash.io/features/influencer-discovery/"
-                className="font-semibold text-foreground underline"
+                className="font-semibold text-violet-dark underline"
               >
                 Instagram
               </a>

@@ -79,7 +79,7 @@ function FeatureRow({ block }: { block: Block }) {
         />
       </div>
       <div className="order-1 md:order-2">
-        <h3 className="font-display text-h4 leading-tight text-ink">
+        <h3 className="text-body-lg font-bold leading-tight text-ink">
           {block.heading}
         </h3>
         <div className="mt-6 space-y-5">
@@ -109,7 +109,7 @@ export default function FeatureBlocks() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
-          <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+          <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
             Get things organized and under control from one place
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-body-md text-foreground/70">

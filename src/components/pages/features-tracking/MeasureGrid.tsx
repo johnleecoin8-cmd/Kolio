@@ -25,17 +25,14 @@ export default function MeasureGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[640px] text-center font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+        <h2 className="mx-auto max-w-[640px] text-center text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2rem]">
           Everything you need to measure what matters
         </h2>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {CARDS.map((c) => (
-            <div
-              key={c.title}
-              className="flex flex-col rounded-xl bg-background-soft p-5"
-            >
-              <div className="overflow-hidden rounded-lg bg-white">
+            <div key={c.title} className="flex flex-col">
+              <div className="flex items-center justify-center overflow-hidden rounded-xl bg-background-soft p-6">
                 <img
                   src={c.img}
                   alt={c.title}

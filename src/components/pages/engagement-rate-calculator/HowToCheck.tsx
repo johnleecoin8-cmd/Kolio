@@ -10,7 +10,7 @@ export default function HowToCheck() {
       <Container>
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-16">
           <div className="flex flex-col items-start justify-start gap-4 lg:flex-1">
-            <h2 className="mb-4 w-full break-words font-display text-5xl font-bold leading-tight text-foreground lg:text-7xl">
+            <h2 className="mb-4 w-full break-words font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
               How to check influencer engagement rate
             </h2>
             <div className="w-full break-words text-lg font-normal leading-relaxed text-foreground">

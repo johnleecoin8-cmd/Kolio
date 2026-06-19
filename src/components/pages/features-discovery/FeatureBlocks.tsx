@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 type Item = { title: string; body: string };
 type Block = { img: string; heading: string; items: Item[] };
@@ -65,11 +66,11 @@ export default function FeatureBlocks() {
   return (
     <section className="py-12 md:py-16">
       <Container>
-        <div className="max-w-[750px]">
-          <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+        <div className="mx-auto max-w-[750px] text-center">
+          <SectionHeading>
             Find creators worth your time, without the guesswork
-          </h2>
-          <p className="mt-4 max-w-[640px] text-body md:text-body-md text-foreground/75">
+          </SectionHeading>
+          <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
             Pull from 380M+ profiles and build shortlists you'd actually bet on, whenever you need
             them.
           </p>

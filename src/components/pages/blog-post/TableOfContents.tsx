@@ -13,25 +13,21 @@ export default function TableOfContents() {
   };
   return (
     <nav aria-label="Table of contents" className="text-body-sm">
-      <p className="mb-4 text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+      <p className="border-b border-gray-200 pb-3 text-body font-bold text-foreground">
         Table of Contents
       </p>
-      <ul className="space-y-2.5">
+      <ul>
         {PLATFORMS.map((p) => (
-          <li key={p.num}>
+          <li key={p.num} className="border-b border-gray-200">
             <a
               href={`#${slug(p.num)}`}
-              className="block text-foreground/65 transition hover:text-foreground"
+              className="block py-3 text-foreground/65 transition hover:text-foreground"
             >
               {labels[p.num] ?? `${p.num}. ${p.name}`}
             </a>
           </li>
         ))}
       </ul>
-      <p className="mt-6 text-body-sm text-foreground/50">
-        See why 1,700+ ecommerce brands rate Modash as the #1 influencer marketing
-        platform
-      </p>
     </nav>
   );
 }

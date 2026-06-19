@@ -35,20 +35,20 @@ export default function Searchable() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-12 text-center font-display text-[2rem] leading-tight text-foreground md:text-[2.5rem]">
+        <h2 className="mb-12 text-center font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
           350M+ creators all searchable
         </h2>
 
-        <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map((item) => (
-            <div key={item.text} className="flex items-start gap-3">
+            <div key={item.text} className="flex flex-col gap-4">
               <img
                 src={item.icon}
                 alt=""
                 width={24}
                 height={24}
                 loading="lazy"
-                className="mt-0.5 h-6 w-6 shrink-0"
+                className="h-6 w-6 shrink-0"
               />
               <p className="text-body-sm text-foreground/75">{item.text}</p>
             </div>
@@ -59,6 +59,7 @@ export default function Searchable() {
           <ButtonA
             href="https://marketer.modash.io/register/marketer"
             variant="primary"
+            className="rounded-pill h-11 px-6"
           >
             Find creators for free
           </ButtonA>

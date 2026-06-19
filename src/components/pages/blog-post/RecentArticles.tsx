@@ -39,21 +39,20 @@ export default function RecentArticles() {
             <a
               key={i}
               href="#"
-              className="group flex flex-col overflow-hidden rounded-lg border border-black/5 bg-white shadow-nav transition hover:-translate-y-0.5"
+              className="group flex flex-col transition hover:-translate-y-0.5"
             >
-              <div className="aspect-[16/10] w-full overflow-hidden bg-pink-bg">
+              <div className="aspect-[16/12] w-full overflow-hidden rounded-xl bg-pink-bg">
                 <img
                   src={a.img}
                   alt={a.title}
-                  loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-5">
-                <span className="mb-3 w-fit rounded-pill bg-pink-light px-3 py-1 text-eyebrow font-semibold text-pink-dark">
+              <div className="flex flex-1 flex-col pt-4">
+                <span className="mb-3 w-fit rounded-pill bg-orange-light px-3 py-1 text-eyebrow font-semibold text-orange-dark">
                   Tools
                 </span>
-                <h3 className="text-body font-semibold leading-snug text-foreground">
+                <h3 className="text-body-md font-bold leading-snug text-foreground">
                   {a.title}
                 </h3>
                 <div className="mt-4 flex items-center gap-2">

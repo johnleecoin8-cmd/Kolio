@@ -44,7 +44,7 @@ export default function ScaleProgram() {
               </a>
               <a
                 href={v.href}
-                className="mt-4 font-display text-body-lg leading-tight text-foreground"
+                className="mt-4 text-body font-bold leading-snug text-foreground"
               >
                 {v.title}
               </a>

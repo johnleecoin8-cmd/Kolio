@@ -1,6 +1,6 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-import { Check } from 'lucide-react';
+import { CircleCheck } from 'lucide-react';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
@@ -18,7 +18,7 @@ const AUDIENCE = ['Countries', 'Cities', 'Gender', 'Language', 'Interests'];
 function CheckItem({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-2">
-      <Check className="h-5 w-5 shrink-0 text-pink" strokeWidth={3} />
+      <CircleCheck className="h-5 w-5 shrink-0 text-foreground/70" strokeWidth={2} />
       <span className="text-body text-foreground/80">{label}</span>
     </div>
   );
@@ -27,7 +27,7 @@ function CheckItem({ label }: { label: string }) {
 /** First feature: emails + all the influencer data, with a two-column checklist. */
 export default function DataFeature() {
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-16 md:py-32">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
@@ -41,13 +41,13 @@ export default function DataFeature() {
             />
           </div>
           <div>
-            <h2 className="font-display text-h4 leading-tight text-foreground">
+            <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-h3">
               Find influencer emails, plus all the other data you need
             </h2>
 
             <div className="mt-7 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
               <div>
-                <div className="mb-3 text-body font-semibold text-foreground">
+                <div className="mb-3 border-b border-black/10 pb-3 text-body font-semibold text-foreground">
                   Performance
                 </div>
                 <div className="flex flex-col gap-3">
@@ -57,7 +57,7 @@ export default function DataFeature() {
                 </div>
               </div>
               <div>
-                <div className="mb-3 text-body font-semibold text-foreground">
+                <div className="mb-3 border-b border-black/10 pb-3 text-body font-semibold text-foreground">
                   Audience
                 </div>
                 <div className="flex flex-col gap-3">

@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const CARDS = [
   {
@@ -33,9 +34,9 @@ export default function WorkflowGrid() {
     <section className="py-12 md:py-16">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
-          <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+          <SectionHeading>
             Finding creators is one thing. Working with them is another.
-          </h2>
+          </SectionHeading>
           <p className="mt-4 text-body md:text-body-md text-foreground/75">
             Modash connects discovery to your entire creator workflow and brings you from first
             search to payment sent, all in one place.

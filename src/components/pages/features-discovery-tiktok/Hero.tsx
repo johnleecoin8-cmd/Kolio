@@ -25,14 +25,14 @@ const LOGOS = [
 /** Hero — text left, illustration right, brand logo bar below. */
 export default function Hero() {
   return (
-    <section className="bg-background-warm pt-12 md:pt-16">
+    <section className="bg-violet-light pt-12 md:pt-16">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
           <div>
-            <h1 className="font-display text-[2.5rem] leading-[1.05] text-foreground sm:text-[3rem] lg:text-[3.5rem]">
+            <h1 className="font-display text-[2.5rem] leading-[1.05] text-violet-dark sm:text-[3rem] lg:text-[3.5rem]">
               TikTok Influencer Search Tool
             </h1>
-            <p className="mt-6 max-w-[520px] text-body-md text-foreground/75">
+            <p className="mt-6 max-w-[520px] text-body-md text-violet-dark/80">
               Modash lists every TikTok influencer on earth with 1k+ followers.
               Search &amp; filter based on audiences, engagement rates, followers
               &amp; more to find the perfect TikTok creators for your brand.
@@ -58,7 +58,7 @@ export default function Hero() {
 
         {/* logo bar */}
         <div className="mt-14 pb-4 md:mt-20">
-          <p className="text-center text-body-sm text-foreground/60">
+          <p className="text-center text-body-sm text-violet-dark/70">
             Used by 1,500+ B2C brands like:
           </p>
           <div className="mt-8 grid grid-cols-3 items-center gap-x-6 gap-y-8 sm:grid-cols-4 md:grid-cols-8">
@@ -68,7 +68,7 @@ export default function Hero() {
                   src={`${CDN}/${file}`}
                   alt={name}
                   loading="lazy"
-                  className="max-h-7 w-auto opacity-70 grayscale"
+                  className="max-h-7 w-auto"
                 />
               </div>
             ))}

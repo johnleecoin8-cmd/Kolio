@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react';
+import { Check as CheckIcon } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
@@ -21,8 +21,10 @@ const AUDIENCE = [
 
 function Check({ children }: { children: string }) {
   return (
-    <li className="flex items-center gap-3 py-2.5 text-body text-foreground">
-      <CheckCircle2 className="h-5 w-5 shrink-0 text-ink" strokeWidth={2} />
+    <li className="flex items-center gap-3 border-b border-black/10 py-3 text-body text-foreground">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+        <CheckIcon className="h-3 w-3" strokeWidth={3} />
+      </span>
       {children}
     </li>
   );
@@ -46,7 +48,7 @@ export default function SearchFilter() {
 
           {/* copy */}
           <div>
-            <h2 className="font-display text-h4 leading-tight text-foreground md:text-[2.25rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               Search &amp; filter YouTube influencers
             </h2>
 

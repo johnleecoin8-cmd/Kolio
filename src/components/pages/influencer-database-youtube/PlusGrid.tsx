@@ -40,7 +40,7 @@ export default function PlusGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-display text-h4 leading-tight text-foreground md:text-[2.5rem]">
+        <h2 className="mx-auto max-w-[760px] text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
           Plus, everything else you need to run a profitable influencer program
         </h2>
 

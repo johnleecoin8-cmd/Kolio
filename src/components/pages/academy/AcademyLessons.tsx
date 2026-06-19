@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Container from '@/components/ui/Container';
+import { cn } from '@/lib/cn';
 
 type Lesson = { n: number; video: string; title: string; body: React.ReactNode };
 
@@ -118,17 +119,18 @@ export default function AcademyLessons() {
     <section className="bg-background pb-16 pt-10 md:pb-24">
       <Container>
         {/* Tabs */}
-        <div className="mb-10 flex flex-wrap gap-6 border-b border-black/10 md:gap-10">
+        <div className="mb-10 flex flex-wrap gap-8 border-b border-black/10 md:mb-14 md:gap-12">
           {TABS.map((t, i) => (
             <button
               key={t}
               type="button"
               onClick={() => setTab(i)}
-              className={`-mb-px border-b-2 pb-3 text-body-sm font-semibold transition-colors ${
+              className={cn(
+                '-mb-px border-b-[3px] pb-3 text-body font-semibold transition-colors',
                 tab === i
-                  ? 'border-ink text-foreground'
-                  : 'border-transparent text-foreground/55 hover:text-foreground'
-              }`}
+                  ? 'border-purple text-foreground'
+                  : 'border-transparent text-foreground/55 hover:border-violet-light hover:text-foreground',
+              )}
             >
               {t}
             </button>
@@ -144,10 +146,10 @@ export default function AcademyLessons() {
             >
               <VideoEmbed id={l.video} eager={l.n === 1} />
               <div className="md:pt-2">
-                <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/45">
+                <p className="text-body-sm font-semibold uppercase tracking-wide text-purple">
                   Lesson {l.n}
                 </p>
-                <h2 className="mt-3 font-display text-[1.5rem] leading-snug text-foreground md:text-h4">
+                <h2 className="mt-3 font-display text-[1.5rem] font-normal leading-snug text-violet-dark md:text-[1.75rem]">
                   {l.title}
                 </h2>
                 <p className="mt-4 text-body-sm text-foreground/70 md:text-body">

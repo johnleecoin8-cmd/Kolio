@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const FAQS = [
@@ -33,7 +33,7 @@ export default function Faq() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[820px]">
-          <h3 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+          <h3 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
             Modash TikTok discovery tool FAQs
           </h3>
 
@@ -46,11 +46,15 @@ export default function Faq() {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-center justify-between gap-6 text-left"
                   >
-                    <span className="text-body-md font-semibold text-foreground">
+                    <span className="text-body-md font-semibold text-violet-dark">
                       {f.q}
                     </span>
-                    <span className="shrink-0 text-foreground">
-                      {isOpen ? <Minus size={24} /> : <Plus size={24} />}
+                    <span className="shrink-0 text-violet-dark">
+                      {isOpen ? (
+                        <ChevronUp size={24} />
+                      ) : (
+                        <ChevronDown size={24} />
+                      )}
                     </span>
                   </button>
                   {isOpen && (

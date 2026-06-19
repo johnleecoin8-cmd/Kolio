@@ -23,7 +23,7 @@ export default function WhatYouBuild() {
   return (
     <section className="bg-background py-12 md:py-20">
       <Container>
-        <h2 className="text-center font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.25rem]">
+        <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
           What will you build?
         </h2>
 

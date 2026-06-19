@@ -32,10 +32,10 @@ export default function Resources() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 max-w-[640px] text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          <p className="text-body-sm font-bold text-foreground/50">
             Resources
           </p>
-          <h2 className="mt-3 font-display text-[2rem] leading-[1.1] text-foreground md:text-[3rem]">
+          <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
             Become everyone’s favorite marketer
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/75">
@@ -63,7 +63,7 @@ export default function Resources() {
             </span>
             <a
               href="https://watch.getcontrast.io/register/modash-how-brands-do-influencer-marketing"
-              className="font-display text-h4 text-foreground"
+              className="font-sans text-h4 font-bold text-foreground"
             >
               How brands actually run influencer marketing
             </a>
@@ -97,7 +97,7 @@ export default function Resources() {
               </a>
               <a
                 href={s.href}
-                className="mt-3 font-display text-body-lg text-foreground"
+                className="mt-3 font-sans text-body-lg font-bold text-foreground"
               >
                 {s.title}
               </a>

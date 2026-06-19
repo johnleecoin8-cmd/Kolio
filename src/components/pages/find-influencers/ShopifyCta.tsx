@@ -4,7 +4,7 @@ export default function ShopifyCta() {
     <section className="bg-background pb-16 md:pb-24">
       <div className="mx-auto w-full max-w-container px-4 sm:px-6">
         <div className="flex flex-col items-center justify-center rounded-xl bg-pink px-6 py-24 text-center">
-          <h2 className="mb-10 max-w-[900px] font-display text-[2.25rem] uppercase leading-[1.05] text-ink md:text-[3.5rem]">
+          <h2 className="mb-10 max-w-[760px] font-display text-[2.5rem] uppercase leading-[1.05] text-ink md:text-[3.75rem]">
             End-to-end influencer marketing platform for Shopify
           </h2>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">

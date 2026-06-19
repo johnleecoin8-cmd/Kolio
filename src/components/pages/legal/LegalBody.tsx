@@ -6,9 +6,9 @@ import { LEAD, SECTIONS } from './data';
 /** The long-form policy article: lead paragraph + numbered sections (+ table in §2). */
 export default function LegalBody() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background pb-16 pt-4 md:pb-24 md:pt-6">
       <Container>
-        <article className="mx-auto max-w-3xl">
+        <article className="mx-auto w-full">
           {/* Lead intro */}
           <div className="space-y-5 text-body text-foreground/75 leading-relaxed">
             <RichText text={LEAD} />
@@ -16,7 +16,7 @@ export default function LegalBody() {
 
           {SECTIONS.map((sec) => (
             <section key={sec.title} className="mt-12">
-              <h2 className="font-display text-h4 leading-tight text-foreground">
+              <h2 className="font-display text-h4 md:text-h3 leading-tight uppercase text-foreground">
                 {sec.title}
               </h2>
               <div className="mt-4 space-y-5 text-body text-foreground/75 leading-relaxed">

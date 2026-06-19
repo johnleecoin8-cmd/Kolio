@@ -19,13 +19,13 @@ export default function BlogHero() {
   const [active, setActive] = useState('All');
 
   return (
-    <section className="bg-background pt-16 md:pt-24">
+    <section className="bg-background pt-24 md:pt-40">
       <Container className="max-w-[896px]">
-        <h1 className="text-center font-display text-[3rem] leading-[1.05] text-foreground md:text-[4rem]">
+        <h1 className="text-center font-display text-[5rem] uppercase leading-[0.95] text-foreground md:text-[8rem]">
           Blog
         </h1>
 
-        <div className="mt-10 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+        <div className="mt-16 flex flex-col items-center gap-4 md:mt-24 md:flex-row md:justify-between">
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {CATEGORIES.map((c) => (
               <a
@@ -43,20 +43,20 @@ export default function BlogHero() {
 
           <form
             action="/search"
-            className="relative w-full shrink-0 md:w-[200px]"
+            className="relative w-full shrink-0 md:w-[230px]"
           >
             <input
               name="query"
               type="search"
               placeholder="Search"
-              className="h-10 w-full rounded-sm border border-gray-300 bg-white pl-4 pr-10 text-body-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/30 focus:outline-none"
+              className="h-11 w-full rounded-lg border border-gray-200 bg-white pl-4 pr-12 text-body-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/30 focus:outline-none"
             />
             <button
               type="submit"
               aria-label="Search"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/50"
+              className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md bg-ink text-white"
             >
-              <Search size={18} />
+              <Search size={16} />
             </button>
           </form>
         </div>

@@ -64,7 +64,7 @@ export default function DeveloperExperience() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-display text-h3 leading-tight text-foreground md:text-h2">
+        <h2 className="mx-auto max-w-[600px] text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground">
           Engineered for world-class developer experience
         </h2>
 
@@ -75,7 +75,9 @@ export default function DeveloperExperience() {
               key={t.key}
               onClick={() => setActive(i)}
               className={`rounded-pill px-6 py-2 text-body font-semibold transition ${
-                i === active ? 'bg-white text-ink' : 'text-white/70 hover:text-white'
+                i === active
+                  ? 'bg-white text-ink ring-2 ring-ink'
+                  : 'text-white/70 hover:text-white'
               }`}
             >
               {t.label}
@@ -87,7 +89,7 @@ export default function DeveloperExperience() {
         <div className="mt-10 overflow-hidden rounded-xl bg-pink-light">
           <div className="grid items-center gap-8 p-8 md:grid-cols-2 md:gap-12 md:p-12">
             <div className="flex flex-col justify-center">
-              <h3 className="font-display text-h4 uppercase leading-tight text-ink">
+              <h3 className="font-display text-[2.25rem] uppercase leading-none text-ink">
                 {tab.title}
               </h3>
               {tab.intro && (

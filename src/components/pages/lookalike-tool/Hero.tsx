@@ -4,7 +4,7 @@ import { ButtonA } from '@/components/ui/Button';
 /** Hero — centered headline on light violet bg, single CTA. */
 export default function Hero() {
   return (
-    <section className="bg-violet-bg pb-20 pt-16 md:pb-28 md:pt-24">
+    <section className="bg-[#d6daff] pb-20 pt-16 md:pb-28 md:pt-24">
       <Container>
         <div className="mx-auto flex max-w-[820px] flex-col items-center text-center">
           <h1 className="font-display text-[2.75rem] leading-[1.05] text-foreground sm:text-[3.5rem] md:text-[4.5rem]">
@@ -17,8 +17,9 @@ export default function Hero() {
           <div className="mt-8">
             <ButtonA
               href="https://marketer.modash.io/register/marketer"
-              variant="accent"
+              variant="primary"
               size="lg"
+              className="!bg-blue !text-white hover:!opacity-90"
             >
               Try for free
             </ButtonA>

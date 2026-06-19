@@ -19,7 +19,7 @@ const FEATURES = [
     icon: `${CDN}/68370b6b110cbb6fa07e64a9_ic_send%20emails.avif`,
     title: 'Send emails',
     body:
-      'Reach out to influencers in bulk because they’re still waiting on payment for a campaign they finished a month ago.',
+      'Your creators & influencers are annoyed because they’re still waiting on payment for a campaign they finished a month ago.',
   },
   {
     icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
@@ -46,7 +46,7 @@ export default function EverythingElse() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-display text-h3 leading-tight text-foreground">
+        <h2 className="mx-auto max-w-[760px] text-center text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
           Plus, everything else you need to run a profitable influencer program
         </h2>
 

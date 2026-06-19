@@ -86,7 +86,7 @@ export default function OpenNetwork() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 max-w-[560px] text-center">
-          <h2 className="font-display text-[2rem] leading-tight text-foreground md:text-[2.5rem]">
+          <h2 className="font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
             Modash is proud to be an open network creator database
           </h2>
           <p className="mt-4 text-body-md text-foreground/75">
@@ -109,7 +109,7 @@ export default function OpenNetwork() {
                 up their hand and agreed to join the specific network.
               </div>
             </div>
-            <div className="rounded-t-xl bg-purple-bg border-b border-black/10 px-6 pb-5 pt-6">
+            <div className="border-b border-black/10 px-6 pb-5">
               <div className="text-body-lg font-bold text-foreground">
                 Open network Creator Database
               </div>
@@ -132,8 +132,8 @@ export default function OpenNetwork() {
                 </div>
                 <div
                   className={`bg-purple-bg border-b border-black/10 px-6 py-6 ${
-                    i === ROWS.length - 1 ? 'rounded-b-xl border-b-0' : ''
-                  }`}
+                    i === 0 ? 'rounded-t-xl' : ''
+                  } ${i === ROWS.length - 1 ? 'rounded-b-xl border-b-0' : ''}`}
                 >
                   <CellContent cell={row.open} />
                 </div>

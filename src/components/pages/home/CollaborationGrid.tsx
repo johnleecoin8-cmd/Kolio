@@ -29,7 +29,7 @@ export default function CollaborationGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-10 max-w-[640px] font-display text-[2rem] leading-[1.1] text-foreground md:text-[3rem]">
+        <h2 className="mb-10 max-w-[640px] font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
           Manage every collaboration from one place
         </h2>
 
@@ -46,7 +46,7 @@ export default function CollaborationGrid() {
               </a>
               <div className="mt-6 flex flex-1 flex-col items-start gap-6">
                 <div>
-                  <a href={c.href} className="font-display text-body-lg text-foreground">
+                  <a href={c.href} className="font-sans text-body-lg font-bold text-foreground">
                     {c.title}
                   </a>
                   <p className="mt-3 text-body-md text-foreground/75">{c.body}</p>

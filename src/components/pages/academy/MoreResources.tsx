@@ -5,6 +5,7 @@ const CDN = 'https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719';
 const CARDS = [
   {
     tag: 'Recruitment',
+    tagClass: 'bg-orange-light text-orange-dark',
     read: '11 mins read',
     img: `${CDN}/6a21479c04d6b0310d8f458d_69788444f5f8bf421ee31b33_Risk%20in%20influencer%20marketing.avif`,
     title: "How to Find Your Competitors' Affiliates (And Recruit Them for Your Program)",
@@ -14,6 +15,7 @@ const CARDS = [
   },
   {
     tag: 'Programs',
+    tagClass: 'bg-pink text-ink',
     read: '4 mins read',
     img: `${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`,
     title: '[Survey] Are Creators Really Over Gifting?',
@@ -23,6 +25,7 @@ const CARDS = [
   },
   {
     tag: 'Relationships',
+    tagClass: 'bg-pink-dark text-white',
     read: '14 mins read',
     img: `${CDN}/69c56fc7fd146c17d6a768e6_68efab9808d0e9e998a3d4ba_micro%20influencer%20examples.avif`,
     title: 'Affiliate Onboarding: How to Set Up New Affiliates So They Actually Start Posting',
@@ -37,7 +40,7 @@ export default function MoreResources() {
   return (
     <section className="bg-background py-12 md:py-20">
       <Container>
-        <h2 className="mb-10 text-center font-display text-[1.75rem] leading-tight text-foreground md:mb-14 md:text-h3">
+        <h2 className="mb-10 text-center font-display text-[1.75rem] font-normal leading-tight text-violet-dark md:mb-14 md:text-h3">
           More influencer marketing resources
         </h2>
 
@@ -53,12 +56,17 @@ export default function MoreResources() {
                 />
               </div>
               <div className="mt-4 flex items-center gap-3">
-                <span className="rounded-pill bg-violet-bg px-3 py-1 text-eyebrow font-semibold text-foreground/70">
+                <span className={`rounded-sm px-2 py-1 text-body-sm font-semibold ${c.tagClass}`}>
                   {c.tag}
                 </span>
-                <span className="text-eyebrow text-foreground/45">{c.read}</span>
+                <span className="text-body-sm text-foreground/55">
+                  <span className="font-semibold text-foreground/80">
+                    {c.read.replace(' read', '')}
+                  </span>{' '}
+                  read
+                </span>
               </div>
-              <h3 className="mt-3 font-display text-body-md leading-snug text-foreground">
+              <h3 className="mt-3 text-[1.125rem] font-semibold leading-snug text-violet-dark">
                 {c.title}
               </h3>
               {c.body && (

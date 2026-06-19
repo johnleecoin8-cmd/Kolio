@@ -50,7 +50,13 @@ const config: Config = {
           light: hsl('--orange-light'),
           bg: hsl('--orange-bg'),
           dark: hsl('--orange-dark'),
+          vivid: hsl('--orange-vivid'),
         },
+        blue: {
+          DEFAULT: hsl('--blue'),
+          dark: hsl('--blue-dark'),
+        },
+        navy: hsl('--navy'),
         gray: {
           50: hsl('--gray-50'),
           100: hsl('--gray-100'),

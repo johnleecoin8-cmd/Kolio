@@ -21,7 +21,7 @@ export default function UseCases() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h3 leading-tight text-foreground md:text-h2">
+        <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground">
           One API. Unlimited opportunities.
         </h2>
 

@@ -47,7 +47,7 @@ export default function Testimonials() {
     <section className="overflow-hidden bg-background py-16 md:py-24">
       <Container>
         <div className="flex flex-col items-center text-center">
-          <h3 className="font-display text-[1.5rem] leading-tight text-foreground md:text-[1.875rem]">
+          <h3 className="text-[1.75rem] font-bold leading-tight text-foreground md:text-[2rem]">
             From teams who used to chase screenshots
           </h3>
           <div className="mt-5 flex items-center gap-3">
@@ -87,16 +87,16 @@ export default function Testimonials() {
                   <img
                     src={s.logo}
                     alt={s.logoAlt}
-                    loading="lazy"
-                    className="h-6 w-auto self-start object-contain"
+                    loading="eager"
+                    className="h-7 w-auto self-start object-contain"
                   />
-                  <p className="mt-5 text-body text-ink/90">{s.quote}</p>
+                  <p className="mt-6 text-body-md text-ink/90">{s.quote}</p>
                   <div className="mt-8 flex items-center gap-3">
                     <img
                       src={s.avatar}
                       alt={s.name}
-                      loading="lazy"
-                      className="h-10 w-10 rounded-full object-cover"
+                      loading="eager"
+                      className="h-11 w-11 rounded-full object-cover"
                     />
                     <div className="text-left">
                       <p className="text-body-sm font-semibold text-ink">{s.name}</p>

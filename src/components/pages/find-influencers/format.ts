@@ -6,7 +6,7 @@ export function compact(n: number): string {
   }
   if (n >= 1_000) {
     const v = n / 1_000;
-    return `${v >= 100 ? Math.round(v) : trim(v)}k`;
+    return `${trim(v)}k`;
   }
   return `${n}`;
 }

@@ -1,6 +1,14 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-import { CheckCircle2 } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+function CheckDot() {
+  return (
+    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-foreground">
+      <Check className="h-3 w-3 text-background" strokeWidth={3} />
+    </span>
+  );
+}
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
@@ -40,7 +48,7 @@ export default function SearchFilterFeature() {
           </div>
 
           <div className="order-1 md:order-2">
-            <h2 className="font-display text-h4 leading-tight text-foreground">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               Search &amp; filter every creator on Earth
             </h2>
 
@@ -54,8 +62,8 @@ export default function SearchFilterFeature() {
 
               <ul className="space-y-3">
                 {INFLUENCER_FILTERS.map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-foreground" />
+                  <li key={f} className="flex items-center gap-2.5">
+                    <CheckDot />
                     <span className="text-body-sm text-foreground/80">{f}</span>
                   </li>
                 ))}
@@ -67,8 +75,8 @@ export default function SearchFilterFeature() {
 
               <ul className="space-y-3">
                 {AUDIENCE_FILTERS.map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-foreground" />
+                  <li key={f} className="flex items-center gap-2.5">
+                    <CheckDot />
                     <span className="text-body-sm text-foreground/80">{f}</span>
                   </li>
                 ))}

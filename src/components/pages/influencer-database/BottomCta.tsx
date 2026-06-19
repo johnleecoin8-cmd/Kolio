@@ -7,7 +7,7 @@ export default function BottomCta() {
     <section className="bg-pink py-20 md:py-28">
       <Container>
         <div className="mx-auto flex max-w-[820px] flex-col items-center text-center">
-          <h2 className="font-display text-[2.25rem] leading-[1.05] text-ink sm:text-[3rem] md:text-[3.5rem]">
+          <h2 className="font-display font-normal uppercase text-[2rem] leading-[0.95] text-ink sm:text-[2.5rem] md:text-[3rem]">
             End-to-End Influencer marketing for shopify brands
           </h2>
 

@@ -5,7 +5,7 @@ const STEPS = [
     n: '01',
     title: 'Collection',
     body: 'Data is collected about every public creator profile several times a month from places like about sections, captions & descriptions of posts, images, videos, and other public info.',
-    bg: 'bg-[#f6f6f4]',
+    bg: 'bg-background-soft',
     z: 'z-30',
   },
   {
@@ -29,24 +29,24 @@ export default function HowItWorks() {
   return (
     <section className="bg-background pt-16 md:pt-24">
       <Container>
-        <h2 className="mb-12 text-center font-display text-[2rem] leading-tight text-foreground md:text-[2.5rem]">
+        <h2 className="mb-12 text-center font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
           How it works
         </h2>
         <div className="grid gap-6 md:grid-cols-3 md:gap-0">
           {STEPS.map((s, i) => (
             <div
               key={s.n}
-              className={`relative flex flex-col rounded-3xl p-7 md:p-8 ${s.bg} ${s.z} ${
+              className={`relative flex flex-col rounded-3xl p-8 md:p-10 ${s.bg} ${s.z} ${
                 i > 0 ? 'md:-ml-6' : ''
               }`}
             >
               <div className="font-display text-[2.5rem] leading-none text-foreground">
                 {s.n}
               </div>
-              <div className="mt-4 text-body-lg font-semibold text-foreground">
+              <div className="mt-5 text-[1.75rem] font-bold leading-tight text-foreground">
                 {s.title}
               </div>
-              <p className="mt-3 text-body-sm text-foreground/80">{s.body}</p>
+              <p className="mt-4 text-body-sm text-foreground/80">{s.body}</p>
             </div>
           ))}
         </div>

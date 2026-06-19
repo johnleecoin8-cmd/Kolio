@@ -3,7 +3,7 @@ import Container from '@/components/ui/Container';
 /** Closing CTA band — periwinkle, "Modash makes your business grow faster". */
 export default function GrowCta() {
   return (
-    <section className="bg-violet/40 py-16 md:py-24">
+    <section className="bg-violet/55 py-16 md:py-24">
       <Container>
         <div className="flex flex-col items-center text-center">
           <h2 className="font-display text-[2rem] leading-tight text-violet-dark md:text-[2.5rem]">

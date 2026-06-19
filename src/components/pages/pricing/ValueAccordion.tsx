@@ -8,6 +8,7 @@ type Category = {
   icon: string;
   title: string;
   blurb: string;
+  noBadge?: boolean;
   features: { name: string; desc: string }[];
 };
 
@@ -66,6 +67,7 @@ const CATEGORIES: Category[] = [
     icon: `${CDN}/6839880de4b9dfb7a7cb6c5e_ic_pay.avif`,
     title: 'Pay',
     blurb: 'Cut down on financial admin, invoicing back-and-forth, and tax headaches',
+    noBadge: true,
     features: [
       { name: 'Balance dashboard', desc: 'Track payment balance and view spending at a glance' },
       { name: 'Payment setup', desc: 'Create payment requests to receive creator invoices' },
@@ -112,6 +114,7 @@ const CATEGORIES: Category[] = [
     icon: `${CDN}/698988e2410a04a449e8b444_ic_affiliates.avif`,
     title: 'Affiliates (Shopify)',
     blurb: 'Turn creators into long-term, revenue-driving partners',
+    noBadge: true,
     features: [
       { name: 'Commission tiers', desc: 'Custom tiers with flexible rates, percentage, or fixed amount per sale' },
       { name: 'Commission options', desc: 'Different rates for first sale, recurring sale, or new customer' },
@@ -144,17 +147,17 @@ export default function ValueAccordion() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-10 text-center font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+        <h2 className="mb-10 text-center text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
           Here’s all the value you get with Modash
         </h2>
 
-        <div className="mx-auto max-w-[860px] space-y-3">
+        <div className="mx-auto max-w-[860px] space-y-2">
           {CATEGORIES.map((cat, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={cat.title}
-                className="overflow-hidden rounded-lg border border-black/10 bg-white"
+                className="overflow-hidden rounded-lg bg-background-soft"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
@@ -176,9 +179,11 @@ export default function ValueAccordion() {
                       {cat.blurb}
                     </p>
                   </div>
-                  <span className="hidden shrink-0 rounded-pill bg-gray-100 px-3 py-1 text-eyebrow font-semibold text-foreground/60 md:inline-block">
-                    In every plan
-                  </span>
+                  {!cat.noBadge && (
+                    <span className="hidden shrink-0 rounded-pill bg-green-100 px-3 py-1 text-eyebrow font-semibold text-green-700 md:inline-block">
+                      In every plan
+                    </span>
+                  )}
                   <ChevronDown
                     size={22}
                     className={`shrink-0 text-foreground/60 transition-transform ${
@@ -188,7 +193,7 @@ export default function ValueAccordion() {
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-black/10 px-5 py-4 md:px-6">
+                  <div className="border-t border-black/[0.06] px-5 py-4 md:px-6">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                       {cat.features.map((f) => (
                         <div key={f.name} className="flex gap-3">

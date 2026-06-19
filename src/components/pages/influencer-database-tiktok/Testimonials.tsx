@@ -62,7 +62,7 @@ export default function Testimonials() {
             <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
               Testimonials
             </p>
-            <h2 className="mt-3 font-display text-h3 leading-tight text-foreground">
+            <h2 className="mt-3 text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
               What Modash customers say
             </h2>
           </div>

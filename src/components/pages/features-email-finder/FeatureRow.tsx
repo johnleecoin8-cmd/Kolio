@@ -22,7 +22,7 @@ export default function FeatureRow({
   children,
 }: Props) {
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-16 md:py-32">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className={reverse ? 'md:order-2' : ''}>
@@ -36,7 +36,7 @@ export default function FeatureRow({
             />
           </div>
           <div className={reverse ? 'md:order-1' : ''}>
-            <h2 className="font-display text-h4 leading-tight text-foreground">
+            <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-h3">
               {heading}
             </h2>
             <div className="mt-5 text-body-md text-foreground/70">{children}</div>

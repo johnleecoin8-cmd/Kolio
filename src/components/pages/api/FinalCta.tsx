@@ -6,8 +6,8 @@ export default function FinalCta() {
   return (
     <section className="bg-background pb-8">
       <Container>
-        <div className="rounded-xl bg-pink px-6 py-20 text-center md:py-28">
-          <h2 className="mx-auto max-w-[900px] font-display text-h3 uppercase leading-[0.95] text-ink md:text-h2">
+        <div className="rounded-xl bg-pink px-6 py-24 text-center md:py-32">
+          <h2 className="mx-auto max-w-[1040px] font-display text-[2.5rem] uppercase leading-[0.95] text-ink md:text-[4.25rem]">
             The data layer for your creator platform and tools
           </h2>
           <div className="mt-8 flex justify-center">

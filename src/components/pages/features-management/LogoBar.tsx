@@ -39,7 +39,7 @@ export default function LogoBar() {
   return (
     <section className="overflow-hidden bg-background py-16 md:py-20">
       <Container>
-        <h2 className="text-center font-display text-h4 text-ink">
+        <h2 className="text-center font-sans text-h4 font-bold text-ink">
           Modash is trusted by 2300+ in-house teams
         </h2>
       </Container>

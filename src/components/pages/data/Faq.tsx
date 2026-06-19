@@ -21,43 +21,41 @@ const FAQS = [
   },
 ];
 
-/** Frequently asked questions — accordion on sand bg. */
+/** Frequently asked questions — accordion on full-bleed soft background. */
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background-soft py-16 md:py-24">
       <Container>
-        <div className="rounded-xl bg-sand p-8 md:p-14">
-          <h2 className="mb-8 font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
-            Frequently asked questions
-          </h2>
+        <h2 className="mb-10 font-sans text-[1.5rem] font-bold leading-[1.15] text-foreground md:text-[1.875rem]">
+          Frequently asked questions
+        </h2>
 
-          <div className="divide-y divide-black/10">
-            {FAQS.map((f, i) => {
-              const isOpen = open === i;
-              return (
-                <div key={f.q} className="py-5">
-                  <button
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 text-left"
-                  >
-                    <span className="text-body-md font-semibold text-foreground">
-                      {f.q}
-                    </span>
-                    <span className="shrink-0 text-foreground">
-                      {isOpen ? <Minus size={20} /> : <Plus size={20} />}
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <p className="mt-4 max-w-[760px] text-body text-foreground/75">
-                      {f.a}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+        <div className="divide-y divide-black/10">
+          {FAQS.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={f.q} className="py-5">
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="flex w-full items-center justify-between gap-6 text-left"
+                >
+                  <span className="text-body-md font-semibold text-foreground">
+                    {f.q}
+                  </span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-gray-100 text-foreground">
+                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                  </span>
+                </button>
+                {isOpen && (
+                  <p className="mt-4 max-w-[760px] text-body text-foreground/75">
+                    {f.a}
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

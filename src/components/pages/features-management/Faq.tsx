@@ -36,7 +36,7 @@ export default function Faq() {
   return (
     <section className="bg-background-soft py-16 md:py-24">
       <Container>
-        <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+        <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
           Frequently Asked Questions
         </h2>
 

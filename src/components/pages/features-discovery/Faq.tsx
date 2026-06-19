@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const FAQS = [
   {
@@ -52,9 +53,7 @@ export default function Faq() {
   return (
     <section className="bg-background-soft py-16 md:py-24">
       <Container>
-        <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
-          Frequently asked questions
-        </h2>
+        <SectionHeading as="h3">Frequently asked questions</SectionHeading>
         <div className="mt-8">
           {FAQS.map((f, idx) => {
             const isOpen = open === idx;
@@ -67,8 +66,8 @@ export default function Faq() {
                   <span className="text-body md:text-body-md font-semibold text-foreground">
                     {f.q}
                   </span>
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-gray-100 text-foreground">
-                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center text-foreground/60">
+                    {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </span>
                 </button>
                 {isOpen && (

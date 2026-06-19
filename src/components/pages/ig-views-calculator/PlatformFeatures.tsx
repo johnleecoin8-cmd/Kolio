@@ -3,10 +3,10 @@ import {
   BarChart3,
   Mail,
   Users,
-  FolderOpen,
-  LineChart,
+  TrendingUp,
+  Megaphone,
 } from 'lucide-react';
-import Container from '@/components/ui/Container';
+import WideContainer from './WideContainer';
 
 const FEATURES = [
   {
@@ -34,13 +34,13 @@ const FEATURES = [
       'Create unlimited lists to keep track of your influencers. Add notes for personalization (or for your team), organize documents (like contracts/briefs), and more.',
   },
   {
-    icon: FolderOpen,
+    icon: TrendingUp,
     title: 'Collect content',
     description:
       'Automatically track live content, and save it to a dashboard. Even Stories. Without asking influencers to sign up.',
   },
   {
-    icon: LineChart,
+    icon: Megaphone,
     title: 'Measure results',
     description:
       'Track metrics like total content, views, engagements, link clicks, promo code redemptions, and more. Per campaign, and per influencer.',
@@ -51,7 +51,7 @@ const FEATURES = [
 export default function PlatformFeatures() {
   return (
     <section className="bg-background py-16 md:py-24">
-      <Container>
+      <WideContainer>
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="font-display text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight text-foreground">
             An influencer marketing platform built to scale with you
@@ -63,25 +63,38 @@ export default function PlatformFeatures() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => {
             const Icon = f.icon;
             return (
               <div key={f.title} className="flex flex-col items-start gap-3">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-pink-bg text-pink-dark">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="text-body font-semibold leading-normal text-foreground">
+                <Icon className="h-6 w-6 text-foreground" strokeWidth={2} />
+                <h3 className="mt-1 text-body font-semibold leading-normal text-foreground">
                   {f.title}
                 </h3>
                 <p className="text-body-sm leading-relaxed text-foreground/60">
                   {f.description}
                 </p>
+                <a
+                  href="https://www.modash.io/signup"
+                  className="mt-1 text-body-sm font-semibold text-foreground underline underline-offset-2"
+                >
+                  Learn more
+                </a>
               </div>
             );
           })}
         </div>
-      </Container>
+
+        <div className="mt-14 flex justify-center">
+          <a
+            href="https://www.modash.io/signup"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-ink px-6 text-body-md font-semibold text-white shadow-btn transition hover:opacity-90"
+          >
+            Try for free
+          </a>
+        </div>
+      </WideContainer>
     </section>
   );
 }

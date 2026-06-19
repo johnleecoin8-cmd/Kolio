@@ -63,6 +63,12 @@
   --orange-light: 17 100% 94%;      /* #ffe8e0  */
   --orange-bg: 18 100% 97%;         /* #fff4f0  */
   --orange-dark: 27 60% 20%;        /* #522c14  */
+  --orange-vivid: 15 100% 55%;      /* #ff521a  vivid CTA orange */
+
+  /* ---- Blue (primary CTA on feature pages) + navy ---- */
+  --blue: 235 100% 63%;             /* #4353ff  primary CTA blue */
+  --blue-dark: 235 71% 42%;         /* #1f2bb5  pressed/active   */
+  --navy: 240 48% 20%;              /* #1b1b4d  dark navy display */
 
   /* ---- Untitled-UI gray scale (used by buttons / nav / borders) ---- */
   --gray-50: 210 40% 98%;           /* #f9fafb */

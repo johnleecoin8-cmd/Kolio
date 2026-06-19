@@ -1,8 +1,9 @@
 import Container from '@/components/ui/Container';
+import { cn } from '@/lib/cn';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
-const POLAROIDS = [
+const P = [
   '6889f33e7f5a20c9aa255245_img_polaroid_team1.avif',
   '6889f384c8db42d4a675f98f_img_polaroid_team2.avif',
   '6889f38cd8bd2d9d45f95b50_img_polaroid_team3.avif',
@@ -18,24 +19,69 @@ const POLAROIDS = [
   '6889f9987a9ec327eb66a392_img_polaroid_team13.avif',
 ];
 
-const ROTATIONS = [
-  '-rotate-2',
-  'rotate-1',
-  '-rotate-1',
-  'rotate-2',
-  'rotate-1',
-  '-rotate-2',
-  'rotate-2',
-  '-rotate-1',
-  'rotate-1',
-  '-rotate-2',
-  'rotate-2',
-  '-rotate-1',
-  'rotate-1',
-];
+/** Staggered top-offsets matching Webflow `_140px-top` / `_280px-top` modifiers,
+ *  scaled down for the container width. */
+const OFF_LG = {
+  none: '',
+  sm: 'lg:translate-y-[70px]',
+  md: 'lg:translate-y-[140px]',
+};
 
-/** Meet the Team — heading, 2-col copy, scattered polaroid masonry grid. */
+/** A single polaroid: white frame + shadow, slight rotation. */
+function Polaroid({ src, i, offset }: { src: string; i: number; offset: keyof typeof OFF_LG }) {
+  return (
+    <div className={cn('px-1.5', OFF_LG[offset])}>
+      <div className="overflow-hidden rounded-md bg-white p-2 shadow-nav">
+        <img
+          src={`${CDN}/${src}`}
+          alt={`Modash team moment ${i + 1}`}
+          loading="lazy"
+          className="aspect-[3/4] w-full rounded-sm object-cover"
+        />
+      </div>
+    </div>
+  );
+}
+
+/** Meet the Team — heading, 2-col copy, staggered polaroid collage. */
 export default function MeetTheTeam() {
+  // Desktop rows mirror rendered.html: 3col / 4col / 4col / 2col with offsets.
+  const rows: { cols: string; items: { idx: number; offset: keyof typeof OFF_LG }[] }[] = [
+    {
+      cols: 'lg:grid-cols-3',
+      items: [
+        { idx: 0, offset: 'md' },
+        { idx: 1, offset: 'none' },
+        { idx: 2, offset: 'md' },
+      ],
+    },
+    {
+      cols: 'lg:grid-cols-4',
+      items: [
+        { idx: 3, offset: 'none' },
+        { idx: 4, offset: 'md' },
+        { idx: 5, offset: 'none' },
+        { idx: 6, offset: 'sm' },
+      ],
+    },
+    {
+      cols: 'lg:grid-cols-4',
+      items: [
+        { idx: 7, offset: 'sm' },
+        { idx: 8, offset: 'none' },
+        { idx: 9, offset: 'sm' },
+        { idx: 10, offset: 'none' },
+      ],
+    },
+    {
+      cols: 'lg:grid-cols-4',
+      items: [
+        { idx: 11, offset: 'none' },
+        { idx: 12, offset: 'sm' },
+      ],
+    },
+  ];
+
   return (
     <section className="bg-background pb-16 md:pb-24">
       <Container>
@@ -82,21 +128,16 @@ export default function MeetTheTeam() {
           </div>
         </div>
 
-        {/* scattered polaroid masonry */}
-        <div className="mx-auto mt-12 max-w-[1000px] columns-2 gap-4 sm:columns-3 md:mt-16 md:gap-6">
-          {POLAROIDS.map((src, i) => (
+        {/* staggered polaroid collage */}
+        <div className="mx-auto mt-12 max-w-[1136px] space-y-3 md:mt-16">
+          {rows.map((row, r) => (
             <div
-              key={src}
-              className={`mb-4 break-inside-avoid md:mb-6 ${ROTATIONS[i]}`}
+              key={r}
+              className={cn('grid grid-cols-2 gap-y-3', row.cols)}
             >
-              <div className="overflow-hidden rounded-md bg-white p-2 shadow-nav">
-                <img
-                  src={`${CDN}/${src}`}
-                  alt={`Modash team moment ${i + 1}`}
-                  loading="lazy"
-                  className="w-full rounded-sm object-cover"
-                />
-              </div>
+              {row.items.map(({ idx, offset }) => (
+                <Polaroid key={P[idx]} src={P[idx]} i={idx} offset={offset} />
+              ))}
             </div>
           ))}
         </div>

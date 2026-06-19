@@ -52,7 +52,7 @@ export default function LogoCarousel() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-10 text-center text-body-md font-semibold text-foreground/70">
+        <h2 className="mb-12 text-center text-[1.5rem] font-bold leading-tight text-foreground md:text-[1.75rem]">
           Modash is trusted by 2300+ in-house teams
         </h2>
 

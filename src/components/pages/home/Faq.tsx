@@ -31,17 +31,17 @@ const FAQS = [
 
 /** Frequently asked questions — accordion on sand bg. */
 export default function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <div className="rounded-xl bg-sand p-8 md:p-14">
-          <h2 className="mb-8 font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+        <div className="rounded-xl bg-background-soft p-8 md:p-14">
+          <h2 className="mb-10 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
             Frequently asked questions
           </h2>
 
-          <div className="divide-y divide-black/10">
+          <div className="divide-y divide-black/[0.06]">
             {FAQS.map((f, i) => {
               const isOpen = open === i;
               return (
@@ -50,11 +50,11 @@ export default function Faq() {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-center justify-between gap-6 text-left"
                   >
-                    <span className="text-body-md font-semibold text-foreground">
+                    <span className="text-body font-semibold text-foreground">
                       {f.q}
                     </span>
-                    <span className="shrink-0 text-foreground">
-                      {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-black/[0.06] text-foreground">
+                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                     </span>
                   </button>
                   {isOpen && (

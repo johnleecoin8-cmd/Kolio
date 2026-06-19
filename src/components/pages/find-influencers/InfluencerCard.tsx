@@ -13,17 +13,20 @@ import {
 import type { Profile } from './data';
 import { compact, pct } from './format';
 
-/** One stat tile (icon + label on left, value on right). */
+/** One stat tile (icon + label on left, value on right). Locked values render
+ *  as a blurred placeholder pill to match modash's paywalled preview. */
 function StatTile({
   icon,
   label,
   value,
   info,
+  locked,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   info?: boolean;
+  locked?: boolean;
 }) {
   return (
     <div className="flex items-center justify-between rounded border border-black/5 bg-white px-4 py-3.5">
@@ -32,7 +35,18 @@ function StatTile({
         {label}
         {info && <Info size={13} className="text-foreground/30" />}
       </span>
-      <span className="text-body-sm font-semibold text-foreground">{value}</span>
+      {locked ? (
+        <span
+          aria-hidden
+          className="select-none rounded-sm bg-gray-200/80 text-body-sm font-semibold text-transparent blur-[3px]"
+        >
+          {value}
+        </span>
+      ) : (
+        <span className="text-body-sm font-semibold text-foreground">
+          {value}
+        </span>
+      )}
     </div>
   );
 }
@@ -80,32 +94,62 @@ function Avatar({ profile }: { profile: Profile }) {
   );
 }
 
-/** Engagement-rate benchmark histogram (decorative; black = median, pink = creator). */
-function Histogram() {
-  const bars = [22, 34, 44, 56, 70, 86, 100, 78, 60, 46, 34, 24];
-  const medianIdx = 6;
-  const selfIdx = 10;
+/** Small circular avatar used as the creator marker on the histogram. */
+function MiniAvatar({ profile }: { profile: Profile }) {
+  const [err, setErr] = useState(false);
+  return !err ? (
+    <img
+      src={profile.picture}
+      alt=""
+      onError={() => setErr(true)}
+      className="h-7 w-7 rounded-full border-2 border-white object-cover shadow-btn"
+    />
+  ) : (
+    <span className="block h-7 w-7 rounded-full border-2 border-white bg-gradient-to-br from-pink to-violet shadow-btn" />
+  );
+}
+
+/** Engagement-rate benchmark histogram: descending bars, black = median,
+ *  pink rightmost bar carries the creator's avatar (matches modash UI). */
+function Histogram({ avatar }: { avatar: React.ReactNode }) {
+  const bars = [100, 88, 72, 62, 52, 45, 40, 36, 32, 28];
+  const medianIdx = 3;
+  const selfIdx = bars.length - 1;
   return (
     <div>
-      <div className="flex h-[120px] items-end gap-1.5">
+      <div className="flex h-[120px] items-end gap-2">
         {bars.map((h, i) => (
           <div
             key={i}
-            style={{ height: `${h}%` }}
-            className={`flex-1 rounded-[3px] ${
-              i === medianIdx
-                ? 'bg-ink'
-                : i === selfIdx
-                  ? 'bg-pink'
-                  : 'bg-gray-100'
-            }`}
-          />
+            className="relative flex flex-1 items-end"
+            style={{ height: '100%' }}
+          >
+            <div
+              style={{ height: `${h}%` }}
+              className={`relative w-full rounded-[5px] ${
+                i === medianIdx
+                  ? 'bg-ink'
+                  : i === selfIdx
+                    ? 'bg-pink'
+                    : 'bg-gray-100'
+              }`}
+            >
+              {i === selfIdx && (
+                <span className="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-full">
+                  {avatar}
+                </span>
+              )}
+            </div>
+          </div>
         ))}
       </div>
       <div className="mt-2 flex">
         <span
-          className="text-[11px] text-foreground/40"
-          style={{ marginLeft: `${(medianIdx / bars.length) * 100}%` }}
+          className="text-center text-[11px] text-foreground/40"
+          style={{
+            width: `${(1 / bars.length) * 100}%`,
+            marginLeft: `${(medianIdx / bars.length) * 100}%`,
+          }}
         >
           Median
         </span>
@@ -177,6 +221,7 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
           label="Fake followers"
           value={pct(profile.fakeFollowers, 1)}
           info
+          locked
         />
         <StatTile
           icon={<TrendingUp size={16} />}
@@ -188,22 +233,23 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
           icon={<Clapperboard size={16} />}
           label="Average Reel plays"
           value={compact(profile.averageReelPlays)}
+          locked
         />
 
-        {/* Audience gender */}
+        {/* Audience gender — bars with paywall-blurred labels + fills */}
         <div className="rounded-lg border border-black/5 bg-white p-5">
           <PanelHead>Audience gender</PanelHead>
-          <div className="space-y-3">
+          <div className="space-y-5">
             {profile.gender.map((g) => (
               <div key={g.label}>
-                <div className="mb-1 flex justify-between text-[11px] text-foreground/50">
-                  <span className="capitalize">{g.label}</span>
-                  <span>{pct(g.value, 1)}</span>
-                </div>
-                <div className="h-2 w-full rounded-pill bg-gray-100">
+                <span
+                  aria-hidden
+                  className="mb-1.5 inline-block h-2.5 w-9 select-none rounded-sm bg-gray-200/80 blur-[3px]"
+                />
+                <div className="h-2.5 w-full rounded-pill bg-gray-100">
                   <div
                     style={{ width: `${g.value * 100}%` }}
-                    className={`h-2 rounded-pill ${GENDER_COLOR[g.label] || 'bg-gray-300'}`}
+                    className={`h-2.5 rounded-pill blur-[2px] ${GENDER_COLOR[g.label] || 'bg-gray-300'}`}
                   />
                 </div>
               </div>
@@ -211,18 +257,18 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
           </div>
         </div>
 
-        {/* Top performing reels */}
+        {/* Top performing reels — title links only (likes are paywalled) */}
         <div className="rounded-lg border border-black/5 bg-white p-5">
           <PanelHead>Top performing Reels</PanelHead>
           <ul className="space-y-3">
             {profile.reels.map((r, i) => (
-              <li key={i} className="flex items-center justify-between gap-3">
-                <span className="truncate text-body-sm text-foreground/80 underline decoration-foreground/20 underline-offset-2">
+              <li key={i}>
+                <a
+                  href="https://marketer.modash.io/register/marketer"
+                  className="line-clamp-2 text-body-sm text-foreground/80 underline decoration-foreground/30 underline-offset-2 transition hover:text-foreground"
+                >
                   {r.title}
-                </span>
-                <span className="shrink-0 text-body-sm font-semibold text-foreground">
-                  {compact(r.likes)}
-                </span>
+                </a>
               </li>
             ))}
           </ul>
@@ -231,7 +277,7 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
         {/* Engagement benchmark */}
         <div className="rounded-lg border border-black/5 bg-white p-5">
           <PanelHead>Engagement rate benchmark</PanelHead>
-          <Histogram />
+          <Histogram avatar={<MiniAvatar profile={profile} />} />
         </div>
 
         {/* Audience location by country */}
@@ -240,14 +286,19 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
           <ul className="space-y-2.5">
             {profile.countries.map((c) => (
               <li key={c.name}>
-                <div className="mb-1 flex justify-between text-body-sm text-foreground/80">
+                <div className="mb-1 flex items-center justify-between text-body-sm text-foreground/80">
                   <span>{c.name}</span>
-                  <span className="font-semibold">{pct(c.weight)}</span>
+                  <span
+                    aria-hidden
+                    className="select-none rounded-sm bg-gray-200/80 font-semibold text-transparent blur-[3px]"
+                  >
+                    {pct(c.weight)}
+                  </span>
                 </div>
                 <div className="h-1.5 w-full rounded-pill bg-gray-100">
                   <div
                     style={{ width: `${c.weight * 100}%` }}
-                    className="h-1.5 rounded-pill bg-ink"
+                    className="h-1.5 rounded-pill bg-ink blur-[1px]"
                   />
                 </div>
               </li>

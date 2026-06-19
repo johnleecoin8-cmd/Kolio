@@ -21,7 +21,7 @@ export default function Quote() {
 
           <div className="max-w-xl">
             <img src={QUOTE_MARK} alt="" className="mb-6 h-9 w-9" />
-            <p className="font-display text-[1.5rem] leading-snug text-violet-dark">
+            <p className="font-display text-[1.5rem] leading-snug text-violet-dark md:text-[1.75rem]">
               &ldquo;We have run thousands of searches through Modash without
               fail, finding influencers for clients like Aldi UK and Warner
               Leisure Hotels. Within a few clicks, there are results we&apos;re

@@ -1,84 +1,129 @@
-import { useState } from 'react';
-import { Search, Eye, Heart, Users, BadgeCheck } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Search, Eye, Heart, Users, BadgeCheck, Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-/** Mock example profiles so the result card has real-looking data (the live
- *  page renders Modash data; we approximate the visual). */
-const EXAMPLES = [
-  {
-    handle: 'khaby00',
+/** Deterministic mock profiles keyed by handle so the result card shows
+ *  real-looking Modash-style data (the live page renders Modash API data;
+ *  we approximate the visual + compute the average from recent videos). */
+type Profile = {
+  handle: string;
+  name: string;
+  followers: string;
+  engagement: string;
+  /** recent video view counts (used to compute average views) */
+  recent: number[];
+  avatarBg: string;
+};
+
+const PROFILES: Record<string, Profile> = {
+  'khaby.lame': {
+    handle: 'khaby.lame',
     name: 'Khabane lame',
-    followers: '162.3M',
-    avgViews: '8.4M',
-    engagement: '2.1%',
-    avatar:
-      'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6839797ca1a594bbe217a8b9_img_hero_logo_modash.png',
+    followers: '162.4M',
+    engagement: '2.4%',
+    recent: [9_100_000, 7_800_000, 12_400_000, 6_200_000, 8_900_000, 7_100_000],
+    avatarBg: 'from-pink-light via-pink to-pink-hot',
   },
+  charlidamelio: {
+    handle: 'charlidamelio',
+    name: 'charli d’amelio',
+    followers: '155.1M',
+    engagement: '3.1%',
+    recent: [4_200_000, 5_800_000, 3_900_000, 6_100_000, 4_700_000, 5_200_000],
+    avatarBg: 'from-violet-light via-violet to-violet-dark',
+  },
+};
+
+/** Pale accent gradients so the recent-video thumbnails read as real cards. */
+const THUMB_BG = [
+  'from-pink-light to-pink',
+  'from-violet-light to-violet',
+  'from-orange-light to-orange',
+  'from-coral-light to-coral',
+  'from-purple-light to-purple',
+  'from-pink-bg to-pink-light',
 ];
+
+const formatViews = (n: number) => {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return `${n}`;
+};
 
 /** Hero: H1 + subtext + the TikTok average-views calculator widget. */
 export default function HeroCalculator() {
   const [query, setQuery] = useState('');
-  const profile = EXAMPLES[0];
+
+  const profile = useMemo(() => {
+    const key = query.trim().replace(/^@/, '').toLowerCase();
+    return PROFILES[key] ?? PROFILES['khaby.lame'];
+  }, [query]);
+
+  const avgViews = useMemo(() => {
+    const total = profile.recent.reduce((a, b) => a + b, 0);
+    return total / profile.recent.length;
+  }, [profile]);
 
   return (
-    <section className="bg-background pt-12 pb-16 md:pt-16 md:pb-24">
+    <section className="bg-background pt-16 pb-16 md:pt-24 md:pb-24">
       <Container>
-        <h1 className="mx-auto max-w-[18ch] text-center font-display text-[2.75rem] uppercase leading-[1.02] text-foreground md:text-[4.5rem]">
+        <h1 className="mx-auto max-w-[18ch] text-center font-display text-[2.75rem] uppercase leading-[1.0] text-foreground md:text-[5rem]">
           TikTok Average Views Calculator
         </h1>
-        <p className="mx-auto mt-5 max-w-[640px] text-center text-body text-foreground/75 md:text-body-md">
+        <p className="mx-auto mt-6 max-w-[620px] text-center text-body text-foreground/75 md:text-body-md">
           Check any TikTok creator's average views, engagement rate, audience
           quality, and top videos. Free, with no sign-up needed.
         </p>
 
-        {/* Search bar */}
-        <div className="mx-auto mt-8 flex max-w-[560px] items-center gap-2">
-          <div className="relative flex-1">
-            <Search
-              size={18}
-              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-            />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Enter TikTok username"
-              className="h-12 w-full rounded-pill border border-gray-200 bg-gray-50 pl-11 pr-4 text-body text-foreground outline-none transition focus:border-gray-300 focus:bg-white"
-            />
-          </div>
-          <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-ink px-6 text-body font-semibold text-white transition hover:opacity-90">
-            Profile
+        {/* Search bar — single rounded container */}
+        <div className="mx-auto mt-10 flex max-w-[560px] items-center gap-3 rounded-pill bg-background-soft p-2 pl-5">
+          <Search size={20} className="shrink-0 text-foreground/40" />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="@khaby.lame"
+            className="h-11 flex-1 bg-transparent text-body text-foreground outline-none placeholder:text-foreground/40 md:text-body-md"
+          />
+          <button className="inline-flex h-12 shrink-0 items-center justify-center rounded-pill bg-ink px-6 text-body font-semibold text-white transition hover:opacity-90">
+            Check Profile
           </button>
         </div>
 
-        {/* Result card */}
-        <div className="mx-auto mt-8 max-w-[1040px] rounded-xl border border-black/10 bg-white p-5 shadow-nav md:p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch">
-            {/* Profile summary */}
-            <div className="flex w-full items-center gap-4 rounded-lg bg-gray-50 p-5 lg:w-72">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-light via-pink to-pink-hot" />
-              <div className="flex flex-1 flex-col gap-1">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-body-md font-semibold text-foreground">
-                    {profile.name}
+        {/* Result card — violet-bordered widget frame */}
+        <div className="mx-auto mt-10 max-w-[920px] rounded-xl bg-background-soft p-2 md:p-3">
+          <div className="rounded-lg border-2 border-violet/50 bg-white p-5 md:p-8">
+            {/* Profile header */}
+            <div className="flex flex-col gap-5 border-b border-black/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <div
+                  className={`h-16 w-16 shrink-0 rounded-full bg-gradient-to-br ${profile.avatarBg}`}
+                />
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-body-md font-semibold text-foreground">
+                      {profile.name}
+                    </span>
+                    <BadgeCheck size={18} className="text-[#4AABED]" />
+                  </div>
+                  <span className="text-body-sm text-foreground/55">
+                    @{profile.handle}
                   </span>
-                  <BadgeCheck size={16} className="text-[#4AABED]" />
                 </div>
-                <span className="text-body-sm text-foreground/60">
-                  @{profile.handle}
-                </span>
-                <span className="mt-1 text-body-sm font-medium text-foreground/75">
-                  {profile.followers} followers
-                </span>
               </div>
+              <a
+                href="https://www.modash.io/"
+                className="inline-flex h-11 items-center justify-center rounded-pill bg-ink px-5 text-body-sm font-semibold text-white transition hover:opacity-90"
+              >
+                View full report
+              </a>
             </div>
 
             {/* Metrics */}
-            <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 py-6 sm:grid-cols-3">
               <Metric
                 icon={<Eye size={20} />}
                 label="Average views"
-                value={profile.avgViews}
+                value={formatViews(avgViews)}
                 accent
               />
               <Metric
@@ -92,12 +137,30 @@ export default function HeroCalculator() {
                 value={profile.followers}
               />
             </div>
-          </div>
 
-          <p className="mt-6 text-center text-body-sm text-foreground/55">
-            Click on a profile to see a different example, and type in any
-            username above.
-          </p>
+            {/* Top videos */}
+            <div>
+              <p className="mb-3 text-body-sm font-semibold text-foreground/70">
+                Recent videos
+              </p>
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                {profile.recent.map((v, i) => (
+                  <div
+                    key={i}
+                    className={`relative flex aspect-[9/16] flex-col justify-end overflow-hidden rounded-lg bg-gradient-to-br ${THUMB_BG[i % THUMB_BG.length]} p-2`}
+                  >
+                    <span className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 shadow-sm">
+                      <Play size={13} className="ml-0.5 fill-ink text-ink" />
+                    </span>
+                    <span className="relative inline-flex items-center gap-1 self-start rounded-pill bg-ink/70 px-1.5 py-0.5 text-[0.65rem] font-semibold text-white">
+                      <Eye size={10} />
+                      {formatViews(v)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
@@ -118,13 +181,13 @@ function Metric({
   return (
     <div
       className={`flex flex-col items-center justify-center gap-2 rounded-lg p-5 text-center ${
-        accent ? 'bg-ink text-white' : 'bg-gray-50 text-foreground'
+        accent ? 'bg-ink text-white' : 'bg-background-soft text-foreground'
       }`}
     >
       <span className={accent ? 'text-pink' : 'text-foreground/70'}>{icon}</span>
-      <span className="text-[1.5rem] font-semibold leading-none">{value}</span>
+      <span className="text-[1.75rem] font-semibold leading-none">{value}</span>
       <span
-        className={`text-body-sm ${accent ? 'text-white/70' : 'text-foreground/60'}`}
+        className={`text-body-sm ${accent ? 'text-white/70' : 'text-foreground/55'}`}
       >
         {label}
       </span>

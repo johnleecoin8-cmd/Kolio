@@ -2,7 +2,7 @@
 export default function MidCta() {
   return (
     <section className="mt-16 border-t border-gray-200 pt-12">
-      <h2 className="font-display text-h4 leading-tight text-foreground">
+      <h2 className="text-[1.75rem] font-bold leading-tight text-foreground">
         See why 1,700+ ecommerce brands rate Modash as the #1 influencer marketing
         platform
       </h2>

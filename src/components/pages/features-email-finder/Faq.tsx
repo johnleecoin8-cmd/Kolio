@@ -68,12 +68,12 @@ export default function Faq() {
   return (
     <section className="py-16 md:py-24">
       <Container>
-        <div className="rounded-xl bg-sand px-6 py-12 md:px-16 md:py-16">
+        <div className="rounded-xl bg-background-soft px-6 py-12 md:px-16 md:py-16">
           <div className="mx-auto max-w-[760px]">
             <div className="mb-3 text-body-sm font-semibold text-foreground/50">
               FAQ
             </div>
-            <h3 className="font-display text-h3 leading-tight text-foreground">
+            <h3 className="text-[2.25rem] font-bold leading-[1.1] tracking-tight text-foreground">
               Stuff people ask before they hit "Try&nbsp;for&nbsp;Free"
             </h3>
 

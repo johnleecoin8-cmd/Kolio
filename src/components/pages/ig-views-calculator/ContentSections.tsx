@@ -1,4 +1,4 @@
-import Container from '@/components/ui/Container';
+import WideContainer from './WideContainer';
 
 /**
  * Two stacked text-led content sections:
@@ -9,7 +9,7 @@ import Container from '@/components/ui/Container';
 export default function ContentSections() {
   return (
     <section className="bg-background py-16 md:py-24">
-      <Container>
+      <WideContainer>
         <div className="flex flex-col gap-24 md:gap-40">
           {/* How do we calculate average views? */}
           <div className="flex flex-col items-start gap-4">
@@ -63,7 +63,7 @@ export default function ContentSections() {
             </a>
           </div>
         </div>
-      </Container>
+      </WideContainer>
     </section>
   );
 }

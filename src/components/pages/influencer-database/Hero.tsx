@@ -8,21 +8,21 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-background pt-12 md:pt-20">
       <Container>
-        <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
+        <div className="mx-auto flex max-w-[1080px] flex-col items-center text-center">
           {/* product tag */}
           <div className="mb-6 inline-flex items-center gap-2">
             <img
               src={`${CDN}/682f2374bc508bf278f85776_icon_discover.png`}
-              width={40}
+              width={48}
               alt=""
-              className="h-10 w-10"
+              className="h-12 w-12"
             />
             <span className="text-body-md font-semibold text-foreground">
               Database
             </span>
           </div>
 
-          <h1 className="font-display text-[2.5rem] leading-[1.05] text-foreground sm:text-[3.25rem] md:text-[4rem]">
+          <h1 className="font-display font-normal uppercase text-[3rem] leading-[0.9] text-foreground sm:text-[5rem] md:text-[8.5rem]">
             An influencer database with 380m+ profiles
           </h1>
 

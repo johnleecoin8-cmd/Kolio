@@ -18,7 +18,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="mt-6 font-display text-[2.75rem] leading-[1.02] sm:text-[3.5rem] md:text-[4.5rem] uppercase text-ink max-w-[900px] mx-auto">
+        <h1 className="mt-6 font-display text-[2.75rem] leading-[1.02] sm:text-[3.5rem] md:text-[4.5rem] uppercase text-ink max-w-[1000px] mx-auto">
           380 million creators, searchable in one place
         </h1>
 

@@ -37,7 +37,6 @@ const BLOCKS: Block[] = [
     img: `${CDN}/69a572026a3bd64adee010f4_img_payments_02.avif`,
     alt: 'Never chase an invoice again',
     heading: 'Never chase an invoice again',
-    reverse: true,
     points: [
       {
         title: 'One invoice for your finance team',
@@ -82,11 +81,11 @@ function FeatureBlock({ img, alt, heading, points, reverse }: Block) {
           <img src={img} alt={alt} loading="lazy" className="w-full" />
         </div>
         <div className={reverse ? 'md:order-1' : ''}>
-          <h3 className="font-display text-h4 leading-tight text-ink">{heading}</h3>
+          <h3 className="text-body-lg font-bold leading-tight text-ink">{heading}</h3>
           <div className="mt-6 space-y-5">
             {points.map((p) => (
               <div key={p.title}>
-                <p className="text-body font-bold text-ink">{p.title}</p>
+                <p className="text-body-md font-bold text-ink">{p.title}</p>
                 <p className="mt-1 text-body-sm text-foreground/70">{p.body}</p>
               </div>
             ))}

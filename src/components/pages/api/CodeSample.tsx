@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { cn } from '@/lib/cn';
 
 const REQUEST = `curl -X POST https://api.modash.io/v1/instagram/search \\
  -d '{
@@ -35,11 +36,67 @@ const RESPONSE = `{
         "url": "https://www.instagram.com/iamcardib/",
         "username": "iamcardib",
         "isVerified": true,
-        "isPrivate": false
+        "isPrivate": false,
+        "picture": "https://imgigp.modash.io/v2?"
       }
     }
   ]
 }`;
+
+type Token = { text: string; cls: string };
+
+/** Lightweight JSON/curl tokenizer for syntax-highlight coloring. */
+function highlight(line: string, dark: boolean): Token[] {
+  const out: Token[] = [];
+  const keyCls = dark ? 'text-sky-200' : 'text-[#1d4ed8]';
+  const strCls = dark ? 'text-emerald-400' : 'text-emerald-600';
+  const numCls = dark ? 'text-amber-400' : 'text-[#b45309]';
+  const boolCls = dark ? 'text-sky-400' : 'text-[#2563eb]';
+  const plain = dark ? 'text-slate-200' : 'text-slate-700';
+
+  // curl line — color the URL green, rest plain
+  if (line.includes('curl')) {
+    const m = line.match(/(https?:[^\s]*)/);
+    if (m) {
+      const idx = line.indexOf(m[1]);
+      out.push({ text: line.slice(0, idx), cls: plain });
+      out.push({ text: m[1], cls: strCls });
+      out.push({ text: line.slice(idx + m[1].length), cls: plain });
+      return out;
+    }
+    return [{ text: line, cls: plain }];
+  }
+
+  // tokenize JSON-ish content
+  const re = /("(?:[^"\\]|\\.)*"\s*:)|("(?:[^"\\]|\\.)*")|(\btrue\b|\bfalse\b|\bnull\b)|(-?\d+\.?\d*)|([\s\S])/g;
+  let m: RegExpExecArray | null;
+  let buf = '';
+  const flush = () => {
+    if (buf) {
+      out.push({ text: buf, cls: plain });
+      buf = '';
+    }
+  };
+  while ((m = re.exec(line))) {
+    if (m[1]) {
+      flush();
+      out.push({ text: m[1], cls: keyCls });
+    } else if (m[2]) {
+      flush();
+      out.push({ text: m[2], cls: strCls });
+    } else if (m[3]) {
+      flush();
+      out.push({ text: m[3], cls: boolCls });
+    } else if (m[4]) {
+      flush();
+      out.push({ text: m[4], cls: numCls });
+    } else {
+      buf += m[5];
+    }
+  }
+  flush();
+  return out;
+}
 
 function CodeBlock({
   label,
@@ -53,30 +110,35 @@ function CodeBlock({
   const lines = code.split('\n');
   return (
     <div>
-      <p
-        className={`mb-3 text-body-sm font-semibold ${
-          dark ? 'text-foreground/60' : 'text-foreground/60'
-        }`}
-      >
-        {label}
-      </p>
+      <p className="mb-3 text-body-sm font-semibold text-foreground">{label}</p>
       <div
-        className={`overflow-x-auto rounded-xl p-5 font-mono text-[0.8125rem] leading-relaxed ${
-          dark ? 'bg-[#0f1729] text-gray-100' : 'bg-white text-gray-800 shadow-nav'
-        }`}
+        className={cn(
+          'overflow-x-auto rounded-lg p-5 font-mono text-[0.8125rem] leading-[1.7]',
+          dark
+            ? 'bg-[#0d1424] text-slate-200'
+            : 'border border-black/10 bg-white text-slate-700',
+        )}
       >
         <pre className="whitespace-pre">
           {lines.map((line, i) => (
-            <div key={i} className="flex gap-4">
+            <div key={i} className="flex gap-5">
               <span
-                className={`select-none text-right ${
-                  dark ? 'text-gray-500' : 'text-gray-400'
-                }`}
-                style={{ minWidth: '1.5rem' }}
+                className={cn(
+                  'w-5 shrink-0 select-none text-right',
+                  dark ? 'text-slate-500' : 'text-slate-400',
+                )}
               >
                 {i + 1}
               </span>
-              <span>{line || ' '}</span>
+              <span>
+                {line
+                  ? highlight(line, !!dark).map((t, j) => (
+                      <span key={j} className={t.cls}>
+                        {t.text}
+                      </span>
+                    ))
+                  : ' '}
+              </span>
             </div>
           ))}
         </pre>
@@ -90,8 +152,8 @@ export default function CodeSample() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <div className="mx-auto max-w-[720px] text-center">
-          <h2 className="font-display text-h3 leading-tight text-foreground md:text-h2">
+        <div className="mx-auto max-w-[640px] text-center">
+          <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground">
             No guesswork. Just real responses.
           </h2>
           <p className="mt-4 text-body text-foreground/75">

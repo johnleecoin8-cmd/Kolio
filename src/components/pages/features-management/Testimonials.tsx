@@ -54,7 +54,7 @@ export default function Testimonials() {
     <section className="overflow-hidden bg-background py-16 md:py-24">
       <Container>
         <div className="text-center">
-          <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+          <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
             From teams who used to live in spreadsheets
           </h2>
           <div className="mt-6 flex items-center justify-center gap-3">

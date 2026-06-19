@@ -97,7 +97,7 @@ export default function Faq() {
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="rounded-xl bg-background-soft p-8 md:p-14">
-          <h2 className="mb-8 font-display text-h4 leading-tight text-foreground md:text-h3">
+          <h2 className="mb-8 text-[1.75rem] font-semibold leading-[1.15] text-foreground">
             Frequently asked questions
           </h2>
 

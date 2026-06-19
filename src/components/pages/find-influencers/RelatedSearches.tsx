@@ -50,7 +50,7 @@ export default function RelatedSearches() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {COLUMNS.map((col) => (
             <div key={col.placeholder}>
-              <div className="mb-6 flex items-center gap-2 rounded border border-gray-200 px-4 py-3">
+              <div className="mb-6 flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-3">
                 <Search size={16} className="text-foreground/40" />
                 <span className="text-body-sm text-foreground/40">
                   {col.placeholder}

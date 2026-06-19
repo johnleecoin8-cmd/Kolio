@@ -26,7 +26,7 @@ export default function Comparison() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+          <h2 className="text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2rem]">
             See all your performance data in one place
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">

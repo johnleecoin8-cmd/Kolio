@@ -5,7 +5,7 @@ export default function BrainBack() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <div className="relative mx-auto max-w-[1000px] py-8 text-center">
+        <div className="relative mx-auto max-w-[1080px] py-8 text-center">
           {/* floating pills */}
           <span className="mb-4 inline-block rounded-pill bg-pink px-4 py-2 text-body-sm font-medium text-ink md:absolute md:left-[14%] md:top-0 md:mb-0">
             Zero duplicate outreach
@@ -14,7 +14,7 @@ export default function BrainBack() {
             Team always aligned
           </span>
 
-          <h2 className="font-display uppercase text-[2rem] leading-[0.95] text-ink sm:text-[3rem] md:text-[4.25rem]">
+          <h2 className="font-display uppercase text-[2.25rem] leading-[0.92] text-ink sm:text-[3.5rem] md:text-[5rem]">
             When you know where things are at, you get your brain back
           </h2>
 

@@ -10,15 +10,15 @@ export default function SectionHeader({
 }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <h3 className="font-display text-[1.5rem] leading-tight text-foreground md:text-h4">
+      <h3 className="font-display text-[1.75rem] uppercase leading-tight text-foreground md:text-[2.25rem]">
         {title}
       </h3>
       <a
         href={href}
-        className="inline-flex shrink-0 items-center gap-1 text-body-sm font-semibold text-foreground/70 transition-colors hover:text-foreground"
+        className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-background-soft px-4 py-2 text-body-sm font-semibold text-foreground transition-colors hover:bg-sand"
       >
         View all
-        <ArrowRight size={16} />
+        <ArrowRight size={15} />
       </a>
     </div>
   );

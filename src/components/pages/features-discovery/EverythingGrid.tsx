@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const CARDS = [
   {
@@ -23,9 +24,9 @@ export default function EverythingGrid() {
   return (
     <section className="py-12 md:py-16">
       <Container>
-        <h2 className="mx-auto max-w-[640px] text-center font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+        <SectionHeading className="mx-auto max-w-[640px] text-center">
           Everything you need to build shortlists with confidence
-        </h2>
+        </SectionHeading>
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {CARDS.map((c) => (
             <div key={c.title}>

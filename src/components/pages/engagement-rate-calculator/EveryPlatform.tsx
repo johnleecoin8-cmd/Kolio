@@ -32,15 +32,17 @@ export default function EveryPlatform() {
             {CARDS.map((c) => (
               <div
                 key={c.title}
-                className="flex flex-col items-start gap-4 rounded-xl bg-background-soft p-8"
+                className="flex flex-col items-start gap-5 rounded-xl bg-background-soft p-8"
               >
-                <h3 className="text-body-md font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground">
                   {c.title}
                 </h3>
-                <p className="text-body text-foreground/75">{c.body}</p>
+                <p className="text-body leading-relaxed text-foreground/75">
+                  {c.body}
+                </p>
                 <a
                   href="https://app.modash.io/signup"
-                  className="mt-auto inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-4 py-2 text-base font-semibold leading-6 text-white transition-colors hover:bg-[#333333]"
+                  className="mt-auto text-base font-semibold text-foreground underline underline-offset-2 transition-opacity hover:opacity-70"
                 >
                   Try for free
                 </a>

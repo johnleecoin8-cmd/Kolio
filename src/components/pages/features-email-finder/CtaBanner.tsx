@@ -4,10 +4,10 @@ import { ButtonA } from '@/components/ui/Button';
 /** Closing CTA — pink full-width banner with dual CTA. */
 export default function CtaBanner() {
   return (
-    <section className="bg-pink py-20 md:py-28">
+    <section className="bg-pink py-24 md:py-36">
       <Container>
         <div className="flex flex-col items-center text-center">
-          <h2 className="font-display text-[2.25rem] leading-[1.1] text-ink sm:text-[3rem] md:text-[3.5rem]">
+          <h2 className="font-display text-[2.75rem] leading-[0.98] text-ink sm:text-[4rem] md:text-[5.25rem]">
             Ramp up your influencer
             <br className="hidden sm:block" /> marketing channel
           </h2>

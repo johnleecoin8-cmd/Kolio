@@ -9,7 +9,7 @@ export default function CtaBanner() {
     <section className="bg-background pb-4 pt-12 md:pb-6 md:pt-20">
       <Container>
         <div className="rounded-xl bg-pink px-6 py-16 text-center md:px-12 md:py-24">
-          <h2 className="mx-auto max-w-[900px] font-display text-[2rem] leading-[1.1] text-ink md:text-[3.5rem]">
+          <h2 className="mx-auto max-w-[900px] font-display text-[2.25rem] font-normal leading-[0.9] text-ink md:text-[4.5rem]">
             NO DELAY, NO STALE STATS, GET LIVE CREATOR DATA
           </h2>
           <div className="mt-8 flex justify-center">

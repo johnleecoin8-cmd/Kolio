@@ -51,7 +51,7 @@ export default function Testimonials() {
             <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
               Testimonials
             </p>
-            <h3 className="mt-2 font-display text-h3 leading-tight text-foreground">
+            <h3 className="mt-2 text-[1.75rem] font-semibold leading-[1.15] text-foreground">
               Why they love Modash
             </h3>
           </div>
@@ -78,12 +78,12 @@ export default function Testimonials() {
         <div className="overflow-hidden">
           <div
             className="flex gap-6 transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(calc(-${active} * (66.666% + 1.5rem)))` }}
+            style={{ transform: `translateX(calc(-${active} * (50% + 0.75rem)))` }}
           >
             {ITEMS.map((t) => (
               <div
                 key={t.company}
-                className={`${t.bg} flex w-[85%] shrink-0 flex-col justify-between rounded-xl p-8 md:w-[calc(66.666%-1rem)] md:p-10`}
+                className={`${t.bg} flex w-[85%] shrink-0 flex-col justify-between rounded-xl p-8 md:w-[calc(50%-0.75rem)] md:p-10`}
               >
                 <div>
                   <img

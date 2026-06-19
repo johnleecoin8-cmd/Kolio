@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const SLIDES = [
   {
@@ -42,23 +43,23 @@ export default function Testimonials() {
     <section className="py-12 md:py-16">
       <Container>
         <div className="mb-6 flex flex-col items-center gap-4">
-          <h2 className="text-center font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+          <SectionHeading className="text-center">
             From folks who used to scroll for hours
-          </h2>
+          </SectionHeading>
           <div className="flex gap-2">
             <button
               onClick={prev}
               aria-label="Previous"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-foreground transition hover:bg-gray-50"
+              className="flex h-10 w-10 items-center justify-center rounded-sm bg-ink text-white transition hover:opacity-90"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" />
             </button>
             <button
               onClick={next}
               aria-label="Next"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-foreground transition hover:bg-gray-50"
+              className="flex h-10 w-10 items-center justify-center rounded-sm bg-ink text-white transition hover:opacity-90"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
         </div>

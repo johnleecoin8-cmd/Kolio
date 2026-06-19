@@ -6,7 +6,7 @@ export default function HowWeCalculate() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="font-display text-[2.25rem] uppercase leading-[1.05] text-foreground md:text-[3.5rem]">
+        <h2 className="max-w-[20ch] font-display text-[2.5rem] uppercase leading-[1.0] text-foreground md:text-[4.25rem]">
           How do we calculate average views?
         </h2>
 

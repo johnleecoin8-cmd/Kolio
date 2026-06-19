@@ -32,7 +32,7 @@ export default function FindLookalikes() {
   const tab = TABS[active];
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background pt-16 md:pt-24">
       <Container>
         <div className="mx-auto max-w-[840px] text-center">
           <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
@@ -47,64 +47,66 @@ export default function FindLookalikes() {
         </div>
       </Container>
 
-      {/* screenshot with overlay card */}
-      <div className="relative mx-auto mt-12 w-full max-w-[1200px] px-4 sm:px-6 md:mt-16">
-        <div className="relative">
-          <img
-            src={tab.img}
-            alt="Modash lookalikes search results"
-            className="w-full rounded-xl"
-          />
+      {/* violet gradient band wrapping the screenshot + CTA row (matches GT) */}
+      <div className="mt-12 bg-gradient-to-b from-[#f1f2ff] to-[#d8dcff] pb-16 pt-14 md:mt-16 md:pb-24 md:pt-20">
+        {/* screenshot with overlay card */}
+        <div className="relative mx-auto w-full max-w-[1200px] px-4 sm:px-6">
+          <div className="relative">
+            <img
+              src={tab.img}
+              alt="Modash lookalikes search results"
+              className="w-full rounded-xl"
+            />
 
-          {/* tab card — bottom-left overlay on desktop, stacked below on mobile */}
-          <div className="mt-6 w-full rounded-lg border border-black/5 bg-white p-6 shadow-nav md:absolute md:bottom-8 md:left-0 md:mt-0 md:w-[320px]">
-            {TABS.map((t, i) => {
-              const on = i === active;
-              return (
-                <button
-                  key={t.key}
-                  onClick={() => setActive(i)}
-                  className={`block w-full text-left transition ${
-                    i > 0 ? 'mt-5' : ''
-                  }`}
-                >
-                  <span
-                    className={`text-body-md font-semibold ${
-                      on ? 'text-violet-dark' : 'text-foreground'
+            {/* tab card — bottom-left overlay on desktop, stacked below on mobile */}
+            <div className="mt-6 w-full rounded-lg border border-black/5 bg-white p-6 shadow-nav md:absolute md:bottom-8 md:left-0 md:mt-0 md:w-[320px]">
+              {TABS.map((t, i) => {
+                const on = i === active;
+                return (
+                  <button
+                    key={t.key}
+                    onClick={() => setActive(i)}
+                    className={`block w-full text-left transition ${
+                      i > 0 ? 'mt-5' : ''
                     }`}
                   >
-                    {t.label}
-                  </span>
-                  {on && (
-                    <span className="mt-2 block text-body-sm text-foreground/70">
-                      {t.body}
+                    <span
+                      className={`text-body-md font-semibold ${
+                        on ? 'text-blue' : 'text-foreground'
+                      }`}
+                    >
+                      {t.label}
                     </span>
-                  )}
-                </button>
-              );
-            })}
+                    {on && (
+                      <span className="mt-2 block text-body-sm text-foreground/70">
+                        {t.body}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col items-center gap-4 md:mt-16">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <ButtonA
+                href="https://marketer.modash.io/register/marketer"
+                variant="primary"
+                className="!bg-blue !text-white hover:!opacity-90"
+              >
+                Find creators for free
+              </ButtonA>
+              <ButtonA href="https://www.modash.io/book-demo" variant="secondary">
+                Book a demo
+              </ButtonA>
+            </div>
+            <p className="text-body-sm text-foreground/60">
+              14-day free trial・No credit card required
+            </p>
           </div>
         </div>
       </div>
-
-      <Container>
-        <div className="mt-12 flex flex-col items-center gap-4 md:mt-16">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <ButtonA
-              href="https://marketer.modash.io/register/marketer"
-              variant="accent"
-            >
-              Find creators for free
-            </ButtonA>
-            <ButtonA href="https://www.modash.io/book-demo" variant="secondary">
-              Book a demo
-            </ButtonA>
-          </div>
-          <p className="text-body-sm text-foreground/60">
-            14-day free trial・No credit card required
-          </p>
-        </div>
-      </Container>
     </section>
   );
 }

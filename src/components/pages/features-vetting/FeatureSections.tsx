@@ -12,9 +12,11 @@ export default function FeatureSections() {
           <>
             Use the brand collaborations timeline during your vetting process to see
             who an influencer has worked with, what they posted, and how it performed.
-            Check for competitors, see how the audience reacted, and more. Plus see
-            Paid vs. Organic metrics to see how well their sponsored content performs
-            on average.
+            Check for competitors, see how the audience reacted, and more.
+            <br />
+            <br />
+            Plus see Paid vs. Organic metrics to see how well their sponsored content
+            performs on average.
           </>
         }
         img={`${CDN}/68407cf0a997aa0a3110da19_img_analytics_02.avif`}

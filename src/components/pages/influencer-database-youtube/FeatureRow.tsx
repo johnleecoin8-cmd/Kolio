@@ -31,7 +31,7 @@ export default function FeatureRow({
 
   const copyBlock = (
     <div>
-      <h2 className="font-display text-h4 leading-tight text-foreground md:text-[2.25rem]">
+      <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
         {title}
       </h2>
       <div className="mt-6 space-y-4 text-body-md text-foreground/75">{body}</div>

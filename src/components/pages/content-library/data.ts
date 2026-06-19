@@ -303,22 +303,40 @@ function statsFor(i: number) {
   };
 }
 
+const CITY_NAMES = [
+  'Capital City',
+  'Second City',
+  'Third City',
+  'Fourth City',
+  'Fifth City',
+];
+
 function citiesFor(_loc: string, i: number): LocationStat[] {
-  const a = (30 - (i % 12)).toFixed(2);
-  const b = (13 - (i % 6)).toFixed(2);
-  const c = (5 + (i % 4)).toFixed(2);
-  return [
-    { name: 'Capital city', pct: `${a}%` },
-    { name: 'Second city', pct: `${b}%` },
-    { name: 'Third city', pct: `${c}%` },
-  ];
+  const base = [30, 13, 6, 3, 1.5];
+  return CITY_NAMES.map((name, k) => ({
+    name,
+    pct: `${(base[k] - (i % 4) * 0.3).toFixed(2)}%`,
+  }));
 }
 
-function countriesFor(loc: string): LocationStat[] {
+const OTHER_COUNTRIES = [
+  'United States',
+  'United Kingdom',
+  'Germany',
+  'Brazil',
+  'India',
+  'France',
+];
+
+function countriesFor(loc: string, i: number): LocationStat[] {
+  const main = (88 - (i % 5) * 4).toFixed(2);
+  const rest = [4.17, 2.07, 1.32, 0.78];
   return [
-    { name: loc, pct: '78.32%' },
-    { name: 'United States', pct: '4.17%' },
-    { name: 'United Kingdom', pct: '2.07%' },
+    { name: loc, pct: `${main}%` },
+    ...rest.map((p, k) => ({
+      name: OTHER_COUNTRIES[(i + k) % OTHER_COUNTRIES.length],
+      pct: `${p.toFixed(2)}%`,
+    })),
   ];
 }
 
@@ -335,7 +353,7 @@ export const INFLUENCERS: Influencer[] = SEEDS.map((s, i) => {
     avgLikes: st.avgLikes,
     engagementRate: st.engagementRate,
     avgComments: st.avgComments,
-    countries: countriesFor(s.location),
+    countries: countriesFor(s.location, i),
     cities: citiesFor(s.location, i),
     genderFemale: 35 + ((i * 11) % 40),
     post: {

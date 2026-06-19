@@ -34,7 +34,7 @@ export default function Comparison() {
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
-          <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+          <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
             Manage more relationships with less mess
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">
@@ -46,7 +46,7 @@ export default function Comparison() {
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {/* all over the place */}
           <div className="rounded-xl bg-background-soft p-7 md:p-10">
-            <h3 className="font-display uppercase text-[1.75rem] leading-none text-ink md:text-[2.25rem]">
+            <h3 className="font-display uppercase text-[2rem] leading-none text-ink md:text-[2.75rem]">
               All over the place
             </h3>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -58,7 +58,7 @@ export default function Comparison() {
 
           {/* all in one place */}
           <div className="rounded-xl bg-coral p-7 md:p-10">
-            <h3 className="font-display uppercase text-[1.75rem] leading-none text-ink md:text-[2.25rem]">
+            <h3 className="font-display uppercase text-[2rem] leading-none text-ink md:text-[2.75rem]">
               All in one place
             </h3>
             <div className="mt-10 flex flex-wrap gap-3">

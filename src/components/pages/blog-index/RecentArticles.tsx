@@ -123,7 +123,7 @@ export default function RecentArticles() {
               </a>
               <a
                 href={a.href}
-                className="mt-3 font-display text-body-lg leading-tight text-foreground"
+                className="mt-3 text-body-md font-bold leading-snug text-foreground"
               >
                 {a.title}
               </a>

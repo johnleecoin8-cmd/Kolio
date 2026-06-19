@@ -132,7 +132,7 @@ export default function Episodes() {
             loading="lazy"
           />
           <div>
-            <h3 className="font-display text-h4 leading-tight text-foreground group-hover:text-[#4f56ff] transition">
+            <h3 className="font-sans font-bold text-h4 leading-tight tracking-tight text-foreground group-hover:text-blue transition">
               {FEATURED.title}
             </h3>
             <p className="mt-4 text-body-sm text-foreground/70">
@@ -158,7 +158,7 @@ export default function Episodes() {
                 className="w-full rounded-lg object-cover aspect-video"
                 loading="lazy"
               />
-              <h3 className="mt-4 font-display text-body-md leading-snug text-foreground group-hover:text-[#4f56ff] transition">
+              <h3 className="mt-4 font-sans font-bold text-body-md leading-snug text-foreground group-hover:text-blue transition">
                 {ep.title}
               </h3>
               <p className="mt-3 text-body-sm text-foreground/70 flex-1">

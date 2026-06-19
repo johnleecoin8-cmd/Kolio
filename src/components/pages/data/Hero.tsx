@@ -7,11 +7,11 @@ export default function Hero() {
   return (
     <section className="bg-background pt-12 md:pt-16">
       <Container>
-        <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
-          <div className="mb-3 text-body-sm font-bold text-foreground/55">
+        <div className="mx-auto flex max-w-[1000px] flex-col items-center text-center">
+          <div className="mb-5 text-body-sm font-bold text-foreground/55">
             Our Data
           </div>
-          <h1 className="font-display text-[2.5rem] leading-[1.05] text-foreground sm:text-[3.25rem] md:text-[4rem]">
+          <h1 className="font-display text-[3rem] uppercase leading-[0.95] text-foreground sm:text-[5rem] md:text-[7rem]">
             Bringing data you trust to influencer marketing
           </h1>
         </div>

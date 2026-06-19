@@ -41,20 +41,20 @@ export default function BiteSizedInsights() {
           href="/newsletter"
         />
 
-        <div className="mt-8 grid gap-x-8 gap-y-10 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {ISSUES.map((n) => (
             <a
               key={n.issue}
               href={n.href}
-              className="flex flex-col rounded-xl border border-black/5 bg-background-soft p-6 transition-shadow hover:shadow-nav"
+              className="flex min-h-[230px] flex-col rounded-xl bg-background-soft p-6 transition-shadow hover:shadow-nav"
             >
-              <div className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
+              <span className="inline-flex w-fit rounded-pill bg-purple px-3 py-1 text-eyebrow font-semibold text-white">
                 {n.issue}
-              </div>
-              <span className="mt-3 font-display text-body-lg leading-tight text-foreground">
+              </span>
+              <span className="mt-4 text-body-md font-bold leading-snug text-foreground">
                 {n.title}
               </span>
-              <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+              <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-6">
                 <div className="flex items-center gap-2">
                   <img
                     src={ELENI}
@@ -62,7 +62,7 @@ export default function BiteSizedInsights() {
                     loading="lazy"
                     className="h-7 w-7 rounded-full object-cover"
                   />
-                  <span className="text-body-sm font-medium text-foreground">
+                  <span className="text-body-sm font-semibold text-foreground">
                     {n.author}
                   </span>
                 </div>

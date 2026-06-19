@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 /** "See it in action" — centered heading + interactive demo embed. */
 export default function DemoSection() {
@@ -6,9 +7,7 @@ export default function DemoSection() {
     <section className="py-12 md:py-16">
       <Container>
         <div className="mx-auto max-w-[750px] text-center">
-          <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
-            See it in action
-          </h2>
+          <SectionHeading>See it in action</SectionHeading>
           <p className="mt-4 text-body md:text-body-md text-foreground/75">
             Walk through this interactive demo to see how Modash Discover helps you create a vetted
             shortlist quickly, so you can start outreach the same day.

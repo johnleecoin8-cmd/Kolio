@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
@@ -51,60 +52,99 @@ const CARDS: Card[] = [
   },
 ];
 
-/** Testimonials carousel — one card visible, dot navigation. */
+function Slide({ card }: { card: Card }) {
+  return (
+    <div className={`flex h-full flex-col rounded-xl ${card.bg} p-8 md:p-10`}>
+      <img
+        src={card.logo}
+        width={112}
+        alt=""
+        className="h-7 w-auto self-start object-contain"
+      />
+      <p className="mt-6 flex-1 text-body-md leading-snug text-foreground">
+        {card.quote}
+      </p>
+      <div className="mt-8 flex items-center gap-3">
+        <img
+          src={card.avatar}
+          width={56}
+          alt={card.author}
+          className="h-14 w-14 rounded-full object-cover"
+        />
+        <div>
+          <div className="text-body font-semibold text-foreground">
+            {card.author}
+          </div>
+          <div className="text-eyebrow text-foreground/60">{card.role}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Testimonials carousel — two cards visible, arrow navigation. */
 export default function Testimonials() {
-  const [active, setActive] = useState(0);
-  const card = CARDS[active];
+  const [start, setStart] = useState(0);
+  const canPrev = start > 0;
+  const canNext = start < CARDS.length - 2;
 
   return (
     <section className="py-16 md:py-24 bg-background">
       <Container>
-        <div className="mb-8">
-          <div className="text-body-sm font-semibold uppercase tracking-wide text-foreground/50">
-            Testimonials
-          </div>
-          <h3 className="mt-3 font-display text-h4 leading-tight text-foreground">
-            What Modash customers say
-          </h3>
-        </div>
-
-        <div
-          className={`max-w-[656px] rounded-xl ${card.bg} p-8 md:p-10`}
-        >
-          <img
-            src={card.logo}
-            width={112}
-            alt=""
-            className="h-7 w-auto object-contain"
-          />
-          <p className="mt-6 text-body-md leading-snug text-foreground">
-            {card.quote}
-          </p>
-          <div className="mt-8 flex items-center gap-3">
-            <img
-              src={card.avatar}
-              width={56}
-              alt={card.author}
-              className="h-14 w-14 rounded-full object-cover"
-            />
-            <div>
-              <div className="text-body font-semibold text-foreground">
-                {card.author}
-              </div>
-              <div className="text-eyebrow text-foreground/60">{card.role}</div>
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <div className="text-body-sm font-semibold uppercase tracking-wide text-foreground/50">
+              Testimonials
             </div>
+            <h3 className="mt-3 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+              What Modash customers say
+            </h3>
+          </div>
+
+          <div className="hidden items-center gap-2 md:flex">
+            <button
+              type="button"
+              aria-label="Previous testimonial"
+              onClick={() => canPrev && setStart((s) => s - 1)}
+              disabled={!canPrev}
+              className="flex h-11 w-11 items-center justify-center rounded-md bg-ink text-background transition disabled:opacity-30"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next testimonial"
+              onClick={() => canNext && setStart((s) => s + 1)}
+              disabled={!canNext}
+              className="flex h-11 w-11 items-center justify-center rounded-md bg-ink text-background transition disabled:opacity-30"
+            >
+              <ArrowRight className="h-5 w-5" />
+            </button>
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-2">
+        <div className="overflow-hidden">
+          <div
+            className="flex gap-6 transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(calc(${start} * -50% - ${start} * 0.75rem))` }}
+          >
+            {CARDS.map((card) => (
+              <div key={card.author} className="w-full shrink-0 md:w-[calc(50%-0.75rem)]">
+                <Slide card={card} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center gap-2 md:hidden">
           {CARDS.map((_, i) => (
             <button
               key={i}
               type="button"
               aria-label={`Show slide ${i + 1} of ${CARDS.length}`}
-              onClick={() => setActive(i)}
+              onClick={() => setStart(i)}
               className={`h-2.5 w-2.5 rounded-full transition ${
-                i === active ? 'bg-foreground' : 'bg-foreground/20'
+                i === start ? 'bg-foreground' : 'bg-foreground/20'
               }`}
             />
           ))}

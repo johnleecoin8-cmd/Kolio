@@ -1,14 +1,14 @@
 import Container from '@/components/ui/Container';
 import { EFFECTIVE_DATE, PAGE_TITLE } from './data';
 
-/** Dark centered hero band: small effective-date kicker + large uppercase title. */
+/** White centered hero: small effective-date kicker + large uppercase display title. */
 export default function LegalHero() {
   return (
-    <section className="bg-ink text-white pt-28 pb-16 md:pt-36 md:pb-24">
+    <section className="bg-background pt-20 pb-10 md:pt-24 md:pb-14">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="text-body-sm font-bold text-white/60">{EFFECTIVE_DATE}</div>
-          <h1 className="mt-4 font-display text-h3 md:text-h2 leading-tight uppercase">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="text-body-sm font-bold text-foreground/50">{EFFECTIVE_DATE}</div>
+          <h1 className="mt-5 font-display text-h2 md:text-display leading-none uppercase text-foreground">
             {PAGE_TITLE}
           </h1>
         </div>

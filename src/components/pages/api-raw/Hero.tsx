@@ -1,67 +1,58 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 const FORM =
   'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
 
-/** API Raw hero — pink accent block, centered headline, floating tooltip art. */
+/** API Raw hero — full pale-pink section, oversized display headline, floating role pills. */
 export default function Hero() {
   return (
-    <section className="bg-background pt-4 md:pt-6">
+    <section className="bg-pink-light">
       <Container>
-        <div className="relative overflow-hidden rounded-xl bg-pink px-6 py-16 text-center md:px-12 md:py-24">
-          {/* floating tooltip art */}
-          <img
-            src={`${CDN}/6842cc763304eaf0b2751726_Custom%20Tooltip_orange.avif`}
-            width={107}
-            alt=""
-            loading="lazy"
-            className="pointer-events-none absolute left-4 top-10 hidden w-[80px] md:left-16 md:top-24 md:block md:w-[107px]"
-          />
-          <img
-            src={`${CDN}/6842ccbd27778c535afe77a1_Custom%20Tooltip_purple.avif`}
-            width={121}
-            alt=""
-            loading="lazy"
-            className="pointer-events-none absolute right-4 top-24 hidden w-[90px] md:right-20 md:top-32 md:block md:w-[121px]"
-          />
-          <img
-            src={`${CDN}/6842ef6091e586f4c2807aac_Custom%20Tooltip_purple%20(1).avif`}
-            width={116}
-            alt=""
-            loading="lazy"
-            className="pointer-events-none absolute bottom-10 right-10 hidden w-[100px] md:block md:w-[116px]"
-          />
+        <div className="relative mx-auto flex max-w-[1040px] flex-col items-center pt-24 pb-24 text-center md:pt-32 md:pb-28">
+          {/* floating role pills */}
+          <span className="absolute left-1/2 top-[10%] z-10 hidden -translate-x-1/2 rotate-3 rounded-pill bg-pink-dark px-3 py-1 text-body-sm font-semibold text-white shadow-btn md:inline-block">
+            Engineer
+            <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 bg-pink-dark" />
+          </span>
+          <span className="absolute left-[22%] top-[64%] z-10 hidden -rotate-6 rounded-pill bg-purple px-3 py-1 text-body-sm font-semibold text-purple-dark shadow-btn md:inline-block">
+            Visionary
+            <span className="absolute -bottom-1.5 left-5 h-3 w-3 rotate-45 bg-purple" />
+          </span>
+          <span className="absolute right-[20%] top-[64%] z-10 hidden rotate-6 rounded-pill bg-orange px-3 py-1 text-body-sm font-semibold text-orange-dark shadow-btn md:inline-block">
+            Builder
+            <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 bg-orange" />
+          </span>
 
-          <div className="relative mx-auto max-w-[820px]">
-            <h1 className="font-display text-[2rem] leading-[1.08] text-ink sm:text-[3rem] md:text-[4rem]">
-              The API Layer For
-              <br className="hidden md:block" /> Real-Time Influencer Data
-            </h1>
-            <p className="mx-auto mt-6 max-w-[620px] text-body-md text-ink/80">
-              Our Raw API provides live data directly from any influencer
-              profile across Instagram, TikTok, and YouTube. It&apos;s designed
-              for applications that demand up-to-date accuracy, monitoring, and
-              enrichment.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={FORM}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
-              >
-                Request a demo
-              </a>
-              <a
-                href="https://docs.modash.io/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-ink/20 bg-white px-6 text-body font-semibold text-ink shadow-btn transition hover:bg-gray-50"
-              >
-                See API docs
-              </a>
-            </div>
+          <h1 className="font-display text-[2.75rem] uppercase leading-[0.92] text-ink sm:text-[4.5rem] md:text-[6rem]">
+            The API Layer For
+            <br />
+            Real-Time Influencer Data
+          </h1>
+
+          <p className="mx-auto mt-8 max-w-[640px] text-body-md text-ink/80">
+            Our Raw API provides live data directly from any influencer profile
+            across Instagram, TikTok, and YouTube. It&apos;s designed for
+            applications that demand up-to-date accuracy, monitoring, and
+            enrichment.
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={FORM}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
+            >
+              Request a demo
+            </a>
+            <a
+              href="https://docs.modash.io/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-ink/20 bg-white px-6 text-body font-semibold text-ink shadow-btn transition hover:bg-gray-50"
+            >
+              See API docs
+            </a>
           </div>
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const PILLS = [
   '20+ creators per month',
@@ -16,9 +17,9 @@ export default function FitSection() {
     <section className="py-12 md:py-16">
       <Container>
         <div className="rounded-xl bg-background-soft px-6 py-12 text-center md:px-12 md:py-16">
-          <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+          <SectionHeading>
             Is Modash Discover right for you?
-          </h2>
+          </SectionHeading>
           <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
             Perfect fit if you're managing creator partnerships as a core channel and need to find
             more creators at scale.

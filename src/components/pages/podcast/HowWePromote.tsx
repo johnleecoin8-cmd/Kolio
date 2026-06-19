@@ -21,7 +21,7 @@ export default function HowWePromote() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h4 md:text-h3 leading-tight text-[#1b1b4d]">
+        <h2 className="text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
           How we promote the show
         </h2>
         <p className="mx-auto mt-5 max-w-[640px] text-center text-body-sm text-foreground/70">

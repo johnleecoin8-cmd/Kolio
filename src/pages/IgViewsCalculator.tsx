@@ -11,7 +11,9 @@ export default function IgViewsCalculator() {
     <main>
       <Hero />
       <PinkCtaBlock
-        title="Use Modash to analyze Instagram creators & their audiences"
+        gradient
+        lead="Use Modash to"
+        title="analyze Instagram creators & their audiences"
         description="Inside Modash, you get a complete analysis of any Instagram creator, including average views, engagement, audience quality, location, and more."
       />
       <ContentSections />

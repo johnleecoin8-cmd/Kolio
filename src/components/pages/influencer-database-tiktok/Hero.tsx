@@ -9,14 +9,19 @@ export default function Hero() {
     <section className="relative bg-background">
       <Container>
         <div className="flex flex-col items-center pt-12 text-center md:pt-16">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-pill bg-ink/5 px-3 py-1.5 text-eyebrow font-semibold uppercase tracking-wide text-foreground/60">
-            <span className="grid h-4 w-4 place-items-center rounded-full bg-pink text-[10px] text-ink">
-              ★
-            </span>
-            Database
+          <span className="mb-6 inline-flex items-center gap-2">
+            <img
+              src={`${CDN}/682f2374bc508bf278f85776_icon_discover.png`}
+              width={48}
+              height={48}
+              alt=""
+              className="h-12 w-12"
+              loading="lazy"
+            />
+            <span className="text-body font-semibold text-foreground">Database</span>
           </span>
 
-          <h1 className="max-w-[820px] font-display text-[2.5rem] uppercase leading-[1.02] text-foreground sm:text-[3.25rem] md:text-[4rem]">
+          <h1 className="max-w-[1000px] font-display uppercase text-[2.75rem] leading-[0.92] text-foreground sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem]">
             TikTok Influencer Database With 250M+ Profiles
           </h1>
 

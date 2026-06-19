@@ -17,7 +17,7 @@ export default function Hero() {
             Influencer Marketing Platform for Brands on Shopify
           </a>
 
-          <h1 className="font-display text-[2.75rem] leading-[1.05] text-white sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem]">
+          <h1 className="font-display text-[3rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem] lg:text-[5.5rem]">
             Manage &amp; grow your
             <br />
             influencer program

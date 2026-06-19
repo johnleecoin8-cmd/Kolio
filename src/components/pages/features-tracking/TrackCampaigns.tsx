@@ -84,7 +84,7 @@ export default function TrackCampaigns() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+          <h2 className="text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2rem]">
             Track campaigns automatically
           </h2>
           <p className="mx-auto mt-4 max-w-[580px] text-body-md text-foreground/70">
@@ -111,15 +111,15 @@ export default function TrackCampaigns() {
 
               {/* text */}
               <div className={row.reverse ? 'md:order-1' : ''}>
-                <p className="mb-6 text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+                <h3 className="mb-6 text-[1.5rem] font-bold leading-tight text-foreground">
                   {row.eyebrow}
-                </p>
+                </h3>
                 <div className="flex flex-col gap-6">
                   {row.features.map((f) => (
                     <div key={f.title}>
-                      <h3 className="text-body-md font-semibold text-foreground">
+                      <h4 className="text-body font-semibold text-foreground">
                         {f.title}
-                      </h3>
+                      </h4>
                       <p className="mt-1.5 text-body text-foreground/70">{f.body}</p>
                     </div>
                   ))}

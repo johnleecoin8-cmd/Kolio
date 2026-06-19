@@ -3,10 +3,10 @@ import { ButtonA } from '@/components/ui/Button';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
-/** Hero — full pink section, breadcrumb pills, display headline, dual CTA, product screenshot. */
+/** Hero — full coral section, breadcrumb pills, display headline, dual CTA, product screenshot. */
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-pink pt-10 md:pt-12">
+    <section className="relative overflow-hidden bg-coral pt-10 md:pt-14">
       <Container>
         <div className="flex flex-col items-center text-center">
           {/* breadcrumb pills */}
@@ -15,12 +15,11 @@ export default function Hero() {
             <span className="rounded-pill bg-ink/5 px-3 py-1.5">Shopify</span>
           </div>
 
-          <h1 className="font-display uppercase text-[2.5rem] leading-[0.95] text-ink sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem]">
-            The place to keep all of
-            <br className="hidden md:block" /> your relationships organized
+          <h1 className="mx-auto max-w-[1100px] font-display uppercase text-[2.75rem] leading-[0.92] text-ink sm:text-[4rem] md:text-[5.25rem] lg:text-[6rem]">
+            The place to keep all of your relationships organized
           </h1>
 
-          <p className="mx-auto mt-5 max-w-[560px] text-body-md text-ink/70">
+          <p className="mx-auto mt-6 max-w-[560px] text-body-md text-ink/70">
             See every creator, all partnership details, and up-to-date campaign
             metrics in the same place.
           </p>

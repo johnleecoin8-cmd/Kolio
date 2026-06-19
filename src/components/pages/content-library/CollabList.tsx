@@ -6,8 +6,6 @@ import InfluencerCard from './InfluencerCard';
 import FeaturedCta from './FeaturedCta';
 import ScalingCta from './ScalingCta';
 
-const Divider = () => <div className="h-px w-full bg-black/10" />;
-
 export default function CollabList() {
   return (
     <section className="bg-background pb-6">
@@ -15,7 +13,7 @@ export default function CollabList() {
         <div className="rounded-xl bg-background-soft p-6 md:p-12">
           {/* header */}
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <h2 className="font-display text-[1.75rem] leading-tight text-foreground md:text-[2.25rem]">
+            <h2 className="text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
               Recent influencer collabs with Red Bull
             </h2>
             <span className="inline-flex w-fit items-center gap-2 rounded-pill bg-white px-3 py-1.5 text-body-sm text-foreground/70 shadow-sm">
@@ -39,26 +37,14 @@ export default function CollabList() {
             to get data for your own products and processes.)
           </p>
 
-          <div className="mt-6">
-            <Divider />
+          <div className="mt-6 flex flex-col gap-4">
             {INFLUENCERS.map((inf, i) => (
               <Fragment key={inf.handle}>
                 <InfluencerCard data={inf} />
-                <Divider />
                 {/* Featured CTA after card 3 */}
-                {i === 2 && (
-                  <>
-                    <FeaturedCta />
-                    <Divider />
-                  </>
-                )}
+                {i === 2 && <FeaturedCta />}
                 {/* Scaling CTA after card 20 */}
-                {i === 19 && (
-                  <>
-                    <ScalingCta />
-                    <Divider />
-                  </>
-                )}
+                {i === 19 && <ScalingCta />}
               </Fragment>
             ))}
           </div>

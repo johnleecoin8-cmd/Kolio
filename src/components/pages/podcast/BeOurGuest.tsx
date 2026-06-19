@@ -6,7 +6,7 @@ export default function BeOurGuest() {
   return (
     <section id="guest" className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h4 md:text-h3 leading-tight text-[#1b1b4d]">
+        <h2 className="text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
           Be our next guest!
         </h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -32,7 +32,7 @@ export default function BeOurGuest() {
             </p>
             <a
               href="https://www.modash.io/podcast"
-              className="mt-7 inline-flex items-center justify-center h-10 px-5 rounded-sm bg-[#4f56ff] text-white text-body-sm font-semibold uppercase tracking-wide transition hover:opacity-90"
+              className="mt-7 inline-flex items-center justify-center h-10 px-5 rounded-sm bg-blue text-white text-body-sm font-semibold uppercase tracking-wide transition hover:opacity-90"
             >
               Register your interest
             </a>

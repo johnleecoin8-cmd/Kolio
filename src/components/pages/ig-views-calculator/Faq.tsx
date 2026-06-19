@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-import Container from '@/components/ui/Container';
+import WideContainer from './WideContainer';
 
 const FAQS = [
   {
@@ -49,7 +49,7 @@ export default function Faq() {
 
   return (
     <section className="bg-background pb-8 md:pb-12">
-      <Container>
+      <WideContainer>
         <div className="rounded-xl bg-background-soft p-4 md:p-8 lg:py-24">
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 lg:gap-16">
             <div className="flex flex-col gap-2 lg:gap-4">
@@ -75,7 +75,7 @@ export default function Faq() {
                         {faq.title}
                       </span>
                       <span
-                        className={`ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors ${
+                        className={`ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors ${
                           isOpen
                             ? 'bg-pink text-ink'
                             : 'bg-gray-100 text-foreground'
@@ -99,7 +99,7 @@ export default function Faq() {
             </div>
           </div>
         </div>
-      </Container>
+      </WideContainer>
     </section>
   );
 }

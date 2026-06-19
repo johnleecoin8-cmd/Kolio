@@ -3,17 +3,22 @@ import Container from '@/components/ui/Container';
 
 const CRUMBS = ['Content library', 'All brands', 'Red Bull'];
 
-/** Simplified Red Bull wordmark badge used in the hero. */
-function RedBullMark() {
+const RED_BULL_LOGO =
+  'https://images.od.modash.io/45f251779536348633e211c81b4f03ddfc55dc50';
+
+/** Brand badge: real Red Bull logo + Inter wordmark, with white inset ring. */
+function BrandBadge() {
   return (
-    <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-white">
-      <span className="leading-[0.85] text-center">
-        <span className="block text-[8px] font-extrabold uppercase tracking-tight text-[#e3001b]">
-          Red
-        </span>
-        <span className="block text-[8px] font-extrabold uppercase tracking-tight text-[#e3001b]">
-          Bull
-        </span>
+    <span className="inline-flex w-fit items-center gap-4 rounded-3xl bg-background-soft px-5 py-4 shadow-[inset_0_0_0_8px_white] transition-all">
+      <span className="flex h-10 w-10 flex-shrink-0 md:h-[60px] md:w-[60px]">
+        <img
+          src={RED_BULL_LOGO}
+          alt="Red Bull"
+          className="h-full w-full rounded-sm object-contain"
+        />
+      </span>
+      <span className="font-semibold leading-none text-foreground text-2xl md:text-4xl [font-family:Inter,system-ui,sans-serif]">
+        Red Bull
       </span>
     </span>
   );
@@ -24,16 +29,22 @@ export default function Hero() {
     <section className="bg-background pt-12 pb-6 md:pt-20 md:pb-10">
       <Container>
         {/* breadcrumb */}
-        <nav className="mb-6 flex flex-wrap items-center justify-center gap-2 text-body-sm font-medium text-[#3a4bd6]">
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-6 flex flex-wrap items-center justify-center gap-1 text-base xl:gap-[10px]"
+        >
           {CRUMBS.map((c) => (
-            <span key={c} className="flex items-center gap-2">
-              <a href="#" className="hover:underline">
+            <span key={c} className="flex items-center gap-1 xl:gap-[10px]">
+              <a
+                href="#"
+                className="font-normal text-blue-dark no-underline hover:underline"
+              >
                 {c}
               </a>
               <ChevronRight size={14} className="text-gray-400" />
             </span>
           ))}
-          <span className="font-semibold text-[#1f2bb5]">Influencers</span>
+          <span className="font-normal text-blue-dark">Influencers</span>
         </nav>
 
         {/* headline */}
@@ -43,12 +54,7 @@ export default function Hero() {
 
         {/* brand badge */}
         <div className="mt-8 flex justify-center">
-          <div className="flex items-center gap-3 rounded-xl bg-background-soft px-6 py-4 shadow-sm">
-            <RedBullMark />
-            <span className="font-display text-[1.75rem] leading-none text-foreground md:text-[2.25rem]">
-              Red Bull
-            </span>
-          </div>
+          <BrandBadge />
         </div>
       </Container>
     </section>

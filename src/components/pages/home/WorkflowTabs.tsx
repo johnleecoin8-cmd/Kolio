@@ -59,10 +59,10 @@ export default function WorkflowTabs() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-10 max-w-[760px] text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          <p className="text-body-sm font-bold text-foreground/50">
             Paid partnerships. Gifting. Affiliates.
           </p>
-          <h2 className="mt-3 font-display text-[2rem] leading-[1.1] text-foreground md:text-[3rem]">
+          <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
             Your whole influencer program, finally connected in one workflow
           </h2>
         </div>
@@ -85,10 +85,10 @@ export default function WorkflowTabs() {
         </div>
 
         {/* tab panel */}
-        <div className="overflow-hidden rounded-xl bg-pink-bg">
+        <div className="overflow-hidden rounded-xl bg-pink">
           <div className="grid items-center gap-8 p-8 md:grid-cols-2 md:gap-12 md:p-12">
             <div className="flex flex-col items-start text-left">
-              <h3 className="font-display text-h4 capitalize text-foreground md:text-[2.5rem]">
+              <h3 className="font-display text-h4 text-foreground md:text-[2.5rem]">
                 {tab.heading}
               </h3>
               <p className="mt-5 max-w-[480px] text-body-md text-foreground/75">

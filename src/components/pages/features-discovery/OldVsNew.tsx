@@ -1,5 +1,6 @@
 import { X, Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import SectionHeading from './SectionHeading';
 
 const OLD = [
   'Hashtag scrolling',
@@ -36,11 +37,11 @@ export default function OldVsNew() {
   return (
     <section className="py-12 md:py-16">
       <Container>
-        <div className="max-w-[720px]">
-          <h2 className="font-display text-h4 md:text-[2.5rem] leading-tight text-foreground">
+        <div className="mx-auto max-w-[720px] text-center">
+          <SectionHeading>
             A faster way to shortlist creators you’re confident to reach out to
-          </h2>
-          <p className="mt-4 max-w-[640px] text-body md:text-body-md text-foreground/75">
+          </SectionHeading>
+          <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
             Because time spent on searching and waiting for the wrong creators, is time you don’t
             spend building relationships with the right ones.
           </p>

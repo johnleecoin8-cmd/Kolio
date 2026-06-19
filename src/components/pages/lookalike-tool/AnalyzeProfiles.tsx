@@ -23,7 +23,8 @@ export default function AnalyzeProfiles() {
             <div className="mt-8">
               <ButtonA
                 href="https://marketer.modash.io/register/marketer"
-                variant="accent"
+                variant="primary"
+                className="!bg-blue !text-white hover:!opacity-90"
               >
                 Try for free
               </ButtonA>

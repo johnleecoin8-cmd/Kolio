@@ -25,17 +25,17 @@ export default function LogoBar() {
   return (
     <section className="bg-background py-12 md:py-16">
       <Container>
-        <h2 className="text-center font-display text-[1.5rem] leading-tight text-foreground md:text-[1.875rem]">
+        <h2 className="text-center text-[1.5rem] font-bold leading-tight text-foreground md:text-[1.875rem]">
           Modash is trusted by 2300+ in-house teams
         </h2>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-5 md:mt-10">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:mt-12">
           {LOGOS.map((l) => (
             <img
               key={l.alt}
               src={l.src}
               alt={l.alt}
               loading="lazy"
-              className="h-9 w-auto object-contain opacity-90 grayscale transition hover:grayscale-0 md:h-10"
+              className="h-9 w-auto object-contain md:h-10"
             />
           ))}
         </div>

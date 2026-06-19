@@ -120,7 +120,7 @@ export default function ApiSamples() {
     <section className="overflow-hidden bg-background py-12 md:py-20">
       <Container>
         <div className="mx-auto max-w-[680px] text-center">
-          <h2 className="font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.25rem]">
+          <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
             No guesswork. Just real responses.
           </h2>
           <p className="mt-4 text-body text-foreground/70">

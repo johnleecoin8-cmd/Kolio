@@ -1,13 +1,18 @@
 import { useState } from 'react';
-import { Check } from 'lucide-react';
+import { ChevronDown, ShoppingBag } from 'lucide-react';
+import { cn } from '@/lib/cn';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
+
+type FeatureItem = { label: string; note?: string };
+type FeatureGroup = { heading?: string; shopify?: boolean; items: FeatureItem[] };
 
 type Plan = {
   name: string;
   subtitle: string;
   tagline: string;
   recommended?: boolean;
+  isEnterprise?: boolean;
   monthly: string;
   yearly: string;
   yearlyTotal: string;
@@ -15,9 +20,10 @@ type Plan = {
   cta: string;
   ctaVariant: 'primary' | 'accent';
   ctaHref: string;
-  usage: { label: string; note: string }[];
+  /** First line is a plain text item (no accordion); rest are accordions. */
+  usage: FeatureItem[];
   includedLabel: string;
-  included: { label: string; note: string }[];
+  groups: FeatureGroup[];
 };
 
 const PLANS: Plan[] = [
@@ -31,9 +37,9 @@ const PLANS: Plan[] = [
     discount: '-33%',
     cta: 'Try for free',
     ctaVariant: 'primary',
-    ctaHref: 'https://app.modash.io/signup',
+    ctaHref: 'https://marketer.modash.io/register/marketer',
     usage: [
-      { label: '2 team members', note: '' },
+      { label: '2 team members' },
       {
         label: '300 opened profiles',
         note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
@@ -48,30 +54,38 @@ const PLANS: Plan[] = [
       },
     ],
     includedLabel: 'Included in Essentials',
-    included: [
+    groups: [
       {
-        label: 'Manage',
-        note: 'An influencer CRM built to manage lists and relationships as you grow',
+        items: [
+          {
+            label: 'Manage',
+            note: 'An influencer CRM built to manage lists and relationships as you grow',
+          },
+          {
+            label: 'Discover',
+            note: 'A deep search engine with 350M+ profiles to help you find and evaluate creators',
+          },
+          {
+            label: 'Track',
+            note: 'An automatic content collector and metrics tracker for your campaigns',
+          },
+          {
+            label: 'Inbox integration',
+            note: 'Connect Gmail or Outlook to access an Inbox that knows you’re talking to creators',
+          },
+          { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
+        ],
       },
       {
-        label: 'Discover',
-        note: 'A deep search engine with 350M+ profiles to help you find and evaluate creators',
-      },
-      {
-        label: 'Track',
-        note: 'An automatic content collector and metrics tracker for your campaigns',
-      },
-      {
-        label: 'Inbox integration',
-        note: 'Connect Gmail or Outlook to access an Inbox that knows you’re talking to creators',
-      },
-      {
-        label: 'Support',
-        note: '24/7 in-platform chat, email and Help Center',
-      },
-      {
-        label: 'Gifting',
-        note: 'Send free products to influencers, automatically track who posts and more!',
+        shopify: true,
+        heading: 'Shopify Integration',
+        items: [
+          {
+            label: 'Gifting',
+            note: 'Send free products to influencers, automatically track who posts and more!',
+          },
+          { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
+        ],
       },
     ],
   },
@@ -86,9 +100,9 @@ const PLANS: Plan[] = [
     discount: '-16%',
     cta: 'Try for free',
     ctaVariant: 'accent',
-    ctaHref: 'https://app.modash.io/signup',
+    ctaHref: 'https://marketer.modash.io/register/marketer',
     usage: [
-      { label: '5 team members', note: '' },
+      { label: '5 team members' },
       {
         label: '800 opened profiles',
         note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
@@ -103,26 +117,37 @@ const PLANS: Plan[] = [
       },
     ],
     includedLabel: 'Everything in Essentials, plus',
-    included: [
+    groups: [
       {
-        label: 'Influential fans',
-        note: 'Discover up to 6,000 creators per month who already follow and engage with your brand on Instagram, YouTube, or TikTok.',
+        items: [
+          {
+            label: 'Influential fans',
+            note: 'Discover up to 6,000 creators per month who already follow and engage with your brand on Instagram, YouTube, or TikTok.',
+          },
+          {
+            label: 'Download content',
+            note: 'Download all creator content, including posts, Reels, Stories from Instagram, and all content from TikTok & YouTube.',
+          },
+          {
+            label: 'Export campaign data',
+            note: 'Export campaign results in CSV or Excel. Exports include all campaign performance data within your selected date range.',
+          },
+          {
+            label: 'Payments (0% fee up to $10K/yr)',
+            note: 'Send fast, secure payouts to creators worldwide. 0% fee up to $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
+          },
+        ],
       },
       {
-        label: 'Download content',
-        note: 'Download all creator content, including posts, Reels, Stories from Instagram, and all content from TikTok & YouTube.',
-      },
-      {
-        label: 'Export campaign data',
-        note: 'Export campaign results in CSV or Excel. Exports include all campaign performance data within your selected date range.',
-      },
-      {
-        label: 'Payments (0% fee up to $10K/yr)',
-        note: 'Send fast, secure payouts to creators worldwide. 0% fee up to $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
-      },
-      {
-        label: 'Affiliate management (0% fee up to $10K/yr)',
-        note: 'Create affiliate links, track sales, and automate commission-based payouts. 0% fee $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
+        shopify: true,
+        heading: 'Shopify Integration',
+        items: [
+          {
+            label: 'Affiliate management (0% fee up to $10K/yr)',
+            note: 'Create affiliate links, track sales, and automate commission-based payouts. 0% fee $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
+          },
+          { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
+        ],
       },
     ],
   },
@@ -130,15 +155,16 @@ const PLANS: Plan[] = [
     name: 'Enterprise',
     subtitle: 'For campaigns above 250 creators.',
     tagline: 'Run influencer marketing as a global growth engine.',
+    isEnterprise: true,
     monthly: '$14,700',
     yearly: '$14,700',
-    yearlyTotal: 'billed yearly',
+    yearlyTotal: 'Customizable',
     discount: '',
     cta: 'Talk to sales',
     ctaVariant: 'primary',
     ctaHref: 'https://www.modash.io/book-demo',
     usage: [
-      { label: 'More team members', note: '' },
+      { label: 'More team members' },
       {
         label: 'More opened profiles',
         note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
@@ -153,181 +179,199 @@ const PLANS: Plan[] = [
       },
     ],
     includedLabel: 'Everything in Performance, plus',
-    included: [
+    groups: [
       {
-        label: 'Payments (0% fee on payouts up to $100,000/y)',
-        note: 'Send fast, secure payouts to creators across 180+ countries in local currency.',
+        items: [
+          {
+            label: 'Payments (starts at 0% fee on payouts up to $100,000/y)',
+            note: 'Send fast, secure payouts to creators across 180+ countries in local currency.',
+          },
+          {
+            label: 'Custom domain for links',
+            note: 'Your own branded domain for tracking links',
+          },
+        ],
       },
       {
-        label: 'Custom domain for links',
-        note: 'Your own branded domain for tracking links',
-      },
-      {
-        label: 'Affiliate management (0% fee up to $100,000/y)',
-        note: 'Create affiliate links, track sales, and automate commission-based payouts.',
-      },
-      {
-        label: 'Support',
-        note: 'Dedicated success manager for onboarding, monthly strategy calls, quarterly reviews, and seamless migration.',
+        shopify: true,
+        heading: 'Shopify Integration',
+        items: [
+          {
+            label: 'Affiliate management (starts at 0% fee on payouts up to $100,000/y)',
+            note: 'Create affiliate links, track sales, and automate commission-based payouts.',
+          },
+          {
+            label: 'Support',
+            note: 'Dedicated success manager for onboarding, monthly strategy calls, quarterly reviews, and seamless migration.',
+          },
+        ],
       },
     ],
   },
 ];
 
 export default function PricingCards() {
-  const [yearly, setYearly] = useState(true);
-
   return (
-    <section className="bg-background pt-10 pb-16 md:pt-12 md:pb-24">
+    <section className="bg-background pt-12 pb-16 md:pt-16 md:pb-24">
       <Container>
-        {/* Billing toggle */}
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-1 rounded-pill border border-gray-200 bg-white p-1">
-            <button
-              onClick={() => setYearly(true)}
-              className={`rounded-pill px-4 py-2 text-body-sm font-semibold transition ${
-                yearly ? 'bg-ink text-white' : 'text-gray-600 hover:text-foreground'
-              }`}
-            >
-              Yearly
-            </button>
-            <button
-              onClick={() => setYearly(false)}
-              className={`rounded-pill px-4 py-2 text-body-sm font-semibold transition ${
-                !yearly ? 'bg-ink text-white' : 'text-gray-600 hover:text-foreground'
-              }`}
-            >
-              Monthly
-            </button>
+        <div className="rounded-2xl bg-gray-50 p-3 sm:p-5 md:p-6">
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {PLANS.map((plan) => (
+              <PlanCard key={plan.name} plan={plan} />
+            ))}
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-          {PLANS.map((plan) => (
-            <PlanCard key={plan.name} plan={plan} yearly={yearly} />
-          ))}
         </div>
       </Container>
     </section>
   );
 }
 
-function PlanCard({ plan, yearly }: { plan: Plan; yearly: boolean }) {
-  const isEnterprise = plan.name === 'Enterprise';
+function PlanCard({ plan }: { plan: Plan }) {
+  const [yearly, setYearly] = useState(true);
   const price = yearly ? plan.yearly : plan.monthly;
 
   return (
     <div
-      className={`relative flex flex-col rounded-xl border bg-white p-6 md:p-7 ${
+      className={cn(
+        'relative flex flex-col rounded-xl bg-white p-6 md:p-7',
         plan.recommended
-          ? 'border-pink shadow-nav'
-          : 'border-black/10'
-      }`}
+          ? 'border-2 border-pink shadow-nav lg:-mt-9 lg:self-start lg:pt-9'
+          : 'border border-black/[0.07]',
+      )}
     >
       {plan.recommended && (
-        <span className="absolute -top-3 left-6 rounded-pill bg-pink px-3 py-1 text-eyebrow font-semibold uppercase tracking-wide text-ink">
-          Recommended
-        </span>
+        <span className="mb-4 block text-body-sm text-foreground/80">Recommended</span>
       )}
+      <h3 className="text-[1.9rem] font-bold leading-none text-foreground">{plan.name}</h3>
+      <p className="mt-4 text-body-sm text-foreground/60">{plan.subtitle}</p>
+      <p className="mt-1 text-body-sm font-semibold text-foreground">{plan.tagline}</p>
 
-      <h3 className="font-display text-h4 text-foreground">{plan.name}</h3>
-      <p className="mt-2 text-body-sm text-foreground/60">{plan.subtitle}</p>
-      <p className="mt-1 text-body-sm font-semibold text-foreground">
-        {plan.tagline}
-      </p>
-
+      {/* Price */}
       <div className="mt-6">
-        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/45">
           Starts at
         </p>
-        <div className="mt-1 flex items-end gap-2">
-          {!isEnterprise && !yearly && (
-            <span className="text-body-md text-foreground/40 line-through">
-              {plan.monthly}
-            </span>
-          )}
-          <span className="font-display text-[2.5rem] leading-none text-foreground">
-            {price}
+        <div className="mt-1 flex items-baseline gap-2">
+          <span className="text-[2.4rem] font-extrabold leading-none text-foreground">{price}</span>
+          <span className="text-body-sm text-foreground/55">
+            {plan.isEnterprise ? 'Yearly' : '/ month'}
           </span>
-          {!isEnterprise && (
-            <span className="pb-1 text-body-sm text-foreground/60">
-              {yearly ? '/ month' : 'Monthly'}
-            </span>
-          )}
-          {isEnterprise && (
-            <span className="pb-1 text-body-sm text-foreground/60">Yearly</span>
-          )}
         </div>
-        {!isEnterprise && (
-          <div className="mt-2 flex items-center gap-2">
-            <span className="text-body-sm text-foreground/60">
-              {plan.yearlyTotal}
-            </span>
-            {plan.discount && (
-              <span className="rounded-pill bg-lime px-2 py-0.5 text-eyebrow font-semibold text-ink">
-                {plan.discount}
-              </span>
-            )}
-          </div>
-        )}
       </div>
 
+      {/* Per-card billing toggle / customizable */}
+      {plan.isEnterprise ? null : (
+        <div className="mt-3 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => setYearly((v) => !v)}
+            className="flex items-center gap-2"
+            aria-pressed={yearly}
+          >
+            <span
+              className={cn(
+                'relative inline-flex h-5 w-9 items-center rounded-pill transition-colors',
+                yearly ? 'bg-ink' : 'bg-gray-300',
+              )}
+            >
+              <span
+                className={cn(
+                  'inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform',
+                  yearly ? 'translate-x-[1.15rem]' : 'translate-x-[0.2rem]',
+                )}
+              />
+            </span>
+            <span className="text-body-sm text-foreground/70">{plan.yearlyTotal}</span>
+          </button>
+          {plan.discount && (
+            <span className="rounded-pill bg-green-100 px-2 py-0.5 text-eyebrow font-semibold text-green-700">
+              {plan.discount}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* CTA */}
       <div className="mt-6">
-        <ButtonA
-          href={plan.ctaHref}
-          variant={plan.ctaVariant}
-          className="w-full"
-        >
+        <ButtonA href={plan.ctaHref} variant={plan.ctaVariant} className="w-full">
           {plan.cta}
         </ButtonA>
       </div>
 
+      {plan.isEnterprise && (
+        <>
+          <div className="mt-6 border-t border-black/10" />
+          <p className="mt-6 text-body-sm text-foreground/55">Customizable</p>
+        </>
+      )}
+
       {/* Usage limits */}
-      <ul className="mt-7 space-y-4 border-t border-black/10 pt-6">
-        {plan.usage.map((u) => (
-          <li key={u.label} className="flex gap-3">
-            <Check
-              size={18}
-              className="mt-0.5 shrink-0 text-foreground"
-              strokeWidth={2.5}
-            />
-            <div>
-              <p className="text-body-sm font-semibold text-foreground">
+      <div className="mt-6 border-t border-black/10 pt-6">
+        <ul className="space-y-0.5">
+          {plan.usage.map((u, i) =>
+            i === 0 ? (
+              <li key={u.label} className="px-1 py-2 text-body-sm font-medium text-foreground">
                 {u.label}
-              </p>
-              {u.note && (
-                <p className="mt-1 text-body-sm leading-snug text-foreground/55">
-                  {u.note}
-                </p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+              </li>
+            ) : (
+              <AccordionRow key={u.label} item={u} />
+            ),
+          )}
+        </ul>
+      </div>
 
       {/* Included features */}
-      <p className="mt-7 text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-        {plan.includedLabel}
-      </p>
-      <ul className="mt-4 space-y-4">
-        {plan.included.map((f) => (
-          <li key={f.label} className="flex gap-3">
-            <Check
-              size={18}
-              className="mt-0.5 shrink-0 text-foreground"
-              strokeWidth={2.5}
-            />
-            <div>
-              <p className="text-body-sm font-semibold text-foreground">
-                {f.label}
-              </p>
-              <p className="mt-1 text-body-sm leading-snug text-foreground/55">
-                {f.note}
-              </p>
-            </div>
-          </li>
+      <div className="mt-6 border-t border-black/10 pt-6">
+        <p className="text-body-md font-semibold text-foreground">{plan.includedLabel}</p>
+        {plan.groups.map((group, gi) => (
+          <div key={gi} className={gi > 0 ? 'mt-6' : 'mt-2'}>
+            {group.heading && (
+              <div className="mb-1 flex items-center gap-2">
+                {group.shopify && <ShoppingBag size={16} className="text-foreground/70" />}
+                <span className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/55">
+                  {group.heading}
+                </span>
+              </div>
+            )}
+            <ul className="space-y-0.5">
+              {group.items.map((it) => (
+                <AccordionRow key={it.label} item={it} />
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
+  );
+}
+
+function AccordionRow({ item }: { item: FeatureItem }) {
+  const [open, setOpen] = useState(false);
+  if (!item.note) {
+    return (
+      <li className="px-1 py-2 text-body-sm font-medium text-foreground">{item.label}</li>
+    );
+  }
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-2 px-1 py-2 text-left"
+        aria-expanded={open}
+      >
+        <span className="text-body-sm font-medium text-foreground">{item.label}</span>
+        <ChevronDown
+          size={18}
+          className={cn(
+            'shrink-0 text-foreground/50 transition-transform',
+            open && 'rotate-180',
+          )}
+        />
+      </button>
+      {open && (
+        <p className="px-1 pb-3 text-body-sm leading-snug text-foreground/55">{item.note}</p>
+      )}
+    </li>
   );
 }

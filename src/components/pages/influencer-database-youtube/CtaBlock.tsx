@@ -5,8 +5,8 @@ export default function CtaBlock() {
   return (
     <section className="bg-background pb-16 pt-4 md:pb-24">
       <Container>
-        <div className="rounded-xl bg-pink px-6 py-20 text-center md:px-12 md:py-28">
-          <h2 className="mx-auto max-w-[14ch] font-display uppercase leading-[0.95] text-ink text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem]">
+        <div className="rounded-xl bg-pink px-6 py-24 text-center md:px-12 md:py-36">
+          <h2 className="mx-auto max-w-[15ch] font-display uppercase leading-[0.95] text-ink text-[2.75rem] sm:text-[4rem] md:text-[5.25rem]">
             End-to-End Influencer marketing for shopify brands
           </h2>
 

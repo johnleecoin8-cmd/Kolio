@@ -107,7 +107,7 @@ export default function DataPoints() {
     <section className="bg-background py-12 md:py-20">
       <Container>
         <div className="mx-auto max-w-[640px] text-center">
-          <h2 className="font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.25rem]">
+          <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
             More than 30 datapoints, live and unfiltered
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">

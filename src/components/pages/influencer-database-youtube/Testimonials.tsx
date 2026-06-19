@@ -56,7 +56,7 @@ const CARDS: Card[] = [
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const prev = () => setIndex((i) => Math.max(0, i - 1));
-  const next = () => setIndex((i) => Math.min(CARDS.length - 1, i + 1));
+  const next = () => setIndex((i) => Math.min(CARDS.length - 2, i + 1));
 
   return (
     <section className="overflow-hidden bg-background py-16 md:py-24">
@@ -66,7 +66,7 @@ export default function Testimonials() {
             <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
               Testimonials
             </p>
-            <h2 className="mt-3 font-display text-h4 leading-tight text-foreground md:text-[2.5rem]">
+            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               What Modash customers say
             </h2>
           </div>
@@ -93,12 +93,12 @@ export default function Testimonials() {
       <div className="mt-10 overflow-hidden">
         <div
           className="mx-auto flex max-w-container gap-6 px-4 transition-transform duration-500 ease-out sm:px-6"
-          style={{ transform: `translateX(calc(${-index} * (33.333% + 1.5rem)))` }}
+          style={{ transform: `translateX(calc(${-index} * (50% + 0.75rem)))` }}
         >
           {CARDS.map((c) => (
             <div
               key={c.name}
-              className={`flex min-h-[400px] w-[85%] shrink-0 flex-col rounded-xl p-8 sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)] ${c.bg}`}
+              className={`flex min-h-[440px] w-[88%] shrink-0 flex-col rounded-xl p-10 sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)] ${c.bg}`}
             >
               <img src={c.logo} alt="" className="h-6 w-auto self-start object-contain" />
               <p className="mt-8 text-body-md text-foreground">{c.quote}</p>

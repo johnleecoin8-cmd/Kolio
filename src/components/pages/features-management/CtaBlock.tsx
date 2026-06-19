@@ -7,7 +7,7 @@ export default function CtaBlock() {
     <section className="bg-background pb-0">
       <Container>
         <div className="rounded-xl bg-coral px-6 py-20 text-center md:px-12 md:py-28">
-          <h2 className="mx-auto max-w-[1000px] font-display uppercase text-[2rem] leading-[0.95] text-ink sm:text-[3rem] md:text-[4.25rem]">
+          <h2 className="mx-auto max-w-[1000px] font-display uppercase text-[2.25rem] leading-[0.92] text-ink sm:text-[3.25rem] md:text-[4.75rem]">
             Manage more relationships with less mess
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-ink/70">

@@ -1,4 +1,5 @@
 import { Platform } from './platforms';
+import ModashBody from './ModashBody';
 
 const GLANCE_ICON: Record<string, string> = {
   'Best for': '🥇',
@@ -17,7 +18,7 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
 
   return (
     <section id={`platform-${num}`} className="scroll-mt-24 pt-12 first:pt-0">
-      <h2 className="font-display text-h4 leading-tight text-foreground md:text-h3">
+      <h2 className="text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
         {num}. {name}
       </h2>
 
@@ -31,7 +32,7 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       )}
 
       {/* At a glance */}
-      <h3 className="mt-8 font-display text-body-lg text-foreground">
+      <h3 className="mt-8 text-[1.5rem] font-bold leading-tight text-foreground">
         {short} at a glance
       </h3>
       <ul className="mt-4 space-y-2.5 text-body text-foreground/80">
@@ -45,15 +46,18 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       </ul>
 
       {/* What is X */}
-      <h3 className="mt-8 font-display text-body-lg text-foreground">
+      <h3 className="mt-8 text-[1.5rem] font-bold leading-tight text-foreground">
         What is {short}?
       </h3>
       <p className="mt-3 text-body leading-relaxed text-foreground/80">{whatis}</p>
 
+      {/* Modash feature deep-dive (recruitment / relationships / payments / tracking) */}
+      {num === 1 && <ModashBody />}
+
       {/* Strengths */}
       {strengths.length > 0 && (
         <>
-          <h3 className="mt-8 font-display text-body-lg text-foreground">
+          <h3 className="mt-8 text-[1.5rem] font-bold leading-tight text-foreground">
             {short} strengths 👍
           </h3>
           <ul className="mt-3 space-y-2.5 pl-5 text-body leading-relaxed text-foreground/80">
@@ -69,7 +73,7 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       {/* Weaknesses */}
       {weaknesses.length > 0 && (
         <>
-          <h3 className="mt-8 font-display text-body-lg text-foreground">
+          <h3 className="mt-8 text-[1.5rem] font-bold leading-tight text-foreground">
             {short} weaknesses 👎
           </h3>
           <ul className="mt-3 space-y-2.5 pl-5 text-body leading-relaxed text-foreground/80">

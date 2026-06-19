@@ -21,7 +21,7 @@ export default function ApiSection() {
         />
       }
     >
-      <h2 className="font-display text-h3 leading-tight text-foreground">
+      <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
         Reliable influencer marketing API
       </h2>
       <div className="mt-6 max-w-[480px] space-y-2 text-body-md text-foreground/70">

@@ -25,7 +25,7 @@ export default function EverythingGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h4 leading-tight text-ink md:text-h3">
+        <h2 className="text-center font-sans text-h4 font-bold leading-tight text-ink">
           Everything you need to grow your program
         </h2>
 
@@ -44,10 +44,8 @@ export default function EverythingGrid() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-body-md font-semibold text-ink">
-                  {c.title}
-                </h3>
-                <p className="mt-2 text-body-sm text-foreground/70">{c.body}</p>
+                <h3 className="text-body-md font-bold text-ink">{c.title}</h3>
+                <p className="mt-2 text-body text-foreground/70">{c.body}</p>
               </div>
             </div>
           ))}

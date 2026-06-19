@@ -6,7 +6,7 @@ export default function SeeItInAction() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[680px] text-center">
-          <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+          <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
             See it in action
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">
@@ -21,7 +21,7 @@ export default function SeeItInAction() {
             title="Modash Manage interactive tour"
             loading="lazy"
             allow="fullscreen"
-            className="aspect-[16/10] w-full border-0"
+            className="aspect-[6/5] w-full border-0"
           />
         </div>
       </Container>

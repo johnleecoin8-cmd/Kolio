@@ -19,7 +19,7 @@ export default function RightForYou() {
       <Container>
         <div className="rounded-xl bg-background-soft px-6 py-12 md:px-12 md:py-16">
           <div className="mx-auto max-w-[680px] text-center">
-            <h2 className="font-display text-h4 leading-tight text-ink md:text-h3">
+            <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
               Is Modash Manage right for you?
             </h2>
             <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">

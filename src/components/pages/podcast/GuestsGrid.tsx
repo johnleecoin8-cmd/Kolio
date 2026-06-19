@@ -52,14 +52,14 @@ export default function GuestsGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-display text-h4 md:text-h3 leading-tight text-[#1b1b4d]">
+        <h2 className="mx-auto max-w-[760px] text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
           Hear how top brands &amp; marketers run profitable influencer
           marketing programs
         </h2>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-12">
           {GUESTS.map((g) => (
             <div key={g.name} className="flex flex-col items-center text-center">
-              <div className="h-16 w-16 rounded-full ring-2 ring-[#4f56ff] overflow-hidden bg-[#e9e3ff]">
+              <div className="h-16 w-16 rounded-full ring-2 ring-blue overflow-hidden bg-violet-light">
                 <img
                   src={g.avatar}
                   alt={g.name}

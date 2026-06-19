@@ -25,7 +25,7 @@ export default function ProductFeature({
 }: Props) {
   const text = (
     <div className="flex flex-col justify-center">
-      <h2 className="font-display text-h3 leading-tight text-foreground">{title}</h2>
+      <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground">{title}</h2>
       <p className="mt-4 text-body-md text-foreground/75">{intro}</p>
 
       <ul className="mt-6 space-y-4">

@@ -21,7 +21,7 @@ export default function Foundation() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h3 leading-tight text-foreground md:text-h2">
+        <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground">
           Beyond the data. Get the foundation.
         </h2>
 

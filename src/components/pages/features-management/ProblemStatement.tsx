@@ -5,8 +5,8 @@ export default function ProblemStatement() {
   return (
     <section className="bg-background py-20 md:py-28">
       <Container>
-        <div className="mx-auto max-w-[1000px] text-center">
-          <h2 className="font-display uppercase text-[2rem] leading-[0.95] text-ink sm:text-[3rem] md:text-[4.25rem]">
+        <div className="mx-auto max-w-[1080px] text-center">
+          <h2 className="font-display uppercase text-[2.25rem] leading-[0.92] text-ink sm:text-[3.5rem] md:text-[5rem]">
             83 creators, 2 colleagues, 1 sheet &amp; stuff&rsquo;s starting to
             break
           </h2>

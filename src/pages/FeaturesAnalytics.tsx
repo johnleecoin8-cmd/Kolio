@@ -37,9 +37,8 @@ export default function FeaturesAnalytics() {
         heading="Audit for fake followers"
         body={
           <>
-            See the share of an influencer&rsquo;s audience that looks
-            inauthentic, so you can avoid wasting budget on bought followers and
-            engagement.
+            Quickly spot if a profile has an unusually high number of fake
+            followers, and make decisions with more confidence.
           </>
         }
         image={`${CDN}/68407cfc94443a66df98489c_img_analytics_03.avif`}

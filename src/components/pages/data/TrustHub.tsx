@@ -11,17 +11,17 @@ export default function TrustHub() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-12 text-center font-display text-[2rem] leading-tight text-foreground md:text-[2.5rem]">
+        <h2 className="mb-12 text-center font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
           Trust hub
         </h2>
 
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {/* For creators */}
           <div className="rounded-xl bg-purple-light p-8 md:p-10">
-            <div className="font-display text-[2rem] leading-none text-foreground">
+            <div className="font-display text-[1.375rem] uppercase leading-none text-foreground">
               For creators
             </div>
-            <div className="mt-4 text-body-md font-semibold text-foreground">
+            <div className="mt-5 text-[1.625rem] font-bold leading-[1.2] text-foreground">
               Our mission is to help every creator on earth make a living doing
               what they love.
             </div>
@@ -97,10 +97,10 @@ export default function TrustHub() {
 
           {/* For brands */}
           <div className="rounded-xl bg-pink-light p-8 md:p-10">
-            <div className="font-display text-[2rem] leading-none text-foreground">
+            <div className="font-display text-[1.375rem] uppercase leading-none text-foreground">
               For brands
             </div>
-            <div className="mt-4 text-body-md font-semibold text-foreground">
+            <div className="mt-5 text-[1.625rem] font-bold leading-[1.2] text-foreground">
               Modash follows global security practices to keep our customers’
               data safe.
             </div>

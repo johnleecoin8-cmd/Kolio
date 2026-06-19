@@ -6,7 +6,7 @@ export default function Problem() {
     <section className="bg-background py-20 md:py-28">
       <Container>
         <div className="mx-auto max-w-[1000px] text-center">
-          <h2 className="font-display text-[2.25rem] uppercase leading-[0.95] text-ink sm:text-[3rem] md:text-[4.25rem]">
+          <h2 className="font-display text-[2.5rem] uppercase leading-[0.95] text-ink sm:text-[3.5rem] md:text-[5rem]">
             You're apologizing to creators while chasing finance
           </h2>
           <p className="mx-auto mt-6 max-w-[680px] text-body-md text-foreground/70">

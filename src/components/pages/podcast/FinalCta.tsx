@@ -28,14 +28,14 @@ export default function FinalCta() {
             />
           ))}
         </div>
-        <h2 className="mx-auto mt-12 max-w-[860px] text-center font-display text-h4 md:text-h2 leading-tight text-[#1b1b4d]">
+        <h2 className="mx-auto mt-12 max-w-[860px] text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
           Join 1200+ B2C brands that use Modash to scale profitable influencer
           marketing programs
         </h2>
         <div className="mt-8 flex justify-center">
           <a
             href="https://app.modash.io/register"
-            className="inline-flex items-center justify-center h-12 px-7 rounded-sm bg-[#4f56ff] text-white text-body font-semibold uppercase tracking-wide transition hover:opacity-90"
+            className="inline-flex items-center justify-center h-12 px-7 rounded-sm bg-blue text-white text-body font-semibold uppercase tracking-wide transition hover:opacity-90"
           >
             Try for free
           </a>

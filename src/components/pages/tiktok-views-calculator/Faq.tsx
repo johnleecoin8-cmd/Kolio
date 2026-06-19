@@ -4,6 +4,10 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
+    q: 'What is Modash?',
+    a: 'Modash is an influencer marketing platform that helps brands find, analyze, and manage creators. You can search 350M+ influencer profiles, view audience demographics and engagement data, send emails, and track campaign results — all in one place.',
+  },
+  {
     q: 'What are TikTok average views?',
     a: 'TikTok average views are the typical number of views a creator gets per video over a recent set of posts. It is a quick way to estimate reach and consistency.',
   },
@@ -36,7 +40,7 @@ export default function Faq() {
           <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
             FAQ
           </p>
-          <h2 className="mb-10 mt-3 font-display text-[2rem] uppercase leading-[1.05] text-foreground md:text-[3rem]">
+          <h2 className="mb-10 mt-3 font-display text-[2.25rem] uppercase leading-[1.02] text-foreground md:text-[3.5rem]">
             Frequently asked questions
           </h2>
 

@@ -40,7 +40,7 @@ export default function EverythingElse() {
   return (
     <section className="py-16 md:py-24 bg-background">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-display text-h4 leading-tight text-foreground">
+        <h2 className="mx-auto max-w-[750px] text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
           Plus, everything else you need to run a profitable influencer program
         </h2>
 

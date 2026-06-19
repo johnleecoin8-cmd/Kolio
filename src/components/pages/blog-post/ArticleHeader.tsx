@@ -6,29 +6,30 @@ export default function ArticleHeader() {
     <header className="bg-background pt-10 md:pt-14">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
-          {/* breadcrumb / category chips */}
-          <div className="mb-5 flex items-center justify-center gap-2">
-            <span className="rounded-pill bg-gray-100 px-3 py-1 text-eyebrow font-semibold text-foreground/70">
+          {/* breadcrumb */}
+          <div className="mb-5 flex items-center justify-center gap-2 text-body-sm">
+            <a href="#" className="font-medium text-foreground/70 hover:text-foreground">
               Blog
-            </span>
-            <span className="rounded-pill bg-pink-light px-3 py-1 text-eyebrow font-semibold text-pink-dark">
+            </a>
+            <span className="text-foreground/40">&rsaquo;</span>
+            <span className="rounded-pill bg-orange-light px-3 py-1 text-eyebrow font-semibold text-orange-dark">
               Tools
             </span>
           </div>
 
           <p className="mb-4 text-body-sm text-foreground/55">
-            February 19, 2026 <span className="mx-1">•</span> 40 min read
+            February 19, 2026 <span className="mx-1">•</span> 40 min
           </p>
 
-          <h1 className="font-display text-[2rem] uppercase leading-[1.08] text-foreground sm:text-[2.75rem] md:text-[3.25rem]">
+          <h1 className="font-display text-[2.25rem] uppercase leading-[1.06] text-foreground sm:text-[3rem] md:text-[3.75rem]">
             19 Best Influencer Marketing Platforms: Compare Pros, Cons &amp; Prices
           </h1>
 
           {/* author */}
-          <p className="mt-8 text-eyebrow font-semibold uppercase tracking-wide text-foreground/45">
-            Post author &amp; contributor
+          <p className="mt-10 text-body-sm text-foreground/55">
+            Post author &amp; contributors
           </p>
-          <div className="mt-3 flex items-center justify-center gap-3">
+          <div className="mx-auto mt-3 flex w-fit items-center gap-3 rounded-lg bg-background-soft px-5 py-3">
             <img
               src="https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719/66dad82f68010bced8ff8a36_1517376322625.avif"
               alt="Phil Norris"

@@ -1,9 +1,10 @@
 import Container from '@/components/ui/Container';
+import PaymentsDashboard from './PaymentsDashboard';
 
-/** See it in action — Navattic interactive demo embed. */
+/** See it in action — interactive Modash Payments product demo mockup. */
 export default function SeeItInAction() {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h4 text-ink md:text-h3">
@@ -16,14 +17,8 @@ export default function SeeItInAction() {
           </p>
         </div>
 
-        <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl bg-background-soft">
-          <iframe
-            src="https://capture.navattic.com/cmewtk9pn000004kyb37kagzn"
-            title="Modash Payments interactive demo"
-            loading="lazy"
-            allow="fullscreen"
-            className="h-full w-full border-0"
-          />
+        <div className="mt-10 h-[680px] w-full overflow-hidden rounded-[20px] bg-background-soft p-2 shadow-nav md:mt-14 md:p-3">
+          <PaymentsDashboard />
         </div>
       </Container>
     </section>

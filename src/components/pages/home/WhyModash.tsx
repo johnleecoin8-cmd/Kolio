@@ -42,10 +42,10 @@ export default function WhyModash() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 max-w-[640px] text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          <p className="text-body-sm font-bold text-foreground/50">
             Why Modash
           </p>
-          <h2 className="mt-3 font-display text-[2rem] leading-[1.1] text-foreground md:text-[3rem]">
+          <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
             Influencer marketing that just flows
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/75">

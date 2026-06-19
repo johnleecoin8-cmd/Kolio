@@ -22,58 +22,60 @@ export default function PerformanceTabs() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-violet-bg py-16 md:py-24">
+    <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
+          <h2 className="font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
             Check the performance, audience demographics &amp; posts of any
             creator
           </h2>
-          <p className="mx-auto mt-6 max-w-[680px] text-body-md text-foreground/75">
+          <p className="mx-auto mt-6 max-w-[680px] text-body-md text-violet-dark/80">
             Forget working in the dark. Instead, see what's happening
             behind-the-profile and make smart, confident decisions about your
             influencer partnerships.
           </p>
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-12 grid grid-cols-1 items-center gap-8 md:mt-16 md:grid-cols-[minmax(0,360px)_1fr] md:gap-12">
+          <div className="flex flex-col gap-4 rounded-xl bg-violet-bg p-6 md:p-8">
+            {TABS.map((t, i) => {
+              const isActive = active === i;
+              return (
+                <button
+                  key={t.title}
+                  onClick={() => setActive(i)}
+                  className="text-left"
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`inline-block h-2.5 w-2.5 rounded-full ${
+                        isActive ? 'bg-violet' : 'bg-transparent'
+                      }`}
+                    />
+                    <span
+                      className={`text-body font-semibold ${
+                        isActive ? 'text-violet-dark' : 'text-violet-dark/55'
+                      }`}
+                    >
+                      {t.title}
+                    </span>
+                  </div>
+                  {isActive && (
+                    <p className="mt-3 text-body-sm text-violet-dark/80">
+                      {t.copy}
+                    </p>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
           <img
             src={TABS[active].img}
             alt={TABS[active].title}
             loading="lazy"
-            className="mx-auto w-full max-w-[1136px] rounded-xl shadow-nav"
+            className="w-full rounded-xl shadow-nav"
           />
-        </div>
-
-        <div className="mx-auto mt-8 grid max-w-[760px] grid-cols-1 gap-4 sm:grid-cols-2">
-          {TABS.map((t, i) => {
-            const isActive = active === i;
-            return (
-              <button
-                key={t.title}
-                onClick={() => setActive(i)}
-                className={`rounded-lg border p-5 text-left transition ${
-                  isActive
-                    ? 'border-violet bg-white shadow-nav'
-                    : 'border-transparent bg-white/40 hover:bg-white/70'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <span
-                    className={`inline-block h-2.5 w-2.5 rounded-full ${
-                      isActive ? 'bg-violet' : 'bg-transparent'
-                    }`}
-                  />
-                  <span className="text-body font-semibold text-foreground">
-                    {t.title}
-                  </span>
-                </div>
-                {isActive && (
-                  <p className="mt-3 text-body-sm text-foreground/75">{t.copy}</p>
-                )}
-              </button>
-            );
-          })}
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -89,7 +91,7 @@ export default function PerformanceTabs() {
             </ButtonA>
           </div>
         </div>
-        <p className="mt-4 text-center text-body-sm text-foreground/60">
+        <p className="mt-4 text-center text-body-sm text-violet-dark/60">
           14-day free trial・No credit card required
         </p>
       </Container>

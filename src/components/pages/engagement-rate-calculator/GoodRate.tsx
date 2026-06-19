@@ -1,16 +1,19 @@
+import { cn } from '@/lib/cn';
 import Container from '@/components/ui/Container';
 
 const COLS = ['1k-5k', '5k-10k', '10k-50k', '50k-100k', '100k-500k', '500k-1M', '1M+'];
 
-const ROWS: { label: string; tone: string; cells: string[] }[] = [
+type Row = { label: string; tone: string; highlight?: boolean; cells: string[] };
+
+const ROWS: Row[] = [
   {
     label: 'High',
-    tone: 'bg-lime/40',
+    tone: 'bg-positive/10',
     cells: ['> 6.16%', '> 2.09%', '> 1.27%', '> 0.91%', '> 0.93%', '> 1.00%', '> 1.08%'],
   },
   {
     label: 'Above average',
-    tone: 'bg-lime/20',
+    tone: 'bg-positive/5',
     cells: [
       '3.85 - 6.16%',
       '1.13 - 2.09%',
@@ -23,7 +26,8 @@ const ROWS: { label: string; tone: string; cells: string[] }[] = [
   },
   {
     label: 'Average',
-    tone: 'bg-background-soft',
+    tone: 'bg-purple-light',
+    highlight: true,
     cells: [
       '3.16 - 3.85%',
       '0.88 - 1.13%',
@@ -36,7 +40,7 @@ const ROWS: { label: string; tone: string; cells: string[] }[] = [
   },
   {
     label: 'Below Average',
-    tone: 'bg-orange/30',
+    tone: 'bg-orange-light',
     cells: [
       '1.85 - 3.16%',
       '0.46 - 0.88%',
@@ -49,7 +53,7 @@ const ROWS: { label: string; tone: string; cells: string[] }[] = [
   },
   {
     label: 'Low',
-    tone: 'bg-coral/30',
+    tone: 'bg-orange-bg',
     cells: ['< 1.85%', '< 0.46%', '< 0.24%', '< 0.15%', '< 0.16%', '< 0.19%', '< 0.22%'],
   },
 ];
@@ -60,7 +64,7 @@ export default function GoodRate() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="flex w-full flex-col items-center gap-8">
-          <h2 className="mb-4 w-full break-words text-center font-display text-5xl font-bold leading-tight text-foreground lg:text-7xl">
+          <h2 className="mb-4 w-full break-words text-center font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
             What is a good Instagram influencer engagement rate?
           </h2>
           <p className="w-full break-words text-center text-lg font-normal leading-relaxed text-foreground">
@@ -81,16 +85,13 @@ export default function GoodRate() {
               put together some benchmarks.
             </p>
 
-            <div className="overflow-x-auto rounded-lg border border-black/5">
-              <table className="w-full min-w-[720px] border-collapse text-center text-body-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[720px] border-separate border-spacing-y-2 text-center text-body-sm">
                 <thead>
                   <tr>
-                    <th className="border-b border-black/5 bg-white p-3 text-left font-semibold text-foreground" />
+                    <th className="p-3 text-left font-semibold text-foreground" />
                     {COLS.map((c) => (
-                      <th
-                        key={c}
-                        className="border-b border-l border-black/5 bg-white p-3 font-semibold text-foreground"
-                      >
+                      <th key={c} className="px-3 pb-2 font-semibold text-foreground">
                         {c}
                       </th>
                     ))}
@@ -98,14 +99,24 @@ export default function GoodRate() {
                 </thead>
                 <tbody>
                   {ROWS.map((r) => (
-                    <tr key={r.label}>
-                      <td className="border-b border-black/5 bg-white p-3 text-left font-semibold text-foreground">
+                    <tr key={r.label} className={r.tone}>
+                      <td
+                        className={cn(
+                          'rounded-l-lg p-4 text-left font-semibold text-foreground',
+                          r.highlight && 'border-y border-l border-purple',
+                        )}
+                      >
                         {r.label}
                       </td>
                       {r.cells.map((cell, i) => (
                         <td
                           key={i}
-                          className={`border-b border-l border-black/5 p-3 text-foreground ${r.tone}`}
+                          className={cn(
+                            'p-4 text-foreground',
+                            i === r.cells.length - 1 && 'rounded-r-lg',
+                            r.highlight && 'border-y border-purple',
+                            r.highlight && i === r.cells.length - 1 && 'border-r',
+                          )}
                         >
                           {cell}
                         </td>
@@ -115,9 +126,16 @@ export default function GoodRate() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-3 text-center text-body-sm text-foreground/50">
-              Data collected from modash.io. November, 2025
-            </p>
+            <div className="mt-4 flex items-center justify-between">
+              <span className="font-display text-lg leading-none text-ink">modash</span>
+              <p className="text-body-sm text-foreground/50">
+                Data collected from{' '}
+                <a href="https://www.modash.io" className="underline">
+                  modash.io
+                </a>
+                . November, 2025
+              </p>
+            </div>
           </div>
 
           <a

@@ -58,16 +58,18 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background py-8">
       <Container>
-        <p className="mb-2 text-center text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-          FAQ
-        </p>
-        <h2 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.5rem]">
-          Frequently asked questions
-        </h2>
+        <div className="rounded-xl bg-background-soft px-6 py-16 md:px-16 md:py-24">
+          <div className="mx-auto max-w-[820px]">
+            <p className="mb-2 text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+              FAQ
+            </p>
+            <h2 className="mb-8 font-display text-4xl leading-[1.05] text-foreground md:text-6xl">
+              Frequently asked questions
+            </h2>
 
-        <div className="mx-auto max-w-[820px] divide-y divide-black/10">
+            <div className="divide-y divide-black/10">
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -79,8 +81,8 @@ export default function Faq() {
                   <span className="text-body-md font-semibold text-foreground">
                     {f.q}
                   </span>
-                  <span className="flex shrink-0 items-center justify-center rounded-lg p-1.5 text-foreground transition-colors">
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center text-foreground transition-colors">
+                    {isOpen ? <Minus size={20} strokeWidth={1.5} /> : <Plus size={20} strokeWidth={1.5} />}
                   </span>
                 </button>
                 {isOpen && (
@@ -92,6 +94,8 @@ export default function Faq() {
               </div>
             );
           })}
+            </div>
+          </div>
         </div>
       </Container>
     </section>

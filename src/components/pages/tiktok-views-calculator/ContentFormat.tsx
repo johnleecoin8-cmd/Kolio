@@ -12,7 +12,7 @@ export default function ContentFormat() {
   return (
     <section className="bg-background pb-16 md:pb-24">
       <Container>
-        <h2 className="font-display text-[2.25rem] uppercase leading-[1.05] text-foreground md:text-[3.5rem]">
+        <h2 className="max-w-[22ch] font-display text-[2.5rem] uppercase leading-[1.0] text-foreground md:text-[4.25rem]">
           Check average views by content format
         </h2>
 

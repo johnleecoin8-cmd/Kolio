@@ -18,7 +18,7 @@ export default function Hero() {
             <span className="text-body font-semibold text-foreground">Database</span>
           </div>
 
-          <h1 className="font-display uppercase leading-[0.95] text-foreground text-[2.75rem] sm:text-[3.75rem] md:text-[4.75rem] lg:text-[5.25rem] max-w-[14ch]">
+          <h1 className="max-w-[16ch] font-display uppercase leading-[0.9] text-foreground text-[3rem] sm:text-[4.5rem] md:text-[5.75rem] lg:text-[6.5rem]">
             YouTube Influencer Database With 13M+ Profiles
           </h1>
 

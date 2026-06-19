@@ -1,8 +1,8 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-import { CheckCircle } from 'lucide-react';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+const CHECK = `${CDN}/682de021530893fd2b4bcae7_Check%20Circle.png`;
 
 const PERFORMANCE = [
   'Average views',
@@ -13,19 +13,12 @@ const PERFORMANCE = [
   'Fake followers',
 ];
 
-const AUDIENCE = [
-  'Countries',
-  'Cities',
-  'Gender',
-  'Language',
-  'Fake followers',
-  'Interests',
-];
+const AUDIENCE = ['Countries', 'Cities', 'Gender', 'Language'];
 
 /** "The data you need, without switching tabs" — product screenshot left, two checklist columns right. */
 export default function DataYouNeed() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-background pt-20 pb-10 md:pt-40 md:pb-16">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           {/* Product screenshot */}
@@ -42,7 +35,7 @@ export default function DataYouNeed() {
 
           {/* Copy + checklists */}
           <div>
-            <h2 className="font-display text-h3 leading-tight text-foreground">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               The data you need, without switching tabs
             </h2>
 
@@ -78,9 +71,13 @@ function Column({ title, items }: { title: string; items: string[] }) {
             key={item}
             className="flex items-center gap-2.5 text-body text-foreground/80"
           >
-            <CheckCircle
-              className="h-[18px] w-[18px] shrink-0 text-foreground"
-              strokeWidth={2.5}
+            <img
+              src={CHECK}
+              alt=""
+              width={20}
+              height={20}
+              className="h-5 w-5 shrink-0"
+              loading="lazy"
             />
             {item}
           </li>

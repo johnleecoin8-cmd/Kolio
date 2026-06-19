@@ -10,7 +10,14 @@ export default function Faq() {
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="rounded-xl bg-background-soft p-6 md:p-12">
-          <div className="divide-y divide-black/10">
+          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+            FAQ
+          </p>
+          <h2 className="mt-3 font-display text-[2.25rem] uppercase leading-[1.02] text-foreground sm:text-[3rem] md:text-[3.25rem]">
+            Frequently asked questions
+          </h2>
+
+          <div className="mt-8 divide-y divide-black/10">
             {FAQS.map((f, i) => {
               const isOpen = open === i;
               return (
@@ -22,8 +29,8 @@ export default function Faq() {
                     <span className="text-body-md font-semibold text-foreground">
                       {f.q}
                     </span>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-100 text-foreground">
-                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                    <span className="shrink-0 text-foreground">
+                      {isOpen ? <Minus size={24} /> : <Plus size={24} />}
                     </span>
                   </button>
                   {isOpen && (
