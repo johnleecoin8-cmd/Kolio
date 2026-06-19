@@ -2,17 +2,11 @@ import { useState, ReactNode } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const FORM =
-  'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
+const FORM = '/demo-confirmation';
 
 function Link({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="font-semibold text-foreground underline"
-    >
+    <a href={href} className="font-semibold text-foreground underline">
       {children}
     </a>
   );
@@ -23,53 +17,51 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: 'Can I test the API?',
     a: (
       <>
-        Yes! <Link href={FORM}>Book a call</Link> with our team and we can get
-        you set up with testing credits. You can also learn more by{' '}
-        <Link href="https://docs.modash.io/products/discovery_api/openapi_doc/discovery/section/testing-the-api">
-          reading our documentation on testing
-        </Link>
-        .
+        Yes! <Link href={FORM}>Book a demo</Link> with our team and we&apos;ll
+        get you set up with testing credits so you can pull live KOL data before
+        you commit. You can also{' '}
+        <Link href="/demo-confirmation">read the API docs on testing</Link>.
       </>
     ),
   },
   {
     q: "What is the Raw API's primary purpose?",
-    a: 'The Raw API is designed to provide live, unfiltered data directly from the social channels. Its main use cases are for real-time monitoring, data enrichment, and tracking unfiltered content, such as recent posts, follower lists, hashtags, comments, comment replies etc.',
+    a: 'The Kolio Raw API delivers live, unfiltered data straight from crypto KOL channels. Its main use cases are real-time campaign monitoring, proof-based KOL vetting, enrichment, and web3 attribution — tracking posts, follower lists, cashtags, comments, and replies the moment they happen.',
+  },
+  {
+    q: 'Which channels does the Raw API cover?',
+    a: 'Kolio covers the channels where crypto KOLs actually operate: X (Twitter), YouTube, TikTok, and Telegram. You can query profiles, reach, content, and engagement across all four from a single API.',
   },
   {
     q: 'Is the data fetched in real-time?',
-    a: 'Yes! Our Raw API data is fetched on-demand live and unfiltered.',
+    a: 'Yes! Kolio Raw API data is fetched on-demand, live and unfiltered — so reach and engagement reflect what a KOL looks like right now, not a cached snapshot.',
   },
   {
-    q: 'Can I also fetch thumbnails, images, and videos with Raw API?',
-    a: 'Yes! Raw API can retrieve asset URLs for recent content including images, videos, etc.',
+    q: 'How do you handle payments and attribution for campaigns?',
+    a: 'Kolio pairs the data layer with on-chain payments and escrow, plus attribution that ties a KOL’s posts back to wallet-level conversions. The Raw API surfaces the live signals — paid-partnership flags, cashtags, and engagement — that feed those attribution models.',
   },
   {
     q: 'How does the pricing work?',
     a: (
       <>
-        The pricing for Discovery API starts at $16,200 per year (3000 credits
-        per month), with an annual commitment. The Raw API pricing starts at
-        $10,000 per year, which gives you 40,000 requests per month.{' '}
-        <Link href="https://modash.io/influencer-marketing-api/pricing">
-          Check the pricing page for details
+        Kolio Raw API pricing is a credit-based annual plan starting at $10,000
+        per year, which gives you 40,000 requests per month across all channels.{' '}
+        <Link href="/demo-confirmation">
+          Book a demo for pricing details
         </Link>
         .
       </>
     ),
   },
   {
-    q: 'How does the credit work?',
+    q: 'How do credits work?',
     a: (
       <>
-        The API operates on a monthly credit-based system. Different endpoints
-        consume credits differently. For example, a search request costs a small
-        number of credits for each result it returns (e.g., 0.01 credits per
-        influencer found).{' '}
-        <Link href="https://modash.io/influencer-marketing-api/pricing">
-          Check the pricing page for details
-        </Link>
-        .
+        The API runs on a monthly credit-based system, and different endpoints
+        consume credits differently. A discovery search, for example, costs a
+        small number of credits per KOL returned (e.g. 0.01 credits per KOL
+        found).{' '}
+        <Link href="/demo-confirmation">Book a demo for pricing details</Link>.
       </>
     ),
   },

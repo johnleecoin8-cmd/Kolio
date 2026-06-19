@@ -2,15 +2,15 @@ import { Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const ITEMS = [
-  'Paying 50+ creators monthly',
-  'Working with international creators',
-  'Active in multiple countries',
-  'Need proper tax compliance',
-  'Running affiliate programs',
-  'Want a simple tech stack',
+  'Paying KOLs across multiple chains',
+  'Running global crypto campaigns',
+  'Need escrow before you commit budget',
+  'Want stablecoin or fiat payouts',
+  'Running referral & affiliate programs',
+  'Need an on-chain audit trail',
 ];
 
-/** Is Modash Payments right for you — soft panel with check pills. */
+/** Is Kolio Payments right for you — soft panel with check pills. */
 export default function RightForYou() {
   return (
     <section className="bg-background py-12 md:py-16">
@@ -18,12 +18,12 @@ export default function RightForYou() {
         <div className="rounded-xl bg-background-soft px-6 py-14 md:px-16 md:py-20">
           <div className="mx-auto max-w-[760px] text-center">
             <h2 className="font-display text-h4 text-ink md:text-h3">
-              Is Modash Payments right for you?
+              Is Kolio Payments right for you?
             </h2>
             <p className="mt-4 text-body-md text-foreground/70">
-              Perfect if you're paying multiple creators regularly and need to
-              consolidate payment tools, automate invoicing, and handle
-              international compliance without the risk of errors or delays.
+              Perfect if you run crypto KOL campaigns at scale and need to escrow
+              budget, pay out across chains, and keep every transaction verifiable
+              on-chain — without manual transfers or trust gaps.
             </p>
           </div>
 

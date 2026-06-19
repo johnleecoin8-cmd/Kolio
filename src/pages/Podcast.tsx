@@ -6,7 +6,7 @@ import BeOurGuest from '@/components/pages/podcast/BeOurGuest';
 import HowWePromote from '@/components/pages/podcast/HowWePromote';
 import FinalCta from '@/components/pages/podcast/FinalCta';
 
-/** modash.io/podcast — Creator Partnerships Podcast. 1:1 clone, top-to-bottom. */
+/** Kolio /podcast — The Web3 KOL Marketing Podcast. */
 export default function Podcast() {
   return (
     <main>

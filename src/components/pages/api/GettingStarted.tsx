@@ -1,5 +1,5 @@
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
 const STEPS = [
   { num: '01', label: 'Book a call', bg: 'bg-sand', arrow: true },
@@ -39,12 +39,9 @@ export default function GettingStarted() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <ButtonA
-            href="https://form.jotform.com/modash/intro-modash-api"
-            variant="primary"
-          >
+          <ButtonLink to="/demo-confirmation" variant="primary">
             Request a demo
-          </ButtonA>
+          </ButtonLink>
         </div>
       </Container>
     </section>

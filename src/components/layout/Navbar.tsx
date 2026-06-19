@@ -1,10 +1,16 @@
-// Rebuilt 1:1 from modash.io (_capture/pages/home). Floating white pill nav.
+// Kolio floating white pill nav (re-skinned from the modash structural clone).
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
-const LOGO =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6839797ca1a594bbe217a8b9_img_hero_logo_modash.png';
+/** Kolio wordmark — red→coral gradient text logo. */
+function Wordmark({ className = '' }: { className?: string }) {
+  return (
+    <span className={`text-gradient-brand font-display text-2xl leading-none tracking-tight ${className}`}>
+      Kolio
+    </span>
+  );
+}
 
 type Item = { label: string; to: string; desc?: string };
 type Group = { heading?: string; items: Item[] };
@@ -33,7 +39,7 @@ const MENUS: Menu[] = [
         heading: 'More',
         items: [
           { label: 'Product tour', to: '/product-tour' },
-          { label: 'Switch to Modash', to: '/switch-to-modash' },
+          { label: 'Why web3 KOLs', to: '/features/influencer-vetting' },
           { label: 'Customers', to: '/customers' },
         ],
       },
@@ -148,8 +154,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 px-4 pt-4">
       <div className="mx-auto flex h-14 max-w-container items-center justify-between rounded-lg border border-black/10 bg-white px-3 shadow-nav sm:px-4">
         {/* Logo */}
-        <Link to="/" className="flex shrink-0 items-center">
-          <img src={LOGO} alt="Modash" width={93} className="h-5 w-auto" />
+        <Link to="/" className="flex shrink-0 items-center" aria-label="Kolio home">
+          <Wordmark />
         </Link>
 
         {/* Desktop nav */}
@@ -168,19 +174,19 @@ export default function Navbar() {
         {/* Right CTAs */}
         <div className="hidden items-center gap-2 lg:flex">
           <a
-            href="https://www.modash.io/book-demo"
+            href="/demo-confirmation"
             className="h-9 rounded-sm border border-gray-300 bg-white px-4 text-body-sm font-semibold leading-[2.25rem] text-gray-700 shadow-btn transition hover:bg-gray-50"
           >
             Get a demo
           </a>
           <a
-            href="https://marketer.modash.io/discovery"
+            href="/demo-confirmation"
             className="h-9 rounded-sm px-3 text-body-sm font-semibold leading-[2.25rem] text-gray-600 transition hover:bg-gray-50"
           >
             Log in
           </a>
           <a
-            href="https://marketer.modash.io/register/marketer"
+            href="/demo-confirmation"
             className="h-9 rounded-sm bg-ink px-4 text-body-sm font-semibold leading-[2.25rem] text-white shadow-btn transition hover:opacity-90"
           >
             Try for free
@@ -230,19 +236,19 @@ export default function Navbar() {
             </Link>
             <div className="mt-3 flex flex-col gap-2">
               <a
-                href="https://marketer.modash.io/register/marketer"
+                href="/demo-confirmation"
                 className="flex h-11 items-center justify-center rounded-sm bg-ink font-semibold text-white"
               >
                 Try for free
               </a>
               <a
-                href="https://www.modash.io/book-demo"
+                href="/demo-confirmation"
                 className="flex h-11 items-center justify-center rounded-sm border border-gray-300 bg-white font-semibold text-gray-700"
               >
                 Get a demo
               </a>
               <a
-                href="https://marketer.modash.io/discovery"
+                href="/demo-confirmation"
                 className="flex h-11 items-center justify-center rounded-sm font-semibold text-gray-600"
               >
                 Log in

@@ -1,7 +1,7 @@
 import Container from '@/components/ui/Container';
 import PaymentsDashboard from './PaymentsDashboard';
 
-/** See it in action — interactive Modash Payments product demo mockup. */
+/** See it in action — interactive Kolio Payments product demo mockup. */
 export default function SeeItInAction() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -11,9 +11,9 @@ export default function SeeItInAction() {
             See it in action
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            Walk through this interactive demo to see how Modash Payments handles
-            global payouts, automatic invoicing, and tax compliance — so you can
-            pay every creator from one place.
+            Walk through this interactive demo to see how Kolio Payments handles
+            escrow, multi-chain payouts, and on-chain settlement — so you can pay
+            every KOL from one place.
           </p>
         </div>
 

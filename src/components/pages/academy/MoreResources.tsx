@@ -1,59 +1,60 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719';
-
 const CARDS = [
   {
-    tag: 'Recruitment',
+    tag: 'Sourcing',
     tagClass: 'bg-orange-light text-orange-dark',
     read: '11 mins read',
-    img: `${CDN}/6a21479c04d6b0310d8f458d_69788444f5f8bf421ee31b33_Risk%20in%20influencer%20marketing.avif`,
-    title: "How to Find Your Competitors' Affiliates (And Recruit Them for Your Program)",
-    body: "Competitor affiliates already convert for brands like yours. Here's how to find them, using search, social, affiliate networks, and tools like Modash, and how to approach them the right way.",
+    // Brand-neutral gradient tile (replaces modash-branded blog screenshot).
+    cover: 'from-brand to-brand-coral',
+    coverLabel: 'Competitor KOLs',
+    title: "How to Find the KOLs Already Shilling Your Competitors (And Win Them Over)",
+    body: "The KOLs already driving holders to projects like yours are the fastest path to traction. Here's how to surface them with Kolio's proof-based search, then approach them the right way, without overpaying.",
     date: 'June 14, 2026',
-    href: 'https://www.modash.io/blog/how-to-find-competitors-affiliates',
+    href: '/demo-confirmation',
   },
   {
-    tag: 'Programs',
+    tag: 'Campaigns',
     tagClass: 'bg-pink text-ink',
     read: '4 mins read',
-    img: `${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`,
-    title: '[Survey] Are Creators Really Over Gifting?',
-    body: 'Marketers said creators aren’t open to gifting collabs. But is that true? We asked 25 creators to weigh in on gifting: the good, the bad, and the ugly.',
+    cover: 'from-brand-coral to-pink',
+    coverLabel: 'KOL Survey 2026',
+    title: '[Survey] What Crypto KOLs Really Think About Token-Only Deals',
+    body: 'Brands assume KOLs won’t touch token-only collabs. Is that true? We asked 25 active crypto KOLs to weigh in on payment terms: cash, tokens, escrow, and what actually gets a yes.',
     date: 'June 12, 2026',
-    href: 'https://www.modash.io/blog/creator-gifting-survey',
+    href: '/demo-confirmation',
   },
   {
-    tag: 'Relationships',
+    tag: 'Attribution',
     tagClass: 'bg-pink-dark text-white',
     read: '14 mins read',
-    img: `${CDN}/69c56fc7fd146c17d6a768e6_68efab9808d0e9e998a3d4ba_micro%20influencer%20examples.avif`,
-    title: 'Affiliate Onboarding: How to Set Up New Affiliates So They Actually Start Posting',
-    body: '',
+    cover: 'from-purple to-brand',
+    coverLabel: 'On-Chain ROI',
+    title: 'On-Chain Attribution: How to Prove a KOL Campaign Actually Drove Volume',
+    body: 'Impressions don’t pay the bills. Connect KOL posts to wallets, swaps, and sign-ups so you can see which creators moved real on-chain activity, and double down on the ones that did.',
     date: 'June 4, 2026',
-    href: 'https://www.modash.io/blog/affiliate-onboarding',
+    href: '/demo-confirmation',
   },
 ];
 
-/** "More influencer marketing resources" — 3 blog cards. */
+/** "More web3 KOL marketing resources" — 3 blog cards with brand-neutral gradient covers. */
 export default function MoreResources() {
   return (
     <section className="bg-background py-12 md:py-20">
       <Container>
         <h2 className="mb-10 text-center font-display text-[1.75rem] font-normal leading-tight text-violet-dark md:mb-14 md:text-h3">
-          More influencer marketing resources
+          More web3 KOL marketing resources
         </h2>
 
         <div className="grid gap-8 md:grid-cols-3">
           {CARDS.map((c) => (
             <a key={c.title} href={c.href} className="group flex flex-col no-underline">
-              <div className="overflow-hidden rounded-lg">
-                <img
-                  src={c.img}
-                  alt=""
-                  loading="lazy"
-                  className="aspect-[16/10] w-full object-cover transition group-hover:scale-[1.02]"
-                />
+              <div
+                className={`flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br ${c.cover} transition group-hover:scale-[1.02]`}
+              >
+                <span className="px-6 text-center font-display text-[1.5rem] font-bold leading-tight text-white">
+                  {c.coverLabel}
+                </span>
               </div>
               <div className="mt-4 flex items-center gap-3">
                 <span className={`rounded-sm px-2 py-1 text-body-sm font-semibold ${c.tagClass}`}>

@@ -5,15 +5,15 @@ const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 const CHECK = `${CDN}/682de021530893fd2b4bcae7_Check%20Circle.png`;
 
 const PERFORMANCE = [
-  'Average views',
-  'Average comments',
-  'Average shares',
-  'Paid vs. organic',
-  'Follower growth',
-  'Fake followers',
+  'Average views & impressions',
+  'Engagement rate',
+  'Paid vs. organic reach',
+  'Follower growth trend',
+  'Bot & fake follower share',
+  'Past campaign attribution',
 ];
 
-const AUDIENCE = ['Countries', 'Cities', 'Gender', 'Language'];
+const AUDIENCE = ['Countries', 'Languages', 'Crypto niche', 'Wallet-active share'];
 
 /** "The data you need, without switching tabs" — product screenshot left, two checklist columns right. */
 export default function DataYouNeed() {
@@ -27,7 +27,7 @@ export default function DataYouNeed() {
               src={`${CDN}/68407cdb23cf3d289f138917_img_analytics_01.avif`}
               srcSet={`${CDN}/68407cdb23cf3d289f138917_img_analytics_01-p-500.avif 500w, ${CDN}/68407cdb23cf3d289f138917_img_analytics_01.avif 1120w`}
               sizes="(max-width: 767px) 100vw, 560px"
-              alt="Influencer profile overview with audience and performance data"
+              alt="Kolio KOL profile with audience quality and campaign performance data"
               loading="lazy"
               className="w-full"
             />
@@ -36,7 +36,7 @@ export default function DataYouNeed() {
           {/* Copy + checklists */}
           <div>
             <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-              The data you need, without switching tabs
+              Every signal that proves a KOL is real
             </h2>
 
             <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-6">
@@ -45,11 +45,8 @@ export default function DataYouNeed() {
             </div>
 
             <div className="mt-8">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
-                variant="primary"
-              >
-                Try for Free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Start vetting free
               </ButtonA>
             </div>
           </div>

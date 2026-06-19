@@ -2,19 +2,19 @@ import { X, Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const BAD = [
-  '3+ payment tools',
-  '"When will I be paid?" emails',
-  'Chasing finance',
-  'Compliance uncertainty',
-  'Back-and-forth emails to get invoices right',
+  'Manual transfers across 5 chains',
+  '"Did the payment land?" DMs',
+  'Budget paid before delivery',
+  'No escrow, no recourse',
+  'Tx hashes pasted into a spreadsheet',
 ];
 
 const GOOD = [
-  'Single payment system',
-  'Hands-off invoicing',
-  'Happy finance team',
-  'Full tax compliance handled',
-  'Creator self-service dashboard',
+  'One funded campaign wallet',
+  'Escrow released on verified delivery',
+  'Stablecoin or fiat payouts',
+  'On-chain audit trail by default',
+  'KOL self-service payout dashboard',
 ];
 
 function Pill({
@@ -36,18 +36,18 @@ function Pill({
   );
 }
 
-/** Pay one invoice — two-column comparison (gray "100+" vs purple "1 invoice"). */
+/** Escrow vs manual — two-column comparison (gray "Manual" vs purple "Kolio escrow"). */
 export default function Comparison() {
   return (
     <section className="bg-background pb-12 md:pb-16">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h4 text-ink md:text-h3">
-            Pay one invoice, instead of hundreds
+            Fund one campaign, not a hundred transfers
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            Focus your time on building partnerships. We'll handle the payment
-            logistics.
+            Spend your time finding the right KOLs. Kolio handles escrow, payout
+            rails, and the on-chain paper trail.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function Comparison() {
           {/* 100+ invoices — gray */}
           <div className="rounded-xl bg-background-soft p-8 md:p-10">
             <h3 className="font-display text-[2rem] uppercase leading-none text-ink md:text-[2.5rem]">
-              100+ invoices
+              Manual payouts
             </h3>
             <div className="mt-8 flex flex-wrap gap-3">
               {BAD.map((b) => (
@@ -67,7 +67,7 @@ export default function Comparison() {
           {/* 1 invoice — purple */}
           <div className="rounded-xl bg-purple p-8 md:p-10">
             <h3 className="font-display text-[2rem] uppercase leading-none text-ink md:text-[2.5rem]">
-              1 invoice
+              Kolio escrow
             </h3>
             <div className="mt-8 flex flex-wrap gap-3">
               {GOOD.map((g) => (

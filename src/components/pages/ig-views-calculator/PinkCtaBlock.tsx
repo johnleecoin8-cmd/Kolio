@@ -13,16 +13,16 @@ type Props = {
 };
 
 /**
- * Full-width pink "message card" CTA block — large centered display heading,
+ * Full-width brand "message card" CTA block — large centered display heading,
  * body, and a dark CTA button. Used twice on the page:
- *  - "Use Modash to analyze..." (gradient fill + gray lead phrase)
- *  - "Checking average views is just the beginning" (flat pink, all-black)
+ *  - "Use Kolio to vet crypto KOLs..." (gradient fill + gray lead phrase)
+ *  - "Checking reach is just the start..." (flat fill, all-black)
  */
 export default function PinkCtaBlock({
   title,
   lead,
   description,
-  buttonText = 'Get a 14-day free trial',
+  buttonText = 'Book a Kolio demo',
   gradient = false,
 }: Props) {
   return (
@@ -41,7 +41,7 @@ export default function PinkCtaBlock({
             </h2>
             <p className="max-w-xl text-body-md text-ink/80">{description}</p>
             <a
-              href="https://www.modash.io/signup"
+              href="/demo-confirmation"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-ink px-6 text-body-md font-semibold text-white shadow-btn transition hover:opacity-90"
             >
               {buttonText}

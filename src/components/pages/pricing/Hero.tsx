@@ -10,11 +10,12 @@ export default function Hero() {
             Pricing &amp; Billing
           </p>
           <h1 className="font-display text-[3.25rem] uppercase leading-[0.95] text-foreground sm:text-[4.5rem] md:text-[6rem] lg:text-[6.5rem]">
-            Simple &amp; transparent
+            Priced for <span className="text-gradient-brand">proof</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/70">
-            Every plan comes with the same core capabilities and price goes up
-            based on usage.
+          <p className="mx-auto mt-5 max-w-[600px] text-body-md text-foreground/70">
+            Every plan ships with the full Kolio toolkit — proof-based KOL
+            vetting, on-chain escrow, and campaign attribution. You only pay
+            more as your crypto campaigns scale.
           </p>
         </div>
       </Container>

@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 import { CheckCircle2 } from 'lucide-react';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 type Tab = {
   key: string;
@@ -11,8 +9,9 @@ type Tab = {
   title: string;
   intro: string;
   bullets: string[];
-  image: string;
-  cta?: { label: string; href: string };
+  /** brand-neutral code/mock lines rendered in the panel */
+  mock: string[];
+  cta?: { label: string; to: string };
 };
 
 const TABS: Tab[] = [
@@ -21,14 +20,20 @@ const TABS: Tab[] = [
     label: 'API Design',
     title: 'Developer first API-design',
     intro:
-      'Modash API is built for developers to get from an idea to production-ready as quickly as possible.',
+      'The Kolio API is built for developers to get from an idea to production-ready as fast as possible.',
     bullets: [
-      'Predictable and resource-oriented endpoints and URLs based on REST principles.',
-      'Uses stateless communication and a uniform, consistent interface.',
+      'Predictable, resource-oriented endpoints and URLs based on REST principles.',
+      'Stateless communication with a uniform, consistent interface.',
       'Clean, structured JSON, making requests and responses easy to handle.',
     ],
-    image: `${CDN}/6917195f572ff24b5593e6c5_image%20350.avif`,
-    cta: { label: 'View Docs', href: 'https://docs.modash.io/' },
+    mock: [
+      'GET /v1/kol/search',
+      'GET /v1/kol/{id}/report',
+      'GET /v1/kol/{id}/audience',
+      'POST /v1/campaign/track',
+      'GET /v1/attribution/onchain',
+    ],
+    cta: { label: 'View Docs', to: '/demo-confirmation' },
   },
   {
     key: 'docs',
@@ -37,11 +42,17 @@ const TABS: Tab[] = [
     intro:
       'We offer comprehensive docs with quickstart guides, core concept explainers, and an interactive API reference.',
     bullets: [
-      'Make successful API call in under five minutes in multiple languages, including Node.js, Python, Java and more.',
-      'Test endpoints and see live responses directly within the documentation without writing any code.',
+      'Make a successful API call in under five minutes — Node.js, Python, Java, and more.',
+      'Test endpoints and see live responses directly inside the docs, no code required.',
     ],
-    image: `${CDN}/69131bcd74ec1c5a5f25293c_img_API_02.avif`,
-    cta: { label: 'View Docs', href: 'https://docs.modash.io/' },
+    mock: [
+      '$ kolio quickstart',
+      '> auth ok — sandbox key loaded',
+      '> GET /v1/kol/search ... 200',
+      '> 24 vetted KOLs returned',
+      '> try it live in the reference →',
+    ],
+    cta: { label: 'View Docs', to: '/demo-confirmation' },
   },
   {
     key: 'support',
@@ -49,10 +60,16 @@ const TABS: Tab[] = [
     title: 'Expert support and guidance',
     intro: '',
     bullets: [
-      'You’ll get a dedicated account manager eager to understand your goals and guide you every step of the way to success.',
-      'We use the Modash API ourselves to power modash.io! That means we’ve lived the challenges, built around them, and have best practices to share.',
+      'You get a dedicated account manager eager to understand your goals and guide you to success.',
+      'We run Kolio on this same API — so we have lived the challenges and have best practices to share.',
     ],
-    image: `${CDN}/6981d76134cc4acfc1befbd7_img_API_03.avif`,
+    mock: [
+      '// dedicated Slack channel',
+      '// migration & onboarding support',
+      '// 99.9% uptime SLA',
+      '// best-practice review calls',
+      '// built by the team that ships Kolio',
+    ],
   },
 ];
 
@@ -108,20 +125,22 @@ export default function DeveloperExperience() {
               </ul>
               {tab.cta && (
                 <div className="mt-8">
-                  <ButtonA href={tab.cta.href} variant="primary">
+                  <ButtonLink to={tab.cta.to} variant="primary">
                     {tab.cta.label}
-                  </ButtonA>
+                  </ButtonLink>
                 </div>
               )}
             </div>
 
             <div className="flex items-center justify-center">
-              <img
-                src={tab.image}
-                alt={tab.title}
-                loading="lazy"
-                className="w-full max-w-[520px]"
-              />
+              <div className="w-full max-w-[520px] rounded-lg bg-[#0d1424] p-6 font-mono text-[0.8125rem] leading-[1.9] text-slate-200 shadow-btn">
+                {tab.mock.map((line) => (
+                  <div key={line} className="flex gap-4">
+                    <span className="select-none text-slate-500">$</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

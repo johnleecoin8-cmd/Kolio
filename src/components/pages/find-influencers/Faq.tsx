@@ -3,66 +3,65 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'How do I find Fitness influencers in United States?',
+    q: 'How do I find DeFi KOLs on Crypto Twitter?',
     a: (
       <>
-        <p className="mb-3">You can find Fitness influencers in United States by:</p>
+        <p className="mb-3">You can find DeFi KOLs on X by:</p>
         <ul className="mb-3 list-disc space-y-1 pl-5">
           <li>
-            Simply searching Fitness-related keywords/hashtags manually on social
-            media
+            Manually searching DeFi keywords, cashtags, and protocol hashtags
+            across Crypto Twitter
           </li>
           <li>
-            Using location and niche filters in influencer search tools like
-            Modash
+            Using niche, platform, and audience-quality filters in a KOL
+            discovery tool like Kolio
           </li>
           <li>
-            Inviting influencers to reach out to you (via your website/social
-            media)
+            Inviting KOLs to apply directly to your campaign (via your site or
+            community)
           </li>
         </ul>
         <p>
-          There are 20 Fitness influencers with audiences in United States on
-          this page. For example, @sabrinacesta, @wissamnabulsii, and
-          @talithaajane. You can see a preview of their average views, engagement
-          rates, and audience locations. More data is available inside Modash too
-          (there is a free trial).
+          There are 20 DeFi KOLs reaching crypto audiences on this page. For each
+          one you can preview real reach, engagement, fake-follower share, and
+          audience breakdown. Inside Kolio you also get proof-based vetting,
+          on-chain payment and escrow, and campaign attribution (there is a free
+          trial).
         </p>
       </>
     ),
   },
   {
-    q: 'Who are the top Fitness influencers in United States?',
+    q: 'How does Kolio vet crypto KOLs?',
     a: (
       <>
         <p className="mb-3">
-          It depends on your definition of "top", but some influential Fitness
-          creators in United States include @taliyah.joelle, @nuryskmateo,
-          @tamaraaarevalo, @richard_soon, and @steven.vuu.
+          Kolio scores KOLs on proof, not vanity. We measure real reach, audience
+          quality, and fake-follower share, then surface the signal that matters
+          for web3 campaigns — not follower counts or looks.
         </p>
         <p>
-          You can find 20 Fitness influencers with audiences in United States on
-          this page. This list comes from Modash, an influencer marketing
-          platform. You can run a custom search and see more data by starting a
-          free trial.
+          This is the rigor mature web2 creator platforms built, brought to crypto
+          KOLs. Run a custom search across DeFi, NFTs, L1/L2, trading, and gaming,
+          and see full audience and authenticity data by starting a free trial.
         </p>
       </>
     ),
   },
   {
-    q: 'How can I see more detailed data about these influencers?',
+    q: 'How can I see full data and run a campaign with these KOLs?',
     a: (
       <>
         <p className="mb-3">
-          The profiles shown here are a snapshot of each creator's key metrics. To
-          access full influencer data including detailed audience demographics,
-          growth trends over time, content performance history, contact
-          information, and real-time engagement metrics, start a free trial of
-          Modash.
+          The profiles shown here are a snapshot of each KOL's key metrics. To
+          unlock full data — audience demographics, growth trends, fake-follower
+          analysis, content history, and contact details — start a free trial of
+          Kolio.
         </p>
         <p>
-          You'll be able to filter through 350M+ creators worldwide using over 20
-          different criteria, export lists, and track campaign performance.
+          From there you can book KOLs directly, pay on-chain with escrow, and
+          track campaign attribution end to end across X, YouTube, TikTok, and
+          Telegram — the web2-grade workflow, built for web3.
         </p>
       </>
     ),

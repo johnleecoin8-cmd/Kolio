@@ -2,15 +2,15 @@ import Container from '@/components/ui/Container';
 import { CheckCircle2 } from 'lucide-react';
 
 const ITEMS = [
-  '10-100+ creators posting monthly',
-  'Multiple posts per creator',
+  '10-100+ crypto KOLs posting monthly',
+  'Multiple posts per KOL across X, YT & Telegram',
   'Running multiple campaigns at the same time',
-  'Working overtime to capture content',
-  'Juggling multiple tools for performance data',
-  'Your store is on Shopify',
+  'Working overtime to screenshot posts before they vanish',
+  'Juggling multiple tools for reach and on-chain data',
+  'You need verifiable proof of what each KOL delivered',
 ];
 
-/** "Is Modash Track right for you?" qualification card. */
+/** "Is Kolio Track right for you?" qualification card. */
 export default function RightForYou() {
   return (
     <section className="bg-background py-8 md:py-12">
@@ -18,12 +18,12 @@ export default function RightForYou() {
         <div className="rounded-xl bg-background-soft p-8 md:p-14">
           <div className="mx-auto max-w-[680px] text-center">
             <h2 className="text-[1.5rem] font-bold leading-[1.15] text-foreground md:text-[1.875rem]">
-              Is Modash Track right for you?
+              Is Kolio Track right for you?
             </h2>
-            <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">
-              Perfect if you&apos;re running multiple campaigns and need to see all
-              your performance data in one place without spending hours manually
-              tracking content and managing screenshots.
+            <p className="mx-auto mt-4 max-w-[580px] text-body-md text-foreground/70">
+              Perfect if you&apos;re running multiple KOL campaigns and need verified
+              reach and on-chain results in one place, without spending hours chasing
+              posts and managing screenshots.
             </p>
           </div>
 

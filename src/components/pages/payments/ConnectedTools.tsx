@@ -1,31 +1,30 @@
+import { Users, Search, Inbox, LineChart } from 'lucide-react';
 import Container from '@/components/ui/Container';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const TOOLS = [
   {
-    icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
+    Icon: Users,
     title: 'Manage',
-    body: 'Keep every relationship under control and details out of your head.',
-    href: 'https://www.modash.io/manage',
+    body: 'Keep every KOL relationship, brief, and deliverable in one place instead of scattered DMs.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
+    Icon: Search,
     title: 'Discover',
-    body: "Find the right creators for your brand and know they're a fit before you reach out.",
-    href: 'https://www.modash.io/discover',
+    body: 'Find proof-vetted crypto KOLs across DeFi, NFTs, L1/L2, trading, and gaming — and know they’re real before you reach out.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/68370b6b110cbb6fa07e64a9_ic_send%20emails.avif`,
-    title: 'Inbox',
-    body: 'Reach out to more creators and build long-term relationships without drowning in emails.',
-    href: 'https://www.modash.io/inbox',
+    Icon: Inbox,
+    title: 'Outreach',
+    body: 'Reach more KOLs and build long-term partnerships without drowning in Telegram threads.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/68370b6b8dcc81bc9e714810_ic_analyze%20profiles.png`,
+    Icon: LineChart,
     title: 'Track',
-    body: 'See every post, every click, every sale, automatically.',
-    href: 'https://www.modash.io/track',
+    body: 'See every post, every click, and every on-chain conversion, attributed automatically.',
+    href: '/demo-confirmation',
   },
 ];
 
@@ -36,29 +35,22 @@ export default function ConnectedTools() {
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h4 text-ink md:text-h3">
-            Paying quickly builds trust
+            Paying on-chain builds trust
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            Modash connects global payouts to everything that comes before:
-            discovery, outreach, management, and tracking. Spend less time on admin
-            and more time on partnerships.
+            Kolio connects payouts to everything that comes before — discovery,
+            outreach, management, and attribution — so the whole campaign runs in
+            one platform.
           </p>
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {TOOLS.map(({ icon, title, body, href }) => (
+          {TOOLS.map(({ Icon, title, body, href }) => (
             <div
               key={title}
               className="flex flex-col rounded-xl bg-background-soft p-6 md:p-7"
             >
-              <img
-                src={icon}
-                alt=""
-                loading="lazy"
-                width={24}
-                height={24}
-                className="h-6 w-6 object-contain"
-              />
+              <Icon className="h-6 w-6 text-brand" strokeWidth={1.75} />
               <h3 className="mt-7 text-body font-bold text-ink">{title}</h3>
               <p className="mt-2 flex-1 text-body-sm text-foreground/70">{body}</p>
               <a

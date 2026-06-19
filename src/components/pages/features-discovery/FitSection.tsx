@@ -3,12 +3,12 @@ import Container from '@/components/ui/Container';
 import SectionHeading from './SectionHeading';
 
 const PILLS = [
-  '20+ creators per month',
-  'Entering new markets',
-  'Going from 50 to 250+ creators',
-  'Running always on campaigns',
-  'Prioritize audience fit over follower count',
-  'Launching gifting campaigns',
+  '20+ KOLs per campaign',
+  'Entering new regional markets',
+  'Scaling from 50 to 250+ KOLs',
+  'Always-on community campaigns',
+  'Audience quality over follower count',
+  'Launching a token or mainnet',
 ];
 
 /** Soft gray rounded card with centered heading and check pills. */
@@ -18,11 +18,11 @@ export default function FitSection() {
       <Container>
         <div className="rounded-xl bg-background-soft px-6 py-12 text-center md:px-12 md:py-16">
           <SectionHeading>
-            Is Modash Discover right for you?
+            Is Kolio Discover right for you?
           </SectionHeading>
           <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
-            Perfect fit if you're managing creator partnerships as a core channel and need to find
-            more creators at scale.
+            A perfect fit if KOL marketing is a core growth channel for your protocol, exchange, or
+            project and you need to find vetted crypto creators at scale.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-2.5">
             {PILLS.map((t) => (

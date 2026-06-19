@@ -22,11 +22,8 @@ export default function FeatureRow({ title, body, img, imgAlt, reverse }: Props)
             </h2>
             <p className="mt-5 max-w-[480px] text-body-md text-foreground/70">{body}</p>
             <div className="mt-8">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
-                variant="primary"
-              >
-                Try for Free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Start vetting free
               </ButtonA>
             </div>
           </div>

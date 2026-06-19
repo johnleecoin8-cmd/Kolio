@@ -19,18 +19,20 @@ export default function ArticleBody() {
           <article className="max-w-[720px]">
             {/* intro */}
             <p className="text-body leading-relaxed text-foreground/80">
-              With literally hundreds of influencer marketing platforms to choose from,
-              selecting the right one for your brand is tricky. If you’re using the
-              standard trial-and-error approach, you could end up wasting thousands of
-              dollars on a tool that doesn’t do what you need it to 🤦
+              Most influencer marketing tools were built for web2 — lifestyle creators,
+              ecommerce shipping, PayPal payouts. Run a token launch or a protocol
+              campaign through one of them and you quickly hit the wall: no real coverage
+              of crypto KOLs on X and Telegram, no on-chain settlement, and no way to
+              attribute the conversions that actually matter 🤦
             </p>
             <p className="mt-4 text-body leading-relaxed text-foreground/80">
-              To save you the task of researching them all manually, I’ve rounded up 19
-              of the best influencer marketing platforms and compared their:
+              To save you weeks of trial and error, we rounded up 19 platforms marketers
+              reach for when working with KOLs and compared them on what matters for web3:
             </p>
             <ul className="mt-4 space-y-2 pl-5 text-body leading-relaxed text-foreground/80">
               <li className="list-disc">Pricing (where available)</li>
-              <li className="list-disc">Influencer database size</li>
+              <li className="list-disc">Crypto KOL coverage and proof-based vetting</li>
+              <li className="list-disc">On-chain payments, escrow, and attribution</li>
               <li className="list-disc">Strengths and weaknesses</li>
             </ul>
             <p className="mt-4 text-body leading-relaxed text-foreground/80">

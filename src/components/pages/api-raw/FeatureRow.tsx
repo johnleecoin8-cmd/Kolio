@@ -2,8 +2,7 @@ import Container from '@/components/ui/Container';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 const CHECK = `${CDN}/682de021530893fd2b4bcae7_Check%20Circle.png`;
-const FORM =
-  'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
+const DEMO = '/demo-confirmation';
 
 type Props = {
   image: string;
@@ -56,9 +55,7 @@ export default function FeatureRow({
               ))}
             </div>
             <a
-              href={FORM}
-              target="_blank"
-              rel="noreferrer"
+              href={DEMO}
               className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
             >
               Request a demo

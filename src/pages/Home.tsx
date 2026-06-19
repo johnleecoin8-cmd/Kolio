@@ -9,7 +9,7 @@ import Resources from '@/components/pages/home/Resources';
 import Faq from '@/components/pages/home/Faq';
 import CtaStack from '@/components/pages/home/CtaStack';
 
-/** modash.io homepage — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio homepage — web3 KOL marketing platform. Sections render top-to-bottom. */
 export default function Home() {
   return (
     <main>

@@ -1,42 +1,31 @@
 import Container from '@/components/ui/Container';
 
-const AUTHOR_IMG =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/643422210a905507265001ea_laura%20garsdal%20nordvpn.avif';
-const QUOTE_MARK =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/5f1e9d168dccd9d4351fe24f_quotationmark_dark.svg';
-
-/** Big centered pull-quote with author photo on the left. */
+/** Big centered pull-quote with a styled author monogram on the left. */
 export default function PullQuote() {
   return (
     <section className="bg-background">
       <Container className="py-16 md:py-24">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
           <div className="flex justify-center">
-            <img
-              src={AUTHOR_IMG}
-              alt="Laura Garsdal, Influencer Marketing Manager at NordVPN"
-              className="h-56 w-56 rounded-full object-cover md:h-64 md:w-64"
-              loading="lazy"
-            />
+            <div className="flex h-56 w-56 items-center justify-center rounded-full bg-gradient-brand text-white md:h-64 md:w-64">
+              <span className="font-display text-h2 leading-none">LG</span>
+            </div>
           </div>
           <div>
-            <img
-              src={QUOTE_MARK}
-              alt=""
-              className="mb-6 h-8 w-8"
-              aria-hidden
-            />
+            <p className="mb-6 font-display text-h2 leading-none text-violet-dark">
+              &ldquo;
+            </p>
             <p className="font-display text-h4 leading-snug text-violet-dark">
-              Before Modash, I had to search for profiles manually. With Modash,
-              I find creators that actually match our targets &amp; our needs and
-              I do it faster!
+              Before Kolio, vetting a crypto KOL meant trusting screenshots and
+              hoping the followers were real. Now I see verified reach and
+              audience quality up front &mdash; and I move ten times faster.
             </p>
             <div className="mt-8 text-body text-foreground/75">
               <span className="font-semibold text-foreground">
                 Laura Garsdal
               </span>
               <br />
-              Influencer Marketing Manager NordVPN
+              Growth Lead, Arbiscan
             </div>
           </div>
         </div>

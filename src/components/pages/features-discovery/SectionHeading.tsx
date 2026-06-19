@@ -1,8 +1,7 @@
 import { cn } from '@/lib/cn';
 
 /**
- * Mid-page section heading (`heading-4-new` on modash.io).
- * Inter bold, normal case (NOT the uppercase Mosans display) — see ground truth.
+ * Mid-page section heading. Bold sans, normal case (NOT the uppercase display face).
  */
 export default function SectionHeading({
   children,

@@ -1,92 +1,48 @@
-import { useState } from 'react';
 import Container from '@/components/ui/Container';
 
-const OFFSITES = [
+const VALUES = [
   {
-    id: 'KvyYHv9MgQ4',
-    title: 'Modash company offsite Sesimbra - With Big Blue Adventures',
-    caption: 'In 2025, 60+ Modashians strutted into Sesimbra, Portugal.',
+    title: 'Proof over hype',
+    body: 'We don’t take metrics at face value — and we don’t expect you to either. Every claim, every campaign, every dataset gets verified. That standard is the product, and it’s the culture.',
   },
   {
-    id: 'GRnuPV22MTI',
-    title: 'Modash company offsite Split (Croatia) - With Big Blue Adventures',
-    caption: 'In 2024, 40+ Modashians descended on Split, Croatia.',
+    title: 'Remote-first, deliberate in-person',
+    body: 'We’re comfortable and productive collaborating online across time zones. But a few times a year we get together in person to build trust, go deep on strategy, and make memories as a team.',
   },
   {
-    id: 'FkWKyoiHo-0',
-    title: 'Modash company offsite (Madeira 2023)',
-    caption: 'In 2023, 20+ Modashians met up in Madeira, Portugal.',
+    title: 'Ownership, end to end',
+    body: 'Small team, big surface area. You’ll own problems from discovery to ship, talk directly to the exchanges and protocols using Kolio, and see your work in the hands of real customers within days.',
   },
 ];
 
-/** YouTube play-button overlay matching the native YT facade. */
-function PlayButton() {
-  return (
-    <span className="pointer-events-none absolute inset-0 grid place-items-center transition group-hover:scale-105">
-      <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
-        <path
-          d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"
-          fill="#f00"
-        />
-        <path d="M45 24 27 14v20" fill="#fff" />
-      </svg>
-    </span>
-  );
-}
-
-/** Our annual offsite — heading, intro copy, three YouTube videos (thumbnail facade → live embed on click). */
+/** How we work — Kolio culture and values (replaces Modash offsite video reel). */
 export default function AnnualOffsite() {
-  const [active, setActive] = useState<Record<string, boolean>>({});
-
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
-            Our annual offsite
+            How we work
           </h2>
           <p className="mx-auto mt-6 max-w-[640px] text-body-md text-foreground/70">
-            As a remote-first company, we&rsquo;re totally comfortable and
-            productive collaborating online. But once per year (at least!), we get
-            together in person. It gives us a chance to get to know each other
-            better, have fun, and create a bunch of great memories as a team.
+            Building a verification platform for crypto influence takes a
+            particular kind of team — skeptical of easy numbers, fast to
+            ship, and obsessed with getting the truth right. Here&rsquo;s what we
+            care about.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-[1136px] space-y-12 md:mt-16 md:space-y-16">
-          {OFFSITES.map(({ id, title, caption }) => (
-            <div key={id}>
-              <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-ink">
-                {active[id] ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&controls=1&autoplay=1&mute=0&start=0`}
-                    title={title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="absolute inset-0 h-full w-full border-0"
-                  />
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setActive((a) => ({ ...a, [id]: true }))}
-                    aria-label={`Play: ${title}`}
-                    className="group absolute inset-0 h-full w-full cursor-pointer"
-                  >
-                    <img
-                      src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-                      alt={title}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-                      }}
-                    />
-                    <PlayButton />
-                  </button>
-                )}
-              </div>
-              <p className="mt-4 text-center text-body text-foreground/60">
-                {caption}
+        <div className="mx-auto mt-12 grid max-w-[1136px] gap-6 md:mt-16 md:grid-cols-3 md:gap-8">
+          {VALUES.map(({ title, body }) => (
+            <div
+              key={title}
+              className="rounded-xl border border-gray-200 bg-white p-7 text-left shadow-btn"
+            >
+              <h3 className="font-display text-h4 uppercase leading-tight text-foreground">
+                {title}
+              </h3>
+              <p className="mt-4 text-body-sm leading-relaxed text-foreground/70">
+                {body}
               </p>
             </div>
           ))}

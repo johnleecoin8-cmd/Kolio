@@ -12,7 +12,7 @@ import Workflow from '@/components/pages/features-tracking/Workflow';
 import Faq from '@/components/pages/features-tracking/Faq';
 import FinalCta from '@/components/pages/features-tracking/FinalCta';
 
-/** modash.io /features/influencer-tracking — 1:1 clone. Sections top-to-bottom. */
+/** Kolio /features/kol-tracking — web3 KOL campaign tracking. Sections top-to-bottom. */
 export default function FeaturesTracking() {
   return (
     <main>

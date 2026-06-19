@@ -6,57 +6,52 @@ type Item = { q: string; a: React.ReactNode };
 
 const ITEMS: Item[] = [
   {
-    q: 'How do you get your data? How accurate is it?',
+    q: 'How do you get your KOL data? How accurate is it?',
     a: (
       <>
-        Just like Google, Modash analyzes hundreds of billions of publicly
-        available content and builds insights based on it. Our data is as
-        accurate as it gets. After auditing our data, some of the
-        fastest-growing B2C companies in the world chose Modash over
-        alternatives. Our data even powers other platforms and internal tools
-        via our API. We update it several times a month, so you can trust you're
-        getting the most recent info, too.
+        Kolio continuously analyzes publicly available content across X,
+        YouTube, TikTok, and Telegram and builds proof-based insights on top of
+        it — real reach and audience quality, not vanity metrics. We refresh the
+        data several times a month, so what you see on a crypto KOL profile is
+        current. Our goal is simple: bring the rigor of mature web2 creator
+        platforms to web3 marketing.
       </>
     ),
   },
   {
-    q: 'Do you show analytics & performance metrics for influencers & their followers?',
+    q: 'Do you show analytics & vetting metrics for KOLs and their audiences?',
     a: (
       <>
-        Yes. While analytics will vary across platforms we aim to give you a deep
-        understanding of an influencer profile, including their audience. Here
-        are just some of the metrics available in Modash: Audience demographics
-        (Age, Gender, Location by city, interests), Influencer performance
-        (Follower count, Average likes, Engagement rate, Past Paid Post
-        Performance), Vetting (Popular posts, fake followers). To see them all,
-        try Modash for free.
+        Yes. Every profile gives you a deep, verifiable view of a KOL and the
+        people who actually follow them. Metrics include audience breakdown
+        (country, language, crypto niche, sentiment, wallet-active share), KOL
+        performance (followers, average views, engagement rate, paid vs.
+        organic), and vetting signals (bot and fake-follower share, top posts).
+        Request a demo to see them all.
       </>
     ),
   },
   {
-    q: 'Do I need to be using Shopify to use Modash?',
+    q: 'How do payments to KOLs work on Kolio?',
     a: (
       <>
-        No, it's just that ecommerce brands using Shopify get the most value out
-        of Modash. Through our Shopify integration, those users get access to
-        extra features. Like sending free products to influencers, running an
-        affiliate program (including payouts), and managing Shopify promo codes.
-        The rest of our features work outside of Shopify. Finding influencers,
-        analyzing profiles, managing influencer lists, collecting influencer
-        content, and more. There are hundreds of other types of business using
-        Modash including Airbnb, NordVPN, and Ground News.
+        Kolio handles payments on-chain with escrow built in. Funds are locked
+        when a deal is agreed and released when the agreed deliverables go live,
+        so brands and KOLs both stay protected — no off-platform wire chasing.
+        You can run a single sponsored post or a full multi-KOL campaign and
+        keep every payout, milestone, and referral attribution in one place.
       </>
     ),
   },
   {
-    q: 'Can I track my campaigns with Modash?',
+    q: 'Can I attribute and track my campaigns with Kolio?',
     a: (
       <>
-        Modash will collect and track ALL of your branded content (even stories)
-        and store it. No creator signup is required. You'll also get insights
-        like who posted what type of content and who complied with ad
-        disclosures, as well as the number of discount code redemptions, link
-        clicks, and more. See how it works.
+        Kolio collects and tracks all of the branded content from a campaign and
+        ties it back to on-chain outcomes. You'll see who posted what, who
+        disclosed the partnership, and how each KOL drove link clicks,
+        sign-ups, and wallet activity — so you can measure web3 ROI, not just
+        impressions.
       </>
     ),
   },
@@ -74,7 +69,7 @@ export default function Faq() {
               FAQ
             </div>
             <h3 className="text-[2.25rem] font-bold leading-[1.1] tracking-tight text-foreground">
-              Stuff people ask before they hit "Try&nbsp;for&nbsp;Free"
+              Stuff teams ask before they request&nbsp;a&nbsp;demo
             </h3>
 
             <div className="mt-10 divide-y divide-black/10 border-t border-black/10">

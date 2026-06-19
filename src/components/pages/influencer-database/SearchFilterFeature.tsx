@@ -1,6 +1,6 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-import { Check } from 'lucide-react';
+import { Check, Search, Sliders } from 'lucide-react';
 
 function CheckDot() {
   return (
@@ -10,25 +10,25 @@ function CheckDot() {
   );
 }
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-const INFLUENCER_FILTERS = [
-  'Locations & languages',
-  'Follower range',
+const KOL_FILTERS = [
+  'Crypto niche (DeFi, NFTs, L1/L2)',
+  'Real reach & follower range',
   'Engagement rate',
-  'Bio keywords & hashtags',
-  'Fake followers',
-  'Interests',
+  'Bio keywords & cashtags',
+  'Bot & fake-follower share',
+  'Token & chain affinity',
 ];
 
 const AUDIENCE_FILTERS = [
-  'Locations (city/country)',
-  'Demographics (age/gender)',
-  'Language',
-  'Engagement rate',
-  'Hashtags used',
-  'Growth rate',
+  'Holder vs. trader mix',
+  'Audience geography',
+  'Wallet & on-chain activity',
+  'Genuine engagement rate',
+  'Sentiment & quality score',
+  'Growth velocity',
 ];
+
+const FILTER_CHIPS = ['DeFi', 'Real reach 100K+', 'Eng. 4%+', 'Bots < 10%', 'EN audience'];
 
 /** First feature — image left, headline + two-column filter checklist right. */
 export default function SearchFilterFeature() {
@@ -37,31 +37,64 @@ export default function SearchFilterFeature() {
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className="order-2 md:order-1">
-            <img
-              src={`${CDN}/682dd6038189e57dfc1b6c4f_Figure.avif`}
-              srcSet={`${CDN}/682dd6038189e57dfc1b6c4f_Figure-p-500.avif 500w, ${CDN}/682dd6038189e57dfc1b6c4f_Figure.avif 1120w`}
-              sizes="(max-width: 479px) 100vw, (max-width: 1279px) 49vw, 560px"
-              alt="Influencer search and filters"
-              loading="lazy"
-              className="w-full rounded-lg"
-            />
+            <div className="w-full rounded-lg border border-gray-200 bg-white p-5 shadow-nav">
+              <div className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2">
+                <Search className="h-4 w-4 text-foreground/40" />
+                <span className="text-body-sm text-foreground/50">
+                  Search KOLs by niche, handle, chain…
+                </span>
+                <Sliders className="ml-auto h-4 w-4 text-foreground/40" />
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {FILTER_CHIPS.map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-pill bg-pink-bg px-3 py-1 text-eyebrow font-semibold text-foreground/80"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-5 space-y-3">
+                {[
+                  { n: 'DeFi Dad', h: 'thedefidad', r: '412K' },
+                  { n: 'Layah.eth', h: 'layah_l2', r: '288K' },
+                  { n: 'TradeDesk', h: 'tradedesk', r: '534K' },
+                ].map((c) => (
+                  <div
+                    key={c.h}
+                    className="flex items-center gap-3 rounded-lg border border-gray-100 px-3 py-2.5"
+                  >
+                    <span className="h-9 w-9 rounded-full bg-gradient-brand opacity-80" />
+                    <div className="flex-1">
+                      <div className="text-body-sm font-semibold text-foreground">{c.n}</div>
+                      <div className="text-eyebrow text-foreground/50">@{c.h}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-body-sm font-semibold tabular-nums">{c.r}</div>
+                      <div className="text-eyebrow text-foreground/50">real reach</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="order-1 md:order-2">
             <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-              Search &amp; filter every creator on Earth
+              Search &amp; filter every crypto KOL that matters
             </h2>
 
             <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div className="text-body font-semibold text-foreground sm:col-span-1">
-                Influencer filters
+                KOL filters
               </div>
               <div className="hidden text-body font-semibold text-foreground sm:block">
                 Audience filters
               </div>
 
               <ul className="space-y-3">
-                {INFLUENCER_FILTERS.map((f) => (
+                {KOL_FILTERS.map((f) => (
                   <li key={f} className="flex items-center gap-2.5">
                     <CheckDot />
                     <span className="text-body-sm text-foreground/80">{f}</span>
@@ -84,11 +117,8 @@ export default function SearchFilterFeature() {
             </div>
 
             <div className="mt-8">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
-                variant="primary"
-              >
-                Try for free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Start free
               </ButtonA>
             </div>
           </div>

@@ -2,21 +2,19 @@ import { Check as CheckIcon } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-const INFLUENCER = [
-  'Locations & languages',
-  'Average views',
+const KOL = [
+  'Crypto niche (DeFi, L1/L2, NFTs, gaming)',
+  'Average views & watch-through',
   'Engagement rate',
-  'Bio keywords & hashtags',
-  'Views growth',
-  'Transcript keywords',
+  'Bio & on-chain keywords',
+  'Reach growth over time',
+  'Transcript & ticker mentions',
 ];
 
 const AUDIENCE = [
   'Locations (city/country)',
   'Demographics (age/gender)',
-  'Language',
+  'Audience quality & bot share',
 ];
 
 function Check({ children }: { children: string }) {
@@ -30,35 +28,55 @@ function Check({ children }: { children: string }) {
   );
 }
 
-/** Search & filter — soft image card left, two filter checklists + CTA right. */
+/** Search & filter — brand-neutral filter-panel mockup left, two checklists + CTA right. */
 export default function SearchFilter() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          {/* image card */}
+          {/* filter-panel mockup */}
           <div className="flex items-center justify-center rounded-xl bg-background-soft p-6 sm:p-10">
-            <img
-              src={`${CDN}/691b217240ad1f6c80594084_img_youtube_database_01.avif`}
-              alt="Search and filter YouTube influencers"
-              loading="lazy"
-              className="w-full max-w-[460px]"
-            />
+            <div className="w-full max-w-[460px] rounded-lg border border-black/10 bg-white p-5 shadow-sm">
+              <p className="text-body-sm font-semibold uppercase tracking-wide text-foreground/50">
+                Filters
+              </p>
+              <div className="mt-4 space-y-3">
+                {[
+                  { label: 'Niche', value: 'DeFi · Trading' },
+                  { label: 'Min. avg. views', value: '50,000' },
+                  { label: 'Audience country', value: 'United States' },
+                  { label: 'Audience quality', value: '≥ 85%' },
+                ].map((f) => (
+                  <div
+                    key={f.label}
+                    className="flex items-center justify-between rounded-md border border-black/10 bg-background-soft px-3 py-2.5"
+                  >
+                    <span className="text-body-sm text-foreground/60">{f.label}</span>
+                    <span className="text-body-sm font-semibold text-foreground">
+                      {f.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 rounded-md bg-gradient-brand px-4 py-3 text-center text-body-sm font-semibold text-white">
+                1,284 matching crypto KOLs
+              </div>
+            </div>
           </div>
 
           {/* copy */}
           <div>
             <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-              Search &amp; filter YouTube influencers
+              Search &amp; filter crypto YouTube KOLs
             </h2>
 
             <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div>
                 <h3 className="border-b border-black/10 pb-3 text-body-md font-semibold text-foreground">
-                  Influencer filters
+                  KOL filters
                 </h3>
                 <ul className="mt-2">
-                  {INFLUENCER.map((f) => (
+                  {KOL.map((f) => (
                     <Check key={f}>{f}</Check>
                   ))}
                 </ul>
@@ -76,8 +94,8 @@ export default function SearchFilter() {
             </div>
 
             <div className="mt-8">
-              <ButtonA href="https://marketer.modash.io/register/marketer" variant="primary">
-                Try for Free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Get started free
               </ButtonA>
             </div>
           </div>

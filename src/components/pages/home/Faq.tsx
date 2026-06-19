@@ -4,28 +4,28 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'What is Modash and how does it work?',
-    a: 'Modash is an influencer marketing platform that lets brands on Shopify manage and grow their influencer programs from one place. Find creators, manage relationships, track performance, and pay them in one connected workflow. Run paid partnerships, affiliate programs, and gifting campaigns without juggling multiple tools or spreadsheets.',
+    q: 'What is Kolio and how does it work?',
+    a: 'Kolio is the web3 influencer marketing platform. It lets crypto brands, exchanges, protocols, and projects discover, vet, and pay KOLs from one place. Find KOLs across X, YouTube, TikTok, and Telegram, vet their real audience before you spend, run campaigns with on-chain escrow, and attribute results — all in one connected workflow, without juggling DMs and spreadsheets.',
   },
   {
-    q: 'Is Modash a platform, an agency, or a marketplace?',
-    a: "Modash is a platform only. It's a software tool you use yourself to run your influencer marketing program. We're not an agency (we don't run campaigns for you), and we're not a marketplace (creators don't browse and apply to work with you). Think of Modash as your operating system for influencer marketing.",
+    q: 'Is Kolio a platform, an agency, or a marketplace?',
+    a: "Kolio is a platform. It's software you use yourself to run your crypto KOL program. We're not an agency (we don't run campaigns for you), and we're not a managed service. Think of Kolio as the operating system for web3 KOL marketing — discovery, vetting, escrow, payments, and attribution in one place.",
   },
   {
-    q: 'Can I use Modash if I’m not on Shopify?',
-    a: 'Yes, you can use all our core features: discovery, management, tracking, and payments. But we focus primarily on Shopify-connected stores, so you’ll get the most value if you’re on Shopify. Our Shopify integration unlocks powerful features, like product gifting, affiliate programs, and automatic sales tracking.',
+    q: 'How is Kolio different from a web2 influencer tool?',
+    a: 'Kolio brings the rigor of mature web2 creator platforms to crypto. That means proof-based vetting tuned for crypto audiences (real reach, bot detection, audience quality — not vanity metrics or looks), on-chain payments and escrow instead of risky wires, and attribution that ties KOL content to on-chain outcomes like sign-ups, swaps, and mints.',
   },
   {
-    q: "Will I find the creators I'm looking for?",
-    a: "Yes. Modash includes every public profile on Instagram, TikTok, and YouTube with over 1K followers. That's 350M+ creators! You can use our AI-powered search or filter by location, niche, audience demographics, and engagement metrics to find perfect matches for your brand.",
+    q: "Will I find the KOLs I'm looking for?",
+    a: 'Yes. Kolio covers crypto KOLs across X, YouTube, TikTok, and Telegram. Filter by niche — DeFi, NFTs, L1/L2, trading, gaming — plus audience quality and engagement, so you reach out only to voices that genuinely fit your token or project.',
   },
   {
-    q: 'How does Modash pricing work?',
-    a: 'We offer transparent, straightforward pricing starting at $199/month. Plans scale based on your needs (searches, emails, tracked creators, seats). Check our pricing page for full details.',
+    q: 'How does Kolio handle payments?',
+    a: 'Kolio holds your campaign budget in on-chain escrow and releases it on delivery. KOLs are paid in stablecoins with transparent, on-chain settlement worldwide — and disputes are handled before funds ever leave the contract.',
   },
   {
-    q: 'Is there a free trial?',
-    a: "Yes. We offer a 14-day free trial with no credit card required. You get full access to all features so you can test if it's the right fit for your influencer program. The trial does have some usage limits, so we recommend watching our interactive product tours first to plan your trial effectively.",
+    q: 'Can I try Kolio for free?',
+    a: 'Yes. You can explore discovery and vetting for free, with no wallet connect required, so you can see if Kolio fits your KOL program before committing budget. Plans scale with your campaigns as you grow.',
   },
 ];
 

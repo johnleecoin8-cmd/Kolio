@@ -9,28 +9,28 @@ import CtaBanner from '@/components/pages/api-raw/CtaBanner';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
-/** modash.io Raw API page — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio Raw API page — the web3 KOL data layer. Sections render top-to-bottom. */
 export default function ApiRaw() {
   return (
     <main>
       <Hero />
       <FeatureRow
         image={`${CDN}/69df61a32e66b5f012b1a7a5_img_raw%20api_01.avif`}
-        title="Real-time freshness"
-        intro="Live, unfiltered data, perfect for applications that demand immediate accuracy."
+        title="Real-time, on-chain freshness"
+        intro="Live, unfiltered KOL data, made for web3 teams that need accuracy the moment a campaign goes live."
         bullets={[
-          "Track content the instant it's posted including feed, hastags, reels, and more.",
-          'Build live-updating dashboards by pulling up-to-the-second post metadata, metrics, and URLs.',
+          "Track a KOL's posts the instant they ship — threads, videos, channel broadcasts, and more.",
+          'Build live dashboards by pulling up-to-the-second post metadata, reach, and engagement for every campaign you fund.',
         ]}
         reversed
       />
       <FeatureRow
         image={`${CDN}/69df62f318b139a23e0a78d8_img_raw%20api_02.avif`}
-        title="Granular and unfiltered"
-        intro="Get unfiltered access to all the profile data like followers, tags, and content."
+        title="Granular, proof-based profiles"
+        intro="Get unfiltered access to the data that actually matters for vetting crypto KOLs: real followers, audience quality, and content."
         bullets={[
-          'Do channel-specific creator analysis with follower list changes, growth, and more.',
-          'Retrieve granular and platform specific data fields for deep analysis, enrichment, or monitoring.',
+          'Run channel-specific KOL analysis with follower changes, growth, and audience overlap across X, YouTube, TikTok, and Telegram.',
+          'Retrieve granular, platform-specific fields for deep vetting, enrichment, and attribution — not just vanity counts.',
         ]}
       />
       <DataPoints />

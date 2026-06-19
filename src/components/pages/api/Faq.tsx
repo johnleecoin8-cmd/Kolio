@@ -8,21 +8,11 @@ const FAQS: { q: string; a: ReactNode }[] = [
     a: (
       <>
         Yes!{' '}
-        <a
-          href="https://form.jotform.com/modash/intro-modash-api"
-          className="font-semibold text-ink underline"
-        >
+        <a href="/demo-confirmation" className="font-semibold text-ink underline">
           Book a call
         </a>{' '}
-        with our team and we can get you set up with testing credits. You can also
-        learn more by{' '}
-        <a
-          href="https://docs.modash.io/products/discovery_api/openapi_doc/discovery/section/testing-the-api"
-          className="font-semibold text-ink underline"
-        >
-          reading our documentation on testing
-        </a>
-        .
+        with our team and we will set you up with sandbox credits, so you can run live
+        KOL searches before committing.
       </>
     ),
   },
@@ -30,31 +20,25 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: 'How does the pricing work?',
     a: (
       <>
-        The pricing for Discovery API starts at $16,200 per year (3000 credits per
-        month), with an annual commitment. The Raw API pricing starts at $10,000 per
-        year, which gives you 40,000 requests per month.{' '}
-        <a
-          href="https://modash.io/influencer-marketing-api/pricing"
-          className="font-semibold text-ink underline"
-        >
-          Check the pricing page for details
+        The Discovery API and the Raw API are priced separately, each on an annual
+        plan with a monthly credit allowance sized to your campaign volume. Tell us
+        your use-case and we will scope a plan that fits.{' '}
+        <a href="/demo-confirmation" className="font-semibold text-ink underline">
+          Talk to us about pricing
         </a>
         .
       </>
     ),
   },
   {
-    q: 'How does the credits work?',
+    q: 'How do the credits work?',
     a: (
       <>
-        The API operates on a monthly credit-based system. Different endpoints consume
-        credits differently. For example, a search request costs a small number of
-        credits for each result it returns (e.g., 0.01 credits per influencer found).{' '}
-        <a
-          href="https://modash.io/influencer-marketing-api/pricing"
-          className="font-semibold text-ink underline"
-        >
-          Check the pricing page for details
+        The API runs on a monthly credit-based system. Different endpoints consume
+        credits differently — for example, a search request costs a small number of
+        credits for each vetted KOL it returns.{' '}
+        <a href="/demo-confirmation" className="font-semibold text-ink underline">
+          Talk to us about pricing
         </a>
         .
       </>
@@ -65,25 +49,25 @@ const FAQS: { q: string; a: ReactNode }[] = [
     a: (
       <>
         The Discovery API provides analyzed, aggregated, and searchable data. It's
-        built for finding new creators and understanding their audience and
-        performance (e.g., engagement rate, audience demographics, fake follower
-        scores). The Raw API provides live, unfiltered data, such as their most recent
-        posts or live follower list, and is best for real-time monitoring or tracking.
+        built for finding new crypto KOLs and understanding their audience and
+        performance (engagement rate, audience demographics, audience-quality and
+        fake-follower scores). The Raw API provides live, unfiltered data — most
+        recent posts, token mentions, and on-chain attribution events — and is best
+        for real-time campaign monitoring.
       </>
     ),
   },
   {
-    q: 'Can I access the API with a platform plan?',
+    q: 'Can I access the API with a Kolio platform plan?',
     a: (
       <>
-        No, the Modash platform &amp; API are priced separately. You can find{' '}
-        <a
-          href="https://www.modash.io/pricing"
-          className="font-semibold text-ink underline"
-        >
-          platform pricing here
+        No — the Kolio platform and the API are priced separately. The platform is the
+        self-serve product for running campaigns; the API is for teams building their
+        own tooling on top of our KOL data. You can{' '}
+        <a href="/demo-confirmation" className="font-semibold text-ink underline">
+          see platform plans here
         </a>
-        , which has monthly plans available starting at $299/month.
+        .
       </>
     ),
   },

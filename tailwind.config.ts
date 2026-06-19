@@ -17,6 +17,8 @@ const config: Config = {
         ink: hsl('--ink'),
         sand: { DEFAULT: hsl('--sand'), dark: hsl('--sand-dark') },
 
+        brand: { DEFAULT: hsl('--brand'), coral: hsl('--brand-coral') },
+
         pink: {
           DEFAULT: hsl('--pink'),
           hover: hsl('--pink-hover'),
@@ -72,8 +74,8 @@ const config: Config = {
         negative: hsl('--negative'),
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Mosans', 'Inter', 'Arial', 'sans-serif'],
+        sans: ['"Pretendard Variable"', 'Pretendard', 'system-ui', 'sans-serif'],
+        display: ['"Pretendard Variable"', 'Pretendard', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // modash type scale (clamped where the site uses fluid sizing)

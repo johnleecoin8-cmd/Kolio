@@ -5,70 +5,71 @@ import { cn } from '@/lib/cn';
 type Lesson = { n: number; video: string; title: string; body: React.ReactNode };
 
 const TABS = [
-  'Influencer Marketing 101',
-  'Influencer Discovery',
-  'Influencer Campaign Monitoring',
+  'KOL Marketing 101',
+  'KOL Discovery & Vetting',
+  'On-Chain Campaign Attribution',
 ] as const;
 
 const DISCOVERY: Lesson[] = [
   {
     n: 1,
     video: 'l3VdOPkBipI',
-    title: 'Running Your First Search: Setting Up For Success With Modash',
+    title: 'Your First KOL Search: Setting Up For Success With Kolio',
     body: (
       <>
-        New to using Modash to search for influencers?&nbsp;Start here. Learn about
-        the two most important filters, and how to apply them effectively so that
-        your search isn&rsquo;t too broad, or too narrow.
+        New to using Kolio to find crypto KOLs?&nbsp;Start here. Learn the two
+        filters that matter most, niche and proof-based reach, and how to apply
+        them so your search isn&rsquo;t flooded with bots or too narrow to fill a
+        campaign.
       </>
     ),
   },
   {
     n: 2,
     video: 'dh9EmN9jLJo',
-    title: 'Introduction To Using Modash Search Filters Effectively',
+    title: 'Using Kolio Filters: Cutting Through Vanity Metrics',
     body: (
       <>
-        Modash lists 200M+ creators, which means the perfect partner for your brand
-        is&nbsp;in our database. You just need to know how to find them. Learn about
-        all of the most common filtering options, and how to apply them.
+        Follower counts lie, especially in crypto. Kolio indexes KOLs across X,
+        YouTube, TikTok, and Telegram with proof-based reach and audience-quality
+        signals. Learn how to filter for real influence instead of inflated numbers.
       </>
     ),
   },
   {
     n: 3,
     video: 'AKee3_ydUPA',
-    title: 'Modash Search Filters Continued: 6 Expert Tips For Finding Influencers',
+    title: 'Advanced Filters: 6 Expert Tips For Vetting Crypto KOLs',
     body: (
       <>
-        Ready to go beyond the basics?&nbsp;Here&rsquo;s 6 super quick tips to step
-        up your game. Learn about how exactly the search filters work, and how you can
-        layer &amp;&nbsp;combine them to get the best possible results.
+        Ready to go beyond the basics?&nbsp;Here are 6 quick tips to step up your
+        vetting. Learn how to layer audience-overlap, niche, and engagement-quality
+        filters to surface KOLs who actually convert holders, not just impressions.
       </>
     ),
   },
   {
     n: 4,
     video: 'Nd3jvoANHB8',
-    title: 'Replicate Your Success By Finding Lookalikes In Modash',
+    title: 'Scale What Works: Finding Lookalike KOLs In Kolio',
     body: (
       <>
-        Ever wished you could clone one of your brand ambassadors to scale your
-        program?&nbsp;Well, you can. Kind of. This quick video explains how you can
-        use Modash to find creators that are similar to those who you&rsquo;re already
-        having success with.
+        Found a KOL who drove real on-chain activity for your token?&nbsp;Clone
+        the result. This quick video shows how to use Kolio lookalikes to find
+        creators with similar audiences and niches, so you can scale a winning
+        campaign across DeFi, NFTs, L1/L2, trading, and gaming.
       </>
     ),
   },
   {
     n: 5,
     video: 'G81jF1lPtKM',
-    title: 'Tips On Finding Niche-Specific Influencers With Modash',
+    title: 'Finding Niche KOLs For Your Protocol With Kolio',
     body: (
       <>
-        The more specific your audience is, the harder it might seem to find creators
-        who are a good fit. If that sounds relatable, then this video might help you
-        change the way you think about potential brand partners.
+        The more specific your protocol, an L2, a perps DEX, a gaming chain, the
+        harder it seems to find the right voices. If that sounds familiar, this
+        video will change how you think about sourcing crypto KOLs for narrow niches.
       </>
     ),
   },
@@ -82,7 +83,7 @@ function VideoEmbed({ id, eager = false }: { id: string; eager?: boolean }) {
         <iframe
           className="h-full w-full"
           src={`https://www.youtube.com/embed/${id}?rel=0&controls=1&autoplay=0&mute=0&start=0`}
-          title="Modash Academy lesson"
+          title="Kolio Academy lesson"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -113,7 +114,7 @@ function VideoEmbed({ id, eager = false }: { id: string; eager?: boolean }) {
 
 /** Tabbed list of academy lessons (video left, copy right). */
 export default function AcademyLessons() {
-  const [tab, setTab] = useState(1); // Influencer Discovery active by default
+  const [tab, setTab] = useState(1); // KOL Discovery & Vetting active by default
 
   return (
     <section className="bg-background pb-16 pt-10 md:pb-24">

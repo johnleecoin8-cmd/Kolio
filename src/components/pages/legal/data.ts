@@ -1,12 +1,14 @@
-// Real copy extracted 1:1 from modash.io /legal/privacy-policy rendered DOM.
+// Kolio /legal/privacy-policy — original web3 KOL-platform copy.
 // Bold runs are marked with §§…§§ and rendered as <strong> by RichText.
 
 export const EFFECTIVE_DATE = 'Effective date: April 2026';
-export const PAGE_TITLE = 'Privacy Policy';
+// Hero title: the word wrapped in {{…}} is rendered with the text-gradient-brand
+// highlight (later.com-style one-word emphasis) by LegalHero.
+export const PAGE_TITLE = 'Privacy {{Policy}}';
 
-export const LEAD = `Modash OU (“§§Modash§§”, “§§we§§” or “§§us§§”) is an Estonian company offering SaaS services at its influencer/creator marketing web platform found at marketer.modash.io and creator.modash.io (the “§§Platform§§”). The Platform provides services for brands, agencies and creators.
+export const LEAD = `Kolio (“§§Kolio§§”, “§§we§§” or “§§us§§”) operates the web3 influencer marketing platform — the place where crypto and web3 brands, exchanges, protocols and projects discover, vet and run campaigns with crypto KOLs (key opinion leaders) across X, YouTube, TikTok and Telegram. Our platform, accessible at kolio.io and app.kolio.io (the “§§Platform§§”), brings the rigor of mature web2 creator marketing to crypto: proof-based KOL vetting, on-chain payments and escrow, and campaign attribution built for web3.
 
-Modash respects your privacy. This Privacy Policy (this “§§Policy§§”) describes how we process Personal Data (as defined below) we gather through in the course of operating the Platform (including if you are a content creator, if you subscribe to use our Platform, or if you sign up for a free trial), when you interact with Modash, and when you apply for a job at Modash. It also tells you about your rights and choices with respect to your Personal Data, and how you can contact us if you have any queries or concerns.`;
+Kolio respects your privacy. This Privacy Policy (this “§§Policy§§”) describes how we process Personal Data (as defined below) that we gather in the course of operating the Platform — including if you are a KOL listed on or paid through Kolio, if you subscribe as a brand to run campaigns, or if you sign up for a demo — as well as when you otherwise interact with Kolio and when you apply for a job with us. It also tells you about your rights and choices with respect to your Personal Data, and how you can contact us if you have any queries or concerns.`;
 
 export type Section = { title: string; body: string };
 
@@ -19,9 +21,9 @@ export const SECTIONS: Section[] = [
 
 Information provided by you
 
-§§Information provided by Platform users when creating an account. §§If you use the Modash Platform to find, analyze and track content creators (“§§Creators§§”) for your campaigns, we will ask you to provide us with Personal Data including your name and contact details ( e.g., work email address), and the company you work for. We may also ask you to provide us with billing data, such as your bank account, payment card and billing address to facilitate your subscription plan. We will also ask you to create a username and password for access to the Platform.
+§§Information provided by brands when creating an account. §§If you use the Kolio Platform to discover, vet and run campaigns with crypto KOLs (“§§KOLs§§”) for your projects, we will ask you to provide us with Personal Data including your name and contact details (e.g., work email address) and the company, exchange, protocol or project you represent. We may also ask you to provide billing data, such as your payment card, billing address and — for on-chain settlement — the wallet address used to fund campaigns or escrow, in order to facilitate your subscription and payouts. We will also ask you to create a username and password for access to the Platform.
 
-§§Information provided by content creators who sign up to be paid via the Platform§§. If you are a Creator, or you are a representative of a Creator, and you are invited by a brand to be paid via the Platform, we will collect information including your name, handle, email, and payment information (e.g., your IBAN/BIC/SWIFT Code and VAT registration number).
+§§Information provided by KOLs who sign up to be paid via the Platform§§. If you are a KOL, or a representative of a KOL, and you are invited by a brand to be paid via the Platform, we will collect information including your name, social handles, email, and payment information (e.g., your IBAN/BIC/SWIFT code, VAT registration number, and/or the crypto wallet address to which on-chain payouts are sent).
 
 §§Information provided when you sign up§§ for newsletters, webinars, events, or other marketing communications.
 
@@ -31,11 +33,13 @@ Information provided by you
 
 Information collected via automated means
 
-§§Publicly available information. §§We collect and process information about Creators and their audience from publicly available resources. This includes Personal Data that the Creator or their audience has chosen to make publicly available on social media platforms, such as their name, contact details (e.g., email address), location, bio, interests, photos, videos and other content. Where customers use communication features, Modash may process contact details provided by customers or publicly available contact details of Creators. Modash does not use such contact details to enrich its core creator database.
+§§Publicly available information. §§We collect and process information about KOLs and their audiences from publicly available resources. This includes Personal Data that the KOL or their audience has chosen to make publicly available on social platforms such as X, YouTube, TikTok and Telegram — for example their handle, contact details (e.g., email address), location, bio, niches (such as DeFi, NFTs, L1/L2, trading or gaming), posts, videos and other content — which we use to power proof-based vetting of real reach and audience quality. Where customers use communication features, Kolio may process contact details provided by customers or publicly available contact details of KOLs. Kolio does not use such contact details to enrich its core KOL database.
+
+§§On-chain information.§§ Where a campaign uses on-chain payments, escrow or attribution, we may process publicly available blockchain data, such as wallet addresses and associated transactions, in order to settle payouts and to attribute campaign performance. Public blockchain data is, by its nature, accessible to anyone; we process it solely for these purposes.
 
 §§Cookies and similar technologies.§§ We use cookies and similar technologies (collectively “§§cookies§§”) to ensure that our website and Platform function properly, to understand how you use those services, to improve our products and to assist with marketing campaigns. Cookies are small text files containing a string of alphanumeric characters.
 
-§§Identification of business visitors (United States only).§§ For visitors located in the United States, we may use cookies and similar technologies together with data from trusted third-party partners to identify business visitors to our website. This may include associating your website visit with professional contact information, such as your name, company, or email address, obtained from external data sources. We may use this information to better understand our audience and to send relevant communications about our products and services. You can opt out of this type of identification and related communications at any time by visiting: https://app.retention.com/optout.
+§§Identification of business visitors.§§ We may use cookies and similar technologies together with data from trusted third-party partners to identify business visitors to our website. This may include associating your website visit with professional contact information, such as your name, company, or email address, obtained from external data sources. We may use this information to better understand our audience and to send relevant communications about our products and services. You can opt out of this type of identification and related communications at any time by contacting us at privacy@kolio.io.
 
 Information collected from other sources
 
@@ -47,7 +51,7 @@ Information collected from other sources
     title: '2. How We Use Personal Data',
     body: `We will only process your Personal Data based on a valid legal ground. The table below describes the legal ground by purpose.
 
-In certain cases, Modash processes personal data on behalf of its customers (for example, in relation to campaign tracking or communication features). In such cases, the customer acts as the data controller and Modash acts as a processor, processing the data only on the customer’s instructions.`,
+In certain cases, Kolio processes personal data on behalf of its customers (for example, in relation to campaign attribution, on-chain payment settlement or communication features). In such cases, the customer acts as the data controller and Kolio acts as a processor, processing the data only on the customer’s instructions.`,
   },
   {
     title: '3. How We Share Your Personal Data',
@@ -86,7 +90,7 @@ Please note that certain information may be retained where necessary to comply w
 
 §§Restriction and Objection§§. You may ask us to restrict the processing of your Personal Data, or object to such processing.
 
-§§Consent Withdrawal§§. You may withdraw any consent you previously provided to us regarding the processing of your Personal Data, at any time and free of charge. We will apply your preferences going forward and this will not affect the lawfulness of the processing before you withdrew your consent. For marketing and event communications, you can also unsubscribe using the link in our emails, or by contacting us at privacy@modash.io. Unsubscribing will not affect service-related or administrative communications.
+§§Consent Withdrawal§§. You may withdraw any consent you previously provided to us regarding the processing of your Personal Data, at any time and free of charge. We will apply your preferences going forward and this will not affect the lawfulness of the processing before you withdrew your consent. For marketing and event communications, you can also unsubscribe using the link in our emails, or by contacting us at privacy@kolio.io. Unsubscribing will not affect service-related or administrative communications.
 
 §§Complaint§§. You may lodge a complaint with your local data protection authority, the details of which you can find here: https://www.edpb.europa.eu/about-edpb/about-edpb/members_en. If you are in the UK, you can contact the Information Commissioner’s Office, who you can contact using the details found at www.ico.org.uk. We would, however, appreciate the chance to deal with your concerns before you approach a data protection authority, so please contact us in the first instance.
 
@@ -118,7 +122,7 @@ Despite these measures, no method of transmission over the Internet or method of
   },
   {
     title: '11. Our contact information',
-    body: `Should you have any queries regarding this Policy, about Modash's processing of your Personal Data or if you wish to exercise your rights with respect to your Personal Data, you can contact Modash by email: privacy@modash.io or by writing to us at: Telliskivi 60a, B-building, 10412 Tallinn, Estonia.`,
+    body: `Should you have any queries regarding this Policy, about Kolio's processing of your Personal Data, or if you wish to exercise your rights with respect to your Personal Data, you can contact Kolio by email: privacy@kolio.io.`,
   },
 ];
 
@@ -133,11 +137,11 @@ export const USE_TABLE: TableRow[] = [
       'We have a legitimate interest in using your Personal Data for the purpose of developing, hosting, and maintaining the Platform.',
   },
   {
-    purpose: 'Providing insights about Creators through our Platform',
+    purpose: 'Providing insights about KOLs through our Platform',
     description:
-      'We use Personal Data about Creators and their audiences to provide insights to customers through our Platform. For example, we may use Personal Data of Creators and their audiences to make inferences and derive insights (such as engagement metrics, audience quality indicators, authenticity signals and content classifications) and allow customers to identify appropriate Creators for their campaigns based on categorization.\n\nWe may also use automated and AI-based tools to analyze publicly available content (including images, videos, captions and other media) in order to improve the accuracy and relevance of search results, recommendations, and creator discovery features. This processing is limited to content analysis and does not involve biometric identification or automated decision-making that produces legal or similarly significant effects on individuals. We do not use personal data processed through these tools to train our own models, and we do not permit our service providers to use such data to train or improve their models.',
+      'We use Personal Data about KOLs and their audiences to provide proof-based insights to customers through our Platform. For example, we may use Personal Data of KOLs and their audiences to make inferences and derive insights (such as real reach, engagement metrics, audience quality indicators, authenticity signals, niche and content classifications) and allow customers to identify appropriate KOLs for their crypto campaigns based on categorization.\n\nWe may also use automated and AI-based tools to analyze publicly available content (including images, videos, captions and other media) in order to improve the accuracy and relevance of search results, recommendations, and KOL discovery features. This processing is limited to content analysis and does not involve biometric identification or automated decision-making that produces legal or similarly significant effects on individuals. We do not use personal data processed through these tools to train our own models, and we do not permit our service providers to use such data to train or improve their models.',
     legal:
-      'We have a legitimate interest in using your Personal Data for the purpose of providing insights to customers, and this interest is not overridden by the interests of Creators.\n\nOur customers have a legitimate interest in the processing of Personal Data to identify Creators that are suitable for their marketing campaigns.',
+      'We have a legitimate interest in using your Personal Data for the purpose of providing insights to customers, and this interest is not overridden by the interests of KOLs.\n\nOur customers have a legitimate interest in the processing of Personal Data to identify KOLs that are suitable for their marketing campaigns.',
   },
   {
     purpose: 'Support',
@@ -163,7 +167,7 @@ export const USE_TABLE: TableRow[] = [
   {
     purpose: 'Communicating with you',
     description:
-      'We may use your email address and other Personal Data as necessary to contact you for administrative purposes such as to provide information that you request, to respond to comments and questions, or to ask you to provide feedback and complete surveys.\n\nWhere communication features are used within the Platform (for example, to contact Creators), we may process communication data such as email content, communication history, and related metadata. This may include information about whether emails are opened or whether links are clicked, in order to provide and improve communication functionality.',
+      'We may use your email address and other Personal Data as necessary to contact you for administrative purposes such as to provide information that you request, to respond to comments and questions, or to ask you to provide feedback and complete surveys.\n\nWhere communication features are used within the Platform (for example, to contact KOLs), we may process communication data such as email content, communication history, and related metadata. This may include information about whether emails are opened or whether links are clicked, in order to provide and improve communication functionality.',
     legal:
       'We have a legitimate interest in using your Personal Data for the purpose of communicating with you.',
   },
@@ -191,7 +195,7 @@ export const USE_TABLE: TableRow[] = [
   {
     purpose: 'Recruitment',
     description:
-      'We use Personal Data about you when you apply for a job at Modash, such as your educational and professional history, certifications, interests and accomplishments, job and salary preferences, professional resumes and CVs, assessments, and references.',
+      'We use Personal Data about you when you apply for a job at Kolio, such as your educational and professional history, certifications, interests and accomplishments, job and salary preferences, professional resumes and CVs, assessments, and references.',
     legal:
       'We have a legitimate interest in using your Personal Data for the purpose of assessing your suitability for employment.',
   },

@@ -7,13 +7,14 @@ export default function ProblemStatement() {
       <Container>
         <div className="mx-auto max-w-[1080px] text-center">
           <h2 className="font-display uppercase text-[2.25rem] leading-[0.92] text-ink sm:text-[3.5rem] md:text-[5rem]">
-            83 creators, 2 colleagues, 1 sheet &amp; stuff&rsquo;s starting to
-            break
+            83 KOLs, 4 Telegram DMs, 1 spreadsheet &amp; the deal&rsquo;s
+            already slipping
           </h2>
           <p className="mx-auto mt-6 max-w-[760px] text-body-md text-foreground/70">
-            Contracts can&rsquo;t be found, emails go unanswered, and your
-            colleague reached out to the same creator yesterday. Your brain is
-            one tab away from requesting time off.
+            Wallet addresses live in a DM, the deal terms live in someone&rsquo;s
+            head, and a teammate just pinged the same KOL you closed yesterday.
+            Running web3 campaigns shouldn&rsquo;t feel like herding chat
+            threads.
           </p>
         </div>
       </Container>

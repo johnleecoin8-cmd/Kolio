@@ -1,22 +1,25 @@
 import Container from '@/components/ui/Container';
 import { cn } from '@/lib/cn';
 
-const REQUEST = `curl -X POST https://api.modash.io/v1/instagram/search \\
+const REQUEST = `curl -X POST https://api.kolio.io/v1/x/search \\
  -d '{
   "page": 0,
   "calculationMethod": "median",
   "sort": {
-    "field": "followers",
+    "field": "audienceQuality",
     "direction": "desc"
   },
   "filter": {
-    "influencer": {
+    "kol": {
+      "niche": [
+        "defi"
+      ],
       "followers": {
-        "min": 10000000
+        "min": 100000
       },
-      "location": [
-        148838
-      ]
+      "audienceQuality": {
+        "min": 0.8
+      }
     }
   }
 }'`;
@@ -29,15 +32,16 @@ const RESPONSE = `{
     {
       "userId": "1436859892",
       "profile": {
-        "engagementRate": 0.00315175722495829,
-        "engagements": 517148,
-        "followers": 164802435,
-        "fullname": "Cardi B",
-        "url": "https://www.instagram.com/iamcardib/",
-        "username": "iamcardib",
+        "engagementRate": 0.0421,
+        "engagements": 18420,
+        "followers": 438201,
+        "audienceQuality": 0.91,
+        "niche": "defi",
+        "fullname": "0xCipher",
+        "url": "https://x.com/0xcipher",
+        "username": "0xcipher",
         "isVerified": true,
-        "isPrivate": false,
-        "picture": "https://imgigp.modash.io/v2?"
+        "fakeFollowerScore": 0.04
       }
     }
   ]
@@ -158,12 +162,9 @@ export default function CodeSample() {
           </h2>
           <p className="mt-4 text-body text-foreground/75">
             See how a Discovery search looks end-to-end. Below is a sample of the
-            endpoint to give you a feel for the data. Expand to see the full request
-            and response. For every endpoint and parameter, head to the{' '}
-            <a
-              href="https://docs.modash.io/"
-              className="font-semibold text-ink underline"
-            >
+            endpoint to give you a feel for the data — vetted KOLs ranked by audience
+            quality, not raw follower count. For every endpoint and parameter, head to the{' '}
+            <a href="/demo-confirmation" className="font-semibold text-ink underline">
               API docs
             </a>
             .

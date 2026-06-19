@@ -3,33 +3,26 @@ export default function MidCta() {
   return (
     <section className="mt-16 border-t border-gray-200 pt-12">
       <h2 className="text-[1.75rem] font-bold leading-tight text-foreground">
-        See why 1,700+ ecommerce brands rate Modash as the #1 influencer marketing
-        platform
+        See why web3 brands run their KOL campaigns on Kolio
       </h2>
       <p className="mt-4 text-body leading-relaxed text-foreground/80">
-        If you do influencer marketing for a brand on Shopify and you need a tool to
-        help you with every step of your workflow, you’ve got two choices:
+        If you market a token, protocol, exchange, or app and you need one tool for the
+        whole KOL workflow, you really have two choices:
       </p>
       <ul className="mt-4 space-y-2.5 text-body leading-relaxed text-foreground/80">
-        <li>👉 Choose a generic influencer platform</li>
+        <li>👉 Stitch together a web2 influencer tool, a payments hack, and a spreadsheet</li>
         <li>
-          👉 Choose Modash, an end-to-end influencer marketing solution built for
-          Shopify stores
+          👉 Choose Kolio — the web3 influencer marketing platform, with proof-based
+          vetting, on-chain escrow, and real attribution in one place
         </li>
       </ul>
       <p className="mt-4 text-body leading-relaxed text-foreground/80">
-        As far as we’re concerned, it’s a no-brainer.
-      </p>
-      <p className="mt-4 text-body leading-relaxed text-foreground/80">
-        And the 1,700+ ecommerce brands using Modash think the same.
+        For a web3 team, it’s a no-brainer.
       </p>
       <p className="mt-4 text-body leading-relaxed text-foreground/80">
         See why by{' '}
-        <a
-          href="https://marketer.modash.io/register/marketer"
-          className="font-medium text-pink-dark underline"
-        >
-          trying Modash for free
+        <a href="/demo-confirmation" className="font-medium text-pink-dark underline">
+          trying Kolio for free
         </a>{' '}
         – we won’t even ask for your credit card details!
       </p>

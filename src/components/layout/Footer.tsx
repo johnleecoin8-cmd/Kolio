@@ -1,19 +1,7 @@
-// Rebuilt 1:1 from modash.io (_capture/pages/home). Dark footer.
+// Kolio dark footer (re-skinned from the modash structural clone).
 import { Link } from 'react-router-dom';
+import { Music2, Youtube, Linkedin, Send, ShieldCheck, Lock } from 'lucide-react';
 import Container from '../ui/Container';
-
-const LOGO =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6825fd2f81791b56a1c55a5b_modash_logo.svg';
-const ICON_TIKTOK =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/683ff0a5379ef3556e28bba8_icon_TikTok.png';
-const ICON_YOUTUBE =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/683ff0a5542d5cc64d73344f_icon_Youtube.png';
-const ICON_LINKEDIN =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/683ff0dec3a41368118e3bca_icon_linkedin.png';
-const BADGE_ISO =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699583138e25d8d646d2ae79_ic_iso.avif';
-const BADGE_GDPR =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6995831c1bb436470d41308f_ic_gdpr.avif';
 
 type Col = { title: string; links: { label: string; href: string; internal?: boolean }[] };
 
@@ -22,51 +10,51 @@ const COLUMNS: Col[] = [
     title: 'Company',
     links: [
       { label: 'Blog', href: '/blog', internal: true },
-      { label: 'ROI newsletter', href: '/newsletter', internal: true },
+      { label: 'Web3 KOL newsletter', href: '/newsletter', internal: true },
       { label: 'Careers', href: '/careers', internal: true },
       { label: 'Our data', href: '/data', internal: true },
       { label: 'API', href: '/influencer-marketing-api', internal: true },
-      { label: 'Switch to Modash', href: '/switch-to-modash', internal: true },
+      { label: 'Podcast', href: '/podcast', internal: true },
     ],
   },
   {
-    title: 'Features',
+    title: 'Platform',
     links: [
-      { label: 'Discover', href: '/features/influencer-discovery', internal: true },
+      { label: 'Discover KOLs', href: '/features/influencer-discovery', internal: true },
       { label: 'Manage', href: '/features/influencer-management', internal: true },
       { label: 'Track', href: '/features/influencer-tracking', internal: true },
-      { label: 'Pay', href: '/influencer-payments', internal: true },
-      { label: 'Shopify integration', href: '/shopify', internal: true },
-      { label: 'Email integration', href: '/features/inbox', internal: true },
+      { label: 'On-chain pay', href: '/influencer-payments', internal: true },
+      { label: 'KOL database', href: '/influencer-database', internal: true },
+      { label: 'Vetting', href: '/features/influencer-vetting', internal: true },
     ],
   },
   {
-    title: 'More tools',
+    title: 'Free tools',
     links: [
-      { label: 'Fake follower check', href: 'https://www.modash.io/fake-follower-check' },
-      { label: 'Strategy breakdowns', href: 'https://www.modash.io/breakdowns/' },
-      { label: 'Engagement rate calculator', href: 'https://www.modash.io/engagement-rate-calculator' },
-      { label: 'Find influencers', href: 'https://www.modash.io/find-influencers' },
-      { label: 'Influencer email finder', href: 'https://www.modash.io/instagram-email-finder' },
-      { label: 'Average views calculator', href: 'https://www.modash.io/instagram-average-views-calculator' },
-      { label: 'Sponsored content examples', href: 'https://www.modash.io/content-library' },
+      { label: 'Engagement rate calculator', href: '/engagement-rate-calculator', internal: true },
+      { label: 'Find KOLs', href: '/find-influencers', internal: true },
+      { label: 'KOL email finder', href: '/features/influencer-email-finder', internal: true },
+      { label: 'Average views calculator', href: '/instagram-average-views-calculator', internal: true },
+      { label: 'Lookalike tool', href: '/influencer-lookalike-tool', internal: true },
+      { label: 'Sponsored content examples', href: '/content-library', internal: true },
     ],
   },
   {
     title: 'Support',
     links: [
-      { label: 'Product tour', href: '/product-tour', internal: true },
-      { label: 'Help center', href: 'https://help.modash.io/en/' },
-      { label: 'Ask a question', href: 'mailto:Hello@modash.io?subject=I%20have%20a%20question...' },
-      { label: 'Request a demo', href: 'https://www.modash.io/book-demo' },
+      { label: 'Academy', href: '/academy', internal: true },
+      { label: 'Customer stories', href: '/customer-stories/nordvpn', internal: true },
+      { label: 'Ask a question', href: 'mailto:hello@kolio.io?subject=I%20have%20a%20question...' },
+      { label: 'Request a demo', href: '/demo-confirmation', internal: true },
     ],
   },
 ];
 
 const SOCIALS = [
-  { label: 'TikTok', href: 'https://www.tiktok.com/@modash.io', icon: ICON_TIKTOK },
-  { label: 'YouTube', href: 'https://www.youtube.com/@Modash.official', icon: ICON_YOUTUBE },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/modash/', icon: ICON_LINKEDIN },
+  { label: 'X', href: 'https://x.com/kolio_io', Icon: Send },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@kolio.io', Icon: Music2 },
+  { label: 'YouTube', href: 'https://www.youtube.com/@kolio', Icon: Youtube },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/kolio/', Icon: Linkedin },
 ];
 
 const LEGAL = [
@@ -106,17 +94,21 @@ export default function Footer() {
           {/* addresses */}
           <div className="col-span-2 space-y-8">
             <div>
-              <div className="mb-1 text-body-sm font-semibold text-white">Toronto, CA</div>
-              <p className="text-body-sm leading-relaxed text-white/60">
-                140 Simcoe St, Toronto ON M5H 4E9
-                <br />
-                Canada
+              <Link to="/" aria-label="Kolio home">
+                <span className="text-gradient-brand font-display text-3xl leading-none tracking-tight">
+                  Kolio
+                </span>
+              </Link>
+              <p className="mt-4 max-w-xs text-body-sm leading-relaxed text-white/60">
+                The web3 influencer marketing platform. Discover, vet, and run
+                proof-based campaigns with crypto KOLs — from first contact to
+                on-chain payout.
               </p>
             </div>
             <div>
-              <div className="mb-1 text-body-sm font-semibold text-white">Tallinn, EE</div>
+              <div className="mb-1 text-body-sm font-semibold text-white">Seoul, KR</div>
               <p className="text-body-sm leading-relaxed text-white/60">
-                Aia tn 10a-9, 10111 Tallinn, Estonia
+                Gangnam-gu, Seoul, South Korea
               </p>
             </div>
           </div>
@@ -152,7 +144,7 @@ export default function Footer() {
                   aria-label={s.label}
                   className="flex h-9 w-9 items-center justify-center rounded-sm bg-white/10 transition hover:bg-white/20"
                 >
-                  <img src={s.icon} alt={s.label} className="h-4 w-4 object-contain" />
+                  <s.Icon className="h-4 w-4 text-white" />
                 </a>
               ))}
             </div>
@@ -163,16 +155,22 @@ export default function Footer() {
               Your data&apos;s in safe hands
             </div>
             <div className="flex items-center gap-4">
-              <img src={BADGE_ISO} alt="ISO27001" className="h-12 w-auto" />
-              <img src={BADGE_GDPR} alt="GDPR" className="h-12 w-auto" />
+              <span className="flex items-center gap-2 rounded-sm bg-white/10 px-3 py-2 text-body-sm text-white/80">
+                <ShieldCheck className="h-4 w-4" /> SOC 2 Type II
+              </span>
+              <span className="flex items-center gap-2 rounded-sm bg-white/10 px-3 py-2 text-body-sm text-white/80">
+                <Lock className="h-4 w-4" /> On-chain escrow
+              </span>
             </div>
           </div>
         </div>
 
         {/* bottom bar */}
         <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <Link to="/">
-            <img src={LOGO} alt="Modash" className="h-7 w-auto opacity-90" />
+          <Link to="/" aria-label="Kolio home">
+            <span className="text-gradient-brand font-display text-2xl leading-none tracking-tight">
+              Kolio
+            </span>
           </Link>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {LEGAL.map((l) => (
@@ -186,7 +184,7 @@ export default function Footer() {
             ))}
           </div>
           <div className="text-body-sm text-white/40">
-            © 2026 Modash OÜ. All rights reserved.
+            © 2026 Kolio. All rights reserved.
           </div>
         </div>
       </Container>

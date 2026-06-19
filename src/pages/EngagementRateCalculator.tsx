@@ -7,7 +7,7 @@ import RestCta from '@/components/pages/engagement-rate-calculator/RestCta';
 import EveryPlatform from '@/components/pages/engagement-rate-calculator/EveryPlatform';
 import Faq from '@/components/pages/engagement-rate-calculator/Faq';
 
-/** modash.io /engagement-rate-calculator — 1:1 clone. Top-to-bottom sections. */
+/** Kolio /engagement-rate-calculator — crypto KOL engagement tool. Top-to-bottom sections. */
 export default function EngagementRateCalculator() {
   return (
     <main>

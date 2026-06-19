@@ -7,10 +7,10 @@ const ROWS: Row[] = [
   {
     label: 'Most suitable for',
     optin: {
-      body: 'Small-scale, one-time, local collaborations in highly mature influencer industries, like fashion and beauty.',
+      body: 'One-off promo deals with whichever KOLs happened to register — usually a narrow pool of large, generalist crypto accounts.',
     },
     open: {
-      body: 'Efficient in-house marketers for brands with global audiences in any niche looking to partner with creators of all sizes.',
+      body: 'Web3 brands, exchanges, and protocols running serious campaigns who need to find, vet, and partner with KOLs of every size, in every niche.',
     },
   },
   {
@@ -19,50 +19,50 @@ const ROWS: Row[] = [
       lead: 'Limited',
       body: (
         <>
-          Once you start narrowing down a vetted influencer list by platform,
-          location, and niche, you’ll quickly run out of options.
+          Once you narrow a registered KOL roster by chain, language, and
+          niche, you’ll run out of accounts fast.
           <br />
           <br />
-          Looking for creators &amp; influencers in countries other than the US,
-          the UK, or Canada? You’ll have no options.
+          Need KOLs covering Solana DeFi, a Korean L2 community, or a niche
+          gaming token? Opt-in rosters rarely go that deep.
         </>
       ),
     },
     open: {
-      lead: 'Infinite',
+      lead: 'Comprehensive',
       body: (
         <>
-          You’ll never run out of options because of the sheer size of an open
-          network creator database. As the creator economy grows, so too does
-          Modash.
+          You won’t run dry, because Kolio indexes every crypto KOL who posts
+          publicly. As web3 grows, so does the dataset.
           <br />
           <br />
-          If a creator is on this planet, whether in the smallest town or the
-          trendiest city, you’ll find them in Modash.
+          From a micro-KOL with a sharp DeFi audience to a top-tier trading
+          influencer, if they’re building an audience on-chain, you’ll find
+          them in Kolio.
         </>
       ),
     },
   },
   {
-    label: 'Creator types',
+    label: 'KOL quality',
     optin: {
-      lead: 'More get-rich-quick influencers',
-      body: 'Influencers on opt-in platforms usually produce basic quality content & are in the creator economy to make a quick buck.',
+      lead: 'Pay-to-list, lightly checked',
+      body: 'Registered rosters reward whoever signs up — including farmed-follower accounts and engagement pods that inflate reach for the next paid shill.',
     },
     open: {
-      lead: 'More authentic & relatable creators',
-      body: 'Modash has millions of small creators who are posting relatable content because they love creating. (Some might even be fans of your brand already!)',
+      lead: 'Proof-based, independently verified',
+      body: 'Kolio scores every KOL on real reach, audience authenticity, and engagement quality — measured from public data, not self-reported decks. You see the proof before you fund a deal.',
     },
   },
   {
     label: 'Opportunity',
     optin: {
-      lead: 'Gatekeep-y status quo',
-      body: 'Opt-in networks can become echo chambers. Same voices, same faces, same brands. A higher barrier to entry also means that smaller brands & creators don’t get a piece of the pie.',
+      lead: 'Same names, same shills',
+      body: 'Closed rosters become echo chambers — the same handful of big accounts promoting every project, while sharp niche KOLs and smaller brands get locked out.',
     },
     open: {
-      lead: 'Fair & equitable',
-      body: 'Open creator networks can act as a flywheel, creating more opportunities for more people and brands to become part of the creator economy. Everyone is invited to play.',
+      lead: 'Open & meritocratic',
+      body: 'An open network is a flywheel: any web3 brand can discover the right KOL, and any credible KOL can be found on merit — not on who paid to be listed.',
     },
   },
 ];
@@ -87,11 +87,11 @@ export default function OpenNetwork() {
       <Container>
         <div className="mx-auto mb-12 max-w-[560px] text-center">
           <h2 className="font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
-            Modash is proud to be an open network creator database
+            Kolio is proud to be an open crypto KOL network
           </h2>
           <p className="mt-4 text-body-md text-foreground/75">
-            Unlike opt-in networks, we list all influencers who post publicly.
-            Here’s how we’re different.
+            Unlike pay-to-list rosters, we index every crypto KOL who posts
+            publicly. Here’s how we’re different.
           </p>
         </div>
 
@@ -102,20 +102,20 @@ export default function OpenNetwork() {
             <div />
             <div className="border-b border-black/10 px-6 pb-5">
               <div className="text-body-lg font-bold text-foreground">
-                Opt-in Creator Database
+                Pay-to-list KOL roster
               </div>
               <div className="mt-2 text-eyebrow text-foreground/55">
-                Opt-in databases offer vetted lists of influencers who have put
-                up their hand and agreed to join the specific network.
+                Registered rosters list only the KOLs who signed up and paid to
+                join a specific marketplace.
               </div>
             </div>
             <div className="border-b border-black/10 px-6 pb-5">
               <div className="text-body-lg font-bold text-foreground">
-                Open network Creator Database
+                Open crypto KOL network
               </div>
               <div className="mt-2 text-eyebrow text-foreground/55">
-                Open creator networks list every influencer &amp; creator who
-                has chosen to post publicly. Creators can opt out at any time.
+                Open networks index every crypto KOL who chooses to post
+                publicly. KOLs can opt out at any time.
               </div>
             </div>
 

@@ -9,67 +9,67 @@ type Tab = {
 
 const TABS: Tab[] = [
   {
-    name: 'User info',
+    name: 'KOL info',
     request: [
       'curl -i -X GET \\',
-      "  'https://api.modash.io/v1/raw/ig/user-info?url=selenagomez' \\",
+      "  'https://api.kolio.io/v1/raw/x/kol-info?handle=cryptodefiana' \\",
       "  -H 'Authorization: Bearer <token>'",
     ],
     response: [
       '{',
-      '  "pk": "460563723",',
-      '  "biography": "by Grace through Faith ✝️ Founder @rarebeauty",',
-      '  "category": "Artist",',
-      '  "external_url": "https://linktr.ee/selenagomez",',
-      '  "bio_links": [',
+      '  "id": "1840562301",',
+      '  "bio": "DeFi research & alpha. Building @some_protocol ⚡",',
+      '  "niche": "DeFi",',
+      '  "external_url": "https://kolio.io/k/cryptodefiana",',
+      '  "links": [',
       '    {',
-      '      "title": "",',
-      '      "url": "https://linktr.ee/selenagomez"',
+      '      "title": "Substack",',
+      '      "url": "https://cryptodefiana.xyz"',
       '    }',
       '  ],',
       '  "is_verified": true,',
-      '  "follower_count": 422000000',
+      '  "real_follower_count": 318000',
       '}',
     ],
   },
   {
-    name: 'User feed',
+    name: 'KOL feed',
     request: [
       'curl -i -X GET \\',
-      "  'https://api.modash.io/v1/raw/ig/user-feed?username=cristiano' \\",
+      "  'https://api.kolio.io/v1/raw/x/kol-feed?handle=onchainmaxi' \\",
       "  -H 'Authorization: Bearer <token>'",
     ],
     response: [
       '{',
       '  "items": [',
       '    {',
-      '      "caption": "Training hard and enjoying the moments. 💪🏽",',
-      '      "like_and_view_counts_disabled": false,',
-      '      "is_paid_partnership": false,',
-      '      "carousel_media_count": 3,',
-      '      "media_url": "https://instagram...."',
+      '      "text": "Why L2 fees just dropped 60% — a thread 🧵",',
+      '      "cashtags": ["$ETH", "$ARB"],',
+      '      "is_paid_partnership": true,',
+      '      "engagement_rate": 0.041,',
+      '      "post_url": "https://x.com/onchainmaxi/status/..."',
       '    }',
       '  ]',
       '}',
     ],
   },
   {
-    name: 'Media comments',
+    name: 'Post comments',
     request: [
       'curl -i -X GET \\',
-      "  'https://api.modash.io/v1/raw/ig/media-comments?code=DKsBCXrpQTr' \\",
+      "  'https://api.kolio.io/v1/raw/x/post-comments?id=1840562301' \\",
       "  -H 'Authorization: Bearer <token>'",
     ],
     response: [
       '{',
       '  "comments": [',
       '    {',
-      '      "text": "But not on the window 🤦🏼‍♂️ there is a place under the hood",',
-      '      "child_comment_count": 2',
+      '      "text": "Finally a clear breakdown of the tokenomics 🙌",',
+      '      "reply_count": 2',
       '    },',
       '    {',
-      '      "text": "Do it every 5000 miles and never think about it again🤷‍♂️",',
-      '      "child_comment_count": 0',
+      '      "text": "Aped in after this thread. Solid alpha 🔥",',
+      '      "reply_count": 0',
       '    }',
       '  ]',
       '}',
@@ -124,15 +124,13 @@ export default function ApiSamples() {
             No guesswork. Just real responses.
           </h2>
           <p className="mt-4 text-body text-foreground/70">
-            Direct, unprocessed payloads for profiles, feeds, and comments,
-            exactly as the source platform returns them. Below are samples of
+            Direct, unprocessed payloads for KOL profiles, feeds, and comments,
+            exactly as the source channel returns them. Below are samples of
             three Raw API endpoints to give you a feel for the data. Expand to
             see the full request and response. For every endpoint and parameter,
             head to the{' '}
             <a
-              href="https://docs.modash.io/"
-              target="_blank"
-              rel="noreferrer"
+              href="/demo-confirmation"
               className="font-semibold text-foreground underline"
             >
               API docs

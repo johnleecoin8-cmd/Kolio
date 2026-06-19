@@ -5,48 +5,48 @@ import { ButtonA } from '@/components/ui/Button';
 const FEATURES = [
   {
     icon: Search,
-    title: 'Find influencers',
-    body: 'Search & filter 350M+ influencer profiles, or find influencers who already engaged with your brand. Solve influencer discovery at scale, in any niche.',
+    title: 'Discover crypto KOLs',
+    body: 'Search and filter KOLs across X, YouTube, TikTok and Telegram by niche — DeFi, NFTs, L1/L2, trading, gaming — and by the regions where your token actually has holders.',
   },
   {
     icon: BarChart3,
-    title: 'Analyze profiles',
-    body: 'Get data on audience demographics, locations, engagement rate, average views, past sponsors & more. Without reaching out to ask for screenshots.',
+    title: 'Vet on proof, not vanity',
+    body: 'See verified reach, real engagement, audience quality, fake-follower scores and past project sponsorships — so you fund the KOLs who move on-chain demand, not the ones who look big.',
   },
   {
     icon: Mail,
-    title: 'Send emails',
-    body: "Your creators & influencers are annoyed because they're still waiting on payment for a campaign they finished a month ago.",
+    title: 'Pay through on-chain escrow',
+    body: 'Fund a deal into escrow, release on delivery, settle in stablecoins. No month-late wire chasing, no trust gap between project and KOL.',
   },
   {
     icon: Users,
-    title: 'Manage relationships',
-    body: 'Create unlimited lists to keep track of your influencers. Add notes for personalization (or for your team), organize documents (like contracts/briefs), and more.',
+    title: 'Manage your KOL roster',
+    body: 'Build lists, attach briefs and contracts, and keep every conversation and deliverable for each KOL in one place across your whole campaign team.',
   },
   {
     icon: TrendingUp,
-    title: 'Collect content',
-    body: 'Automatically track live content, and save it to a dashboard. Even Stories. Without asking influencers to sign up.',
+    title: 'Collect content automatically',
+    body: 'Track sponsored posts as they go live across platforms and save them to a campaign dashboard — without asking KOLs to send screenshots.',
   },
   {
     icon: Megaphone,
-    title: 'Measure results',
-    body: 'Track metrics like total content, views, engagements, link clicks, promo code redemptions, and more. Per campaign, and per influencer.',
+    title: 'Attribute every campaign',
+    body: 'Tie views and engagement to on-chain outcomes: referral links, wallet sign-ups, swaps and promo codes — measured per campaign and per KOL.',
   },
 ];
 
-/** "An influencer marketing platform built to scale with you" — 3-col feature grid. */
+/** "The web3 influencer marketing platform" — 3-col feature grid. */
 export default function FeatureGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="mx-auto max-w-[20ch] text-center font-display text-[2.5rem] uppercase leading-[1.02] text-foreground md:text-[4rem]">
-          An influencer marketing platform built to scale with you
+          The <span className="text-gradient-brand">web3</span> influencer marketing platform
         </h2>
         <p className="mx-auto mt-5 max-w-[560px] text-center text-body text-foreground/75 md:text-body-md">
-          When spreadsheets aren't cutting it anymore, Modash gives Shopify
-          brands everything they need to grow their influencer programs. Here's
-          what Modash helps with:
+          When Telegram DMs and spreadsheets stop scaling, Kolio gives crypto
+          brands, exchanges and protocols everything they need to run KOL
+          campaigns end-to-end. Here's what Kolio helps with:
         </p>
 
         <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-3">
@@ -60,7 +60,7 @@ export default function FeatureGrid() {
                 </h3>
                 <p className="mt-3 text-body-sm text-foreground/70">{f.body}</p>
                 <a
-                  href="https://www.modash.io/"
+                  href="/demo-confirmation"
                   className="mt-4 inline-block text-body-sm font-semibold text-foreground underline underline-offset-4"
                 >
                   Learn more
@@ -71,7 +71,7 @@ export default function FeatureGrid() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <ButtonA href="https://www.modash.io/" variant="primary" size="md">
+          <ButtonA href="/demo-confirmation" variant="primary" size="md">
             Try for free
           </ButtonA>
         </div>

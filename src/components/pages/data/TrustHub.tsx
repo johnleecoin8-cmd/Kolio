@@ -1,12 +1,11 @@
+import { User, Users, ShieldCheck, Lock } from 'lucide-react';
 import Container from '@/components/ui/Container';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 function Divider() {
   return <div className="my-7 h-px w-full bg-black/10" />;
 }
 
-/** Trust hub — two columns: For creators (purple) & For brands (pink). */
+/** Trust hub — two columns: For KOLs (purple) & For brands (pink). */
 export default function TrustHub() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -16,48 +15,41 @@ export default function TrustHub() {
         </h2>
 
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-          {/* For creators */}
+          {/* For KOLs */}
           <div className="rounded-xl bg-purple-light p-8 md:p-10">
             <div className="font-display text-[1.375rem] uppercase leading-none text-foreground">
-              For creators
+              For KOLs
             </div>
             <div className="mt-5 text-[1.625rem] font-bold leading-[1.2] text-foreground">
-              Our mission is to help every creator on earth make a living doing
-              what they love.
+              Our mission is to help credible crypto KOLs get discovered and
+              paid fairly for the audiences they’ve built.
             </div>
             <p className="mt-4 text-body-sm text-foreground/75">
-              We take steps to only allow companies to access &amp; process
-              influencer data that could be highly beneficial to creators. If a
-              company doesn’t make creators’ lives better, we don’t allow them to
-              use Modash.
+              We only let vetted web3 brands, exchanges, and protocols access
+              KOL data — and only in ways that lead to real partnerships. If a
+              company isn’t here to actually work with KOLs, we don’t let them
+              use Kolio.
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-body-sm text-foreground/75">
-              <li>Block personal &amp; suspicious emails from creating accounts</li>
-              <li>Restrict free access to our tools</li>
+              <li>Block throwaway &amp; suspicious accounts from signing up</li>
+              <li>Restrict free scraping of our data</li>
               <li>
-                Block users who appear uninterested in employing or partnering
-                with creators
+                Block users who show no intent to actually book or pay KOLs
               </li>
             </ul>
 
             <Divider />
 
             <div className="flex items-start gap-4">
-              <img
-                src={`${CDN}/688b59401d5ff7429c262816_ic_User.avif`}
-                alt=""
-                width={24}
-                height={24}
-                className="mt-0.5 h-6 w-6 shrink-0"
-              />
+              <User className="mt-0.5 h-6 w-6 shrink-0 text-brand" aria-hidden />
               <div>
                 <div className="text-body font-bold text-foreground">
-                  Your personal data
+                  Your profile data
                 </div>
                 <p className="mt-1 text-body-sm text-foreground/75">
-                  Only publicly available personal data from influencers and
-                  creators is collected. Specifically, names, emails, &amp;
-                  images.
+                  Only publicly available profile data is collected — handles,
+                  public posts, and the wallet activity you’ve chosen to make
+                  public for campaign attribution.
                 </p>
               </div>
             </div>
@@ -65,31 +57,24 @@ export default function TrustHub() {
             <Divider />
 
             <div className="flex items-start gap-4">
-              <img
-                src={`${CDN}/6842ca892b3e3ccc0cc164bc_User%20Group.avif`}
-                alt=""
-                width={24}
-                height={24}
-                className="mt-0.5 h-6 w-6 shrink-0"
-              />
+              <Users className="mt-0.5 h-6 w-6 shrink-0 text-brand" aria-hidden />
               <div>
                 <div className="text-body font-bold text-foreground">
                   Your audience data
                 </div>
                 <p className="mt-1 text-body-sm text-foreground/75">
-                  Your audience is your community. And we take that relationship
-                  seriously. Rest assured, all audience data collected is
+                  Your audience is your community, and we treat that
+                  relationship seriously. All audience-level data is
                   pseudonymized and anonymized.
                 </p>
                 <p className="mt-3 text-eyebrow text-foreground/55">
-                  If your data is not publicly available, you won’t find it in
-                  Modash. As a creator, email us by writing to privacy@modash.io
-                  to check your data, or request to be given all data we have
-                  stored about you.
+                  If your data isn’t publicly available, it won’t appear in
+                  Kolio. As a KOL, email privacy@kolio.io to review the data we
+                  hold about you, or request a full export.
                   <br />
                   <br />
-                  You can opt out by writing to privacy@modash.io and we will
-                  remove you from Modash.
+                  You can opt out any time by writing to privacy@kolio.io and
+                  we’ll remove you from Kolio.
                 </p>
               </div>
             </div>
@@ -101,60 +86,45 @@ export default function TrustHub() {
               For brands
             </div>
             <div className="mt-5 text-[1.625rem] font-bold leading-[1.2] text-foreground">
-              Modash follows global security practices to keep our customers’
-              data safe.
+              Kolio follows web2-grade security practices to keep your campaign
+              and payment data safe.
             </div>
             <p className="mt-4 text-body-sm text-foreground/75">
-              Modash is funded by major European venture funds. That means we've
-              been through due diligence by two independent European law firms in
-              the last 3 years, with a legal obligation to fully audit the
-              sustainability and compliance of Modash.
+              We bring the operational rigor of mature creator platforms to
+              crypto. Campaign data, escrow records, and KOL agreements are
+              handled with the same discipline web3 finance demands.
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-body-sm text-foreground/75">
               <li>
-                <strong>ISO27001 certified</strong> and{' '}
-                <strong>GDPR-friendly</strong> tools.
+                <strong>SOC 2-aligned</strong> controls and{' '}
+                <strong>GDPR-friendly</strong> data handling.
               </li>
               <li>
-                <a
-                  href="https://www.icebreaker.vc/"
-                  className="font-bold underline"
-                >
-                  Icebreaker.vc
-                </a>{' '}
-                who has also funded companies like Klaus, Workfellow &amp;
-                Volument.
+                On-chain payments &amp; escrow so budget is only released when
+                deliverables are met.
               </li>
               <li>
-                <a
-                  href="https://www.changeventures.com/"
-                  className="font-bold underline"
-                >
-                  Change Ventures
-                </a>{' '}
-                who has funded companies like Veriff &amp; Printify.
+                Campaign attribution that ties on-chain conversions back to the
+                KOL who drove them.
               </li>
             </ul>
 
             <Divider />
 
             <div className="flex items-start gap-4">
-              <img
-                src={`${CDN}/688b5bf2bedd990f90cf03d0_ic_security.avif`}
-                alt=""
-                width={24}
-                height={24}
-                className="mt-0.5 h-6 w-6 shrink-0"
+              <ShieldCheck
+                className="mt-0.5 h-6 w-6 shrink-0 text-brand"
+                aria-hidden
               />
               <div>
                 <div className="text-body font-bold text-foreground">
                   Privacy &amp; Compliance
                 </div>
                 <p className="mt-1 text-body-sm text-foreground/75">
-                  Headquartered in the European city of Tallinn, Estonia, Modash
-                  is held to the highest standards of compliance with the General
-                  Data Protection Regulation (GDPR). Modash customer data is
-                  hosted in Frankfurt, Germany (AWS).
+                  Kolio is built to comply with the General Data Protection
+                  Regulation (GDPR) and processes only publicly available KOL
+                  data. Customer data is hosted on hardened, audited cloud
+                  infrastructure.
                 </p>
                 <a
                   href="/legal/privacy-policy"
@@ -168,26 +138,20 @@ export default function TrustHub() {
             <Divider />
 
             <div className="flex items-start gap-4">
-              <img
-                src={`${CDN}/688b5bf2baa815bbe16b1a09_ic_privacy.avif`}
-                alt=""
-                width={24}
-                height={24}
-                className="mt-0.5 h-6 w-6 shrink-0"
-              />
+              <Lock className="mt-0.5 h-6 w-6 shrink-0 text-brand" aria-hidden />
               <div>
                 <div className="text-body font-bold text-foreground">
                   Security
                 </div>
                 <p className="mt-1 text-eyebrow text-foreground/55">
-                  We take all the necessary steps to protect our customer data
-                  from villains, data breaches &amp; malicious hackers. Customer
-                  data is safe, secure, and strictly confidential with Modash.
+                  We take every step to protect customer data and escrowed
+                  funds from breaches and malicious actors. Your campaign data
+                  is safe, secure, and strictly confidential with Kolio.
                   <br />
                   <br />
-                  Data is encrypted at rest and in transit &amp; all transfers
-                  conform to EU/US GDPR requirements under the Standard
-                  Contractual Clauses (SCCs).
+                  Data is encrypted at rest and in transit, and all transfers
+                  conform to GDPR requirements under the Standard Contractual
+                  Clauses (SCCs).
                 </p>
                 <a
                   href="/legal/terms-of-service"

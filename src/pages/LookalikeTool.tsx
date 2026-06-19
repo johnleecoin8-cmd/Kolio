@@ -5,7 +5,7 @@ import AnalyzeProfiles from '@/components/pages/lookalike-tool/AnalyzeProfiles';
 import Testimonial from '@/components/pages/lookalike-tool/Testimonial';
 import FinalCta from '@/components/pages/lookalike-tool/FinalCta';
 
-/** modash.io /influencer-lookalike-tool — 1:1 clone. */
+/** Kolio — KOL Lookalike Tool. Find more crypto KOLs like the ones that convert. */
 export default function LookalikeTool() {
   return (
     <>

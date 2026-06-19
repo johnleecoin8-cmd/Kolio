@@ -1,39 +1,64 @@
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+const FILTERS = [
+  { label: 'Niche', value: 'DeFi · L2 · Perps' },
+  { label: 'Audience region', value: 'APAC' },
+  { label: 'Real reach', value: '50K – 250K' },
+  { label: 'Audience quality', value: '> 85% authentic' },
+  { label: 'Platform', value: 'X · YouTube · TG' },
+];
 
-/** "Add more filtering layers to find the perfect fit" — image left, copy right. */
+/** "Stack filters to find the perfect fit" — brand-neutral filter mockup left, copy right. */
 export default function FilteringLayers() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <img
-              src={`${CDN}/66b1fedafe94b08d5f160d84_img_lookalikes_filtering.avif`}
-              alt="Modash filtering options"
-              className="w-full"
-            />
+            <div className="rounded-xl border border-black/5 bg-white p-6 shadow-nav">
+              <div className="mb-4 text-body font-semibold text-foreground">
+                Filters
+              </div>
+              <div className="flex flex-col gap-3">
+                {FILTERS.map((f) => (
+                  <div
+                    key={f.label}
+                    className="flex items-center justify-between rounded-lg border border-black/5 bg-black/[0.02] px-4 py-3"
+                  >
+                    <span className="text-body-sm text-foreground/60">
+                      {f.label}
+                    </span>
+                    <span className="text-body-sm font-medium text-foreground">
+                      {f.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 inline-flex rounded-sm bg-gradient-brand px-4 py-2 text-body-sm font-semibold text-white">
+                312 matching KOLs
+              </div>
+            </div>
           </div>
           <div>
             <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
-              Add more filtering layers to find the perfect fit
+              Stack filters to find the perfect fit
             </h2>
             <p className="mt-6 max-w-[480px] text-body text-foreground/75">
-              Let's say you have the ideal creator already in the U.S., and you'd
-              love to find someone exactly like that, but in Australia. By adding
-              a filter for geography (either influencer location, or their
-              audience's location), you'll find people that fit your criteria.
+              Say your best-performing KOL covers DeFi for a US audience, and you
+              want the same profile but reaching traders in Korea. Add a filter
+              for audience region, niche, or verified reach, and Kolio narrows
+              the list to KOLs who actually match — no guesswork, no inflated
+              follower counts.
             </p>
             <div className="mt-8">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
+              <ButtonLink
+                to="/demo-confirmation"
                 variant="primary"
                 className="!bg-blue !text-white hover:!opacity-90"
               >
                 Try for free
-              </ButtonA>
+              </ButtonLink>
             </div>
           </div>
         </div>

@@ -3,10 +3,10 @@ import { Search } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 /**
- * Hero of the IG Average Views Calculator.
- * Centered big heading + centered description, a single centered search bar
- * (magnifier icon + handle input + "Profile" button), a hairline divider, and
- * a large bordered result/example card below. White page background.
+ * Hero of the Crypto KOL Reach Checker.
+ * Centered big heading (one word in the brand gradient) + centered description,
+ * a single centered search bar (magnifier icon + handle input + check button),
+ * a hairline divider, and a large bordered result/example card below.
  */
 export default function Hero() {
   const [handle, setHandle] = useState('');
@@ -14,15 +14,16 @@ export default function Hero() {
   return (
     <section className="bg-background pt-10 md:pt-16">
       <Container>
-        {/* page title */}
+        {/* page title — one word highlighted in the brand gradient */}
         <h1 className="mx-auto max-w-4xl text-center font-display text-4xl font-normal uppercase leading-[1.02] tracking-tight text-foreground md:text-6xl xl:text-[5rem]">
-          Instagram Average Views Calculator
+          Crypto KOL <span className="text-gradient-brand">Reach</span> Checker
         </h1>
 
         {/* description */}
         <p className="mx-auto mt-6 max-w-2xl text-center text-body-md text-foreground/80">
-          Check any Instagram creator&apos;s average views, engagement rate,
-          audience quality, and top posts. Free, with no sign-up needed.
+          Check any crypto KOL&apos;s real reach, engagement rate, audience
+          quality, and recent posts on X. Free, with no sign-up needed — see
+          past the vanity numbers before you book.
         </p>
 
         {/* centered search bar */}
@@ -35,9 +36,9 @@ export default function Hero() {
             type="text"
             value={handle}
             onChange={(e) => setHandle(e.target.value)}
-            name="influencer-handle"
+            name="kol-handle"
             autoComplete="off"
-            placeholder="@therock"
+            placeholder="@VitalikButerin"
             className="flex-1 border-none bg-transparent text-body-sm leading-5 text-foreground placeholder:text-foreground/40 outline-none"
           />
           <button

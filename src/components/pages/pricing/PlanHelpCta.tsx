@@ -1,5 +1,5 @@
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 const AVATARS = [
@@ -19,9 +19,10 @@ export default function PlanHelpCta() {
 
         <div className="rounded-2xl bg-pink-light p-7 md:p-12">
           <p className="max-w-[900px] text-[1.5rem] font-medium leading-[1.25] text-foreground md:text-[2rem]">
-            Let’s go over your goals and team setup, and think together about what
-            fits you best. No pitch decks, no boring demos, just honest advice,
-            even if that means not working with us at all.
+            Tell us about your token, your campaign goals, and your team setup,
+            and we’ll think through what fits. No pitch decks, no boring demos,
+            just honest advice on running web3 KOL campaigns — even if that
+            means not working with us at all.
           </p>
 
           <div className="my-7 border-t border-ink/10" />
@@ -42,9 +43,9 @@ export default function PlanHelpCta() {
                 />
               ))}
             </div>
-            <ButtonA href="https://www.modash.io/book-demo" variant="primary">
+            <ButtonLink to="/demo-confirmation" variant="primary">
               Book a call
-            </ButtonA>
+            </ButtonLink>
           </div>
         </div>
       </Container>

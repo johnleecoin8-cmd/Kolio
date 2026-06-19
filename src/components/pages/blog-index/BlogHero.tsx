@@ -4,28 +4,32 @@ import Container from '@/components/ui/Container';
 
 const CATEGORIES = [
   { label: 'All', href: '/category/all' },
-  { label: 'Strategy', href: '/category/influencer-strategy' },
-  { label: 'Channels', href: '/category/influencer-channels' },
-  { label: 'Relationships', href: '/category/building-relationships' },
-  { label: 'Tools', href: '/category/tools-software' },
-  { label: 'Insights', href: '/category/data-stories' },
-  { label: 'Programs', href: '/category/influencer-programs' },
-  { label: 'Tracking', href: '/category/tracking-monitoring' },
-  { label: 'Recruitment', href: '/category/influencer-recruitment' },
+  { label: 'Strategy', href: '/category/kol-strategy' },
+  { label: 'Channels', href: '/category/kol-channels' },
+  { label: 'Vetting', href: '/category/kol-vetting' },
+  { label: 'Payments', href: '/category/onchain-payments' },
+  { label: 'Attribution', href: '/category/campaign-attribution' },
+  { label: 'DeFi', href: '/category/defi' },
+  { label: 'Exchanges', href: '/category/exchanges' },
+  { label: 'Discovery', href: '/category/kol-discovery' },
 ];
 
-/** Blog page hero: big "Blog" title + sticky category bar + search field. */
+/** Blog page hero: big highlighted title + category bar + search field. */
 export default function BlogHero() {
   const [active, setActive] = useState('All');
 
   return (
     <section className="bg-background pt-24 md:pt-40">
       <Container className="max-w-[896px]">
-        <h1 className="text-center font-display text-[5rem] uppercase leading-[0.95] text-foreground md:text-[8rem]">
-          Blog
+        <h1 className="text-center font-display text-[3.25rem] uppercase leading-[0.95] text-foreground md:text-[5.5rem]">
+          The <span className="text-gradient-brand">web3</span> KOL playbook
         </h1>
+        <p className="mx-auto mt-6 max-w-[640px] text-center text-body-md text-foreground/60">
+          Field notes on finding, vetting, and running campaigns with crypto KOLs
+          — backed by real reach, on-chain payments, and attribution that holds up.
+        </p>
 
-        <div className="mt-16 flex flex-col items-center gap-4 md:mt-24 md:flex-row md:justify-between">
+        <div className="mt-12 flex flex-col items-center gap-4 md:mt-16 md:flex-row md:justify-between">
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {CATEGORIES.map((c) => (
               <a

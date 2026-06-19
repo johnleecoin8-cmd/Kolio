@@ -1,50 +1,48 @@
+import { CheckCircle2 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CHECK =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/5f31064063b9d1edd97e2b2f_checkmark_circle.svg';
-
-const INFLUENCER = [
-  'Locations & languages',
-  'Follower range',
+const KOL = [
+  'Crypto niche (DeFi, NFTs, L1/L2, gaming)',
+  'Platform (X, YouTube, TikTok, Telegram)',
+  'Follower range & real reach',
   'Engagement rate',
-  'Bio keywords & hashtags',
-  'Hashtags used',
-  'Growth rate',
+  'Bio keywords & cashtags',
+  'Posting cadence & growth rate',
 ];
 
 const AUDIENCE = [
-  'Locations (city/country)',
-  'Demographics (age/gender)',
-  'Fake followers',
+  'Holder & trader concentration',
+  'Geography (region/country)',
+  'Bot & fake-follower screening',
+  'Wallet-active audience share',
+  'Chain & ecosystem affinity',
   'Languages',
-  'Interests',
-  'Language',
 ];
 
-/** "Search & filter every creator on Earth" — two filter checklists + CTA. */
+/** "Filter for crypto KOLs that actually convert" — two filter checklists + CTA. */
 export default function FilterShowcase() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="flex flex-col items-center">
           <h2 className="text-center font-display text-[2rem] leading-tight text-violet-dark md:text-[2.5rem]">
-            Search &amp; filter every creator on Earth
+            Filter for crypto KOLs that actually convert
           </h2>
           <p className="mx-auto mt-6 max-w-[820px] text-center text-body text-foreground/80">
-            Modash lists every creator on Instagram, YouTube, and TikTok with 1k+
-            followers. That&apos;s 200M profiles. Your perfect partners{' '}
-            <strong className="font-semibold">are</strong> in there; you just have
-            to find them. Here&apos;s some examples of the filters you can use to
-            search.
+            Kolio indexes key opinion leaders across X, YouTube, TikTok, and
+            Telegram &mdash; scored on real reach and audience quality, not
+            follower counts. The right voice for your token{' '}
+            <strong className="font-semibold">is</strong> out there; these are
+            the filters that surface them.
           </p>
 
           <div className="mt-12 grid w-full gap-10 md:grid-cols-2 md:gap-16">
-            <FilterCard title="Influencer filters" items={INFLUENCER} />
+            <FilterCard title="KOL filters" items={KOL} />
             <FilterCard title="Audience filters" items={AUDIENCE} />
           </div>
 
           <a
-            href="https://marketer.modash.io/register/marketer"
+            href="/demo-confirmation"
             className="mt-12 inline-flex h-12 items-center justify-center rounded-sm bg-violet-dark px-6 text-body font-semibold uppercase tracking-wide text-white transition hover:opacity-90"
           >
             Try For Free
@@ -65,7 +63,7 @@ function FilterCard({ title, items }: { title: string; items: string[] }) {
             key={it}
             className="flex items-center gap-3 text-body text-foreground"
           >
-            <img src={CHECK} alt="" className="h-6 w-6 shrink-0" />
+            <CheckCircle2 className="h-6 w-6 shrink-0 text-brand" />
             {it}
           </li>
         ))}

@@ -1,95 +1,186 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type Feature = { title: string; body: string };
 
 type Row = {
   eyebrow: string;
   features: Feature[];
   cta?: string;
-  img: string;
-  imgAlt: string;
+  mockup: 'overview' | 'performance' | 'attribution';
   reverse?: boolean;
 };
 
 const ROWS: Row[] = [
   {
-    eyebrow: 'Collect every post automatically',
+    eyebrow: 'Capture every KOL post automatically',
     features: [
       {
         title: 'Campaign overview at a glance',
-        body: 'Track total posts, influencer participation, views, clicks, and sales across all platforms with segmented data exports.',
+        body: 'Track total posts, KOL participation, impressions, clicks, and on-chain conversions across X, YouTube, TikTok, and Telegram, with segmented exports.',
       },
       {
         title: '100% coverage',
-        body: 'Track every brand mention from selected creators during your campaign window. Stories included.',
+        body: 'Capture every mention from your selected KOLs during the campaign window, threads, videos, and Telegram broadcasts included. Even deleted posts stay on record.',
       },
       {
-        title: 'Zero creator work required',
-        body: 'No sign-ups, no authentication, no screenshot requests. Creators post normally, you see everything in one dashboard.',
+        title: 'Zero KOL busywork',
+        body: 'No sign-ups, no authentication, no screenshot requests. KOLs post as they always do, and you see everything in one verified dashboard.',
       },
     ],
     cta: 'Request a demo',
-    img: `${CDN}/699d65862241ce8a4761a7dc_img_track_01.avif`,
-    imgAlt: 'Campaign overview dashboard',
+    mockup: 'overview',
   },
   {
-    eyebrow: 'Track real performance',
+    eyebrow: 'Track verified reach, not vanity metrics',
     features: [
       {
-        title: 'Automatic performance dashboard',
-        body: 'Views, engagement, and clicks are automatically tracked per post, per creator, and per campaign.',
+        title: 'Proof-based performance dashboard',
+        body: 'Real impressions, engagement, and audience quality are tracked per post, per KOL, and per campaign, so bot-inflated reach has nowhere to hide.',
       },
       {
         title: 'Content library',
-        body: 'View, analyze, and download all creator content from one organized place. Export everything when you need it.',
+        body: 'View, analyze, and download every KOL post from one organized place. Export the full record whenever compliance or your DAO asks for it.',
       },
       {
-        title: 'EMV, CPM, ROAS calculated automatically',
-        body: 'Performance metrics appear without spreadsheet math. See what’s working at a glance.',
+        title: 'CPM and cost-per-conversion, calculated for you',
+        body: 'Campaign economics appear without spreadsheet math. See which KOLs are actually worth their fee at a glance.',
       },
     ],
     cta: 'Request a demo',
-    img: `${CDN}/69b12f41c08035330b97dd5d_img_track_02.avif`,
-    imgAlt: 'Performance dashboard',
+    mockup: 'performance',
     reverse: true,
   },
   {
-    eyebrow: 'Connect sales data to creator content automatically',
+    eyebrow: 'Connect on-chain results to each KOL automatically',
     features: [
       {
-        title: 'Discount code and tracking links',
-        body: 'Create unique codes and links directly in Modash.',
+        title: 'Tracking links and referral codes',
+        body: 'Spin up unique referral links and codes directly in Kolio and hand them to KOLs in a few clicks.',
       },
       {
-        title: 'Shopify integration connects revenue to creators',
-        body: 'Connect Shopify once and see sales data attributed to each creator, all in one dashboard.',
+        title: 'On-chain attribution wired to wallets',
+        body: 'Connect your contract or referral program once and see swaps, mints, sign-ups, and volume attributed to each KOL, all in one dashboard.',
       },
       {
-        title: 'Identify top performers easily',
-        body: 'See which creators and campaigns drive the most engagement and sales. Double down on what works.',
+        title: 'Identify your real top performers',
+        body: 'See which KOLs and campaigns drive the most verified conversions and on-chain volume. Renew the winners, drop the rest.',
       },
     ],
     cta: 'Request a demo',
-    img: `${CDN}/699d65edc8a8c320b5fcc2f4_img_track_03.avif`,
-    imgAlt: 'Sales attribution dashboard',
+    mockup: 'attribution',
   },
 ];
 
-/** "Track campaigns automatically" — 3 alternating image/feature rows. */
+/** Brand-neutral product mockup built with divs (no external imagery). */
+function Mockup({ kind }: { kind: Row['mockup'] }) {
+  if (kind === 'overview') {
+    return (
+      <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
+        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          Campaign feed
+        </p>
+        <div className="mt-4 flex flex-col gap-3">
+          {[
+            { h: '@defi_degen', p: 'X · Thread', v: '212K' },
+            { h: '@onchain_alpha', p: 'YouTube · Review', v: '88K' },
+            { h: '@tg_signals', p: 'Telegram · Broadcast', v: '41K' },
+            { h: '@l2_maxi', p: 'X · Quote post', v: '156K' },
+          ].map((r) => (
+            <div
+              key={r.h}
+              className="flex items-center justify-between rounded-lg bg-background-soft px-4 py-3"
+            >
+              <div className="flex items-center gap-3">
+                <span className="h-8 w-8 rounded-full bg-gradient-brand" aria-hidden />
+                <div>
+                  <p className="text-body-sm font-semibold text-foreground">{r.h}</p>
+                  <p className="text-body-sm text-foreground/55">{r.p}</p>
+                </div>
+              </div>
+              <span className="text-body-sm font-semibold text-foreground/80">
+                {r.v}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (kind === 'performance') {
+    return (
+      <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
+        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+          Verified reach
+        </p>
+        <div className="mt-4 flex items-end gap-2 rounded-lg bg-background-soft p-4">
+          {[52, 71, 60, 88, 74, 96, 81, 90, 66, 84, 78, 99].map((h, i) => (
+            <span
+              key={i}
+              className="flex-1 rounded-t bg-gradient-brand"
+              style={{ height: `${h}px` }}
+              aria-hidden
+            />
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-3 gap-3">
+          {[
+            { l: 'Real reach', v: '6.1M' },
+            { l: 'Audience quality', v: '92%' },
+            { l: 'Cost / conv.', v: '$1.84' },
+          ].map((s) => (
+            <div key={s.l} className="rounded-lg bg-background-soft p-3">
+              <p className="text-body-md font-bold text-foreground">{s.v}</p>
+              <p className="text-body-sm text-foreground/55">{s.l}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
+      <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
+        On-chain attribution
+      </p>
+      <div className="mt-4 flex flex-col gap-3">
+        {[
+          { h: '@defi_degen', code: 'DEGEN10', conv: '1,204', vol: '$312K' },
+          { h: '@onchain_alpha', code: 'ALPHA', conv: '880', vol: '$198K' },
+          { h: '@l2_maxi', code: 'L2MAXI', conv: '642', vol: '$141K' },
+        ].map((r) => (
+          <div
+            key={r.h}
+            className="flex items-center justify-between rounded-lg bg-background-soft px-4 py-3"
+          >
+            <div>
+              <p className="text-body-sm font-semibold text-foreground">{r.h}</p>
+              <p className="text-body-sm text-foreground/55">code {r.code}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-body-sm font-semibold text-foreground">{r.vol}</p>
+              <p className="text-body-sm text-foreground/55">{r.conv} conv.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** "Track campaigns automatically" — 3 alternating mockup/feature rows. */
 export default function TrackCampaigns() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2rem]">
-            Track campaigns automatically
+            Track KOL campaigns automatically
           </h2>
-          <p className="mx-auto mt-4 max-w-[580px] text-body-md text-foreground/70">
-            Let Modash collect every post, track every metric, and connect your
-            Shopify data, so you can focus on scaling what works.
+          <p className="mx-auto mt-4 max-w-[600px] text-body-md text-foreground/70">
+            Let Kolio capture every KOL post, verify every reach number, and wire
+            on-chain results back to each creator, so you can focus on scaling what
+            actually works.
           </p>
         </div>
 
@@ -99,14 +190,9 @@ export default function TrackCampaigns() {
               key={row.eyebrow}
               className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
             >
-              {/* image */}
+              {/* mockup */}
               <div className={row.reverse ? 'md:order-2' : ''}>
-                <img
-                  src={row.img}
-                  alt={row.imgAlt}
-                  loading="lazy"
-                  className="w-full rounded-xl bg-background-soft"
-                />
+                <Mockup kind={row.mockup} />
               </div>
 
               {/* text */}
@@ -126,10 +212,7 @@ export default function TrackCampaigns() {
                 </div>
                 {row.cta && (
                   <div className="mt-8">
-                    <ButtonA
-                      href="https://www.modash.io/book-demo"
-                      variant="primary"
-                    >
+                    <ButtonA href="/demo-confirmation" variant="primary">
                       {row.cta}
                     </ButtonA>
                   </div>

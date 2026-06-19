@@ -2,42 +2,42 @@ import { Search } from 'lucide-react';
 
 const COLUMNS: { placeholder: string; links: string[] }[] = [
   {
-    placeholder: 'Search influencers in United States',
+    placeholder: 'Search KOLs by crypto niche',
     links: [
-      'American Beauty Influencers',
-      'American Fashion Influencers',
-      'American Food Influencers',
-      'American Family Influencers',
-      'American Running Influencers',
-      'American Skincare Influencers',
-      'American Golf Influencers',
-      'American Health Influencers',
+      'NFT KOLs on X',
+      'L1 / L2 KOLs on X',
+      'Trading KOLs on X',
+      'GameFi KOLs on X',
+      'DePIN KOLs on X',
+      'Memecoin KOLs on X',
+      'RWA KOLs on X',
+      'Stablecoin KOLs on X',
     ],
   },
   {
-    placeholder: 'Search a city in United States',
+    placeholder: 'Search KOLs by platform',
     links: [
-      'Atlanta Beauty Influencers',
-      'Austin Beauty Influencers',
-      'Baltimore Beauty Influencers',
-      'Birmingham Beauty Influencers',
-      'Boston Beauty Influencers',
-      'Chicago Beauty Influencers',
-      'Denver Beauty Influencers',
-      'Detroit Beauty Influencers',
+      'Crypto KOLs on YouTube',
+      'Crypto KOLs on Telegram',
+      'Crypto KOLs on TikTok',
+      'Crypto KOLs on Farcaster',
+      'Crypto KOLs on Instagram',
+      'Crypto KOLs on Twitch',
+      'Crypto KOLs on Substack',
+      'Crypto KOLs on Lens',
     ],
   },
   {
-    placeholder: 'Search influencers in this niche',
+    placeholder: 'Search KOLs by region',
     links: [
-      'British Fitness Influencers',
-      'Australian Fitness Influencers',
-      'Spanish Fitness Influencers',
-      'German Fitness Influencers',
-      'Italian Fitness Influencers',
-      'Greek Fitness Influencers',
-      'Austrian Fitness Influencers',
-      'Japanese Fitness Influencers',
+      'Korean DeFi KOLs',
+      'Turkish DeFi KOLs',
+      'Vietnamese DeFi KOLs',
+      'Brazilian DeFi KOLs',
+      'Indian DeFi KOLs',
+      'Chinese DeFi KOLs',
+      'Nigerian DeFi KOLs',
+      'Filipino DeFi KOLs',
     ],
   },
 ];
@@ -60,7 +60,7 @@ export default function RelatedSearches() {
                 {col.links.map((l) => (
                   <li key={l}>
                     <a
-                      href="https://www.modash.io/find-influencers"
+                      href="/find-influencers"
                       className="text-body font-semibold text-foreground underline underline-offset-2 transition hover:text-foreground/70"
                     >
                       {l}

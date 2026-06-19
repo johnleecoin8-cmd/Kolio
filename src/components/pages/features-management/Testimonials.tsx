@@ -2,12 +2,10 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type T = {
-  logo: string;
+  company: string;
   quote: string;
-  avatar: string;
+  initials: string;
   name: string;
   role: string;
   bg: string;
@@ -15,35 +13,35 @@ type T = {
 
 const ITEMS: T[] = [
   {
-    logo: `${CDN}/698c76c88ee7dd8dec1e36ef_logo_hype%20maven.avif`,
+    company: 'L2 Protocol',
     quote:
-      "I've tried a LOT of tools for influencer marketing but none come close to Modash. I've been using it to run client influencer programs for the last 18 months, and they keep releasing new improvements and implementing feedback at lightspeed! It has accurate creator insights, great tracking features, and it kills all the manual back-and-forth between tabs and inboxes.",
-    avatar: `${CDN}/698c7769acfc5a4bf01b2fdf_img_andreea%20moise.avif`,
+      "I've tried a lot of tools for influencer marketing, but nothing came close once we moved to crypto. Kolio is where our whole KOL program lives now: verified reach, deal terms, and on-chain payouts in one view. It killed the endless back-and-forth across Telegram, Notion, and spreadsheets.",
+    initials: 'AM',
     name: 'Andreea Moise',
-    role: 'Influencer Marketing Consultant',
+    role: 'Growth Lead, L2 Protocol',
     bg: 'bg-pink',
   },
   {
-    logo: `${CDN}/68c7f2bc4026fdb7f21e4863_logo_wigiwama.avif`,
+    company: 'DeFi Exchange',
     quote:
-      "Before, our influencer marketing work was split across too many tools. Excel, Notion, a separate affiliate platform, lots of manual emails for product orders and outreach... Now, all of that lives in one platform. Honestly, it's such a relief to have everything in one place. We're into our second year in a row using Modash!",
-    avatar: `${CDN}/68c7ea4ddf9a2299a6b613a2_img_regina.avif`,
+      'Before Kolio, our KOL work was split across five tools and a dozen DMs. Product briefs in one place, wallet addresses in another, payouts chased by hand. Now it all lives in one platform with proof of reach attached to every creator. Honestly, it is such a relief, and we are into our second campaign cycle.',
+    initials: 'RK',
     name: 'Regina Kacajeva',
-    role: 'Creator Partnerships Manager',
+    role: 'KOL Partnerships Manager, DeFi Exchange',
     bg: 'bg-coral',
   },
   {
-    logo: `${CDN}/69930917bf7e07286d2202f2_logo_hungry_minds.avif`,
+    company: 'NFT Studio',
     quote:
-      "I've been in influencer marketing for over 4 years and tried many different tools, but Modash is by far my number one. I use almost every feature in Modash and manage entire campaigns there. It's an all-in-one solution that has become absolutely essential for me and my team.",
-    avatar: `${CDN}/68c7eb35fc99ad999340fe91_img_tatiana.avif`,
+      "I've run crypto campaigns for over four years and tried many tools, but Kolio is by far my number one. I vet KOLs on real audience quality, lock terms, and settle payouts on-chain without leaving the platform. It has become absolutely essential for me and my team.",
+    initials: 'TZ',
     name: 'Tatiana Zelen',
-    role: 'Influencer Marketing Team Lead',
+    role: 'Marketing Lead, NFT Studio',
     bg: 'bg-violet',
   },
 ];
 
-/** "From teams who used to live in spreadsheets" — testimonial carousel. */
+/** "From teams who used to live in Telegram threads" — testimonial carousel. */
 export default function Testimonials() {
   const [active, setActive] = useState(0);
   const count = ITEMS.length;
@@ -55,7 +53,7 @@ export default function Testimonials() {
       <Container>
         <div className="text-center">
           <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
-            From teams who used to live in spreadsheets
+            From teams who used to live in Telegram threads
           </h2>
           <div className="mt-6 flex items-center justify-center gap-3">
             <button
@@ -88,17 +86,17 @@ export default function Testimonials() {
               className={`flex w-[88vw] max-w-[760px] shrink-0 flex-col justify-between rounded-xl p-8 md:w-[760px] md:p-12 ${t.bg}`}
             >
               <div>
-                <img src={t.logo} alt="" className="h-9 w-auto" />
+                <span className="font-display text-body-lg font-semibold uppercase tracking-tight text-ink">
+                  {t.company}
+                </span>
                 <p className="mt-6 text-body-md leading-relaxed text-ink">
                   {t.quote}
                 </p>
               </div>
               <div className="mt-8 flex items-center gap-3">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink text-body-sm font-bold text-white">
+                  {t.initials}
+                </div>
                 <div>
                   <p className="text-body font-semibold text-ink">{t.name}</p>
                   <p className="text-body-sm text-ink/70">{t.role}</p>

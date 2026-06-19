@@ -1,43 +1,43 @@
+import { Link } from 'react-router-dom';
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
-/** Closing CTA band on light violet bg. */
+/** Closing CTA — later.com-inspired warm gradient panel. */
 export default function FinalCta() {
   return (
-    <section className="bg-[#d6daff] py-20 md:py-28">
+    <section className="bg-background py-20 md:py-28">
       <Container>
-        <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
-            A simple but powerful influencer marketing tool
-          </h2>
-          <p className="mt-6 max-w-[640px] text-body-md text-foreground/80">
-            Modash brings your influencer{' '}
-            <a href="/influencer-search" className="text-foreground underline">
-              discovery
-            </a>
-            ,{' '}
-            <a href="/influencer-analytics" className="text-foreground underline">
-              analytics
-            </a>
-            ,{' '}
-            <a
-              href="/influencer-campaign-monitoring"
-              className="text-foreground underline"
-            >
-              monitoring
-            </a>
-            , and management together. Everything your team needs to scale
-            profitable influencer marketing campaigns.
-          </p>
-          <div className="mt-8">
-            <ButtonA
-              href="https://marketer.modash.io/register/marketer"
-              variant="primary"
-              size="lg"
-              className="!bg-blue !text-white hover:!opacity-90"
-            >
-              Get started
-            </ButtonA>
+        <div className="mx-auto max-w-[1000px] overflow-hidden rounded-2xl bg-gradient-brand px-6 py-16 text-center md:px-12 md:py-20">
+          <div className="mx-auto flex max-w-[760px] flex-col items-center">
+            <h2 className="font-display text-[2rem] leading-[1.1] text-white md:text-[2.75rem]">
+              Web2-grade influencer marketing, built for crypto
+            </h2>
+            <p className="mt-6 max-w-[640px] text-body-md text-white/90">
+              Kolio brings KOL{' '}
+              <Link to="/features/influencer-discovery" className="text-white underline">
+                discovery
+              </Link>
+              ,{' '}
+              <Link to="/features/influencer-analytics" className="text-white underline">
+                proof-based vetting
+              </Link>
+              ,{' '}
+              <Link to="/features/influencer-tracking" className="text-white underline">
+                attribution
+              </Link>
+              , and on-chain payments together — the rigor web2 brands take for
+              granted, now wired for web3 campaigns.
+            </p>
+            <div className="mt-8">
+              <ButtonLink
+                to="/demo-confirmation"
+                variant="primary"
+                size="lg"
+                className="!bg-white !text-ink hover:!opacity-90"
+              >
+                Get started
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </Container>

@@ -6,7 +6,7 @@ import {
   Mail,
   BarChart3,
   Play,
-  Instagram,
+  Twitter,
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import type { Influencer, LocationStat } from './data';
@@ -114,7 +114,7 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
           href="#"
           className="mt-3 flex items-center gap-2 text-body-sm text-foreground/80 no-underline hover:underline"
         >
-          <Instagram size={18} className="shrink-0" />
+          <Twitter size={18} className="shrink-0" />
           {data.handle}
         </a>
 
@@ -128,10 +128,10 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
         </div>
 
         <a
-          href="https://www.modash.io/"
+          href="/demo-confirmation"
           className="mt-4 inline-flex h-10 items-center justify-center rounded-sm bg-ink px-4 text-body-sm font-semibold text-white no-underline shadow-btn transition hover:opacity-90"
         >
-          Full Profile Data
+          Full KOL Profile
         </a>
 
         <button className="mt-3 flex items-center gap-2 text-body-sm font-medium text-foreground/70 hover:text-foreground">
@@ -142,12 +142,12 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
         </button>
       </div>
 
-      {/* ---- right: data grid (modash named-area layout) ---- */}
+      {/* ---- right: data grid (named-area layout) ---- */}
       <div className="space-y-4 xl:col-span-5">
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-6 lg:[grid-template-areas:'fakeFollowers_fakeFollowers_fakeFollowers_averageLikes_averageLikes_averageLikes''engagementRate_engagementRate_engagementRate_averageComments_averageComments_averageComments''audienceCountries_audienceCountries_audienceCities_audienceCities_brandPost_brandPost''genderSplit_genderSplit_genderSplit_genderSplit_brandPost_brandPost']">
           {/* stat tiles */}
           <div style={{ gridArea: 'fakeFollowers' }} className="col-span-2 lg:col-auto">
-            <StatPill icon={<AlertTriangle size={16} />} label="Fake followers" value={data.fakeFollowers} />
+            <StatPill icon={<AlertTriangle size={16} />} label="Bot followers" value={data.fakeFollowers} />
           </div>
           <div style={{ gridArea: 'averageLikes' }} className="col-span-2 lg:col-auto">
             <StatPill icon={<Heart size={16} />} label="Average likes" value={data.avgLikes} />
@@ -209,12 +209,12 @@ export default function InfluencerCard({ data }: { data: Influencer }) {
                 <p className="truncate text-[11px] font-semibold text-foreground">{data.name}</p>
                 <p className="truncate text-[10px] text-foreground/50">{data.handle}</p>
               </div>
-              <Instagram size={14} className="shrink-0 text-foreground/60" />
+              <Twitter size={14} className="shrink-0 text-foreground/60" />
             </div>
             <div className="relative aspect-[3/4] bg-gray-100">
               <img
                 src={data.post.image}
-                alt={`Instagram post by ${data.handle} for Red Bull`}
+                alt={`Sponsored post by ${data.handle} for OKX`}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

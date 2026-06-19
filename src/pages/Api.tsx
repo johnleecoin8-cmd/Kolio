@@ -9,9 +9,7 @@ import GettingStarted from '@/components/pages/api/GettingStarted';
 import Faq from '@/components/pages/api/Faq';
 import FinalCta from '@/components/pages/api/FinalCta';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** modash.io Influencer Marketing API page — 1:1 clone. */
+/** Kolio Web3 KOL Data API page. */
 export default function Api() {
   return (
     <main>
@@ -19,28 +17,28 @@ export default function Api() {
       <Foundation />
       <ProductFeature
         title="Discovery API"
-        intro="The most comprehensive search engine for the creator economy."
+        intro="The proof-based search engine for the entire crypto KOL economy."
         bullets={[
-          'Query our 380M+ influencer database across TikTok, Instagram, and YouTube.',
-          'Find creators using AI search, or simply via keywords, filters, or audience demographics.',
-          'Explore brand and creator collaborations and timelines.',
-          'Get profile reports including audience, engagement rate, average views, and more.',
+          'Query a vetted database of crypto KOLs across X, YouTube, TikTok, and Telegram.',
+          'Find KOLs with AI search, or filter by niche — DeFi, NFTs, L1/L2, trading, gaming — region, and audience quality.',
+          'Surface real reach and audience authenticity, not vanity follower counts.',
+          'Pull verification reports: engagement rate, average views, audience overlap, and fake-follower scoring.',
         ]}
-        image={`${CDN}/69132d7d673562560bf5985c_img_discovery%20api.avif`}
-        imageAlt="Discovery API search and analytics"
-        learnMore="/influencer-marketing-api/discovery"
+        image="chart"
+        imageAlt="Kolio Discovery API audience-quality analytics"
+        learnMore="/demo-confirmation"
       />
       <ProductFeature
         title="Raw API"
-        intro="Access real-time content and performance data as it happens."
+        intro="Stream live campaign and on-chain performance data as it happens."
         bullets={[
-          'Query live, unfiltered data directly from influencer profiles.',
-          'Programmatically track campaign posts, monitor mentions, and much more in real-time.',
-          'Analyze content, enrich your workflows, or pull live metrics for market and brand intelligence.',
+          'Query live, unfiltered data straight from KOL profiles across every crypto-native channel.',
+          'Track sponsored posts, monitor token mentions, and watch campaign momentum in real time.',
+          'Tie social activity to on-chain attribution — wallet conversions, referral clicks, and post-level ROI.',
         ]}
-        image={`${CDN}/69df61a32e66b5f012b1a7a5_img_raw%20api_01.avif`}
-        imageAlt="Raw API live profile data"
-        learnMore="/influencer-marketing-api/raw"
+        image="stream"
+        imageAlt="Kolio Raw API live profile and on-chain attribution data"
+        learnMore="/demo-confirmation"
         reverse
       />
       <Testimonials />

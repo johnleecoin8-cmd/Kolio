@@ -7,47 +7,49 @@ export default function FeatureSections() {
   return (
     <>
       <FeatureRow
-        title="Check influencers' past sponsored content"
+        title="See who they've actually shilled before"
         body={
           <>
-            Use the brand collaborations timeline during your vetting process to see
-            who an influencer has worked with, what they posted, and how it performed.
-            Check for competitors, see how the audience reacted, and more.
+            The campaign timeline shows every project a KOL has promoted — which
+            tokens, which posts, and how the market reacted. Spot conflicts with
+            competing protocols, check whether they've worked with rug-adjacent
+            projects, and read the audience response before you commit.
             <br />
             <br />
-            Plus see Paid vs. Organic metrics to see how well their sponsored content
-            performs on average.
+            Paid vs. organic reach tells you how their sponsored posts really land
+            versus the content the timeline rewards on its own.
           </>
         }
         img={`${CDN}/68407cf0a997aa0a3110da19_img_analytics_02.avif`}
-        imgAlt="Brand collaborations timeline"
+        imgAlt="KOL past campaign timeline"
       />
 
       <FeatureRow
-        title="Audit for fake followers"
+        title="Audit for bots and bought followers"
         body={
           <>
-            Quickly spot if a profile has an unusually high number of fake followers,
-            and make decisions with more confidence.
+            Crypto KOL audiences are full of bots and airdrop farmers. Kolio flags an
+            inflated follower count or engagement pod instantly, so you pay for real
+            humans who can actually move a token — not vanity numbers.
           </>
         }
         img={`${CDN}/68407cfc94443a66df98489c_img_analytics_03.avif`}
-        imgAlt="Fake follower audit"
+        imgAlt="Bot and fake follower audit"
         reverse
       />
 
       <FeatureRow
-        title="Compare post types with advanced data"
+        title="Compare content formats across every platform"
         body={
           <>
-            Break down key metrics like average views, engagement rate, and comments
-            by content type, like Shorts vs. long-form on YouTube, or Reels vs. Posts
-            on Instagram. This helps you better predict how each format will perform in
-            your campaign.
+            Break down views, engagement, and comments by format and channel — a
+            YouTube deep-dive vs. a viral X thread, a Telegram alpha drop vs. a TikTok
+            short. See which format each KOL converts on so you brief the right
+            deliverable for your campaign.
           </>
         }
         img={`${CDN}/68407d05b9629ec4c85ed833_img_analytics_04.avif`}
-        imgAlt="Compare post types"
+        imgAlt="Compare content formats across platforms"
       />
     </>
   );

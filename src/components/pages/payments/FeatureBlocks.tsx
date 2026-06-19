@@ -1,85 +1,166 @@
+import type { ReactNode } from 'react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 type Point = { title: string; body: string };
 
 type Block = {
-  img: string;
-  alt: string;
+  visual: ReactNode;
   heading: string;
   points: Point[];
   reverse?: boolean;
 };
 
+/** Brand-neutral payout-rails visual built from divs. */
+function RailsVisual() {
+  const rails = [
+    { chain: 'USDC · Ethereum', amt: '$1,000.00' },
+    { chain: 'USDT · Solana', amt: '$640.00' },
+    { chain: 'USDC · Base', amt: '$1,547.00' },
+    { chain: 'Bank · SEPA (EUR)', amt: '€890.00' },
+  ];
+  return (
+    <div className="rounded-2xl bg-white p-5 shadow-sm md:p-6">
+      <p className="text-[13px] font-semibold text-ink">Payout rails</p>
+      <div className="mt-4 space-y-2.5">
+        {rails.map((r) => (
+          <div
+            key={r.chain}
+            className="flex items-center justify-between rounded-lg bg-background-soft px-3.5 py-3"
+          >
+            <span className="flex items-center gap-2.5 text-[13px] text-ink">
+              <span className="h-2 w-2 rounded-full bg-positive" />
+              {r.chain}
+            </span>
+            <span className="text-[13px] font-semibold text-ink">{r.amt}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Brand-neutral escrow timeline visual. */
+function EscrowVisual() {
+  const steps = [
+    { l: 'Budget funded', done: true },
+    { l: 'Held in escrow', done: true },
+    { l: 'Deliverables verified', done: true },
+    { l: 'Payout released', done: false },
+  ];
+  return (
+    <div className="rounded-2xl bg-white p-5 shadow-sm md:p-6">
+      <p className="text-[13px] font-semibold text-ink">Escrow status</p>
+      <div className="mt-4 space-y-3.5">
+        {steps.map((s) => (
+          <div key={s.l} className="flex items-center gap-3">
+            <span
+              className={
+                'h-2.5 w-2.5 shrink-0 rounded-full ' +
+                (s.done ? 'bg-ink' : 'bg-gray-200')
+              }
+            />
+            <span className={s.done ? 'text-[13px] text-ink' : 'text-[13px] text-gray-400'}>
+              {s.l}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 rounded-lg bg-background-soft px-3.5 py-3 text-[12px] text-gray-600">
+        Funds release automatically when posts are live and metrics are confirmed.
+      </div>
+    </div>
+  );
+}
+
+/** Brand-neutral attribution / audit visual. */
+function AuditVisual() {
+  const rows = [
+    { tx: '0x9f…41a2', label: 'Payout · @defi_degen' },
+    { tx: '0x3c…88bd', label: 'Payout · @l2_maxi' },
+    { tx: '0x71…0e44', label: 'Refund · unverified post' },
+  ];
+  return (
+    <div className="rounded-2xl bg-white p-5 shadow-sm md:p-6">
+      <p className="text-[13px] font-semibold text-ink">On-chain audit trail</p>
+      <div className="mt-4 space-y-2.5">
+        {rows.map((r) => (
+          <div
+            key={r.tx}
+            className="flex items-center justify-between rounded-lg bg-background-soft px-3.5 py-3"
+          >
+            <span className="text-[13px] text-ink">{r.label}</span>
+            <span className="font-mono text-[12px] text-gray-500">{r.tx}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const BLOCKS: Block[] = [
   {
-    img: `${CDN}/69afd245124e6c7889497872_img_payments_01.avif`,
-    alt: 'Pay in any currency',
-    heading: 'Pay any creator, in any country, in any currency',
+    visual: <RailsVisual />,
+    heading: 'Pay any KOL, on any chain, in any currency',
     points: [
       {
-        title: '180+ countries and 36 currencies',
-        body: "Pay creators in their local currency. Choose automatic monthly payouts or review-and-approve. You're in control.",
+        title: 'Stablecoins or fiat, KOL’s choice',
+        body: 'Pay in USDC, USDT, ETH, or settle to a bank account. Set automatic payouts or review-and-approve. You stay in control.',
       },
       {
-        title: 'Bank account payments in 1-3 days',
-        body: 'Fast, reliable transfers straight to creator bank accounts. No extra fees, no slow wires.',
+        title: 'Multi-chain in seconds',
+        body: 'Ethereum, Solana, Base, Arbitrum and more — Kolio routes each payout to the chain the KOL actually uses.',
       },
       {
-        title: 'Zero fees to creators',
-        body: 'Creators get the full approved amount. No deductions, no surprises.',
+        title: 'No gas surprises for KOLs',
+        body: 'KOLs receive the full approved amount. Network fees are abstracted away, with nothing deducted on arrival.',
       },
     ],
   },
   {
-    img: `${CDN}/69a572026a3bd64adee010f4_img_payments_02.avif`,
-    alt: 'Never chase an invoice again',
-    heading: 'Never chase an invoice again',
+    visual: <EscrowVisual />,
+    heading: 'Escrow that pays on proof, not promises',
+    reverse: true,
     points: [
       {
-        title: 'One invoice for your finance team',
-        body: 'Finance gets a single consolidated invoice for all creator payments.',
+        title: 'Budget locked up front',
+        body: 'Fund the campaign once and the budget sits in escrow — KOLs see it’s real before they commit.',
       },
       {
-        title: 'Automatic invoice collection',
-        body: 'Send a payment link once. Creators add their details and generate automated compliant invoices.',
+        title: 'Release on verified delivery',
+        body: 'Funds unlock automatically when posts go live and reach metrics are confirmed. No chasing, no fronting cash.',
       },
       {
-        title: 'Creator dashboard',
-        body: 'Creators check their payment status themselves. No more "when will I be paid?" emails.',
+        title: 'KOL payout dashboard',
+        body: 'KOLs track status, pending releases, and history themselves. No more "did it land?" DMs.',
       },
     ],
   },
   {
-    img: `${CDN}/69a5720d92d335910003ea31_img_payments_03.avif`,
-    alt: 'Compliance and tracking',
-    heading: 'Compliance and tracking — fully handled',
+    visual: <AuditVisual />,
+    heading: 'Attribution and audit — fully on-chain',
     points: [
       {
-        title: 'Modash as vendor of record',
-        body: 'We handle international tax obligations and regulatory compliance liability across 180+ countries.',
+        title: 'Every payout is verifiable',
+        body: 'Each release maps to a tx hash and a deliverable, so finance and partners can audit the whole campaign on-chain.',
       },
       {
-        title: 'Complete audit trail',
-        body: 'Full payment history with documentation ready for audits.',
+        title: 'Referral attribution built in',
+        body: 'Tie wallets and referral links to each KOL to see exactly which creator drove on-chain conversions.',
       },
       {
-        title: 'Balance dashboard',
-        body: 'Track payment balance and monitor creator progress at a glance.',
+        title: 'Balance and spend at a glance',
+        body: 'Track escrowed balance, funds in flight, and total spent across every campaign in one view.',
       },
     ],
   },
 ];
 
-function FeatureBlock({ img, alt, heading, points, reverse }: Block) {
+function FeatureBlock({ visual, heading, points, reverse }: Block) {
   return (
     <div className="overflow-hidden rounded-xl bg-background-soft p-6 md:p-10">
       <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-        <div className={reverse ? 'md:order-2' : ''}>
-          <img src={img} alt={alt} loading="lazy" className="w-full" />
-        </div>
+        <div className={reverse ? 'md:order-2' : ''}>{visual}</div>
         <div className={reverse ? 'md:order-1' : ''}>
           <h3 className="text-body-lg font-bold leading-tight text-ink">{heading}</h3>
           <div className="mt-6 space-y-5">
@@ -91,7 +172,7 @@ function FeatureBlock({ img, alt, heading, points, reverse }: Block) {
             ))}
           </div>
           <div className="mt-8">
-            <ButtonA href="https://www.modash.io/book-demo" variant="primary">
+            <ButtonA href="/demo-confirmation" variant="primary">
               Request a demo
             </ButtonA>
           </div>
@@ -101,18 +182,18 @@ function FeatureBlock({ img, alt, heading, points, reverse }: Block) {
   );
 }
 
-/** Three alternating feature blocks under "Pay creators globally". */
+/** Three alternating feature blocks under "Pay crypto KOLs globally". */
 export default function FeatureBlocks() {
   return (
     <section className="bg-background py-12 md:py-16">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h4 text-ink md:text-h3">
-            Pay creators globally, without the headache
+            Pay crypto KOLs globally, without the headache
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            Send payment links, automatically collect invoices, and let Modash
-            handle compliance so you can keep moving to the next partnership.
+            Fund campaigns once, escrow the budget, and let Kolio handle payout
+            rails and the on-chain record so you can move on to the next launch.
           </p>
         </div>
 

@@ -4,34 +4,34 @@ import WideContainer from './WideContainer';
 
 const FAQS = [
   {
-    title: 'What is Modash?',
+    title: 'What is Kolio?',
     content:
-      'Modash is an influencer marketing platform that lets brands on Shopify manage and grow their influencer programs from one place. Find creators, manage relationships, track performance, and pay them in one connected workflow. Run paid partnerships, affiliate programs, and gifting campaigns without juggling multiple tools or spreadsheets.',
+      'Kolio is the web3 influencer marketing platform. It brings the rigor of mature web2 creator platforms to crypto, letting brands, exchanges, and protocols discover crypto KOLs, vet their real reach and audience quality, pay them on-chain through escrow, and attribute every campaign — all in one connected workflow, without juggling spreadsheets and Telegram DMs.',
   },
   {
-    title: 'What are Instagram average views?',
+    title: 'What counts as a crypto KOL?',
     content:
-      'Instagram average views are the typical number of views a creator gets per Reel over a recent set of posts. It is a quick way to estimate reach and consistency.',
+      'A crypto KOL (key opinion leader) is a creator with an engaged web3 audience on X, YouTube, TikTok, or Telegram — think DeFi analysts, NFT voices, L1/L2 commentators, trading educators, and gaming creators. Kolio focuses on these proven, audience-backed accounts rather than scoring people on looks or follower vanity.',
   },
   {
-    title: 'How do you calculate Instagram average views?',
+    title: 'How do you measure a KOL’s real reach?',
     content:
-      'A simple method is to take a set of recent Reels, add up their views, and divide by the number of Reels. A calculator helps you do this instantly and reduces the impact of one-off outliers.',
+      'A simple method is to take a recent set of posts, add up their impressions, and divide by the number of posts. Kolio does this instantly and cross-checks it against audience quality, so one viral airdrop-season thread does not inflate the baseline.',
   },
   {
-    title: 'What is a good average views count on Instagram?',
+    title: 'What is a good reach number for a crypto KOL?',
     content:
-      'There is no single "good" number. A good average views count depends on follower size, niche, and content format. The best approach is to compare a creator to benchmarks and to other creators with a similar audience size.',
+      'There is no single "good" number. Real reach depends on niche, region, and format — a focused DeFi analyst can outperform a larger generalist account. The best approach is to compare a KOL to benchmarks and to other KOLs with a similar audience size and niche.',
   },
   {
-    title: 'Why can a creator with many followers have low average views?',
+    title: 'Why can a KOL with many followers have low real reach?',
     content:
-      'Common reasons include inconsistent posting, content that does not resonate, audience quality issues, or a follower base built from older viral moments. Average views help you spot this quickly.',
+      'Common reasons include bought followers, bot-padded engagement, airdrop farmers in the audience, inconsistent posting, or a following built from one old market cycle. Proof-based reach and audience-quality scoring help you spot this before budget leaves escrow.',
   },
   {
-    title: 'Is this Instagram average views calculator free?',
+    title: 'Is this crypto KOL reach checker free?',
     content:
-      'Yes. The page is designed to be free to use for a quick check with no sign-up. If you want deeper analytics, more history, and workflows to manage creators at scale, you can upgrade to Modash.',
+      'Yes. The page is free to use for a quick check with no sign-up. If you want deeper analytics, full audience-quality scoring, on-chain escrow payments, and attribution to run KOL programs at scale, you can upgrade to Kolio.',
   },
 ];
 

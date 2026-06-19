@@ -3,7 +3,7 @@ import PullQuote from '@/components/pages/customer-stories/PullQuote';
 import Article from '@/components/pages/customer-stories/Article';
 import CtaBanner from '@/components/pages/customer-stories/CtaBanner';
 
-/** modash.io customer story — NordVPN. 1:1 clone, sections render top-to-bottom. */
+/** Kolio customer story — Arbiscan crypto KOL case study. Sections render top-to-bottom. */
 export default function CustomerStories() {
   return (
     <main>

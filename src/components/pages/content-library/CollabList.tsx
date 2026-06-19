@@ -14,7 +14,7 @@ export default function CollabList() {
           {/* header */}
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <h2 className="text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
-              Recent influencer collabs with Red Bull
+              Recent KOL campaigns with OKX
             </h2>
             <span className="inline-flex w-fit items-center gap-2 rounded-pill bg-white px-3 py-1.5 text-body-sm text-foreground/70 shadow-sm">
               <CalendarDays size={15} />
@@ -24,17 +24,17 @@ export default function CollabList() {
           </div>
 
           <p className="mt-4 max-w-3xl text-body text-foreground/75">
-            These 29 influencers have posted at least 1 piece of content that is
-            sponsored by Red Bull. Data powered by Modash.{' '}
-            <a href="https://www.modash.io/" className="font-semibold underline">
-              Start a free trial
+            These 29 crypto KOLs have published at least one sponsored campaign
+            with OKX across X and other channels. Vetted and indexed by Kolio.{' '}
+            <a href="/demo-confirmation" className="font-semibold underline">
+              Book a demo
             </a>{' '}
-            to get a timeline view of influencers' brand collaborations. (Or
-            check out our{' '}
-            <a href="https://www.modash.io/" className="font-semibold underline">
-              Brand Collaborations API
+            to get a full campaign timeline for any KOL, with proof-based reach
+            and on-chain attribution. (Or plug into our{' '}
+            <a href="/demo-confirmation" className="font-semibold underline">
+              Campaigns API
             </a>{' '}
-            to get data for your own products and processes.)
+            to pull this data into your own dashboards and workflows.)
           </p>
 
           <div className="mt-6 flex flex-col gap-4">

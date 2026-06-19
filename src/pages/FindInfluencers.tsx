@@ -2,11 +2,11 @@ import PageHeader from '@/components/pages/find-influencers/PageHeader';
 import ResultsPanel from '@/components/pages/find-influencers/ResultsPanel';
 import RelatedSearches from '@/components/pages/find-influencers/RelatedSearches';
 import Faq from '@/components/pages/find-influencers/Faq';
-import ShopifyCta from '@/components/pages/find-influencers/ShopifyCta';
+import PlatformCta from '@/components/pages/find-influencers/PlatformCta';
 
 /**
- * modash.io "Top 20 American Fitness Influencers" SEO list page.
- * 1:1 clone of /find-influencers/united-states/fitness.
+ * Kolio "Top 20 DeFi KOLs on X" SEO list page — the web3 influencer
+ * marketing platform. Proof-based KOL discovery and vetting for crypto.
  */
 export default function FindInfluencers() {
   return (
@@ -15,7 +15,7 @@ export default function FindInfluencers() {
       <ResultsPanel />
       <RelatedSearches />
       <Faq />
-      <ShopifyCta />
+      <PlatformCta />
     </>
   );
 }

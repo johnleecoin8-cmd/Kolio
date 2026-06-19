@@ -1,24 +1,23 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** Giant pink "MODASH MISSION" wordmark + mission statement + Join us CTA. */
+/** Giant "KOLIO MISSION" wordmark + mission statement + Join us CTA. */
 export default function MissionBanner() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="flex flex-col items-center text-center">
-          <img
-            src={`${CDN}/6889d460f981c0ff287ff2b0_Modash%20mission.svg`}
-            alt="Modash Mission"
-            className="w-full max-w-[1000px]"
-          />
+          <h2 className="font-display uppercase leading-[0.9] text-foreground text-[3rem] sm:text-[5rem] md:text-[7rem]">
+            <span className="text-gradient-brand">Kolio</span>
+            <br />
+            Mission
+          </h2>
 
           <p className="mx-auto mt-8 max-w-[760px] text-body-lg font-semibold leading-snug text-foreground md:mt-10">
-            The world doesn&rsquo;t need giant media organizations to tell every
-            story. The world needs millions of creators. Independent voices who
-            bring weird, wonderful stories to life online. We are working to help
-            every creator earn a living.
+            Crypto runs on influence, but the marketing around it is still
+            guesswork. Inflated follower counts, no attribution, payments on a
+            handshake. We&rsquo;re here to fix that &mdash; bringing the rigor of
+            mature web2 creator platforms to web3, so every campaign with a KOL is
+            measurable, verifiable, and worth the spend.
           </p>
 
           <a

@@ -7,13 +7,13 @@ export default function Problem() {
       <Container>
         <div className="mx-auto max-w-[1000px] text-center">
           <h2 className="font-display text-[2.5rem] uppercase leading-[0.95] text-ink sm:text-[3.5rem] md:text-[5rem]">
-            You're apologizing to creators while chasing finance
+            Paying KOLs one wallet at a time is killing your campaign
           </h2>
           <p className="mx-auto mt-6 max-w-[680px] text-body-md text-foreground/70">
-            While your finance team is processing 125 individual payments every
-            month, you've become a help desk manager, teaching creators how to
-            invoice. You're stuck in the messy middle, instead of building your
-            next partnership.
+            You're firing off manual transfers across five chains, screenshotting
+            tx hashes for proof, and fronting budget before a single post goes
+            live. There's no escrow, no accountability, and no clean record when
+            finance asks where the money went.
           </p>
         </div>
       </Container>

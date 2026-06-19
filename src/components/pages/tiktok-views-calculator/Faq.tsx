@@ -4,28 +4,28 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'What is Modash?',
-    a: 'Modash is an influencer marketing platform that helps brands find, analyze, and manage creators. You can search 350M+ influencer profiles, view audience demographics and engagement data, send emails, and track campaign results — all in one place.',
+    q: 'What is Kolio?',
+    a: 'Kolio is the web3 influencer marketing platform. It brings the rigor of mature web2 creator tooling to crypto KOLs — helping brands, exchanges and protocols discover KOLs across X, YouTube, TikTok and Telegram, vet them on verified reach instead of vanity metrics, pay through on-chain escrow, and attribute every campaign.',
   },
   {
     q: 'What are TikTok average views?',
-    a: 'TikTok average views are the typical number of views a creator gets per video over a recent set of posts. It is a quick way to estimate reach and consistency.',
+    a: 'TikTok average views are the typical number of views a KOL gets per video over a recent set of posts. For a crypto campaign it is a fast way to gauge real reach and consistency before you commit budget.',
   },
   {
     q: 'How do you calculate TikTok average views?',
-    a: 'A simple method is to take a set of recent videos, add up their views, and divide by the number of videos. A calculator helps you do this instantly and reduces the impact of one-off outliers.',
+    a: 'Take a set of recent videos, add up their views, and divide by the number of videos. This calculator does it instantly and reduces the impact of one-off outliers. Kolio also cross-checks the result against verified reach so inflated or botted accounts can’t game the number.',
   },
   {
-    q: 'What is a good average views count on TikTok?',
-    a: 'There is no single "good" number. A good average views count depends on follower size, niche, and content format. The best approach is to compare a creator to benchmarks and to other creators with a similar audience size.',
+    q: 'What is a good average views count for a crypto KOL?',
+    a: 'There is no single "good" number. It depends on follower size, niche (DeFi, NFTs, L1/L2, trading, gaming) and content format. The right move is to benchmark a KOL against others with a similar audience — and weigh engagement quality, not just raw views.',
   },
   {
-    q: 'Why can a creator with many followers have low average views?',
-    a: 'Common reasons include inconsistent posting, content that does not resonate, audience quality issues, or a follower base built from older viral moments. Average views help you spot this quickly.',
+    q: 'Why can a KOL with a huge following have low average views?',
+    a: 'Usually it means inconsistent posting, content that does not land, poor audience quality, or a follower base inflated by bots or an old viral moment. Average views surface that gap quickly — which is exactly why proof-based vetting matters in crypto.',
   },
   {
-    q: 'Is this TikTok average views calculator free?',
-    a: 'Yes. The page is designed to be free to use for a quick check with no sign-up. If you want deeper analytics, more history, and workflows to manage creators at scale, you can upgrade to Modash.',
+    q: 'Is this calculator free?',
+    a: 'Yes. It is free for a quick check with no sign-up. When you’re ready to discover KOLs at scale, vet them on verified data, pay through on-chain escrow and attribute results, you can move the whole workflow into Kolio.',
   },
 ];
 

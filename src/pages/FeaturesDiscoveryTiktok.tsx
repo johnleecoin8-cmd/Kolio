@@ -7,7 +7,8 @@ import Faq from '@/components/pages/features-discovery-tiktok/Faq';
 import CtaBand from '@/components/pages/features-discovery-tiktok/CtaBand';
 
 /**
- * modash.io /features/influencer-discovery/tiktok — 1:1 clone.
+ * Kolio — Crypto KOL discovery for TikTok.
+ * Web3 influencer marketing: find, verify, pay & attribute crypto KOLs.
  * Sections render top-to-bottom.
  */
 export default function FeaturesDiscoveryTiktok() {

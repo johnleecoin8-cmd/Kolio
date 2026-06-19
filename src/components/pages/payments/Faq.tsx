@@ -4,40 +4,40 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'How does Modash Payments work?',
-    a: 'Modash Payments centralizes all creator payouts into a single workflow. You approve payments in Modash, pay Modash a single invoice, and we handle distributing payouts to creators in their local currency across 180+ countries. This applies to both flat-fee creator payments and affiliate commissions. Once payments are approved, creators are paid directly to their bank accounts. The result is one payment flow for your entire creator program, without managing individual transfers, currencies, or payout tools.',
+    q: 'How does Kolio Payments work?',
+    a: 'Kolio Payments centralizes every crypto KOL payout into one workflow. You fund a campaign wallet, Kolio escrows the budget, and funds release to each KOL the moment their deliverables are verified. Payouts settle in stablecoins, native tokens, or fiat, and every release is written on-chain with a tx hash. The result is one payment flow for your entire KOL program — no manual transfers, no chasing wallets, no scattered tooling.',
   },
   {
-    q: 'Who is Modash Payments ideally suited for?',
-    a: 'Modash Payments is perfect for you if you check any of these boxes: Your company operates in more than one country, you work with influencers in more than one country, or each team member manages 10+ influencers monthly.',
+    q: 'Who is Kolio Payments ideally suited for?',
+    a: 'Kolio Payments is built for crypto and web3 brands, exchanges, protocols, and projects running KOL campaigns at scale — especially if you pay creators across multiple chains, want escrow before committing budget, or need an auditable on-chain record of every payout.',
   },
   {
-    q: 'In which countries can I pay creators?',
-    a: "We pay creators in 180+ countries in their local currency. Whether they're in the US, UK, Brazil, or Japan, we've got you covered.",
+    q: 'Which chains and currencies can I pay in?',
+    a: 'You can pay KOLs in stablecoins (USDC, USDT) and native tokens (ETH and more) across Ethereum, Solana, Base, Arbitrum, and other major chains — or settle to a bank account in fiat across 180+ countries. Each KOL chooses how they want to receive funds.',
   },
   {
-    q: 'How do creators get paid?',
-    a: 'Creators receive fast, secure payments directly to their bank account. They can also auto-generate invoices with one click, and also enable automatic invoice generation, so invoices will be created by Modash, making the entire process smooth and professional.',
+    q: 'How do KOLs get paid?',
+    a: 'Once you fund the campaign and a KOL’s deliverables are verified, Kolio releases the escrowed amount directly to their wallet on-chain — typically in minutes — or settles to their bank account in 1-3 days. Every release maps to a tx hash so both sides have proof.',
   },
   {
-    q: 'How quickly do creators receive payment?',
-    a: 'Creators receive payments within a few business days after you approve. Fast, reliable payouts keep your creators happy and your relationships strong.',
+    q: 'How does escrow protect both sides?',
+    a: 'When you fund a campaign, the budget is locked in escrow before any work begins. KOLs can see the money is real before they post, and you only release funds once deliverables are confirmed — so neither side has to front cash or trust a promise.',
   },
   {
-    q: 'Do creators need to sign up to Modash to get paid?',
-    a: "Yes. Creators complete a one-time signup the first time they're paid through Modash. On their first payment, whether flat fee or affiliate, creators sign up and provide their personal or company details, along with the information needed for invoicing and tax compliance. If a creator has already signed up to Modash for another brand, they don't need to sign up again. For all future payments, creators simply sign in to upload an invoice or use Modash's automatic invoice generator to create a compliant invoice.",
+    q: 'Do KOLs need to sign up to Kolio to get paid?',
+    a: "Yes. KOLs complete a one-time onboarding the first time they're paid through Kolio, verifying their wallet, identity, and tax details. If a KOL has already onboarded for another brand, they don’t need to do it again — for all future campaigns they simply confirm their payout wallet.",
   },
   {
-    q: 'How does Modash handle taxes, invoicing, and compliance?',
-    a: 'Modash acts as your single payment and compliance vendor for creator payouts. You receive one invoice from Modash. We handle creator invoicing, tax documentation, payment processing, and compliance requirements on your behalf. This applies to both flat-fee payments and affiliate commissions. This setup centralizes compliance across 180+ countries and 36 currencies, keeping payouts auditable and reducing legal and administrative risk for your team.',
+    q: 'How does Kolio handle attribution and the on-chain record?',
+    a: 'Every payout maps to a deliverable and a tx hash, and KOL wallets and referral links can be tied to on-chain conversions. This gives you a verifiable audit trail across all chains and currencies, so finance and partners can reconcile a whole campaign on-chain.',
   },
   {
-    q: "What happens if there's a payment issue?",
-    a: 'Modash handles all payment issues on your behalf. We manage the resolution process so you can focus on your campaigns, not administrative headaches.',
+    q: "What happens if there's a payout issue?",
+    a: 'Kolio handles payout issues on your behalf. Our team manages the resolution process — wallet errors, disputed deliverables, or refunds for unverified posts — so you can focus on the campaign, not the admin.',
   },
   {
-    q: 'Can I see my current payment balance?',
-    a: 'Always. Your Payments dashboard shows your current balance, funds in transit, and total spent, all down to the cent. Full transparency at all times.',
+    q: 'Can I see my current campaign balance?',
+    a: 'Always. Your Payments dashboard shows escrowed balance, funds in flight, and total spent in real time. Full transparency, fully on-chain, at all times.',
   },
 ];
 

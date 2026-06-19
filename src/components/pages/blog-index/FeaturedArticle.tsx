@@ -9,12 +9,12 @@ export default function FeaturedArticle() {
       <Container className="max-w-[896px]">
         <div className="grid items-stretch gap-6 md:grid-cols-2">
           <a
-            href="/blog/creator-gifting-survey"
+            href="/blog/web2-rigor-web3-kols"
             className="block overflow-hidden rounded-xl"
           >
             <img
               src={`${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`}
-              alt=""
+              alt="Web3 KOL vetting report cover"
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -22,22 +22,21 @@ export default function FeaturedArticle() {
 
           <div className="flex flex-col items-start justify-center rounded-xl bg-background-soft p-8 md:p-10">
             <a
-              href="/category/influencer-programs"
-              className="rounded-pill px-3 py-1 text-eyebrow font-semibold"
-              style={{ color: '#ffdbed', backgroundColor: '#ad1f66' }}
+              href="/category/kol-vetting"
+              className="rounded-pill bg-brand px-3 py-1 text-eyebrow font-semibold text-white"
             >
-              Programs
+              Vetting
             </a>
             <a
-              href="/blog/creator-gifting-survey"
+              href="/blog/web2-rigor-web3-kols"
               className="mt-4 text-[1.75rem] font-bold leading-[1.2] text-foreground md:text-[2rem]"
             >
-              [Survey] Are Creators Really Over Gifting?
+              [Report] How Much of a Crypto KOL's Reach Is Actually Real?
             </a>
             <p className="mt-4 text-body text-foreground/70">
-              Marketers said creators aren’t open to gifting collabs. But is that
-              true? We asked 25 creators to weigh in on gifting: the good, the bad,
-              and the ugly.
+              Follower counts lie. We ran proof-based audience checks across 200
+              crypto KOLs on X and Telegram — the share of authentic reach, where
+              the bots hide, and what brands should pay for instead of vanity.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <img

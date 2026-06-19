@@ -58,31 +58,31 @@ const ROWS: Row[] = [
   },
 ];
 
-/** "What is a good Instagram influencer engagement rate?" + benchmark table. */
+/** "What is a good crypto KOL engagement rate?" + benchmark table. */
 export default function GoodRate() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="flex w-full flex-col items-center gap-8">
           <h2 className="mb-4 w-full break-words text-center font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
-            What is a good Instagram influencer engagement rate?
+            What is a good crypto KOL engagement rate?
           </h2>
           <p className="w-full break-words text-center text-lg font-normal leading-relaxed text-foreground">
-            A good Instagram engagement rate depends largely on follower count,
-            but in general, anything above 3% is strong, and above 6% is
-            considered excellent for smaller creators (under 5K followers). As
-            accounts grow, engagement rates naturally decline - for mid-sized
-            and larger influencers, rates above 1% are typically considered
-            solid.
+            A good engagement rate on X (Twitter) depends largely on audience
+            size, but in general, anything above 3% is strong, and above 6% is
+            excellent for smaller KOLs (under 5K followers). As accounts grow,
+            engagement rates naturally decline &mdash; for mid-sized and larger
+            crypto KOLs, rates above 1% are typically a healthy sign that the
+            audience is real and not bought.
           </p>
 
           <div className="mt-6 w-full">
             <h3 className="mb-4 text-center text-body-md font-semibold text-foreground">
-              Instagram Engagement Rate Benchmarks
+              Crypto KOL Engagement Rate Benchmarks (X / Twitter)
             </h3>
             <p className="mb-6 text-center text-body-sm text-foreground/70">
-              Using data from 84M+ influencer profiles in our database, we&rsquo;ve
-              put together some benchmarks.
+              Using engagement data from millions of crypto KOL profiles vetted
+              on Kolio, we&rsquo;ve put together some benchmarks.
             </p>
 
             <div className="overflow-x-auto">
@@ -127,22 +127,24 @@ export default function GoodRate() {
               </table>
             </div>
             <div className="mt-4 flex items-center justify-between">
-              <span className="font-display text-lg leading-none text-ink">modash</span>
+              <span className="text-gradient-brand font-display text-lg font-semibold leading-none">
+                Kolio
+              </span>
               <p className="text-body-sm text-foreground/50">
-                Data collected from{' '}
-                <a href="https://www.modash.io" className="underline">
-                  modash.io
-                </a>
-                . November, 2025
+                Data collected from the{' '}
+                <a href="/demo-confirmation" className="underline">
+                  Kolio
+                </a>{' '}
+                KOL index. November, 2025
               </p>
             </div>
           </div>
 
           <a
-            href="#"
+            href="/demo-confirmation"
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-4 py-2 text-base font-semibold leading-6 text-white transition-colors hover:bg-[#333333]"
           >
-            Check Engagement Rates
+            Check KOL Engagement Rates
           </a>
         </div>
       </Container>

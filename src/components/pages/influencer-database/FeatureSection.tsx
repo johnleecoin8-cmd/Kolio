@@ -1,44 +1,35 @@
 import { ReactNode } from 'react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
 
 type Props = {
   title: string;
   body: ReactNode;
-  image: string;
-  imageSrcSet?: string;
-  /** true = image on the right (text on left) */
+  /** Brand-neutral visual (div/chart mockup) rendered in the image slot. */
+  visual: ReactNode;
+  /** true = visual on the right (text on left) */
   reverse?: boolean;
   ctaLabel?: string;
   ctaHref?: string;
 };
 
-/** Alternating image / text feature row. */
+/** Alternating visual / text feature row. */
 export default function FeatureSection({
   title,
   body,
-  image,
-  imageSrcSet,
+  visual,
   reverse = false,
-  ctaLabel = 'Try for free',
-  ctaHref = 'https://marketer.modash.io/register/marketer',
+  ctaLabel = 'Start free',
+  ctaHref = '/demo-confirmation',
 }: Props) {
   return (
     <section className="py-16 md:py-24 bg-background">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div className={reverse ? 'order-2' : 'order-2 md:order-1'}>
-            <img
-              src={image}
-              srcSet={imageSrcSet}
-              sizes="(max-width: 479px) 100vw, (max-width: 1279px) 49vw, 560px"
-              alt={title}
-              loading="lazy"
-              className="w-full rounded-lg"
-            />
-          </div>
+          <div className={reverse ? 'order-2' : 'order-2 md:order-1'}>{visual}</div>
 
-          <div className={reverse ? 'order-1' : 'order-1 md:order-2'}>
+          <div className={cn(reverse ? 'order-1' : 'order-1 md:order-2')}>
             <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               {title}
             </h2>

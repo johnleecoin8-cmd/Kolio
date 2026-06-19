@@ -9,21 +9,23 @@ export default function FeatureRows() {
       <FeatureRow
         imageOn="right"
         bg="violet"
-        heading="Find the perfect TikTok audiences for your brand"
-        ctaLabel="Try for free"
+        heading="Target the right crypto audience for your project"
+        ctaLabel="Start vetting KOLs"
         img={`${CDN}/5f4f61fbca8cb4f5cdfd17c4_Web_illustration_feature_02.svg`}
-        imgAlt="An illustrative image on Modash's influencer discovery filters"
+        imgAlt="Filtering crypto KOLs by audience on Kolio"
         body={
           <>
             <p>
-              Apply filters to our global database of TikTok influencers to find
-              the creators who speak directly to your target audience.
+              Apply filters to Kolio's index of crypto TikTok KOLs to find the
+              creators whose audience actually overlaps with your token's
+              buyers.
             </p>
             <p className="mt-4">
-              Filter by audience age, gender, location &amp; much much more.
+              Filter by audience age, location, language, niche (DeFi, L1/L2,
+              NFTs, trading, gaming) and much more.
             </p>
             <p className="mt-4">
-              Add TikTok accounts to your shortlist(s) ready for the next steps.
+              Add KOLs to your shortlist, ready for outreach and on-chain deals.
             </p>
           </>
         }
@@ -31,20 +33,20 @@ export default function FeatureRows() {
 
       <FeatureRow
         imageOn="left"
-        heading="Find TikTok influencer emails in bulk"
-        ctaLabel="Try For Free"
+        heading="Pay KOLs on-chain with built-in escrow"
+        ctaLabel="See how it works"
         img={`${CDN}/634d22b0453d98031cba5037_web_illustration_feature_35.svg`}
-        imgAlt="An illustrative image on Modash's bulk email export feature"
+        imgAlt="On-chain KOL payments and escrow on Kolio"
         body={
           <>
             <p>
-              Found &amp; shortlisted some TikTok influencers that you'd love to
-              work with? Perfect.
+              Found and shortlisted the KOLs you want to work with? Don't wire
+              funds into a DM and hope for the best.
             </p>
             <p className="mt-4">
-              Whether it's one TikTok influencer or hundreds, you can find (and
-              export) all available email addresses in just a couple of clicks,
-              ready for outreach.
+              Fund a campaign into escrow, release on delivery, and keep a clean
+              on-chain record of every payout — so brands and KOLs both run with
+              confidence.
             </p>
           </>
         }
@@ -52,37 +54,24 @@ export default function FeatureRows() {
 
       <FeatureRow
         imageOn="right"
-        heading="Discover influencers across platforms"
-        ctaLabel="Try for free"
+        heading="Discover KOLs across every crypto channel"
+        ctaLabel="Start vetting KOLs"
         img={`${CDN}/617958566b1c7ae8ac449a5d_web_illustration_feature_16.svg`}
-        imgAlt="An illustrative image of Modash's social media platforms"
+        imgAlt="Crypto KOLs across TikTok, X, YouTube and Telegram"
         body={
           <>
             <p>
-              Modash covers more than just TikTok. It gives you access to every
-              influencer in the world, on 3 major platforms:{' '}
-              <a
-                href="https://www.modash.io/features/influencer-discovery/youtube"
-                className="font-semibold text-violet-dark underline"
-              >
-                YouTube
-              </a>
-              ,{' '}
-              <a
-                href="https://www.modash.io/features/influencer-discovery/"
-                className="font-semibold text-violet-dark underline"
-              >
-                Instagram
-              </a>
-              , and TikTok.
+              Kolio covers more than TikTok. It surfaces crypto KOLs across the
+              channels that drive web3 campaigns: TikTok, X (Twitter), YouTube,
+              and Telegram.
             </p>
             <p className="mt-4">
-              You know everything about their performance and you know that there
-              are thousands like them who reach your audience.
+              You see the real numbers behind each profile — and you see that
+              there are dozens more like them reaching your audience.
             </p>
             <p className="mt-4">
-              That power allows you to discover every option and make the right
-              decision, quickly. Never feel stuck again.
+              That coverage lets you weigh every option and make the right call
+              fast. Never feel stuck on sourcing again.
             </p>
           </>
         }
@@ -90,14 +79,15 @@ export default function FeatureRows() {
 
       <FeatureRow
         imageOn="left"
-        heading="Grow faster by doing more of what works"
-        ctaLabel="Try For Free"
+        heading="Scale by doing more of what already converts"
+        ctaLabel="Start vetting KOLs"
         img={`${CDN}/5f4f61fc9227880c921d9e97_Web_illustration_feature_04.svg`}
-        imgAlt="An illustrative image on Modash's lookalikes feature"
+        imgAlt="Lookalike KOL search on Kolio"
         body={
           <p>
-            Use lookalike searches to find TikTok creators with similar audiences
-            &amp; content compared with your most successful partnerships.
+            Use lookalike search to find crypto KOLs with audiences and content
+            similar to the partnerships that already drove conversions and
+            on-chain attribution for you.
           </p>
         }
       />

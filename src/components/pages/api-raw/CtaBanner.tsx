@@ -1,23 +1,20 @@
 import Container from '@/components/ui/Container';
 
-const FORM =
-  'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
+const DEMO = '/demo-confirmation';
 
-/** Closing pink CTA banner. */
+/** Closing CTA — warm brand-gradient panel (later.com-inspired). */
 export default function CtaBanner() {
   return (
     <section className="bg-background pb-4 pt-12 md:pb-6 md:pt-20">
       <Container>
-        <div className="rounded-xl bg-pink px-6 py-16 text-center md:px-12 md:py-24">
-          <h2 className="mx-auto max-w-[900px] font-display text-[2.25rem] font-normal leading-[0.9] text-ink md:text-[4.5rem]">
-            NO DELAY, NO STALE STATS, GET LIVE CREATOR DATA
+        <div className="bg-gradient-brand rounded-xl px-6 py-16 text-center md:px-12 md:py-24">
+          <h2 className="mx-auto max-w-[900px] font-display text-[2.25rem] font-normal leading-[0.9] uppercase text-white md:text-[4.5rem]">
+            No stale stats. Just live, verified crypto KOL data.
           </h2>
           <div className="mt-8 flex justify-center">
             <a
-              href={FORM}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
+              href={DEMO}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-white px-6 text-body font-semibold text-ink shadow-btn transition hover:opacity-90"
             >
               Request a demo
             </a>

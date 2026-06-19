@@ -2,9 +2,9 @@ import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
 const POINTS = [
-  'Identify repeatable formats that perform well',
-  'See whether views are consistent across recent uploads',
-  'Avoid creators who rely on a single viral spike',
+  'Spot repeatable formats that consistently land with a crypto audience',
+  'See whether views hold steady across recent uploads — or only spike on hype',
+  'Avoid KOLs whose numbers ride one viral moment instead of real reach',
 ];
 
 /** "Check average views by content format" — left-aligned editorial + bullets. */
@@ -18,8 +18,9 @@ export default function ContentFormat() {
 
         <div className="mt-8 max-w-[920px] space-y-5 text-body text-foreground/80 md:text-body-md">
           <p>
-            When you review a TikTok creator, it helps to understand what kinds
-            of videos drive the strongest views.
+            Before you brief a crypto KOL on TikTok, it pays to understand which
+            formats — explainers, market takes, project breakdowns — actually
+            drive views for their audience.
           </p>
           <p>Use this to:</p>
           <ul className="list-disc space-y-2 pl-6">
@@ -30,7 +31,7 @@ export default function ContentFormat() {
         </div>
 
         <div className="mt-8">
-          <ButtonA href="https://www.modash.io/" variant="primary" size="md">
+          <ButtonA href="/demo-confirmation" variant="primary" size="md">
             Try for free
           </ButtonA>
         </div>

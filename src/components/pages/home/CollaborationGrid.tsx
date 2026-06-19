@@ -5,32 +5,32 @@ const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const CARDS = [
   {
-    title: 'Gifting',
+    title: 'Token launches',
     img: `${CDN}/69e885c76c3d260cf994cce8_img_gifting_3col.avif`,
-    body: 'Simplify gifting with fewer manual steps and less back-and-forth, so you can focus on finding the right creators and building real relationships.',
-    href: '/use-cases/influencer-gifting-platform',
+    body: 'Line up the right KOLs ahead of TGE or a listing. Brief them, schedule posts around your launch window, and keep every deliverable on track from one place.',
+    href: '/demo-confirmation',
   },
   {
-    title: 'Affiliates',
+    title: 'Referral & affiliate',
     img: `${CDN}/69e885be31d1138c351bce27_img_affiliates_3col.avif`,
-    body: 'Run affiliate programs with connected workflows, automations, bulk actions, and global payouts. Spend less time on admin & more time building creator relationships.',
-    href: '/use-cases/influencer-affiliates',
+    body: 'Run KOL referral programs with on-chain attribution, automated payouts, and bulk actions. Spend less time on admin and more time on the partners actually driving sign-ups.',
+    href: '/demo-confirmation',
   },
   {
     title: 'Paid partnerships',
     img: `${CDN}/69e885dbd206cc3fe00abd32_img_paid%20partnerships_3col.avif`,
-    body: 'Centralize every deal, deliverable, and campaign in one place. Test more creators, focus on winners faster, and run more paid partnerships without adding headcount.',
-    href: '/use-cases/influencer-paid-partnerships',
+    body: 'Centralize every deal, deliverable, and escrow in one place. Test more KOLs, double down on winners faster, and scale paid partnerships without adding headcount.',
+    href: '/demo-confirmation',
   },
 ];
 
-/** "Manage every collaboration from one place" — three use-case cards. */
+/** "Manage every KOL collaboration from one place" — three use-case cards. */
 export default function CollaborationGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="mb-10 max-w-[640px] font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
-          Manage every collaboration from one place
+          Manage every KOL collaboration from one place
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">

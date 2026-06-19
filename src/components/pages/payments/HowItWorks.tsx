@@ -1,37 +1,36 @@
+import { Wallet, SlidersHorizontal, ShieldCheck, Link2, CheckCircle2, Coins } from 'lucide-react';
 import Container from '@/components/ui/Container';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const STEPS = [
   {
-    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
-    title: '1. Fund your wallet',
-    body: 'Transfer funds to your Modash payment wallet.',
+    Icon: Wallet,
+    title: '1. Fund your campaign',
+    body: 'Deposit stablecoins or fiat into your Kolio campaign wallet.',
   },
   {
-    icon: `${CDN}/6979f75c8f82dc047c9ed943_ic_click.avif`,
-    title: '2. Set up payments',
-    body: 'Select creators, amounts, deliverables, and currencies.',
+    Icon: SlidersHorizontal,
+    title: '2. Set up payouts',
+    body: 'Choose KOLs, amounts, deliverables, chains, and payout currencies.',
   },
   {
-    icon: `${CDN}/6842ca952d91864160ff1a1c_Fistbump.avif`,
-    title: '3. Creator onboarding',
-    body: 'Creators add their personal and banking details for the first time.',
+    Icon: ShieldCheck,
+    title: '3. KOL onboarding',
+    body: 'KOLs verify their wallet and identity once, the first time they’re paid.',
   },
   {
-    icon: `${CDN}/68370b6b9eae2d6b80f9cac2_ic_measure%20results.avif`,
-    title: '4. Send payment link',
-    body: 'Share a secure payment link with creators.',
+    Icon: Link2,
+    title: '4. Budget held in escrow',
+    body: 'The budget locks in escrow — visible and verifiable for both sides.',
   },
   {
-    icon: `${CDN}/688b29d047d224c3d89fcf9c_ic_details.avif`,
-    title: '5. Invoice submission',
-    body: 'Creators upload or auto-generate compliant invoices.',
+    Icon: CheckCircle2,
+    title: '5. Deliverables verified',
+    body: 'Posts go live and reach metrics are confirmed against the brief.',
   },
   {
-    icon: `${CDN}/6878ecfd01a1d81e6a0b37e8_Coin.avif`,
-    title: '6. Payment processing',
-    body: 'Modash validates, handles compliance, and processes payment.',
+    Icon: Coins,
+    title: '6. Payout released on-chain',
+    body: 'Kolio releases funds to each KOL and writes the transaction on-chain.',
   },
 ];
 
@@ -43,22 +42,15 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-h4 text-ink md:text-h3">How it works</h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            From wallet funding to creator payment in six simple steps
+            From funded campaign to verified payout in six simple steps
           </p>
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {STEPS.map(({ icon, title, body }) => (
+          {STEPS.map(({ Icon, title, body }) => (
             <div key={title} className="rounded-xl bg-background-soft p-6 md:p-8">
               <div className="flex items-center gap-3">
-                <img
-                  src={icon}
-                  alt=""
-                  loading="lazy"
-                  width={24}
-                  height={24}
-                  className="h-6 w-6 shrink-0 object-contain"
-                />
+                <Icon className="h-6 w-6 shrink-0 text-brand" strokeWidth={1.75} />
                 <h3 className="text-body font-bold text-ink">{title}</h3>
               </div>
               <p className="mt-3 text-body-sm text-foreground/70">{body}</p>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { ChevronDown, ShoppingBag } from 'lucide-react';
+import { ChevronDown, Link2 } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
 type FeatureItem = { label: string; note?: string };
-type FeatureGroup = { heading?: string; shopify?: boolean; items: FeatureItem[] };
+type FeatureGroup = { heading?: string; onchain?: boolean; items: FeatureItem[] };
 
 type Plan = {
   name: string;
@@ -29,28 +29,28 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     name: 'Essentials',
-    subtitle: 'For campaigns with up to 100 creators.',
-    tagline: 'Validate influencer marketing before you scale.',
+    subtitle: 'For campaigns with up to 100 crypto KOLs.',
+    tagline: 'Validate web3 influencer marketing before you scale.',
     monthly: '$299',
     yearly: '$199',
     yearlyTotal: '$2,388 paid yearly',
     discount: '-33%',
-    cta: 'Try for free',
+    cta: 'Start free',
     ctaVariant: 'primary',
-    ctaHref: 'https://marketer.modash.io/register/marketer',
+    ctaHref: '/demo-confirmation',
     usage: [
       { label: '2 team members' },
       {
-        label: '300 opened profiles',
-        note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
+        label: '300 opened KOL profiles',
+        note: 'Each profile bundles real reach, audience-quality scores, and contact details so you can vet a crypto KOL on a single screen. This limit resets monthly.',
       },
       {
-        label: '150 unlocked creator emails',
-        note: 'Access emails that creators list publicly in their profiles. This limit resets monthly.',
+        label: '150 unlocked KOL contacts',
+        note: 'Reveal the public contact handles — Telegram, email, or DM — that KOLs list on their profiles. This limit resets monthly.',
       },
       {
-        label: '100 tracked creators',
-        note: 'Content tracking monitors posts across all platforms for a specific creator profile. This limit resets monthly.',
+        label: '100 tracked KOLs',
+        note: 'Campaign tracking monitors posts across X, YouTube, TikTok, and Telegram for a specific KOL. This limit resets monthly.',
       },
     ],
     includedLabel: 'Included in Essentials',
@@ -59,30 +59,30 @@ const PLANS: Plan[] = [
         items: [
           {
             label: 'Manage',
-            note: 'An influencer CRM built to manage lists and relationships as you grow',
+            note: 'A KOL relationship manager built to organize lists, deals, and conversations as you grow',
           },
           {
             label: 'Discover',
-            note: 'A deep search engine with 350M+ profiles to help you find and evaluate creators',
+            note: 'A proof-based search engine across DeFi, NFT, L1/L2, trading, and gaming niches to find and vet crypto KOLs',
           },
           {
             label: 'Track',
-            note: 'An automatic content collector and metrics tracker for your campaigns',
+            note: 'An automatic content collector and metrics tracker for your web3 campaigns',
           },
           {
             label: 'Inbox integration',
-            note: 'Connect Gmail or Outlook to access an Inbox that knows you’re talking to creators',
+            note: 'Connect Gmail, Outlook, or Telegram to run KOL outreach where the conversations already live',
           },
           { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
         ],
       },
       {
-        shopify: true,
-        heading: 'Shopify Integration',
+        onchain: true,
+        heading: 'On-chain Payments',
         items: [
           {
-            label: 'Gifting',
-            note: 'Send free products to influencers, automatically track who posts and more!',
+            label: 'Escrow deals',
+            note: 'Fund a campaign into on-chain escrow and release once the KOL delivers — no chargebacks, no chasing invoices.',
           },
           { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
         ],
@@ -91,29 +91,29 @@ const PLANS: Plan[] = [
   },
   {
     name: 'Performance',
-    subtitle: 'For campaigns up to 250 creators.',
-    tagline: 'Scale your program with confidence.',
+    subtitle: 'For campaigns up to 250 crypto KOLs.',
+    tagline: 'Scale your web3 program with confidence.',
     recommended: true,
     monthly: '$599',
     yearly: '$499',
     yearlyTotal: '$5,988 paid yearly',
     discount: '-16%',
-    cta: 'Try for free',
+    cta: 'Start free',
     ctaVariant: 'accent',
-    ctaHref: 'https://marketer.modash.io/register/marketer',
+    ctaHref: '/demo-confirmation',
     usage: [
       { label: '5 team members' },
       {
-        label: '800 opened profiles',
-        note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
+        label: '800 opened KOL profiles',
+        note: 'Each profile bundles real reach, audience-quality scores, and contact details so you can vet a crypto KOL on a single screen. This limit resets monthly.',
       },
       {
-        label: '400 unlocked creator emails',
-        note: 'Access emails that creators list publicly in their profiles. This limit resets monthly.',
+        label: '400 unlocked KOL contacts',
+        note: 'Reveal the public contact handles — Telegram, email, or DM — that KOLs list on their profiles. This limit resets monthly.',
       },
       {
-        label: '250 tracked creators’ content',
-        note: 'Content tracking monitors posts across all platforms for a specific creator profile. This limit resets monthly.',
+        label: '250 tracked KOLs’ content',
+        note: 'Campaign tracking monitors posts across X, YouTube, TikTok, and Telegram for a specific KOL. This limit resets monthly.',
       },
     ],
     includedLabel: 'Everything in Essentials, plus',
@@ -121,30 +121,30 @@ const PLANS: Plan[] = [
       {
         items: [
           {
-            label: 'Influential fans',
-            note: 'Discover up to 6,000 creators per month who already follow and engage with your brand on Instagram, YouTube, or TikTok.',
+            label: 'On-chain audience',
+            note: 'Surface up to 6,000 KOLs per month whose audiences already hold, trade, or engage with your token, chain, or protocol.',
           },
           {
             label: 'Download content',
-            note: 'Download all creator content, including posts, Reels, Stories from Instagram, and all content from TikTok & YouTube.',
+            note: 'Archive every KOL post, thread, Space, and video across X, YouTube, TikTok, and Telegram.',
           },
           {
             label: 'Export campaign data',
-            note: 'Export campaign results in CSV or Excel. Exports include all campaign performance data within your selected date range.',
+            note: 'Export campaign results in CSV or Excel. Exports include all on-chain and social performance data within your selected date range.',
           },
           {
-            label: 'Payments (0% fee up to $10K/yr)',
-            note: 'Send fast, secure payouts to creators worldwide. 0% fee up to $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
+            label: 'On-chain payouts (0% fee up to $10K/yr)',
+            note: 'Send instant stablecoin payouts to KOLs anywhere. 0% fee up to $10,000/yr applies to Payouts + Referrals (combined). 5% fee applies after.',
           },
         ],
       },
       {
-        shopify: true,
-        heading: 'Shopify Integration',
+        onchain: true,
+        heading: 'On-chain Payments',
         items: [
           {
-            label: 'Affiliate management (0% fee up to $10K/yr)',
-            note: 'Create affiliate links, track sales, and automate commission-based payouts. 0% fee $10,000/yr limit applies to Payments + Affiliates (combined). 5% fee applies after.',
+            label: 'Referral attribution (0% fee up to $10K/yr)',
+            note: 'Issue on-chain referral links, attribute wallet sign-ups and trades, and automate performance-based payouts. 0% fee up to $10,000/yr applies to Payouts + Referrals (combined). 5% fee applies after.',
           },
           { label: 'Support', note: '24/7 in-platform chat, email and Help Center' },
         ],
@@ -153,8 +153,8 @@ const PLANS: Plan[] = [
   },
   {
     name: 'Enterprise',
-    subtitle: 'For campaigns above 250 creators.',
-    tagline: 'Run influencer marketing as a global growth engine.',
+    subtitle: 'For campaigns above 250 crypto KOLs.',
+    tagline: 'Run web3 KOL marketing as a global growth engine.',
     isEnterprise: true,
     monthly: '$14,700',
     yearly: '$14,700',
@@ -162,20 +162,20 @@ const PLANS: Plan[] = [
     discount: '',
     cta: 'Talk to sales',
     ctaVariant: 'primary',
-    ctaHref: 'https://www.modash.io/book-demo',
+    ctaHref: '/demo-confirmation',
     usage: [
       { label: 'More team members' },
       {
-        label: 'More opened profiles',
-        note: 'Profiles include everything you need to evaluate and communicate with a creator on a single platform. This limit resets monthly.',
+        label: 'More opened KOL profiles',
+        note: 'Each profile bundles real reach, audience-quality scores, and contact details so you can vet a crypto KOL on a single screen. This limit resets monthly.',
       },
       {
-        label: 'More unlocked creator emails',
-        note: 'Access emails that creators list publicly in their profiles. This limit resets monthly.',
+        label: 'More unlocked KOL contacts',
+        note: 'Reveal the public contact handles — Telegram, email, or DM — that KOLs list on their profiles. This limit resets monthly.',
       },
       {
-        label: "More tracked creators' content",
-        note: 'Content tracking monitors posts across all platforms for a specific creator profile. This limit resets monthly.',
+        label: "More tracked KOLs' content",
+        note: 'Campaign tracking monitors posts across X, YouTube, TikTok, and Telegram for a specific KOL. This limit resets monthly.',
       },
     ],
     includedLabel: 'Everything in Performance, plus',
@@ -183,22 +183,22 @@ const PLANS: Plan[] = [
       {
         items: [
           {
-            label: 'Payments (starts at 0% fee on payouts up to $100,000/y)',
-            note: 'Send fast, secure payouts to creators across 180+ countries in local currency.',
+            label: 'On-chain payouts (starts at 0% fee on payouts up to $100,000/y)',
+            note: 'Send instant stablecoin payouts to KOLs in 180+ countries, settled on-chain.',
           },
           {
             label: 'Custom domain for links',
-            note: 'Your own branded domain for tracking links',
+            note: 'Your own branded domain for referral and attribution links',
           },
         ],
       },
       {
-        shopify: true,
-        heading: 'Shopify Integration',
+        onchain: true,
+        heading: 'On-chain Payments',
         items: [
           {
-            label: 'Affiliate management (starts at 0% fee on payouts up to $100,000/y)',
-            note: 'Create affiliate links, track sales, and automate commission-based payouts.',
+            label: 'Referral attribution (starts at 0% fee on payouts up to $100,000/y)',
+            note: 'Issue on-chain referral links, attribute wallet sign-ups and trades, and automate performance-based payouts.',
           },
           {
             label: 'Support',
@@ -293,9 +293,9 @@ function PlanCard({ plan }: { plan: Plan }) {
 
       {/* CTA */}
       <div className="mt-6">
-        <ButtonA href={plan.ctaHref} variant={plan.ctaVariant} className="w-full">
+        <ButtonLink to={plan.ctaHref} variant={plan.ctaVariant} className="w-full">
           {plan.cta}
-        </ButtonA>
+        </ButtonLink>
       </div>
 
       {plan.isEnterprise && (
@@ -327,7 +327,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           <div key={gi} className={gi > 0 ? 'mt-6' : 'mt-2'}>
             {group.heading && (
               <div className="mb-1 flex items-center gap-2">
-                {group.shopify && <ShoppingBag size={16} className="text-foreground/70" />}
+                {group.onchain && <Link2 size={16} className="text-foreground/70" />}
                 <span className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/55">
                   {group.heading}
                 </span>

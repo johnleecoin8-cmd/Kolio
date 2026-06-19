@@ -1,40 +1,37 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-const LOGOS = [
-  `${CDN}/65dde750dee63920305912f5_logo_mixtiles.avif`,
-  `${CDN}/655cba95058908fd54c80577_logo_mont%20blanc.webp`,
-  `${CDN}/655cba9516b5580a55667aec_logo_farfetch.webp`,
-  `${CDN}/655cc164c307c8bb7e2e9000_logo_dbrand.webp`,
-  `${CDN}/673c7beedb310838b2ec7346_logo_birkenstock.png`,
-  `${CDN}/655cba96f00f5d0c48acedda_logo_bonprix.webp`,
-  `${CDN}/655cba95ccdff403a5b75bb6_logo_victorias%20secret.webp`,
-  `${CDN}/655cba96e09ed6de10ea7924_logo_sennheiser.webp`,
+const BRANDS = [
+  'Ledger',
+  'Phantom',
+  'Arbitrum',
+  'OKX',
+  'Polygon',
+  'Sui',
+  'Magic Eden',
+  'Bitpanda',
 ];
 
 export default function FinalCta() {
   return (
     <section className="bg-[#d6daff] py-16 md:py-24">
       <Container>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {LOGOS.map((src) => (
-            <img
-              key={src}
-              src={src}
-              alt=""
-              className="h-5 md:h-6 w-auto object-contain opacity-90"
-              loading="lazy"
-            />
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          {BRANDS.map((name) => (
+            <span
+              key={name}
+              className="text-body md:text-body-md font-bold uppercase tracking-wide text-navy/70"
+            >
+              {name}
+            </span>
           ))}
         </div>
         <h2 className="mx-auto mt-12 max-w-[860px] text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
-          Join 1200+ B2C brands that use Modash to scale profitable influencer
-          marketing programs
+          Join 1,200+ web3 brands using Kolio to find, vet, and run
+          accountable crypto KOL campaigns
         </h2>
         <div className="mt-8 flex justify-center">
           <a
-            href="https://app.modash.io/register"
+            href="/demo-confirmation"
             className="inline-flex items-center justify-center h-12 px-7 rounded-sm bg-blue text-white text-body font-semibold uppercase tracking-wide transition hover:opacity-90"
           >
             Try for free

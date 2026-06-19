@@ -22,7 +22,8 @@ export default function ArticleHeader() {
           </p>
 
           <h1 className="font-display text-[2.25rem] uppercase leading-[1.06] text-foreground sm:text-[3rem] md:text-[3.75rem]">
-            19 Best Influencer Marketing Platforms: Compare Pros, Cons &amp; Prices
+            19 Best Web3 KOL Marketing Platforms,{' '}
+            <span className="text-gradient-brand">Compared</span>
           </h1>
 
           {/* author */}
@@ -30,15 +31,12 @@ export default function ArticleHeader() {
             Post author &amp; contributors
           </p>
           <div className="mx-auto mt-3 flex w-fit items-center gap-3 rounded-lg bg-background-soft px-5 py-3">
-            <img
-              src="https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719/66dad82f68010bced8ff8a36_1517376322625.avif"
-              alt="Phil Norris"
-              loading="lazy"
-              className="h-10 w-10 rounded-full object-cover"
-            />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-brand text-body-sm font-bold text-white">
+              K
+            </div>
             <div className="text-left">
-              <p className="text-body-sm font-semibold text-foreground">Phil Norris</p>
-              <p className="text-body-sm text-foreground/55">Writer @ Modash</p>
+              <p className="text-body-sm font-semibold text-foreground">The Kolio Team</p>
+              <p className="text-body-sm text-foreground/55">Web3 KOL Marketing @ Kolio</p>
             </div>
           </div>
         </div>

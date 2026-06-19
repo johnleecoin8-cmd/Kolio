@@ -1,37 +1,43 @@
+import {
+  Search,
+  BarChart3,
+  ShieldCheck,
+  Wallet,
+  ListChecks,
+  LineChart,
+} from 'lucide-react';
 import Container from '@/components/ui/Container';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const ITEMS = [
   {
-    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
-    title: 'Find influencers',
-    body: 'Search & filter 350M+ influencer profiles, or find influencers who already engaged with your brand. Solve influencer discovery at scale, in any niche.',
+    Icon: Search,
+    title: 'Discover KOLs',
+    body: 'Search and filter millions of crypto creator profiles across X, YouTube, TikTok, and Telegram — by niche, reach, and audience quality. Discovery at scale, in DeFi, L1/L2, NFTs, trading, or gaming.',
   },
   {
-    icon: `${CDN}/68370b6b8dcc81bc9e714810_ic_analyze%20profiles.png`,
-    title: 'Analyze profiles',
-    body: 'Get data on audience demographics, locations, engagement rate, average views, past sponsors & more. Without reaching out to ask for screenshots.',
+    Icon: BarChart3,
+    title: 'Analyze audiences',
+    body: 'See real audience demographics, geography, engagement, average views, and past sponsorships — without asking a KOL for screenshots that can be faked.',
   },
   {
-    icon: `${CDN}/68370b6b110cbb6fa07e64a9_ic_send%20emails.avif`,
-    title: 'Send emails',
-    body: 'Your creators & influencers are annoyed because they’re still waiting on payment for a campaign they finished a month ago.',
+    Icon: ShieldCheck,
+    title: 'Vet with proof',
+    body: 'Proof-based vetting surfaces real reach and bot share, so you back creators with genuine influence — not inflated follower counts or rented audiences.',
   },
   {
-    icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
-    title: 'Manage relationships',
-    body: 'Create unlimited lists to keep track of your influencers. Add notes for personalization (or for your team), organize documents (like contracts/briefs), and more.',
+    Icon: Wallet,
+    title: 'Pay on-chain',
+    body: 'Fund campaigns into escrow and release payment on delivery. On-chain settlement means transparent, instant payouts — no more KOLs chasing invoices for weeks.',
   },
   {
-    icon: `${CDN}/68370b6b465c1fff3f547980_ic_collect%20content.png`,
-    title: 'Collect content',
-    body: 'Automatically track live content, and save it to a dashboard. Even Stories. Without asking influencers to sign up.',
+    Icon: ListChecks,
+    title: 'Manage campaigns',
+    body: 'Build unlimited lists to track KOLs across campaigns. Add notes, store briefs and contracts, and keep your team aligned on every deal in one place.',
   },
   {
-    icon: `${CDN}/68370b6b9eae2d6b80f9cac2_ic_measure%20results.avif`,
-    title: 'Measure results',
-    body: 'Track metrics like total content, views, EMV, engagements, link clicks, promo code redemptions, and more. Per campaign, and per influencer.',
+    Icon: LineChart,
+    title: 'Measure on-chain ROI',
+    body: 'Track views, engagements, referral clicks, wallet sign-ups, and on-chain conversions with attribution built for web3 — per campaign and per KOL.',
   },
 ];
 
@@ -41,17 +47,19 @@ export default function PlusGrid() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="mx-auto max-w-[760px] text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-          Plus, everything else you need to run a profitable influencer program
+          Plus, everything else you need to run a profitable crypto KOL program
         </h2>
 
         <div className="mt-12 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
-          {ITEMS.map((it) => (
-            <div key={it.title}>
-              <img src={it.icon} alt="" className="h-8 w-8" loading="lazy" />
+          {ITEMS.map(({ Icon, title, body }) => (
+            <div key={title}>
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-pink-light text-brand">
+                <Icon className="h-5 w-5" strokeWidth={2.25} />
+              </span>
               <h3 className="mt-4 text-body-md font-semibold text-foreground">
-                {it.title}
+                {title}
               </h3>
-              <p className="mt-2 text-body text-foreground/75">{it.body}</p>
+              <p className="mt-2 text-body text-foreground/75">{body}</p>
             </div>
           ))}
         </div>

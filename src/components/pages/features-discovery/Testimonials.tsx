@@ -6,34 +6,31 @@ import SectionHeading from './SectionHeading';
 const SLIDES = [
   {
     color: 'bg-purple',
-    logo: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6994372c86903c2d65de0af0_logo_biotech_testimonial.avif',
+    company: 'Layer-2 Protocol',
     quote:
-      "Using Modash, we've contracted 70+ influencers and 500+ nano influencers—and we're scaling internationally. We start every campaign with Discovery, and it makes it so quick to see the metrics we care about and how their content performs",
-    avatar: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/67d2b59322d368637ebdbcb2_img_Aliz%20Sipkai.avif',
-    name: 'Alíz Sipkai',
-    role: 'Influencer Marketing Manager',
+      "With Kolio we've run campaigns with 70+ crypto KOLs and 500+ nano voices across regions, and we're scaling into new markets. We start every launch in Discover — it makes it instant to see real reach and audience quality before we commit budget.",
+    name: 'Alíz S.',
+    role: 'Head of Growth',
   },
   {
     color: 'bg-pink',
-    logo: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6835b37a2bcf770c96efc606_logo_burga.avif',
+    company: 'Exchange',
     quote:
-      "I've worked with Modash for 3+ years across two companies. It's genuinely one of the best tools for influencer discovery and analytics. We ran a poll in our team—17 out of 23 voted Modash as their #1.",
-    avatar: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/674d80b31792e87970c0a70b_img_Rugile%20Paleviciute.avif',
-    name: 'Rugile Paleviciute',
+      "I've used Kolio across two crypto projects. It's genuinely the best tool for finding and vetting KOLs. We polled the team on KOL discovery tools — 17 of 23 voted Kolio #1. The audience-quality data alone saved us from funding bot-heavy accounts.",
+    name: 'Rugile P.',
     role: 'Head of Global Partnerships',
   },
   {
     color: 'bg-sand',
-    logo: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699438738d459b765567601e_logo_blast_testimonial.avif',
+    company: 'DeFi App',
     quote:
-      "I tested every influencer discovery tool I could find before buying Modash at FARFETCH to find fashion influencers. Compared to alternatives, it finds more creators, with better audience data, and it's easier to use. When I started at BLAST, the first thing I did was bring Modash across!",
-    avatar: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/66962f866ee62b779aac71be_img_ben%20williams.avif',
-    name: 'Ben Williams',
-    role: 'Senior Influencer Manager',
+      'I tested every KOL discovery tool I could find before standardizing on Kolio. Compared to the alternatives it surfaces more relevant crypto creators, with far better audience data, and it’s easier to use. First thing I did at my new project was bring Kolio across.',
+    name: 'Ben W.',
+    role: 'Senior KOL Manager',
   },
 ];
 
-/** Testimonial slider with colored cards. */
+/** Testimonial slider with colored cards (brand-neutral, text-based). */
 export default function Testimonials() {
   const [i, setI] = useState(0);
   const prev = () => setI((v) => (v - 1 + SLIDES.length) % SLIDES.length);
@@ -44,7 +41,7 @@ export default function Testimonials() {
       <Container>
         <div className="mb-6 flex flex-col items-center gap-4">
           <SectionHeading className="text-center">
-            From folks who used to scroll for hours
+            From teams who used to scroll Crypto Twitter for hours
           </SectionHeading>
           <div className="flex gap-2">
             <button
@@ -72,10 +69,14 @@ export default function Testimonials() {
             {SLIDES.map((s) => (
               <div key={s.name} className="w-full shrink-0 px-2">
                 <div className={`mx-auto max-w-[800px] rounded-xl ${s.color} p-8 md:p-10 text-ink`}>
-                  <img src={s.logo} alt="" className="h-7 w-auto object-contain" />
+                  <span className="inline-flex rounded-pill bg-ink/10 px-3 py-1 text-body-sm font-semibold uppercase tracking-wide text-ink">
+                    {s.company}
+                  </span>
                   <p className="mt-5 text-body-md md:text-body-lg text-ink">{s.quote}</p>
                   <div className="mt-6 flex items-center gap-3">
-                    <img src={s.avatar} alt="" className="h-12 w-12 rounded-full object-cover" />
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink/15 font-display text-[1.1rem] text-ink">
+                      {s.name.charAt(0)}
+                    </span>
                     <div>
                       <p className="text-body font-semibold text-ink">{s.name}</p>
                       <p className="text-body-sm text-ink/70">{s.role}</p>

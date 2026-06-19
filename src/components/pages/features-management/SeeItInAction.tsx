@@ -1,7 +1,29 @@
 import Container from '@/components/ui/Container';
 
-/** "See it in action" — interactive Navattic product tour embed. */
+/** "See it in action" — brand-neutral KOL workflow board mock. */
 export default function SeeItInAction() {
+  const cols = [
+    {
+      title: 'Sourced',
+      tint: 'bg-ink/5',
+      cards: ['@nftcurator · NFTs', '@gamefi_guild · Gaming'],
+    },
+    {
+      title: 'Negotiating',
+      tint: 'bg-coral/30',
+      cards: ['@chartwizard · Trading', '@l2maxi · L1 / L2'],
+    },
+    {
+      title: 'Escrowed',
+      tint: 'bg-brand/15',
+      cards: ['@defi_degen · DeFi'],
+    },
+    {
+      title: 'Live',
+      tint: 'bg-brand/25',
+      cards: ['@yield_farmer · DeFi', '@web3_anna · Trading'],
+    },
+  ];
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
@@ -10,19 +32,34 @@ export default function SeeItInAction() {
             See it in action
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">
-            Browse this interactive tour to get a feel for how Modash Manage
-            improves your workflow.
+            Move KOLs from first DM to live campaign on one board, so you always
+            know where every deal stands.
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-[1100px] overflow-hidden rounded-xl">
-          <iframe
-            src="https://capture.navattic.com/cmetr6op5000004johshvfjrd"
-            title="Modash Manage interactive tour"
-            loading="lazy"
-            allow="fullscreen"
-            className="aspect-[6/5] w-full border-0"
-          />
+        <div className="mx-auto mt-10 max-w-[1100px] overflow-hidden rounded-xl bg-background-soft p-5 md:p-8">
+          <div className="grid gap-4 md:grid-cols-4">
+            {cols.map((c) => (
+              <div key={c.title} className="rounded-lg bg-white p-4 shadow-btn">
+                <div className="flex items-center justify-between">
+                  <span className="text-body-sm font-bold text-ink">{c.title}</span>
+                  <span className="rounded-pill bg-background-soft px-2 py-0.5 text-[0.7rem] font-semibold text-foreground/60">
+                    {c.cards.length}
+                  </span>
+                </div>
+                <div className="mt-3 space-y-3">
+                  {c.cards.map((card) => (
+                    <div
+                      key={card}
+                      className={`rounded-md ${c.tint} px-3 py-2.5 text-body-sm font-medium text-ink`}
+                    >
+                      {card}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

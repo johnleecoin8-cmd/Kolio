@@ -14,44 +14,44 @@ type Col = {
 const COLS: Col[] = [
   {
     icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
-    title: 'Profile data',
-    subtitle: 'Data points to query influencer profile data',
+    title: 'KOL profile data',
+    subtitle: 'Datapoints to query a crypto KOL’s profile',
     groups: [
       {
         items: [
-          'Username',
+          'Handle',
           'Display name',
           'Bio / description',
           'Verification status',
-          'Privacy status',
-          'Get detailed and live influencer profile data and information',
+          'Public / private status',
+          'Get detailed, live KOL profile data and identity signals',
         ],
       },
       {
         items: [
-          'Account category',
+          'Crypto niche (DeFi, NFTs, L1/L2, trading, gaming)',
           'Profile picture URL',
-          'External URL / bio link',
-          'Address (IG)',
+          'Linked wallet / bio link',
+          'Region (X)',
           'Country (YT)',
-          'Join Date (YT)',
+          'Join date (YT)',
         ],
       },
     ],
   },
   {
     icon: `${CDN}/68370b6b465c1fff3f547980_ic_collect%20content.png`,
-    title: 'Analytics data',
-    subtitle: 'Data points to query analytics data',
+    title: 'Reach & audience',
+    subtitle: 'Datapoints to vet real reach and audience quality',
     groups: [
       {
         items: [
-          'Followers count',
-          'Total likes count (TT)',
-          'Total digg count (TT)',
+          'Real follower count',
+          'Total likes (TT)',
+          'Engagement rate',
           'Total views (YT)',
-          'Follower lists',
-          'Query influencer performance data & metrics',
+          'Follower lists & audience overlap',
+          'Query KOL performance to separate real reach from inflated counts',
         ],
       },
     ],
@@ -59,25 +59,25 @@ const COLS: Col[] = [
   {
     icon: `${CDN}/68370b6b9eae2d6b80f9cac2_ic_measure%20results.avif`,
     title: 'Content metadata',
-    subtitle: 'Data points to query metadata of influencer content',
+    subtitle: 'Datapoints to query the metadata of KOL content',
     groups: [
       {
         items: [
-          'Tags',
-          'Mentions',
+          'Cashtags ($BTC, $ETH …)',
+          'Project mentions',
           'Post metadata',
-          'Comments',
+          'Comments & replies',
           'Hashtags used in posts',
-          'Query metadata and comments of influencer content',
+          'Query metadata and sentiment across a KOL’s content',
         ],
       },
       {
         items: [
-          'Recent content (posts & stories)',
-          'IGTV video count (IG)',
-          'Media type flags (IG)',
-          'Join feature enabled (YT)',
-          'Music feed / info',
+          'Recent posts & threads',
+          'Video count (YT)',
+          'Paid-partnership flags',
+          'Telegram broadcast info',
+          'Pinned / promoted content',
           'Video subtitles (YT)',
         ],
       },
@@ -111,8 +111,9 @@ export default function DataPoints() {
             More than 30 datapoints, live and unfiltered
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
-            Modash Raw API provides both high-level profile data and deep,
-            specific endpoints for real-time actions
+            The Kolio Raw API exposes both high-level KOL profiles and deep,
+            specific endpoints so you can vet, monitor, and attribute web3
+            campaigns in real time
           </p>
         </div>
 

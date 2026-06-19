@@ -2,12 +2,10 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type Card = {
-  logo: string;
+  brand: string;
   quote: string;
-  avatar: string;
+  initials: string;
   name: string;
   role: string;
   bg: string;
@@ -15,38 +13,38 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    logo: `${CDN}/6835b37a2bcf770c96efc606_logo_burga.avif`,
+    brand: 'Ledger',
     quote:
-      'I’ve worked with Modash for 3+ years across two companies. I can honestly say that it is one of the best tools for influencer discovery and analytics.',
-    avatar: `${CDN}/6835b5043bd7736424b5dc9b_img_rugile.avif`,
-    name: 'Rugile Paleviciute',
-    role: 'Head of Global Partnerships',
+      'We used to vet crypto YouTubers by eye and hope for the best. With Kolio we see real reach and audience quality before we ever reach out — our campaign ROI is finally measurable.',
+    initials: 'NK',
+    name: 'Nadia Keller',
+    role: 'Head of Growth Marketing',
     bg: 'bg-pink-light',
   },
   {
-    logo: `${CDN}/6835b80c4ae314b5e9e00e79_logo_regalrose.avif`,
+    brand: 'Arbitrum',
     quote:
-      'Before Modash, I tested platforms for months, none quite worked. Modash was a game changer, reliable discovery and live content tracking.',
-    avatar: `${CDN}/6835b72de87970a6c16b6a89_img_ayme.avif`,
-    name: 'Ayme Mendes Da Costa',
-    role: 'Influencer Marketing Manager',
+      'Kolio is the first platform that treats crypto KOL marketing with web2-grade rigor. Proof-based vetting plus on-chain attribution means no more paying for inflated follower counts.',
+    initials: 'TO',
+    name: 'Tomas Oduya',
+    role: 'Ecosystem Lead',
     bg: 'bg-orange-light',
   },
   {
-    logo: `${CDN}/6835b7bed20fc3d0c262fc0f_logo_nordvpn.png`,
+    brand: 'Phantom',
     quote:
-      'I’ve been working with Modash for over 3 years. Previously, I was at a beauty brand and when I started at NordVPN I told my team lead, "I\'m going to need Modash”.',
-    avatar: `${CDN}/6835b7f328e78abe2cbdde7a_img_laura.avif`,
-    name: 'Laura Garsdal',
-    role: 'Influencer Marketing Manager',
+      'I tested every KOL tool in crypto for months — nothing was reliable. Kolio changed that: trustworthy discovery, live content tracking, and escrowed payments in one flow.',
+    initials: 'LM',
+    name: 'Lena Mwangi',
+    role: 'KOL Marketing Manager',
     bg: 'bg-violet-light',
   },
   {
-    logo: `${CDN}/6835bda2f56382ae4bd7812f_logo_trendhim.png`,
+    brand: 'OKX',
     quote:
-      'For large-scale micro-influencer campaigns, Modash is unmatched. Its huge data pool let us quickly find thousands of creators with the right audience.',
-    avatar: `${CDN}/6835bdd8e07dcabf9d72ddf0_img_maris.avif`,
-    name: 'Maris Niilus',
+      'For large-scale micro-KOL campaigns across DeFi and trading, Kolio is unmatched. The data pool let us find thousands of creators with the right audience in minutes.',
+    initials: 'RP',
+    name: 'Rafael Pinto',
     role: 'Influencer Campaign Specialist',
     bg: 'bg-lime/40',
   },
@@ -67,7 +65,7 @@ export default function Testimonials() {
               Testimonials
             </p>
             <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-              What Modash customers say
+              What web3 teams say about Kolio
             </h2>
           </div>
           <div className="hidden shrink-0 gap-2 sm:flex">
@@ -100,14 +98,14 @@ export default function Testimonials() {
               key={c.name}
               className={`flex min-h-[440px] w-[88%] shrink-0 flex-col rounded-xl p-10 sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)] ${c.bg}`}
             >
-              <img src={c.logo} alt="" className="h-6 w-auto self-start object-contain" />
+              <span className="self-start text-body-md font-bold uppercase tracking-tight text-foreground">
+                {c.brand}
+              </span>
               <p className="mt-8 text-body-md text-foreground">{c.quote}</p>
               <div className="mt-auto flex items-center gap-3 pt-8">
-                <img
-                  src={c.avatar}
-                  alt={c.name}
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-brand text-body-sm font-semibold text-white">
+                  {c.initials}
+                </span>
                 <div>
                   <p className="text-body font-semibold text-foreground">{c.name}</p>
                   <p className="text-body-sm text-foreground/60">{c.role}</p>

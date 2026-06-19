@@ -1,31 +1,38 @@
 import Container from '@/components/ui/Container';
+import { Users, Search, Send, Wallet } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+type Card = {
+  Icon: LucideIcon;
+  title: string;
+  body: string;
+  href: string;
+};
 
-const CARDS = [
+const CARDS: Card[] = [
   {
-    icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
+    Icon: Users,
     title: 'Manage',
-    body: 'Keep every relationship under control and details out of your head.',
-    href: 'https://www.modash.io/features/influencer-relationship-management',
+    body: 'Keep every KOL relationship in one place, with deal terms and history out of your head and your DMs.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
+    Icon: Search,
     title: 'Discover',
-    body: 'Find the right creators for your brand and know they’re a fit before you reach out.',
-    href: 'https://www.modash.io/discovery',
+    body: 'Find the right crypto KOLs across DeFi, NFTs, L1/L2, trading, and gaming, and verify their real audience before you reach out.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/68370b6b110cbb6fa07e64a9_ic_send%20emails.avif`,
-    title: 'Inbox',
-    body: 'Reach out to more creators and build long-term relationships without drowning in emails.',
-    href: 'https://www.modash.io/features/influencer-outreach',
+    Icon: Send,
+    title: 'Outreach',
+    body: 'Reach more KOLs and build long-term partnerships without drowning in Telegram threads and scattered DMs.',
+    href: '/demo-confirmation',
   },
   {
-    icon: `${CDN}/6839880de4b9dfb7a7cb6c5e_ic_pay.avif`,
+    Icon: Wallet,
     title: 'Pay',
-    body: 'Cut down on financial admin, invoicing back-and-forth, and tax headaches.',
-    href: 'https://www.modash.io/features/influencer-payments',
+    body: 'Settle deals with on-chain payments and escrow, so payouts release against verified deliverables, not promises.',
+    href: '/demo-confirmation',
   },
 ];
 
@@ -36,12 +43,12 @@ export default function Workflow() {
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2.25rem]">
-            Track campaigns. See performance. Scale what works.
+            Track campaigns. Verify reach. Scale what works.
           </h2>
-          <p className="mx-auto mt-4 max-w-[620px] text-body-md text-foreground/70">
-            Modash connects campaign performance to your entire creator workflow. From
-            discovery to payment, spend less time on admin and more time on
-            partnerships that drive results.
+          <p className="mx-auto mt-4 max-w-[640px] text-body-md text-foreground/70">
+            Kolio connects campaign performance to your entire KOL workflow. From
+            discovery to on-chain payout, spend less time on admin and more time on
+            partnerships that move volume.
           </p>
         </div>
 
@@ -52,12 +59,7 @@ export default function Workflow() {
               className="flex flex-col rounded-xl bg-background-soft p-6"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-btn">
-                <img
-                  src={c.icon}
-                  alt={c.title}
-                  loading="lazy"
-                  className="h-5 w-5 object-contain"
-                />
+                <c.Icon className="h-5 w-5 text-brand" />
               </span>
               <h3 className="mt-5 text-body-md font-semibold text-foreground">
                 {c.title}

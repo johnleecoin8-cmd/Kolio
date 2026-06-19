@@ -1,45 +1,46 @@
+import { Check, X } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-const CLOSE = `${CDN}/698c624b2c263cf06555df11_ic_Close%20Circle.avif`;
-const CHECK = `${CDN}/698c63747b29c00343b657e5_ic_Check%20Circle.avif`;
-
 const BAD = [
-  '5 open tabs per creator',
-  'Lost conversations',
+  '5 DM threads per KOL',
+  'Wallet addresses lost in chat',
   'Duplicate outreach',
-  'Missing context',
-  'All in your head',
+  'Deal terms in someone’s head',
+  'No proof of reach',
 ];
 const GOOD = [
-  'One centralized view',
-  'Full history visible',
+  'One vetted KOL roster',
+  'Wallets & escrow on file',
   'Aligned team',
-  'Campaign data at hand',
-  'Always up to date',
+  'Deal terms locked in',
+  'Verified audience data',
 ];
 
-function Chip({ icon, label }: { icon: string; label: string }) {
+function Chip({ good, label }: { good: boolean; label: string }) {
   return (
     <div className="inline-flex items-center gap-2 rounded-pill bg-white px-4 py-2.5 text-body-sm font-medium text-ink shadow-btn">
-      <img src={icon} alt="" className="h-4 w-4" />
+      {good ? (
+        <Check className="h-4 w-4 text-brand" />
+      ) : (
+        <X className="h-4 w-4 text-ink/40" />
+      )}
       {label}
     </div>
   );
 }
 
-/** "Manage more relationships with less mess" — gray vs coral comparison cards. */
+/** "Run more KOL campaigns with less mess" — gray vs coral comparison cards. */
 export default function Comparison() {
   return (
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
           <h2 className="font-sans text-h4 font-bold leading-tight text-ink">
-            Manage more relationships with less mess
+            Run more KOL campaigns with less mess
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-body-md text-foreground/70">
-            Because when everything is organized and under control, you get to
-            focus on the stuff that actually builds relationships.
+            When every relationship, term, and payout is organized and on the
+            record, you get to focus on the work that actually moves your token.
           </p>
         </div>
 
@@ -47,11 +48,11 @@ export default function Comparison() {
           {/* all over the place */}
           <div className="rounded-xl bg-background-soft p-7 md:p-10">
             <h3 className="font-display uppercase text-[2rem] leading-none text-ink md:text-[2.75rem]">
-              All over the place
+              Scattered across chats
             </h3>
             <div className="mt-10 flex flex-wrap gap-3">
               {BAD.map((t) => (
-                <Chip key={t} icon={CLOSE} label={t} />
+                <Chip key={t} good={false} label={t} />
               ))}
             </div>
           </div>
@@ -63,7 +64,7 @@ export default function Comparison() {
             </h3>
             <div className="mt-10 flex flex-wrap gap-3">
               {GOOD.map((t) => (
-                <Chip key={t} icon={CHECK} label={t} />
+                <Chip key={t} good label={t} />
               ))}
             </div>
           </div>

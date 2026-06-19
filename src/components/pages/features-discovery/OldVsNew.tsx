@@ -3,20 +3,20 @@ import Container from '@/components/ui/Container';
 import SectionHeading from './SectionHeading';
 
 const OLD = [
-  'Hashtag scrolling',
-  'Updating spreadsheets',
-  'So slooow',
-  'Unknown demographics',
-  'Not enough options',
-  'Waiting for screenshots',
+  'Scrolling Crypto Twitter',
+  'Manual handle spreadsheets',
+  'Trusting follower counts',
+  'Bots & bought engagement',
+  'No audience proof',
+  'Screenshot-only metrics',
 ];
 const NEW = [
-  'Search with AI',
-  'One-click save',
-  'Accurate data',
-  'Instant metrics',
-  'Lookalike matching',
-  'Immediate outreach',
+  'Search by niche & chain',
+  'One-click shortlist',
+  'Proof-based reach',
+  'Audience quality scores',
+  'Lookalike KOL matching',
+  'On-chain track records',
 ];
 
 function Pill({ children, ok }: { children: string; ok?: boolean }) {
@@ -32,18 +32,18 @@ function Pill({ children, ok }: { children: string; ok?: boolean }) {
   );
 }
 
-/** Section heading + old-way (gray) vs modash-way (pink) comparison blocks. */
+/** Section heading + old-way (gray) vs Kolio-way (pink) comparison blocks. */
 export default function OldVsNew() {
   return (
     <section className="py-12 md:py-16">
       <Container>
         <div className="mx-auto max-w-[720px] text-center">
           <SectionHeading>
-            A faster way to shortlist creators you’re confident to reach out to
+            A faster way to shortlist KOLs you’re confident to fund
           </SectionHeading>
           <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
-            Because time spent on searching and waiting for the wrong creators, is time you don’t
-            spend building relationships with the right ones.
+            Because budget spent on KOLs with inflated reach is budget you don’t spend on the
+            creators who actually move your community.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function OldVsNew() {
           </div>
           <div className="rounded-xl bg-pink p-6 md:p-8">
             <h3 className="font-display uppercase text-[1.75rem] md:text-[2rem] text-ink">
-              Modash way
+              Kolio way
             </h3>
             <div className="mt-5 flex flex-wrap gap-2.5">
               {NEW.map((t) => (

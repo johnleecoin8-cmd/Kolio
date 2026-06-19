@@ -1,24 +1,19 @@
 import { ChevronRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CRUMBS = ['Content library', 'All brands', 'Red Bull'];
+const CRUMBS = ['KOL library', 'All web3 brands', 'OKX'];
 
-const RED_BULL_LOGO =
-  'https://images.od.modash.io/45f251779536348633e211c81b4f03ddfc55dc50';
-
-/** Brand badge: real Red Bull logo + Inter wordmark, with white inset ring. */
+/** Brand badge: text-based web3 brand mark (no third-party logo imagery). */
 function BrandBadge() {
   return (
     <span className="inline-flex w-fit items-center gap-4 rounded-3xl bg-background-soft px-5 py-4 shadow-[inset_0_0_0_8px_white] transition-all">
-      <span className="flex h-10 w-10 flex-shrink-0 md:h-[60px] md:w-[60px]">
-        <img
-          src={RED_BULL_LOGO}
-          alt="Red Bull"
-          className="h-full w-full rounded-sm object-contain"
-        />
+      <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-ink md:h-[60px] md:w-[60px]">
+        <span className="font-display text-lg font-bold text-white md:text-2xl">
+          OK
+        </span>
       </span>
-      <span className="font-semibold leading-none text-foreground text-2xl md:text-4xl [font-family:Inter,system-ui,sans-serif]">
-        Red Bull
+      <span className="font-semibold leading-none text-foreground text-2xl md:text-4xl font-display">
+        OKX
       </span>
     </span>
   );
@@ -44,18 +39,24 @@ export default function Hero() {
               <ChevronRight size={14} className="text-gray-400" />
             </span>
           ))}
-          <span className="font-normal text-blue-dark">Influencers</span>
+          <span className="font-normal text-blue-dark">KOLs</span>
         </nav>
 
-        {/* headline */}
-        <h1 className="mx-auto max-w-[1000px] text-center font-display text-[2.25rem] uppercase leading-[1.02] text-foreground sm:text-[3rem] md:text-[3.75rem]">
-          Find influencers who have collaborated with
+        {/* headline — later.com pattern: bold display with one highlighted word */}
+        <h1 className="mx-auto max-w-[1000px] text-center font-display text-[2.25rem] leading-[1.04] text-foreground sm:text-[3rem] md:text-[3.75rem]">
+          Find the crypto{' '}
+          <span className="text-gradient-brand">KOLs</span> who have run campaigns with
         </h1>
 
         {/* brand badge */}
         <div className="mt-8 flex justify-center">
           <BrandBadge />
         </div>
+
+        <p className="mx-auto mt-6 max-w-[640px] text-center text-body text-foreground/70">
+          Proof-based vetting, on-chain payments and real campaign attribution —
+          the rigor of web2 creator marketing, built for web3.
+        </p>
       </Container>
     </section>
   );

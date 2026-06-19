@@ -2,31 +2,31 @@ import WideContainer from './WideContainer';
 
 const CARDS = [
   {
-    href: 'https://www.modash.io/youtube-average-views-calculator',
-    title: 'YouTube Average Views Calculator',
+    href: '/demo-confirmation',
+    title: 'YouTube Crypto KOL Checker',
     description:
-      'Check the average views for any YouTube creator. Free, no sign-up needed.',
+      'Check the real reach and audience of any crypto YouTube KOL. Free, no sign-up needed.',
   },
   {
-    href: 'https://www.modash.io/tiktok-average-views-calculator',
-    title: 'TikTok Average Views Calculator',
+    href: '/demo-confirmation',
+    title: 'Telegram Channel Checker',
     description:
-      'Check the average views for any TikTok creator. Free, no sign-up needed.',
+      'Read the real, active audience behind any crypto Telegram channel. Free, no sign-up needed.',
   },
 ];
 
-/** "Check average views on other platforms" — two cross-platform cards. */
+/** "Vet KOLs on other channels" — two cross-channel cards. */
 export default function OtherPlatforms() {
   return (
     <section className="bg-background py-16 md:py-24">
       <WideContainer>
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="font-display text-5xl lg:text-7xl font-normal leading-tight text-foreground">
-            Check average views on other platforms
+            Vet KOLs on every crypto channel
           </h2>
           <p className="max-w-xl text-body text-foreground">
-            Use our free average views calculators to analyze influencer
-            performance across all major social platforms.
+            Use our free checkers to read real reach and audience quality for
+            crypto KOLs across X, YouTube, TikTok, and Telegram.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function OtherPlatforms() {
                 {c.description}
               </p>
               <span className="text-body-sm font-semibold underline">
-                Try for free
+                Try Kolio free
               </span>
             </a>
           ))}

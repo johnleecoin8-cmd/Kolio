@@ -5,11 +5,11 @@ const slug = (n: number) => `platform-${n}`;
 /** Sticky left-rail table of contents. Lists all 19 platforms. */
 export default function TableOfContents() {
   const labels: Record<number, string> = {
-    5: '5. Meltwater (formerly Klear)',
-    7: '7. Later Influence (formerly Mavrck)',
-    13: '13. Aspire (formerly AspireIQ)',
-    17: '17. Sprout Social Influencer Marketing (formerly Tagger)',
-    18: '18. Bazaarvoice Vibe Creator Marketing (formerly Affable)',
+    5: '5. Meltwater',
+    7: '7. Later Influence',
+    13: '13. Aspire',
+    17: '17. Sprout Social Influencer Marketing',
+    18: '18. Bazaarvoice Vibe Creator Marketing',
   };
   return (
     <nav aria-label="Table of contents" className="text-body-sm">

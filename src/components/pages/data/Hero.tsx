@@ -1,8 +1,6 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** Data hero — "Our Data" eyebrow, big title, full-width product screenshot on purple-light. */
+/** Data hero — "Our Data" eyebrow, big title with one highlighted word. */
 export default function Hero() {
   return (
     <section className="bg-background pt-12 md:pt-16">
@@ -12,26 +10,39 @@ export default function Hero() {
             Our Data
           </div>
           <h1 className="font-display text-[3rem] uppercase leading-[0.95] text-foreground sm:text-[5rem] md:text-[7rem]">
-            Bringing data you trust to influencer marketing
+            Web3 KOL data you can{' '}
+            <span className="text-gradient-brand">prove</span>
           </h1>
+          <p className="mt-6 max-w-[640px] text-body-md text-foreground/70">
+            Vanity metrics get crypto campaigns rugged. Kolio measures real
+            reach, audience quality, and on-chain results across every crypto
+            KOL on X, YouTube, TikTok, and Telegram.
+          </p>
         </div>
       </Container>
 
       <div className="mt-10 md:mt-14">
         <div className="bg-purple-light py-10 md:py-16">
           <Container>
-            <img
-              src={`${CDN}/688b2358e0582742402ee7c0_img_hero_our%20data.avif`}
-              alt="Modash data dashboard"
-              loading="eager"
-              className="mx-auto hidden w-full max-w-[1136px] md:block"
-            />
-            <img
-              src={`${CDN}/688b66f017c433d44bbf37b7_img_Hero_our%20data_mobile.avif`}
-              alt="Modash data dashboard"
-              loading="eager"
-              className="mx-auto w-full max-w-[420px] md:hidden"
-            />
+            <div className="mx-auto grid w-full max-w-[1136px] gap-4 sm:grid-cols-3">
+              {[
+                { stat: '120M+', label: 'crypto-native profiles indexed' },
+                { stat: '30+', label: 'audience & reach signals per KOL' },
+                { stat: '8', label: 'web3 niches, from DeFi to gaming' },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl bg-background p-8 text-center shadow-sm"
+                >
+                  <div className="font-display text-[2.75rem] leading-none text-gradient-brand">
+                    {s.stat}
+                  </div>
+                  <div className="mt-3 text-body-sm text-foreground/70">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </Container>
         </div>
       </div>

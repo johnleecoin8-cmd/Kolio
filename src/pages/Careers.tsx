@@ -4,7 +4,7 @@ import MeetTheTeam from '@/components/pages/careers/MeetTheTeam';
 import AnnualOffsite from '@/components/pages/careers/AnnualOffsite';
 import OpenRoles from '@/components/pages/careers/OpenRoles';
 
-/** modash.io/careers — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio careers page — web3 KOL platform. Sections render top-to-bottom. */
 export default function Careers() {
   return (
     <main>

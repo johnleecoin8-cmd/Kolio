@@ -1,43 +1,51 @@
 import FeatureRow from './FeatureRow';
 import { ButtonA } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+/** Brand-neutral API response code mockup built with divs. */
+function ApiMockup() {
+  return (
+    <div className="mx-auto w-full max-w-[520px] overflow-hidden rounded-lg bg-ink shadow-nav">
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+        <span className="h-3 w-3 rounded-full bg-white/20" />
+        <span className="h-3 w-3 rounded-full bg-white/20" />
+        <span className="h-3 w-3 rounded-full bg-white/20" />
+        <span className="ml-2 text-body-sm text-white/40">GET /v1/kol/profile</span>
+      </div>
+      <pre className="overflow-x-auto px-5 py-4 text-body-sm leading-relaxed text-white/80">
+        <code>{`{
+  "handle": "@defi.daily",
+  "niche": "DeFi",
+  "real_reach": 412000,
+  "audience_quality": "A",
+  "bot_followers": 0.03,
+  "engagement_rate": 0.072,
+  "wallet": "0x9f…3aB1",
+  "past_campaigns": 18
+}`}</code>
+      </pre>
+    </div>
+  );
+}
 
-/** "Reliable influencer marketing API" — text left, code screenshot right. */
+/** "Reliable web3 KOL data API" — text left, code mockup right. */
 export default function ApiSection() {
   return (
-    <FeatureRow
-      imageSide="right"
-      panel={false}
-      image={
-        <img
-          src={`${CDN}/688a3c79f09d8837a6722f2d_image%20(29).avif`}
-          width={560}
-          sizes="(max-width: 767px) 100vw, 560px"
-          srcSet={`${CDN}/688a3c79f09d8837a6722f2d_image%20(29)-p-500.avif 500w, ${CDN}/688a3c79f09d8837a6722f2d_image%20(29).avif 1120w`}
-          alt="Modash influencer marketing API"
-          loading="lazy"
-          className="mx-auto w-full max-w-[520px]"
-        />
-      }
-    >
+    <FeatureRow imageSide="right" panel={false} image={<ApiMockup />}>
       <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
-        Reliable influencer marketing API
+        Reliable web3 KOL data, by API
       </h2>
       <div className="mt-6 max-w-[480px] space-y-2 text-body-md text-foreground/70">
-        <p>Modash data is available via API.</p>
-        <p>Trusted by brands like Clay, New York Times, and 70+ others.</p>
         <p>
-          <a
-            href="https://docs.modash.io/"
-            className="font-semibold text-foreground underline underline-offset-2"
-          >
-            Read the docs here
-          </a>
+          Every Kolio metric — real reach, audience quality, wallet, and
+          campaign history — is available programmatically.
+        </p>
+        <p>
+          Built for exchanges, protocols, and agencies running KOL programs at
+          scale.
         </p>
       </div>
       <div className="mt-8">
-        <ButtonA href="https://www.modash.io/influencer-marketing-api" variant="primary">
+        <ButtonA href="/demo-confirmation" variant="primary">
           Learn more
         </ButtonA>
       </div>

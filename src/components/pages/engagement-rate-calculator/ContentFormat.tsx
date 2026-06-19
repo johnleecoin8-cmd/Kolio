@@ -1,9 +1,13 @@
 import Container from '@/components/ui/Container';
 
-const IMG =
-  'https://www.modash.io/engagement-rate-calculator/assets/er_check_engagement_rates_by_content_format.png';
+const PLATFORMS = [
+  { name: 'X (Twitter)', rate: '4.8%', w: '78%' },
+  { name: 'YouTube', rate: '3.2%', w: '54%' },
+  { name: 'Telegram', rate: '6.1%', w: '92%' },
+  { name: 'TikTok', rate: '2.7%', w: '46%' },
+];
 
-/** "Check engagement rates by content format" — image left, text right. */
+/** "Compare engagement across every crypto channel" — mockup left, text right. */
 export default function ContentFormat() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -11,32 +15,53 @@ export default function ContentFormat() {
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-16">
           <div className="flex flex-col items-start justify-start gap-4 lg:order-2 lg:flex-1">
             <h2 className="mb-4 w-full break-words font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
-              Check engagement rates by content format
+              Compare engagement across every crypto channel
             </h2>
             <div className="w-full break-words text-lg font-normal leading-relaxed text-foreground">
               <p>
-                When reviewing an influencer&rsquo;s profile, it&rsquo;s helpful
-                to know what kind of content is driving the engagement rate. On
-                YouTube, is it Shorts or long-form videos? On Instagram, is it
-                Posts or Reels? Start a free trial of Modash to unlock advanced
-                engagement data like this.
+                A KOL who crushes it on X can be flat on YouTube or Telegram.
+                When you&rsquo;re planning a launch, an airdrop, or a listing
+                campaign, you need to know where their audience actually shows
+                up. Kolio breaks engagement down per channel &mdash; X,
+                YouTube, TikTok and Telegram &mdash; so you book the right voice
+                for the right surface.
               </p>
             </div>
             <a
-              href="https://app.modash.io/signup"
+              href="/demo-confirmation"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-4 py-2 text-base font-semibold leading-6 text-white transition-colors hover:bg-[#333333]"
             >
               Try for free
             </a>
           </div>
 
+          {/* brand-neutral per-channel mockup */}
           <div className="flex w-full justify-center lg:order-1 lg:flex-1">
-            <img
-              src={IMG}
-              alt="Check engagement rates by content format"
-              className="max-h-[350px] w-full object-contain"
-              loading="lazy"
-            />
+            <div className="w-full max-w-[26rem] rounded-2xl border border-black/10 bg-white p-6 shadow-nav">
+              <span className="text-body-sm font-semibold text-foreground/60">
+                Engagement by channel
+              </span>
+              <div className="mt-5 flex flex-col gap-4">
+                {PLATFORMS.map((p) => (
+                  <div key={p.name}>
+                    <div className="mb-1.5 flex items-center justify-between text-body-sm">
+                      <span className="font-medium text-foreground">
+                        {p.name}
+                      </span>
+                      <span className="font-semibold text-foreground/70">
+                        {p.rate}
+                      </span>
+                    </div>
+                    <div className="h-2.5 w-full overflow-hidden rounded-full bg-background-soft">
+                      <div
+                        className="bg-gradient-brand h-full rounded-full"
+                        style={{ width: p.w }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </Container>

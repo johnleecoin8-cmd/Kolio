@@ -4,28 +4,28 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'What tools does Manage replace?',
-    a: 'Modash Manage replaces spreadsheets, CRM tools, email marketing platforms, and scattered communication tools. Instead of switching between multiple systems to track creator relationships, store documents, manage outreach, and monitor campaign progress, everything lives in one unified workspace built specifically for influencer marketing.',
+    q: 'What tools does Kolio Manage replace?',
+    a: 'Kolio Manage replaces spreadsheets, generic CRMs, scattered Telegram and DM threads, and manual payout tracking. Instead of switching between systems to vet KOLs, store deal terms, run outreach, and chase on-chain payments, everything lives in one workspace built specifically for web3 influencer marketing.',
   },
   {
-    q: 'Can I import my existing creators?',
-    a: "Yes. You can import existing creators individually by their social handles or email addresses, or in bulk through CSV upload. We'll automatically enrich each profile with full analytics, audience insights, and contact information. Pick up right where you left off with no manual data entry.",
+    q: 'Can I import my existing KOLs?',
+    a: 'Yes. Import KOLs individually by their X, YouTube, TikTok, or Telegram handles, or in bulk via CSV. Kolio automatically enriches each profile with proof-based reach, audience quality, and engagement data, so you pick up right where you left off with no manual entry.',
   },
   {
-    q: 'Can I export my creator data at any time?',
-    a: 'Yes, export any creator list or campaign data to CSV with one click. Take your data wherever you need it for reporting, presentations, or archiving. Available on Performance and Enterprise plans.',
+    q: 'How does Kolio vet KOLs?',
+    a: 'Kolio scores every KOL on real, proof-based metrics: authentic reach, audience geography and quality, and engagement, not vanity follower counts or looks. You see whether a crypto KOL genuinely reaches your target audience before you commit budget or escrow.',
+  },
+  {
+    q: 'How do on-chain payments and escrow work?',
+    a: 'Store each KOL’s wallet and preferred chain on their profile, then fund deals into escrow and release payouts on-chain once deliverables are approved. No invoicing back-and-forth, no cross-border friction, and a clear record of every payment tied to the relationship.',
   },
   {
     q: 'How does team collaboration work?',
-    a: 'Invite team members, share lists, monitor campaigns and work together on creator relationships. For collaboration, statuses are visible across your whole team so everyone stays on the same page about where you stand with each creator. You can also share email conversations with your team using privacy settings to control what you share.',
+    a: 'Invite teammates, share KOL lists, and work deals together. Statuses are visible across your whole team, so everyone knows where each relationship stands and no one double-books a KOL. Ownership is assigned per KOL so nothing falls through the cracks.',
   },
   {
-    q: 'Can I automate routine creator management tasks?',
-    a: "Yes. Modash automates repetitive influencer marketing tasks so you don't have to manage everything manually. You can use email templates with variables to personalize outreach at scale, set up automated email sequences to follow up with creators, and apply bulk actions to update statuses, assign owners, or move creators across lists in one click. All actions are tied to each creator's profile, so communication history, campaign status, and ownership stay centralized as you scale.",
-  },
-  {
-    q: 'What kind of things can I store in Modash?',
-    a: 'Store and organize all campaign documents, briefs, and contracts alongside each creator relationship notes, rates, comments, birthday, address and more! Everything stays accessible and organized in one workflow.',
+    q: 'Can I export my KOL data at any time?',
+    a: 'Yes. Export any KOL list or campaign data to CSV in one click, for reporting, board decks, or archiving. Your data is always yours to take wherever you need it.',
   },
 ];
 

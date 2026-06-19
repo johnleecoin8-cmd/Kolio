@@ -1,18 +1,18 @@
 import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/Button';
 
 const CARDS = [
   {
-    title: 'Custom influencer marketing platform',
-    body: 'Use Modash API as the engine for your influencer platform. Offer your customers powerful influencer search with AI, analytics, and campaign management tools.',
+    title: 'White-label KOL marketing platform',
+    body: 'Use the Kolio API as the engine behind your own web3 marketing product. Offer customers proof-based KOL search, audience-quality analytics, and campaign tooling.',
   },
   {
-    title: 'AI applications and agents',
-    body: 'Integrate AI search endpoint and structured API to power your apps and agents. Build predictive analysis, automated negotiations, and more.',
+    title: 'AI agents for crypto growth',
+    body: 'Wire the AI search endpoint and structured API into your apps and agents. Build automated KOL shortlists, outreach, and predictive reach modeling.',
   },
   {
-    title: 'Internal tools and workflows',
-    body: 'Connect your internal systems and workflows to supercharge your efficiency. Build automated vetting, reporting, or programmatic campaign tracking.',
+    title: 'Internal growth tools & workflows',
+    body: 'Connect Kolio to your internal systems to supercharge your BD team. Build automated KOL vetting, on-chain attribution reporting, or programmatic campaign tracking.',
   },
 ];
 
@@ -43,12 +43,9 @@ export default function UseCases() {
           <p className="text-body-md font-semibold text-foreground">
             Can't find your use-case? Let's discuss!
           </p>
-          <ButtonA
-            href="https://form.jotform.com/modash/intro-modash-api"
-            variant="primary"
-          >
+          <ButtonLink to="/demo-confirmation" variant="primary">
             Request a demo
-          </ButtonA>
+          </ButtonLink>
         </div>
       </Container>
     </section>

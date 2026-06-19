@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Users,
   TrendingUp,
@@ -6,7 +5,7 @@ import {
   Clapperboard,
   Mail,
   PieChart,
-  Instagram,
+  Twitter,
   Info,
   BadgeCheck,
 } from 'lucide-react';
@@ -14,7 +13,7 @@ import type { Profile } from './data';
 import { compact, pct } from './format';
 
 /** One stat tile (icon + label on left, value on right). Locked values render
- *  as a blurred placeholder pill to match modash's paywalled preview. */
+ *  as a blurred placeholder pill to match Kolio's gated preview. */
 function StatTile({
   icon,
   label,
@@ -59,58 +58,45 @@ function PanelHead({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Avatar with fallback gradient circle when the proxied image fails. */
+function initialsOf(name: string): string {
+  return (
+    name
+      .replace(/[^A-Za-z ]/g, '')
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join('')
+      .toUpperCase() || '?'
+  );
+}
+
+/** Brand-neutral gradient initials avatar (no third-party image host). */
 function Avatar({ profile }: { profile: Profile }) {
-  const [err, setErr] = useState(false);
-  const initials = profile.name
-    .replace(/[^A-Za-z ]/g, '')
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase();
   return (
     <div className="relative h-[68px] w-[68px] shrink-0">
-      {!err ? (
-        <img
-          src={profile.picture}
-          alt={profile.name}
-          onError={() => setErr(true)}
-          className="h-[68px] w-[68px] rounded-full object-cover"
-        />
-      ) : (
-        <div className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gradient-to-br from-pink to-violet text-body font-semibold text-ink">
-          {initials || '?'}
-        </div>
-      )}
+      <div className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gradient-brand text-body font-semibold text-white">
+        {initialsOf(profile.name)}
+      </div>
       {profile.verified && (
         <BadgeCheck
           size={20}
-          className="absolute -bottom-0.5 right-0 rounded-full bg-white fill-[#3897f0] text-white"
+          className="absolute -bottom-0.5 right-0 rounded-full bg-white fill-brand text-white"
         />
       )}
     </div>
   );
 }
 
-/** Small circular avatar used as the creator marker on the histogram. */
-function MiniAvatar({ profile }: { profile: Profile }) {
-  const [err, setErr] = useState(false);
-  return !err ? (
-    <img
-      src={profile.picture}
-      alt=""
-      onError={() => setErr(true)}
-      className="h-7 w-7 rounded-full border-2 border-white object-cover shadow-btn"
-    />
-  ) : (
-    <span className="block h-7 w-7 rounded-full border-2 border-white bg-gradient-to-br from-pink to-violet shadow-btn" />
+/** Small circular avatar used as the KOL marker on the histogram. */
+function MiniAvatar() {
+  return (
+    <span className="block h-7 w-7 rounded-full border-2 border-white bg-gradient-brand shadow-btn" />
   );
 }
 
 /** Engagement-rate benchmark histogram: descending bars, black = median,
- *  pink rightmost bar carries the creator's avatar (matches modash UI). */
+ *  brand rightmost bar carries the KOL's avatar. */
 function Histogram({ avatar }: { avatar: React.ReactNode }) {
   const bars = [100, 88, 72, 62, 52, 45, 40, 36, 32, 28];
   const medianIdx = 3;
@@ -181,9 +167,9 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
         </p>
 
         <div className="mt-4 flex items-center gap-2 text-body-sm text-foreground/80">
-          <Instagram size={16} className="text-foreground/50" />
+          <Twitter size={16} className="text-foreground/50" />
           <a
-            href={`https://www.instagram.com/${profile.username}`}
+            href={`https://x.com/${profile.username}`}
             className="no-underline transition hover:underline"
           >
             @{profile.username}
@@ -202,10 +188,10 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
         </ul>
 
         <a
-          href="https://marketer.modash.io/register/marketer"
+          href="/demo-confirmation"
           className="mt-5 inline-flex h-10 items-center justify-center rounded-sm bg-ink px-5 text-body-sm font-semibold text-white no-underline shadow-btn transition hover:opacity-90"
         >
-          Full Profile Data
+          Full KOL Data
         </a>
       </div>
 
@@ -231,7 +217,7 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
         />
         <StatTile
           icon={<Clapperboard size={16} />}
-          label="Average Reel plays"
+          label="Average post views"
           value={compact(profile.averageReelPlays)}
           locked
         />
@@ -259,12 +245,12 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
 
         {/* Top performing reels — title links only (likes are paywalled) */}
         <div className="rounded-lg border border-black/5 bg-white p-5">
-          <PanelHead>Top performing Reels</PanelHead>
+          <PanelHead>Top performing posts</PanelHead>
           <ul className="space-y-3">
             {profile.reels.map((r, i) => (
               <li key={i}>
                 <a
-                  href="https://marketer.modash.io/register/marketer"
+                  href="/demo-confirmation"
                   className="line-clamp-2 text-body-sm text-foreground/80 underline decoration-foreground/30 underline-offset-2 transition hover:text-foreground"
                 >
                   {r.title}
@@ -277,7 +263,7 @@ export default function InfluencerCard({ profile }: { profile: Profile }) {
         {/* Engagement benchmark */}
         <div className="rounded-lg border border-black/5 bg-white p-5">
           <PanelHead>Engagement rate benchmark</PanelHead>
-          <Histogram avatar={<MiniAvatar profile={profile} />} />
+          <Histogram avatar={<MiniAvatar />} />
         </div>
 
         {/* Audience location by country */}

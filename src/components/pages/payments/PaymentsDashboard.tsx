@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { cn } from '@/lib/cn';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type Status = 'needs' | 'approved' | 'processing' | 'pending';
 
 type Row = {
   name: string;
-  avatar: string;
+  initials: string;
   price: string;
   status: Status;
   link: string;
@@ -15,46 +13,46 @@ type Row = {
 
 const ROWS: Row[] = [
   {
-    name: 'Maxim',
-    avatar: `${CDN}/698c7769acfc5a4bf01b2fdf_img_andreea%20moise.avif`,
-    price: '$1,000.00',
+    name: '@defi_degen',
+    initials: 'DD',
+    price: '1,000 USDC',
     status: 'needs',
-    link: 'https://creator-…',
+    link: 'escrow-link…',
   },
   {
-    name: 'Guri',
-    avatar: `${CDN}/68c7ea4ddf9a2299a6b613a2_img_regina.avif`,
-    price: '$64.90',
+    name: '@l2_maxi',
+    initials: 'LM',
+    price: '640 USDT',
     status: 'approved',
-    link: 'https://paypal-l…',
+    link: 'sol payout…',
   },
   {
-    name: 'Inna',
-    avatar: `${CDN}/68c7eb35fc99ad999340fe91_img_tatiana.avif`,
-    price: 'CA$1,547.00',
+    name: '@nft_oracle',
+    initials: 'NO',
+    price: '1,547 USDC',
     status: 'processing',
-    link: 'https://invoice-…',
+    link: 'base payout…',
   },
   {
-    name: 'Heidi',
-    avatar: `${CDN}/698c7769acfc5a4bf01b2fdf_img_andreea%20moise.avif`,
-    price: '$121.46',
+    name: '@yield_anon',
+    initials: 'YA',
+    price: '€890.00',
     status: 'approved',
-    link: 'https://wiseapp…',
+    link: 'sepa payout…',
   },
   {
-    name: 'Pavel',
-    avatar: `${CDN}/68c7ea4ddf9a2299a6b613a2_img_regina.avif`,
-    price: 'CA$1,135.00',
+    name: '@gamefi_lead',
+    initials: 'GL',
+    price: '1,135 USDC',
     status: 'pending',
-    link: 'https://bankacc…',
+    link: 'arb payout…',
   },
   {
-    name: 'Himmy',
-    avatar: `${CDN}/68c7eb35fc99ad999340fe91_img_tatiana.avif`,
-    price: 'CA$100.00',
+    name: '@trad_chad',
+    initials: 'TC',
+    price: '0.42 ETH',
     status: 'approved',
-    link: 'https://creator-…',
+    link: 'eth payout…',
   },
 ];
 
@@ -75,7 +73,7 @@ function StatusPill({ status }: { status: Status }) {
   );
 }
 
-/** Faithful mockup of the Modash Payments product dashboard (the "See it in action" demo). */
+/** Mockup of the Kolio Payments product dashboard (the "See it in action" demo). */
 export default function PaymentsDashboard() {
   const [selected, setSelected] = useState(5);
 
@@ -96,7 +94,7 @@ export default function PaymentsDashboard() {
             <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
             <path d="m14 14 3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
-          Search creator
+          Search KOL
         </div>
 
         {/* stats */}
@@ -117,8 +115,8 @@ export default function PaymentsDashboard() {
         <div className="mt-5 min-w-0 overflow-hidden">
           <div className="grid grid-cols-[24px_1.3fr_1fr_1.3fr_1.2fr] items-center gap-2 border-b border-gray-200 pb-2 text-[11px] font-medium text-gray-500">
             <span />
-            <span>Influencer</span>
-            <span>Price</span>
+            <span>KOL</span>
+            <span>Amount</span>
             <span>Status</span>
             <span>Payment link</span>
           </div>
@@ -144,7 +142,9 @@ export default function PaymentsDashboard() {
                 )}
               </span>
               <span className="flex items-center gap-2 truncate">
-                <img src={r.avatar} alt="" className="h-6 w-6 shrink-0 rounded-full object-cover" />
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple text-[10px] font-semibold text-ink">
+                  {r.initials}
+                </span>
                 <span className={cn('truncate text-[13px] text-ink', selected === i && 'font-semibold')}>
                   {r.name}
                 </span>
@@ -181,11 +181,9 @@ export default function PaymentsDashboard() {
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          <img
-            src={`${CDN}/68c7eb35fc99ad999340fe91_img_tatiana.avif`}
-            alt=""
-            className="h-10 w-10 rounded-full object-cover"
-          />
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple text-xs font-semibold text-ink">
+            TC
+          </span>
           <div className="flex-1 space-y-1.5">
             <div className="h-2 w-20 rounded bg-gray-200" />
             <div className="h-2 w-12 rounded bg-gray-100" />
@@ -196,10 +194,10 @@ export default function PaymentsDashboard() {
         <div className="mt-3 space-y-3">
           {[
             { l: 'Created', done: true },
-            { l: 'Approved', done: true },
-            { l: 'Invoice uploaded', done: true },
-            { l: 'In processing', done: false },
-            { l: 'Payment sent', done: false },
+            { l: 'Funded to escrow', done: true },
+            { l: 'Deliverables verified', done: true },
+            { l: 'Releasing on-chain', done: false },
+            { l: 'Payout settled', done: false },
           ].map((s) => (
             <div key={s.l} className="flex items-center gap-2.5">
               <span className={cn('h-2.5 w-2.5 rounded-full', s.done ? 'bg-ink' : 'bg-gray-200')} />
@@ -210,7 +208,7 @@ export default function PaymentsDashboard() {
 
         <p className="mt-5 text-[13px] font-semibold text-ink">Payment details</p>
         <div className="mt-3 space-y-2.5">
-          {['Price', 'Description', 'Recipient email', 'Payment ID'].map((l) => (
+          {['Amount', 'Deliverable', 'Recipient wallet', 'Tx hash'].map((l) => (
             <div key={l} className="flex items-center justify-between">
               <span className="text-[13px] text-gray-500">{l}</span>
               <span className="h-2 w-14 rounded bg-gray-100" />
@@ -224,7 +222,7 @@ export default function PaymentsDashboard() {
             <path d="M4 2h5l3 3v9H4z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
             <path d="M9 2v3h3" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
           </svg>
-          <span className="text-[13px] text-ink">AccountDetail.pdf</span>
+          <span className="text-[13px] text-ink">CampaignBrief.pdf</span>
         </div>
       </aside>
     </div>

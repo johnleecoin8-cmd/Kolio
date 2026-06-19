@@ -1,23 +1,112 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+type Tab = {
+  title: string;
+  copy: string;
+  visual: ReactNode;
+};
 
-const TABS = [
+/** Brand-neutral KOL performance mockup. */
+function PerformanceVisual() {
+  const rows = [
+    ['Engagement rate', '6.8%', 'w-[78%]'],
+    ['Real follower rate', '91%', 'w-[91%]'],
+    ['Sponsored post reach', '142K', 'w-[64%]'],
+  ];
+  return (
+    <div className="w-full rounded-xl border border-black/10 bg-white p-6 shadow-nav md:p-8">
+      <div className="flex items-center gap-3">
+        <div className="h-10 w-10 rounded-full bg-gradient-brand" />
+        <div>
+          <div className="text-body font-semibold text-violet-dark">
+            @defi.daily
+          </div>
+          <div className="text-body-sm text-violet-dark/60">
+            218K followers · Trading & DeFi
+          </div>
+        </div>
+        <span className="ml-auto rounded-full bg-violet-light px-3 py-1 text-body-sm font-semibold text-violet-dark">
+          Verified
+        </span>
+      </div>
+      <div className="mt-6 space-y-4">
+        {rows.map(([label, value, width]) => (
+          <div key={label}>
+            <div className="flex items-center justify-between text-body-sm text-violet-dark/80">
+              <span>{label}</span>
+              <span className="font-semibold text-violet-dark">{value}</span>
+            </div>
+            <div className="mt-1.5 h-2 w-full rounded-full bg-black/5">
+              <div className={`h-2 rounded-full bg-gradient-brand ${width}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Brand-neutral audience breakdown mockup. */
+function AudienceVisual() {
+  const geo = [
+    ['United States', '34%', 'w-[34%]'],
+    ['South Korea', '19%', 'w-[19%]'],
+    ['Germany', '12%', 'w-[12%]'],
+    ['Brazil', '9%', 'w-[9%]'],
+  ];
+  return (
+    <div className="w-full rounded-xl border border-black/10 bg-white p-6 shadow-nav md:p-8">
+      <div className="text-body font-semibold text-violet-dark">
+        Audience breakdown
+      </div>
+      <div className="mt-5 grid grid-cols-3 gap-3">
+        {[
+          ['Age 25–34', '46%'],
+          ['Crypto-aware', '71%'],
+          ['Reachable', '88%'],
+        ].map(([label, value]) => (
+          <div
+            key={label}
+            className="rounded-lg bg-violet-light p-3 text-center"
+          >
+            <div className="font-display text-xl text-violet-dark">{value}</div>
+            <div className="mt-1 text-body-sm text-violet-dark/60">{label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 space-y-3">
+        {geo.map(([label, value, width]) => (
+          <div key={label}>
+            <div className="flex items-center justify-between text-body-sm text-violet-dark/80">
+              <span>{label}</span>
+              <span className="font-semibold text-violet-dark">{value}</span>
+            </div>
+            <div className="mt-1.5 h-2 w-full rounded-full bg-black/5">
+              <div className={`h-2 rounded-full bg-gradient-brand ${width}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const TABS: Tab[] = [
   {
-    title: 'Influencer performance',
-    copy: "Don't get duped by the shine of social. Check influencers' performance with metrics like engagement rate, fake follower rate, and paid post performance.",
-    img: `${CDN}/668fbcff033ec771fc04c218_img_influencer%20discovery_tiktok%20(influencer%20performance).avif`,
+    title: 'KOL performance',
+    copy: "Don't get duped by the shine of a big follower count. Check each KOL's real engagement rate, fake-follower rate, and sponsored-post performance before you commit budget.",
+    visual: <PerformanceVisual />,
   },
   {
-    title: 'Influencer audience breakdown',
-    copy: "No more guessing if influencers will reach your audience, know with certainty. Get demographic data like audience age, gender, location & reachability, so you're sure you'll reach potential customers.",
-    img: `${CDN}/668fbd0c2d887504a5fba99f_img_influencer%20discovery_tiktok%20(influencer%20audience).avif`,
+    title: 'Audience breakdown',
+    copy: "No more guessing whether a KOL reaches actual crypto buyers. See audience age, location, reachability, and crypto-awareness so you know your campaign lands with the right people.",
+    visual: <AudienceVisual />,
   },
 ];
 
-/** Purple section: heading + tabbed product screenshot with selectable tab cards. */
+/** Heading + tabbed brand-neutral product mockups with selectable tab cards. */
 export default function PerformanceTabs() {
   const [active, setActive] = useState(0);
 
@@ -26,13 +115,12 @@ export default function PerformanceTabs() {
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
-            Check the performance, audience demographics &amp; posts of any
-            creator
+            Check the performance, audience &amp; posts of any crypto KOL
           </h2>
           <p className="mx-auto mt-6 max-w-[680px] text-body-md text-violet-dark/80">
-            Forget working in the dark. Instead, see what's happening
-            behind-the-profile and make smart, confident decisions about your
-            influencer partnerships.
+            Forget running campaigns in the dark. See what's happening behind
+            the profile and make smart, confident decisions about your KOL
+            partnerships.
           </p>
         </div>
 
@@ -70,29 +158,21 @@ export default function PerformanceTabs() {
             })}
           </div>
 
-          <img
-            src={TABS[active].img}
-            alt={TABS[active].title}
-            loading="lazy"
-            className="w-full rounded-xl shadow-nav"
-          />
+          {TABS[active].visual}
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <ButtonA
-              href="https://marketer.modash.io/register/marketer"
-              variant="accent"
-            >
-              Find TikTok influencers
+            <ButtonA href="/demo-confirmation" variant="accent">
+              Find crypto KOLs
             </ButtonA>
-            <ButtonA href="https://www.modash.io/book-demo" variant="secondary">
+            <ButtonA href="/demo-confirmation" variant="secondary">
               Book a demo
             </ButtonA>
           </div>
         </div>
         <p className="mt-4 text-center text-body-sm text-violet-dark/60">
-          14-day free trial・No credit card required
+          Free trial・No credit card required
         </p>
       </Container>
     </section>

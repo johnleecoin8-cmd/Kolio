@@ -4,20 +4,20 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'How many influencers are in the Modash database?',
-    a: 'Modash simply lists every creator on Earth with 1k+ followers across Instagram, YouTube, and TikTok. That’s over 200M+ profiles; the largest database on the market, and it grows every day.',
+    q: 'Which KOLs are indexed in Kolio?',
+    a: 'Kolio indexes crypto key opinion leaders across X, YouTube, TikTok, and Telegram — spanning niches like DeFi, NFTs, L1/L2, trading, and gaming. Every profile is scored on proof: real reach and audience quality, not raw follower counts. The index grows and re-scores continuously.',
   },
   {
-    q: 'Which influencer search filters are available?',
-    a: 'There are filters available for the influencer, and for their audience – and they vary slightly per platform. Influencer filter examples: location, follower range, engagement rate, language, bio keywords, hashtags used, and more. Audience filter examples: location (city/country), gender, interests, fake followers, and more. See all available filters by signing up for a free trial.',
+    q: 'Which KOL search filters are available?',
+    a: 'You can filter on the KOL and on their audience, and filters vary slightly per platform. KOL filter examples: crypto niche, platform, follower range and real reach, engagement rate, cashtags and bio keywords, posting cadence, and more. Audience filter examples: geography, languages, wallet-active share, chain affinity, and bot/fake-follower screening. Sign up for a free trial to see every filter.',
   },
   {
-    q: 'Can you use Modash to discover micro influencers?',
-    a: 'Yes! A ‘micro influencer’ would typically be defined by their number of followers. In Modash, you can simply apply a filter to only see influencers with a follower range between X and Y (e.g. 10k-25k). Combine those with other filters like interests, keywords, and audience locations to find the perfect fit.',
+    q: 'Can you use Kolio to discover micro KOLs?',
+    a: 'Yes. Micro KOLs are typically defined by follower count, and in Kolio you can apply a follower-range filter (e.g. 10k–25k) to surface only them. Combine that with niche, chain affinity, and audience-geography filters to find smaller, high-trust voices that punch above their reach.',
   },
   {
-    q: 'Can Modash help with vetting influencers too?',
-    a: 'Yes. Every influencer you discover can be analyzed inside Modash. You can check quantitative factors like engagement rate & fake followers, see audience breakdown by locations & gender, check their recent posts, lookalikes, and more.',
+    q: 'Does Kolio help with vetting and payments too?',
+    a: 'Yes. Every KOL can be analyzed inside Kolio — check engagement rate, bot and fake-follower share, audience geography, and recent posts before you reach out. When you are ready to run a campaign, lock budget in on-chain escrow, release on delivery, and track results with web3 attribution.',
   },
 ];
 
@@ -29,7 +29,7 @@ export default function Faq() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="text-center font-display text-[1.75rem] leading-tight text-violet-dark md:text-[2rem]">
-          Modash influencer search engine FAQs
+          Kolio KOL search engine FAQs
         </h2>
 
         <div className="mx-auto mt-10 max-w-[1040px]">

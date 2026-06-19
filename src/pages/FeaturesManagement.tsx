@@ -12,7 +12,7 @@ import WorkflowGrid from '@/components/pages/features-management/WorkflowGrid';
 import Faq from '@/components/pages/features-management/Faq';
 import CtaBlock from '@/components/pages/features-management/CtaBlock';
 
-/** modash.io /features/influencer-management — 1:1 clone. Sections top-to-bottom. */
+/** Kolio — KOL relationship management feature page. Sections top-to-bottom. */
 export default function FeaturesManagement() {
   return (
     <main>

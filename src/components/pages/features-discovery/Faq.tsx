@@ -5,44 +5,44 @@ import SectionHeading from './SectionHeading';
 
 const FAQS = [
   {
-    q: 'What tools does Modash Discovery replace?',
-    a: 'Modash Discovery replaces manual scrolling through social platforms, scattered spreadsheets, and juggling multiple influencer research tools. Instead of spending hours manually searching Instagram, TikTok, or YouTube and copying data into spreadsheets, you get one unified search engine with 380M+ creator profiles, advanced filters, and AI-powered search—all connected to your entire workflow for managing, tracking, and paying creators.',
+    q: 'What does Kolio Discover replace?',
+    a: 'Kolio Discover replaces hours of scrolling Crypto Twitter, scattered handle spreadsheets, and juggling several half-built KOL tools. Instead of manually hunting across X, YouTube, TikTok, and Telegram and pasting metrics into a sheet, you get one search engine built for crypto — niche and chain filters, proof-based reach, and audience-quality scoring — all connected to your workflow for managing, tracking, and paying KOLs on-chain.',
   },
   {
-    q: 'Will I be able to find creators that fit my brand?',
-    a: "Yes. Modash includes every public profile on Instagram, TikTok, and YouTube with over 1K followers. That's 380M+ creators. You can filter by location, niche, audience demographics, engagement metrics, lookalikes, and content style to find exactly who you need. Our Influential Fans feature helps you discover creators who already engage with your brand on social media.",
+    q: 'Will I be able to find KOLs that fit my project?',
+    a: 'Yes. Kolio indexes public crypto creator profiles across X, YouTube, TikTok, and Telegram. Filter by niche (DeFi, NFTs, L1/L2, trading, gaming), region, language, audience demographics, engagement, and lookalikes to find exactly who you need. Our community-match feature surfaces KOLs who already hold your token or engage with your project.',
   },
   {
-    q: 'What types of creators can I discover (micro, niche, local, global)?',
-    a: 'Modash has 380M+ creator profiles across Instagram, TikTok, and YouTube. We include every public profile with over 1K followers, giving you access to the world’s largest database of influencers, from nano creators to mega influencers. Using our advanced filters, you can discover creators in any niche, any location (down to the city level on Instagram), and any size.',
+    q: 'What types of KOLs can I discover (nano, niche, regional, global)?',
+    a: 'From nano voices to mega accounts, across every crypto niche. Using Kolio’s filters you can discover KOLs in any vertical — DeFi, NFTs, L1/L2, infra, trading, gaming — in any region and at any size, so your shortlist matches your launch instead of whoever has the biggest follower number.',
   },
   {
-    q: 'Can I reliably find creators whose audience matches my brand?',
-    a: "Yes. Filter by audience age, gender, location (down to city level on Instagram), language, and interests. You're not just choosing creators who look right, but creators whose followers match who you're trying to reach. You can combine and adjust filters as you go, which means you can start broad and refine without hitting dead ends.",
+    q: 'Can I reliably find KOLs whose audience matches my market?',
+    a: 'Yes. Filter by audience geography, language, and interests so you’re not just picking creators who look influential, but creators whose followers are the holders and users you’re trying to reach. Combine and adjust filters as you go — start broad and refine without dead ends.',
   },
   {
-    q: 'How accurate is your influencer data?',
-    a: "Our data is as accurate as it gets. We analyze hundreds of billions of publicly available content pieces and update several times a month. Leading B2C brands trust our data, and we even power other platforms through our API. We update data several times a month, so you can trust you're getting the most recent info, too.",
+    q: 'How accurate is your KOL data?',
+    a: 'Kolio analyzes large volumes of public content and refreshes regularly, so reach, engagement, and audience-quality figures reflect a KOL’s current standing — not a year-old media kit. The whole point of Kolio is bringing web2-grade rigor to crypto KOL data.',
   },
   {
-    q: 'How does Modash help vet creators and detect fake followers?',
-    a: 'To help you feel confident in your vetting process, Modash shows you engagement rates, audience quality scores, follower demographics, past brand partnerships, content history, and audience interests, so you only reach out to creators who align with your brand. The fake follower rate includes both suspicious mass followers and obvious bots.',
+    q: 'How does Kolio vet KOLs and detect fake followers?',
+    a: 'To make funding decisions you can defend, Kolio surfaces engagement rates, audience-quality scores, follower demographics, past campaign history, and content history — so you only fund KOLs with real influence. The fake-follower signal covers both suspicious mass followers and obvious bots, plus farmed engagement.',
   },
   {
-    q: 'Can I search by showing you the type of content I want?',
-    a: 'Yes, use our AI-powered visual search to describe content or upload examples. Find creators posting "woman building a cabin in the woods" or "food reviews in cars." Modash surfaces creators with that exact vibe.',
+    q: 'Can I search by describing the content I want?',
+    a: 'Yes. Describe the angle in plain words — “threads explaining restaking,” “live trading streams,” “NFT mint coverage” — and Kolio surfaces KOLs producing exactly that kind of content.',
   },
   {
-    q: 'Can I see a creator’s past brand partnerships?',
-    a: "Yes. View a timeline of all past brand partnerships, sorted by date. See who they've collaborated with, what content formats they used, and whether they disclosed sponsorships properly.",
+    q: 'Can I see a KOL’s past campaign history?',
+    a: 'Yes. View a timeline of past project collaborations and sponsored content, so you can see who a KOL has promoted, how it performed, and whether they disclosed the partnership.',
   },
   {
-    q: 'Can I find creators similar to ones I already work with?',
-    a: "Yes. Use our lookalike tool to find creators with similar content or audiences to your top performers. It's the fastest way to scale what's already working.",
+    q: 'Can I find KOLs similar to ones I already work with?',
+    a: 'Yes. Use lookalike search to find KOLs with similar audiences or content to your top performers. It’s the fastest way to scale a roster around what’s already driving holders and volume.',
   },
   {
-    q: "Can I see creators’ public email addresses?",
-    a: 'Yes. When creators choose to make their email address public on their profile, Modash surfaces it for you. We only show emails that creators have intentionally listed in their bios on platforms like Instagram, TikTok, or YouTube.',
+    q: 'How do payments and attribution work?',
+    a: 'Kolio supports on-chain payments and escrow, so funds release on delivery instead of trust. Campaign attribution ties KOL activity to real outcomes — sign-ups, swaps, and new holders — so you know which creators actually moved the needle.',
   },
 ];
 

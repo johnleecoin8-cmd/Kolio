@@ -4,15 +4,15 @@ import { Globe, TrendingUp, Sparkles } from 'lucide-react';
 const ITEMS = [
   {
     Icon: Globe,
-    text: 'Receive structured, app-ready data. Skip the heavy lifting and save months of development.',
+    text: 'Receive structured, app-ready KOL data. Skip the scraping and save months of integration work.',
   },
   {
     Icon: TrendingUp,
-    text: 'Leave data scalability and freshness to us. Focus on your unique value proposition.',
+    text: 'Leave audience vetting and data freshness to us. Focus on your campaigns, not your pipelines.',
   },
   {
     Icon: Sparkles,
-    text: 'Our AI search endpoints can power truly innovative use-cases. Get an edge over others.',
+    text: 'Our AI search and on-chain attribution endpoints power use-cases no spreadsheet can. Get an edge.',
   },
 ];
 
@@ -22,7 +22,7 @@ export default function Foundation() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground">
-          Beyond the data. Get the foundation.
+          Beyond raw follower counts. Get a foundation you can trust.
         </h2>
 
         <div className="mx-auto mt-12 grid max-w-[940px] gap-10 md:grid-cols-3 md:gap-8">

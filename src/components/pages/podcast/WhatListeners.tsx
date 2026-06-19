@@ -1,6 +1,16 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+const TOPICS = [
+  'Proof-based KOL vetting',
+  'Audience quality over follower count',
+  'On-chain payments & escrow',
+  'Campaign attribution',
+  'TGE & launch playbooks',
+  'DeFi · NFTs · L1/L2 · gaming niches',
+  'Negotiating KOL deals',
+  'Compliance & disclosure',
+  'Briefing crypto creators',
+];
 
 export default function WhatListeners() {
   return (
@@ -12,22 +22,27 @@ export default function WhatListeners() {
               What listeners can expect
             </h2>
             <p className="mt-6 text-body-sm text-foreground/70 max-w-[420px]">
-              If you work in influencer marketing in any capacity at a B2C brand,
-              listening to this podcast will help you do your job better.
+              If you run growth, marketing, or community at a crypto brand,
+              exchange, or protocol, this show will make your next KOL campaign
+              sharper, cheaper, and easier to defend with data.
             </p>
             <p className="mt-4 text-body-sm text-foreground/70 max-w-[420px]">
-              You'll hear directly from world-class marketers who are in the
-              trenches every day, building and scaling influencer marketing as a
-              revenue-generating channel.
+              You'll hear directly from the operators turning web3 influencer
+              marketing into a measurable, repeatable channel — bringing the
+              rigor of mature web2 creator marketing to crypto KOLs.
             </p>
           </div>
           <div className="flex justify-center">
-            <img
-              src={`${CDN}/650adfda817c9f1e05ddd329_img_creator%20partnerships%20podcast%20topics.avif`}
-              alt="Podcast topics"
-              className="w-full max-w-[440px]"
-              loading="lazy"
-            />
+            <div className="flex flex-wrap gap-3 max-w-[440px]">
+              {TOPICS.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-blue/30 bg-violet-bg px-4 py-2 text-body-sm font-medium text-navy"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

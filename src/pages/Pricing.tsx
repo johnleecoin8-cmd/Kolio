@@ -7,7 +7,7 @@ import CreatorBenefits from '@/components/pages/pricing/CreatorBenefits';
 import Faq from '@/components/pages/pricing/Faq';
 import FinalCta from '@/components/pages/pricing/FinalCta';
 
-/** modash.io pricing page — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio pricing page — web3 KOL marketing platform. Sections render top-to-bottom. */
 export default function Pricing() {
   return (
     <main>

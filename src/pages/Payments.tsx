@@ -14,7 +14,7 @@ import ConnectedTools from '@/components/pages/payments/ConnectedTools';
 import Faq from '@/components/pages/payments/Faq';
 import FinalCta from '@/components/pages/payments/FinalCta';
 
-/** modash.io /influencer-payments — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio /payments — on-chain payouts for crypto KOLs. Sections render top-to-bottom. */
 export default function Payments() {
   return (
     <main>

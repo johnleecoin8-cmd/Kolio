@@ -1,11 +1,10 @@
 import Container from '@/components/ui/Container';
 
-const FORM =
-  'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
+const FORM = '/demo-confirmation';
 
 const STEPS = [
-  { n: '01', label: 'Book a call', bg: 'bg-sand' },
-  { n: '02', label: 'Share your goals', bg: 'bg-orange' },
+  { n: '01', label: 'Book a demo', bg: 'bg-sand' },
+  { n: '02', label: 'Share your web3 goals', bg: 'bg-orange' },
   { n: '03', label: 'Start building', bg: 'bg-pink' },
 ];
 
@@ -40,8 +39,6 @@ export default function GettingStarted() {
         <div className="mt-10 flex justify-center">
           <a
             href={FORM}
-            target="_blank"
-            rel="noreferrer"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
           >
             Request a demo

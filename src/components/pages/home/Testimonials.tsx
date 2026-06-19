@@ -7,44 +7,44 @@ const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const ITEMS = [
   {
-    logo: `${CDN}/68c7f2bc4026fdb7f21e4863_logo_wigiwama.avif`,
+    brand: 'Helix Protocol',
     quote:
-      'Before, our influencer marketing work was split across too many tools. Excel, Notion, a separate affiliate platform, lots of manual emails for product orders and outreach... Now, all of that lives in one platform.',
+      'Before Kolio, our KOL spend was split across DMs, spreadsheets, and a dozen group chats. Half the accounts we paid turned out to be bots. Now vetting, payouts, and attribution all live in one place.',
     avatar: `${CDN}/68c7f201a35bb17feff13c40_img_regina_orange.avif`,
     name: 'Regina Kacajeva',
-    role: 'Creator Partnerships Manager',
+    role: 'Head of Growth',
   },
   {
-    logo: `${CDN}/6835b37a2bcf770c96efc606_logo_burga.avif`,
+    brand: 'Aster Exchange',
     quote:
-      'I’ve worked with Modash for 3+ years across two companies. I can honestly say that it is one of the best tools for influencer discovery and analytics.',
+      "I've run KOL campaigns at two exchanges now. Kolio is the first tool that shows me real audience quality before I commit budget — it's easily the best for crypto KOL discovery and analytics.",
     avatar: `${CDN}/6835b5043bd7736424b5dc9b_img_rugile.avif`,
     name: 'Rugile Paleviciute',
-    role: 'Head of Global Partnerships',
+    role: 'Head of Partnerships',
   },
   {
-    logo: `${CDN}/6835b80c4ae314b5e9e00e79_logo_regalrose.avif`,
+    brand: 'Lumen L2',
     quote:
-      'Before Modash, I tested platforms for months, none quite worked. Modash was a game changer, reliable discovery and live content tracking.',
+      'We tested platforms for months ahead of our TGE; none quite worked for web3. Kolio was a game changer — reliable KOL discovery and live, on-chain campaign tracking.',
     avatar: `${CDN}/6835b72de87970a6c16b6a89_img_ayme.avif`,
     name: 'Ayme Mendes Da Costa',
-    role: 'Influencer Marketing Manager',
+    role: 'KOL Marketing Manager',
   },
   {
-    logo: `${CDN}/6835b7bed20fc3d0c262fc0f_logo_nordvpn.png`,
+    brand: 'NovaSwap',
     quote:
-      'I’ve been working with Modash for over 3 years. Previously, I was at a beauty brand and when I started at NordVPN I told my team lead, "I\'m going to need Modash”.',
+      'The escrow alone paid for itself. Funds release on delivery, KOLs trust the process, and I finally have attribution I can take to the team without hand-waving.',
     avatar: `${CDN}/6835b7f328e78abe2cbdde7a_img_laura.avif`,
     name: 'Laura Garsdal',
-    role: 'Influencer Marketing Manager',
+    role: 'KOL Marketing Manager',
   },
   {
-    logo: `${CDN}/6835bda2f56382ae4bd7812f_logo_trendhim.png`,
+    brand: 'Orbit Wallet',
     quote:
-      'For large-scale micro-influencer campaigns, Modash is unmatched. Its huge data pool let us quickly find thousands of creators with the right audience.',
+      'For large-scale micro-KOL pushes around a listing, Kolio is unmatched. The data pool let us quickly find dozens of crypto voices with genuinely the right audience.',
     avatar: `${CDN}/6835bdd8e07dcabf9d72ddf0_img_maris.avif`,
     name: 'Maris Niilus',
-    role: 'Influencer Campaign Specialist',
+    role: 'Campaign Specialist',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Testimonials() {
             Testimonials
           </p>
           <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
-            From teams who used to do a lot of unnecessary manual work
+            From web3 teams who were tired of flying blind on KOL spend
           </h2>
 
           {/* square arrow controls */}
@@ -91,7 +91,9 @@ export default function Testimonials() {
             const tint = off === 0 ? 'bg-orange-light' : 'bg-pink-light';
             return (
               <div key={off} className={cn('flex flex-col rounded-xl p-8 md:p-10', tint)}>
-                <img src={item.logo} alt="" className="h-7 w-auto self-start object-contain" />
+                <span className="self-start font-display text-body-lg font-bold tracking-tight text-foreground/70">
+                  {item.brand}
+                </span>
                 <p className="mt-6 text-body-md text-foreground">{item.quote}</p>
                 <div className="mt-auto flex items-center gap-4 pt-10">
                   <img

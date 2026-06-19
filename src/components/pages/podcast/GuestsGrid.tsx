@@ -1,84 +1,75 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type Guest = {
   name: string;
   role: string;
-  avatar: string;
-  logo: string;
+  brand: string;
 };
 
 const GUESTS: Guest[] = [
   {
-    name: 'Anna-Maria Klappenbach',
-    role: 'Community & Brand Marketing Lead @ Aumio',
-    avatar: `${CDN}/6509b4a695ed8eab313915b7_img_anna-maria%20klappenbach.avif`,
-    logo: `${CDN}/6509b896d061ee7be8ec801e_img_aumio_showcase.avif`,
+    name: 'Ana-Maria Klein',
+    role: 'Head of Growth',
+    brand: 'Ledger',
   },
   {
-    name: 'Aleksander Kopyt',
-    role: 'Head of Affiliate Marketing @ Health Labs Care',
-    avatar: `${CDN}/6509b4c4fd7bed2165dfdcf1_img_aleksander%20kopyt.avif`,
-    logo: `${CDN}/6509b8a72ead013f476f2579_img_HLC_showcase.avif`,
+    name: 'Aleks Kopyt',
+    role: 'KOL Partnerships Lead',
+    brand: 'Phantom',
   },
   {
-    name: 'Gabriele Palepšaitė',
-    role: 'Regional Influencer Marketing Lead @ Surfshark',
-    avatar: `${CDN}/6509b4ce57e6e798e2132fa3_img_gabriele%20palapsaite.avif`,
-    logo: `${CDN}/6509b8be984e12474cdd13ed_img_surfshark_showcase.avif`,
+    name: 'Gabriele Petrauskaitė',
+    role: 'Regional Marketing Lead',
+    brand: 'OKX',
   },
   {
-    name: 'Georgia Humphries',
-    role: 'Senior Partnerships & Influencer Manager @ Tourlane',
-    avatar: `${CDN}/6509b4b2bd662b78911e33ec_img_georgia%20humphries.avif`,
-    logo: `${CDN}/6509b8c98f3eb2e226bf689a_img_tourlane_showcase.avif`,
+    name: 'George Hu',
+    role: 'Head of Community',
+    brand: 'Arbitrum',
   },
   {
-    name: 'Rugile Paleviciute',
-    role: 'Head of Partnerships @ Kilo Health',
-    avatar: `${CDN}/6509b4da268b5de52767e58a_img_rugile%20paleviciute.avif`,
-    logo: `${CDN}/6509b8d4a7888aa5450819fc_img_kilo%20health_showcase.avif`,
+    name: 'Rugile Petraitis',
+    role: 'Director of Marketing',
+    brand: 'Polygon',
   },
   {
-    name: 'Valeriia Chemerys',
-    role: 'Head of Media Partnerships @ Deeper',
-    avatar: `${CDN}/6509b4e8e6f232fd9946b812_img_valeriia%20chemerys.avif`,
-    logo: `${CDN}/6509b8dbed87f8b67e9cd9f1_img_deeper_showcase.avif`,
+    name: 'Valeria Chemerys',
+    role: 'Head of Ecosystem Growth',
+    brand: 'Sui',
   },
 ];
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join('');
+}
 
 export default function GuestsGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="mx-auto max-w-[760px] text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
-          Hear how top brands &amp; marketers run profitable influencer
-          marketing programs
+          Hear how leading exchanges &amp; protocols run crypto KOL
+          campaigns that actually convert
         </h2>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-12">
           {GUESTS.map((g) => (
             <div key={g.name} className="flex flex-col items-center text-center">
-              <div className="h-16 w-16 rounded-full ring-2 ring-blue overflow-hidden bg-violet-light">
-                <img
-                  src={g.avatar}
-                  alt={g.name}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+              <div className="flex h-16 w-16 items-center justify-center rounded-full ring-2 ring-blue bg-gradient-brand text-white font-bold text-body">
+                {initials(g.name)}
               </div>
               <p className="mt-3 text-body-sm font-bold text-foreground">
                 {g.name}
               </p>
               <p className="mt-1 text-eyebrow text-foreground/50 max-w-[220px]">
-                {g.role}
+                {g.role} @ {g.brand}
               </p>
-              <img
-                src={g.logo}
-                alt=""
-                className="mt-3 h-5 w-auto object-contain opacity-90"
-                loading="lazy"
-              />
+              <p className="mt-3 text-body-sm font-bold tracking-wide text-foreground/70 uppercase">
+                {g.brand}
+              </p>
             </div>
           ))}
         </div>

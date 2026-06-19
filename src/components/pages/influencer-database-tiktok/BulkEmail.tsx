@@ -1,46 +1,64 @@
 import FeatureRow from './FeatureRow';
 import { ButtonA } from '@/components/ui/Button';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+/** Brand-neutral outreach/contacts mockup built with divs (no branded screenshot). */
+function OutreachMockup() {
+  const contacts = [
+    { handle: '@defi.daily', via: 'Telegram + email', status: 'Sent' },
+    { handle: '@l2.alpha', via: 'Email', status: 'Replied' },
+    { handle: '@chart.degen', via: 'Telegram', status: 'In deal' },
+  ];
+  return (
+    <div className="mx-auto w-full max-w-[480px] rounded-lg bg-white p-5 shadow-nav">
+      <div className="flex items-center justify-between">
+        <p className="text-body-sm font-semibold text-foreground/40">Outreach queue</p>
+        <span className="rounded-pill bg-brand/10 px-3 py-1 text-body-sm font-semibold text-brand">
+          24 KOLs
+        </span>
+      </div>
+      <div className="mt-4 space-y-3">
+        {contacts.map((c) => (
+          <div
+            key={c.handle}
+            className="flex items-center justify-between rounded-sm border border-black/5 px-4 py-3 text-body-sm"
+          >
+            <div>
+              <p className="font-semibold text-foreground">{c.handle}</p>
+              <p className="text-foreground/50">{c.via}</p>
+            </div>
+            <span className="text-foreground/70">{c.status}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-/** "Find contacts, and send emails in bulk" — screenshot left, text right. */
+/** "Find contacts and reach out at scale" — mockup left, text right. */
 export default function BulkEmail() {
   return (
-    <FeatureRow
-      imageSide="left"
-      image={
-        <img
-          src={`${CDN}/6858fca4a4e9ca367500314f_img_bulk%20email.avif`}
-          width={560}
-          sizes="(max-width: 767px) 100vw, 560px"
-          srcSet={`${CDN}/6858fca4a4e9ca367500314f_img_bulk%20email-p-500.avif 500w, ${CDN}/6858fca4a4e9ca367500314f_img_bulk%20email.avif 1120w`}
-          alt="Send bulk emails to creators"
-          loading="lazy"
-          className="mx-auto w-full max-w-[480px]"
-        />
-      }
-    >
+    <FeatureRow imageSide="left" image={<OutreachMockup />}>
       <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
-        Find contacts, and send emails in bulk
+        Find the contact, reach out at scale
       </h2>
       <div className="mt-6 max-w-[480px] space-y-4 text-body-md text-foreground/70">
         <p>
-          If an influencer has an email address publicly available, Modash will
-          find it.
+          If a KOL has a public email or Telegram, Kolio surfaces it — so you
+          can reach the people who actually move crypto audiences.
         </p>
         <p>
-          Then, cut the repetitive work by sending bulk emails. Keep them feeling
-          1:1 at scale using variables.
+          Cut the repetitive work by reaching out in bulk while keeping every
+          message feeling 1:1 with variables.
         </p>
         <p>
-          Email in bulk for outreach, for onboarding creators, sending free
-          products, tracking links, product updates, or any other influencer
-          communications task.
+          Use it for campaign outreach, onboarding KOLs, sending tracking
+          links, sharing briefs, or any project communication — all in one
+          place.
         </p>
       </div>
       <div className="mt-8">
-        <ButtonA href="https://marketer.modash.io/register/marketer" variant="primary">
-          Try for Free
+        <ButtonA href="/demo-confirmation" variant="primary">
+          Start free
         </ButtonA>
       </div>
     </FeatureRow>

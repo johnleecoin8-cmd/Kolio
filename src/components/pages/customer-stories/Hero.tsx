@@ -1,27 +1,24 @@
 import { ReactNode } from 'react';
 import Container from '@/components/ui/Container';
 
-const NORDVPN_LOGO =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/643648c4189a48249130cf0e_NordVPN_Logo-p-1080.webp';
-
 const STATS: { big: string; sub: ReactNode }[] = [
-  { big: '3 years', sub: 'using Modash' },
+  { big: '3 years', sub: 'running campaigns on Kolio' },
   {
-    big: '⏰ 2 hours ⏰',
+    big: '⏱ 2 hours ⏱',
     sub: (
       <>
-        saved each day vetting influencer profiles
+        saved each day vetting KOLs
         <br />
         <em>before</em>
         <br />
-        reaching out
+        opening a single DM
       </>
     ),
   },
-  { big: '100 collabs', sub: 'a month (new & recurring)' },
+  { big: '100 collabs', sub: 'a month across DeFi & L2 niches' },
 ];
 
-/** Customer story hero: title + intro on the left, brand logo right, then a 3-up stat row. */
+/** Customer story hero: title + intro on the left, brand wordmark right, then a 3-up stat row. */
 export default function Hero() {
   return (
     <section className="bg-violet-light">
@@ -29,28 +26,29 @@ export default function Hero() {
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
           <div>
             <h1 className="font-display text-h3 leading-tight text-violet-dark md:text-h2">
-              How NordVPN Uses Modash to Find YouTubers for 100+ Collabs Per
-              Month
+              How Arbiscan Uses{' '}
+              <span className="text-gradient-brand">Kolio</span> to Vet Crypto
+              KOLs for 100+ Collabs a Month
             </h1>
             <p className="mt-6 max-w-xl text-body text-foreground/75">
-              If you haven&rsquo;t seen a NordVPN integration on YouTube,
-              you&rsquo;re probably not on YouTube enough. Established in 2012,
-              cybersecurity software NordVPN has been on the influencer beat for
-              over 4 years. We spoke to{' '}
+              If you follow L2 Twitter, you&rsquo;ve seen an Arbiscan thread.
+              The blockchain explorer has run KOL campaigns across X, YouTube,
+              and Telegram since its token launch. We spoke to{' '}
               <strong className="font-semibold text-foreground">
-                influencer marketing manager Laura Garsdal
+                growth lead Laura Garsdal
               </strong>{' '}
-              to learn how Modash supports the 14-strong team with their
-              awareness &amp; acquisition efforts.
+              to learn how Kolio helps her 14-person team find, verify, and pay
+              the right crypto creators &mdash; without trusting a single
+              screenshot.
             </p>
           </div>
           <div className="flex justify-center md:justify-end">
-            <img
-              src={NORDVPN_LOGO}
-              alt="NordVPN"
-              className="w-full max-w-md"
-              loading="lazy"
-            />
+            <div className="w-full max-w-md rounded-2xl bg-gradient-brand p-10 text-center text-white shadow-nav">
+              <p className="font-display text-h3 leading-none">Arbiscan</p>
+              <p className="mt-3 text-body opacity-90">
+                L2 block explorer &amp; analytics
+              </p>
+            </div>
           </div>
         </div>
 

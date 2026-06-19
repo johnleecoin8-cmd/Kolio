@@ -5,27 +5,26 @@ import { ButtonA } from '@/components/ui/Button';
 type Props = {
   title: string;
   body: ReactNode;
-  image: string;
-  alt: string;
-  /** true = image on left, text on right */
+  /** brand-neutral mockup node (charts/cards/divs) */
+  media: ReactNode;
+  /** true = media on left, text on right */
   imageLeft?: boolean;
   cta?: string;
   ctaVariant?: 'primary' | 'secondary';
 };
 
-/** Alternating feature row: copy + product screenshot in a soft card. */
+/** Alternating feature row: copy + brand-neutral product mockup in a soft card. */
 export default function FeatureRow({
   title,
   body,
-  image,
-  alt,
+  media,
   imageLeft = false,
-  cta = 'Try for Free',
+  cta = 'Get started free',
   ctaVariant = 'primary',
 }: Props) {
   const imageBlock = (
     <div className="flex items-center justify-center rounded-xl bg-background-soft p-6 sm:p-10">
-      <img src={image} alt={alt} loading="lazy" className="w-full max-w-[460px]" />
+      <div className="w-full max-w-[460px]">{media}</div>
     </div>
   );
 
@@ -36,10 +35,7 @@ export default function FeatureRow({
       </h2>
       <div className="mt-6 space-y-4 text-body-md text-foreground/75">{body}</div>
       <div className="mt-8">
-        <ButtonA
-          href="https://marketer.modash.io/register/marketer"
-          variant={ctaVariant}
-        >
+        <ButtonA href="/demo-confirmation" variant={ctaVariant}>
           {cta}
         </ButtonA>
       </div>

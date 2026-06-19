@@ -7,7 +7,7 @@ import OtherPlatforms from '@/components/pages/tiktok-views-calculator/OtherPlat
 import FeatureGrid from '@/components/pages/tiktok-views-calculator/FeatureGrid';
 import Faq from '@/components/pages/tiktok-views-calculator/Faq';
 
-/** modash.io /tiktok-average-views-calculator — 1:1 clone. */
+/** Kolio — TikTok average-views calculator for vetting crypto KOLs. */
 export default function TiktokViewsCalculator() {
   return (
     <main>

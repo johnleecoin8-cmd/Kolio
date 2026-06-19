@@ -1,9 +1,6 @@
 import Container from '@/components/ui/Container';
 
-const HERO_ILLUSTRATION =
-  'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/5f4f61fc9a54e995dd3a8d90_Web_illustration_feature_01.svg';
-
-/** Hero — periwinkle wash, big display headline, indigo CTA, illustration right. */
+/** Hero — brand wash, big display headline with gradient highlight, CTA, stat panel right. */
 export default function Hero() {
   return (
     <section className="bg-violet/55">
@@ -12,32 +9,45 @@ export default function Hero() {
           {/* copy */}
           <div className="max-w-xl">
             <h1 className="font-display text-[2.75rem] leading-[1.05] text-violet-dark md:text-[3.5rem]">
-              Influencer Search Engine For Instagram, YouTube,&nbsp;&amp;&nbsp;TikTok
+              The KOL discovery engine for{' '}
+              <span className="text-gradient-brand">web3</span> brands
             </h1>
             <p className="mt-6 text-body-md leading-relaxed text-violet-dark/90">
-              Search &amp; filter every creator on Earth for the big 3 platforms.
-              Find the perfect influencers, analyze their profiles, get contact
-              emails, &amp; more.
+              Search and vet crypto key opinion leaders across X, YouTube,
+              TikTok, and Telegram. Filter by real reach and audience quality,
+              not vanity metrics &mdash; then launch campaigns with on-chain
+              attribution built in.
             </p>
             <a
-              href="https://marketer.modash.io/register/marketer"
+              href="/demo-confirmation"
               className="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-violet-dark px-6 text-body font-semibold uppercase tracking-wide text-white transition hover:opacity-90"
             >
-              Search 200m+ Influencers - try For Free
+              Find your crypto KOLs &mdash; start free
             </a>
           </div>
 
-          {/* hero illustration */}
+          {/* stat panel — later.com inspired warm gradient callout */}
           <div className="flex justify-center md:justify-end">
-            <img
-              src={HERO_ILLUSTRATION}
-              alt="An illustrative image on Modash's influencer discovery"
-              className="w-full max-w-[560px]"
-              loading="eager"
-            />
+            <div className="grid w-full max-w-[480px] grid-cols-2 gap-px overflow-hidden rounded-lg bg-gradient-brand p-px">
+              <Stat value="120K+" label="Vetted crypto KOLs" />
+              <Stat value="4" label="Platforms: X, YouTube, TikTok, Telegram" />
+              <Stat value="8" label="Niches: DeFi, NFTs, L1/L2, trading, gaming & more" />
+              <Stat value="100%" label="Proof-based audience verification" />
+            </div>
           </div>
         </div>
       </Container>
     </section>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col gap-2 bg-background/95 p-6 backdrop-blur">
+      <span className="font-display text-[2rem] leading-none text-violet-dark">
+        {value}
+      </span>
+      <span className="text-body text-foreground/70">{label}</span>
+    </div>
   );
 }

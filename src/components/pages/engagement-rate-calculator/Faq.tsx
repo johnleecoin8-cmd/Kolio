@@ -4,52 +4,52 @@ import Container from '@/components/ui/Container';
 
 const FAQS: { q: string; a: string }[] = [
   {
-    q: 'What is Modash?',
-    a: 'Modash is an influencer marketing platform that lets brands on Shopify manage and grow their influencer programs from one place. Find creators, manage relationships, track performance, and pay them in one connected workflow. Run paid partnerships, affiliate programs, and gifting campaigns without juggling multiple tools or spreadsheets.',
+    q: 'What is Kolio?',
+    a: 'Kolio is the web3 influencer marketing platform. It brings the rigor of mature web2 creator tools to crypto, so brands, exchanges, protocols and projects can discover, vet, book and pay crypto KOLs (key opinion leaders) from one place. Run launch, listing, airdrop and growth campaigns with proof-based vetting, on-chain escrow, and end-to-end attribution &mdash; without juggling DMs, spreadsheets and trust.',
   },
   {
-    q: 'How to check influencer engagement rate?',
-    a: "Engagement rate shows how many people interact with an influencer's content relative to their follower count. A practical way to check it is to review recent posts, add up engagements (likes, comments, and other visible interactions), and compare that total to the follower count.<br/><br/>On this page, Modash calculates engagement rate using the last two months of content and uses the median engagement across posts to reduce the impact of outliers (for example, one unusually viral post).",
+    q: 'How do I check a crypto KOL&rsquo;s engagement rate?',
+    a: "Engagement rate shows how many people actually interact with a KOL's posts relative to their follower count. A practical way to check it is to review recent posts, add up engagements (likes, replies, reposts), and compare that total to the follower count.<br/><br/>On this page, Kolio calculates engagement rate using the last two months of content and uses the median engagement across posts to reduce the impact of one unusually viral thread.",
   },
   {
-    q: 'What affects Instagram engagement rate?',
-    a: 'Common factors include:<br/><br/><ul><li><strong>Content format:</strong> Reels, carousels, and single-image posts can perform differently.</li><li><strong>Content quality and relevance:</strong> How well the topic matches audience interests.</li><li><strong>Audience authenticity:</strong> Fake or inactive followers reduce engagement.</li><li><strong>Consistency and timing:</strong> Posting schedule and when followers are most active.</li><li><strong>Niche and audience expectations:</strong> Some industries naturally see higher or lower engagement.</li><li><strong>Call-to-action and community management:</strong> Encouraging comments and replying to followers.</li></ul>',
+    q: 'What affects a crypto KOL&rsquo;s engagement rate?',
+    a: 'Common factors include:<br/><br/><ul><li><strong>Content format:</strong> Threads, quote-posts, videos and Spaces all perform differently.</li><li><strong>Topic relevance:</strong> How well the niche (DeFi, NFTs, L1/L2, trading, gaming) matches the audience.</li><li><strong>Audience authenticity:</strong> Bought followers and bot accounts drag engagement down.</li><li><strong>Consistency and timing:</strong> Posting cadence and whether the audience is active during market hours.</li><li><strong>Market conditions:</strong> Bull and bear cycles shift how much an audience engages.</li><li><strong>Community management:</strong> Replying and driving conversation lifts engagement.</li></ul>',
   },
   {
-    q: 'How does engagement rate impact ROI?',
-    a: 'Engagement rate is a proxy for how likely an audience is to notice and interact with sponsored content. Higher engagement rates often mean:<br/><br/><ul><li>More attention on branded posts</li><li>Better chances of clicks, saves, site visits, and conversions</li></ul><br/>That said, ROI depends on audience fit and purchase intent too. A slightly lower engagement rate can still drive strong ROI if the audience is well-matched and the content is persuasive.',
+    q: 'How does engagement rate impact campaign ROI?',
+    a: 'Engagement rate is a proxy for how likely an audience is to notice and act on a sponsored post. Higher engagement rates often mean:<br/><br/><ul><li>More attention on launch, listing and airdrop posts</li><li>Better odds of clicks, sign-ups, wallet connects and on-chain conversions</li></ul><br/>That said, ROI also depends on audience fit and intent. A slightly lower engagement rate can still drive strong results if the KOL&rsquo;s audience matches your chain or category &mdash; which is exactly what Kolio attribution measures.',
   },
   {
-    q: "Why check an influencer's engagement rate?",
-    a: 'You check engagement rate to:<br/><br/><ul><li><strong>Spot quality vs. vanity metrics:</strong> Follower count alone can be misleading.</li><li><strong>Compare creators fairly:</strong> Engagement rate normalizes performance across different audience sizes.</li><li><strong>Reduce risk:</strong> It can help flag inflated audiences or weak content resonance.</li><li><strong>Forecast performance:</strong> It helps set expectations for reach and response.</li></ul>',
+    q: 'Why check a crypto KOL&rsquo;s engagement rate?',
+    a: 'You check engagement rate to:<br/><br/><ul><li><strong>Spot proof vs. vanity metrics:</strong> Follower count alone is easy to buy and easy to fake.</li><li><strong>Compare KOLs fairly:</strong> Engagement rate normalizes performance across different audience sizes.</li><li><strong>Reduce spend risk:</strong> It helps flag inflated audiences before you pay.</li><li><strong>Forecast reach:</strong> It sets realistic expectations for how a post will land.</li></ul>',
   },
   {
-    q: 'How do you calculate engagement rate per post on Instagram?',
-    a: 'A simple per-post formula is:<br/><br/><strong>Engagement rate (per post) = (Engagements on that post ÷ Follower count) × 100</strong><br/><br/>On the Modash page, the calculation uses the median engagements across recent posts (rather than a single post), divided by followers and multiplied by 100.',
+    q: 'How do you calculate engagement rate per post?',
+    a: 'A simple per-post formula is:<br/><br/><strong>Engagement rate (per post) = (Engagements on that post &divide; Follower count) &times; 100</strong><br/><br/>On Kolio, the calculation uses the median engagements across recent posts (rather than a single post), divided by followers and multiplied by 100, so a single viral thread doesn&rsquo;t skew the number.',
   },
   {
     q: 'Is engagement rate calculated per post or overall?',
     a: 'It can be calculated both ways:<br/><br/><ul><li><strong>Per post:</strong> For a single piece of content.</li><li><strong>Overall (profile-level):</strong> Based on a set of recent posts to represent typical performance.</li></ul><br/>This calculator provides an overall profile engagement rate based on recent content from the last two months.',
   },
   {
-    q: 'Does this calculator work for Reels and carousel posts?',
-    a: 'Yes. Reels and carousels are included because they are standard Instagram posts. The calculator evaluates recent content regardless of format.<br/><br/>The free calculator does not break down engagement rate by format, but format-level analysis is available inside Modash.',
+    q: 'Does this work for threads, videos and Spaces?',
+    a: 'Yes. Threads, quote-posts and videos are standard content, and the calculator evaluates recent posts regardless of format.<br/><br/>The free calculator does not break engagement down by format, but per-channel and format-level analysis is available inside Kolio.',
   },
   {
-    q: 'Can I calculate engagement rate for any public Instagram account?',
-    a: 'Yes, as long as the Instagram profile is public. Engagement signals must be visible to calculate the rate accurately.<br/><br/>Private accounts cannot be evaluated reliably without access to their content.',
+    q: 'Can I calculate engagement for any public crypto KOL?',
+    a: 'Yes, as long as the account is public. Engagement signals must be visible to calculate the rate accurately.<br/><br/>Private or protected accounts cannot be evaluated reliably without access to their content.',
   },
   {
-    q: 'How accurate is the Instagram engagement calculator?',
-    a: 'The calculator is accurate for what it measures: visible engagement on recent posts relative to follower count. By using the median engagement across recent posts, the result is more stable and less skewed by a single viral outlier.<br/><br/>However, engagement rate is not a perfect predictor of sales outcomes, since engagement does not always equal purchase intent.',
+    q: 'How accurate is the engagement calculator?',
+    a: 'The calculator is accurate for what it measures: visible engagement on recent posts relative to follower count. By using the median engagement across recent posts, the result is stable and not skewed by a single viral outlier.<br/><br/>Engagement rate is not a perfect predictor of on-chain conversions, since attention does not always equal action &mdash; which is why Kolio pairs it with audience-authenticity and attribution data.',
   },
   {
-    q: 'What is a high engagement rate on Instagram?',
-    a: '"High" depends on follower size. Based on Modash benchmarks:<br/><br/><ul><li>1k–5k followers: Above 6.16%</li><li>10k–50k followers: Above 1.27%</li><li>100k–500k followers: Above 0.93%</li><li>1M+ followers: Above 1.08%</li></ul><br/>Smaller creators generally see higher engagement rates, while larger accounts tend to have lower — but still meaningful, percentages.',
+    q: 'What is a high engagement rate for a crypto KOL?',
+    a: '"High" depends on audience size. Based on Kolio benchmarks:<br/><br/><ul><li>1k&ndash;5k followers: Above 6.16%</li><li>10k&ndash;50k followers: Above 1.27%</li><li>100k&ndash;500k followers: Above 0.93%</li><li>1M+ followers: Above 1.08%</li></ul><br/>Smaller KOLs generally see higher engagement rates, while larger accounts trend lower &mdash; but still meaningful &mdash; percentages.',
   },
   {
-    q: 'Can fake followers affect engagement rate results?',
-    a: 'Yes. Fake or low-quality followers typically do not engage, which lowers engagement rate and can make a profile appear less effective than its follower count suggests.<br/><br/>This is one reason engagement rate is valuable, it helps reveal when an audience size may be inflated without real attention behind it.',
+    q: 'Can bought followers affect engagement results?',
+    a: 'Yes. Bought or bot followers typically do not engage, which lowers engagement rate and can make a profile look weaker than its follower count suggests.<br/><br/>This is exactly why engagement rate matters in crypto: it helps reveal when an audience has been inflated without real attention behind it. Inside Kolio, proof-based vetting goes further and flags bought-follower and bot patterns directly.',
   },
 ];
 

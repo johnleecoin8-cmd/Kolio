@@ -1,20 +1,19 @@
 import Container from '@/components/ui/Container';
 
-const FORM =
-  'https://form.jotform.com/modash/intro-modash-api?utm_source=api_raw&utm_campaign=web';
+const FORM = '/demo-confirmation';
 
 const CARDS = [
   {
-    title: 'Custom analytics',
-    body: 'Get latest data to build up-to-date dashboards. Analyze post performance, comments, and follower changes, as it happens, for immediate campaign insight.',
+    title: 'Campaign analytics & attribution',
+    body: 'Build live dashboards for every funded campaign. Track post performance, sentiment, and follower changes as they happen, then tie reach back to on-chain conversions.',
   },
   {
-    title: 'Enrichment workflows',
-    body: 'Augment your user profiles or CRM data. Connect social profiles to your database and keep track of follower lists, and stats up-to-date.',
+    title: 'KOL vetting & enrichment',
+    body: 'Enrich your KOL CRM with proof-based reach and audience quality. Connect crypto handles to your database and keep follower lists and stats fresh before you sign a deal.',
   },
   {
-    title: 'Competitive inteligence',
-    body: "Monitor content and metadata in real-time. Pull recent posts, brand profiles, and analyze content strategies as they launch, not after it's trending.",
+    title: 'Market & competitor intelligence',
+    body: 'Monitor KOL content and project mentions in real time. Pull recent posts, cashtags, and narrative shifts as they launch — not after a token is already trending.',
   },
 ];
 
@@ -47,8 +46,6 @@ export default function WhatYouBuild() {
           </p>
           <a
             href={FORM}
-            target="_blank"
-            rel="noreferrer"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink px-6 text-body font-semibold text-white shadow-btn transition hover:opacity-90"
           >
             Request a demo

@@ -8,23 +8,20 @@ export default function CtaBanner() {
       <Container>
         <div className="flex flex-col items-center text-center">
           <h2 className="font-display text-[2.75rem] leading-[0.98] text-ink sm:text-[4rem] md:text-[5.25rem]">
-            Ramp up your influencer
-            <br className="hidden sm:block" /> marketing channel
+            Run web3 KOL marketing
+            <br className="hidden sm:block" /> the verified way
           </h2>
           <div className="mt-8 flex flex-col items-center gap-4">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
-                variant="primary"
-              >
-                Try for Free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Request a demo
               </ButtonA>
-              <ButtonA href="#" variant="secondary">
+              <ButtonA href="/demo-confirmation" variant="secondary">
                 Book a call
               </ButtonA>
             </div>
             <p className="text-body-sm text-ink/70">
-              14-day free trial・No credit card required
+              Proof-based vetting・On-chain payments & escrow
             </p>
           </div>
         </div>

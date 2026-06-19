@@ -3,20 +3,17 @@ import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 
 type Props = {
-  image: string;
-  imageSrcSet?: string;
-  alt?: string;
+  /** Brand-neutral mockup rendered in the visual column (div/recharts based). */
+  visual: ReactNode;
   heading: string;
-  /** image on the right (text left) when true */
+  /** visual on the right (text left) when true */
   reverse?: boolean;
   children: ReactNode;
 };
 
-/** Two-column feature row: screenshot beside text + "Try for Free" CTA. */
+/** Two-column feature row: brand-neutral mockup beside text + "Request a demo" CTA. */
 export default function FeatureRow({
-  image,
-  imageSrcSet,
-  alt = '',
+  visual,
   heading,
   reverse = false,
   children,
@@ -25,27 +22,14 @@ export default function FeatureRow({
     <section className="py-16 md:py-32">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div className={reverse ? 'md:order-2' : ''}>
-            <img
-              src={image}
-              srcSet={imageSrcSet}
-              sizes="(max-width: 767px) 100vw, 560px"
-              alt={alt}
-              loading="lazy"
-              className="w-full"
-            />
-          </div>
+          <div className={reverse ? 'md:order-2' : ''}>{visual}</div>
           <div className={reverse ? 'md:order-1' : ''}>
             <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-h3">
               {heading}
             </h2>
             <div className="mt-5 text-body-md text-foreground/70">{children}</div>
-            <ButtonA
-              href="https://marketer.modash.io/register/marketer"
-              variant="primary"
-              className="mt-8"
-            >
-              Try for Free
+            <ButtonA href="/demo-confirmation" variant="primary" className="mt-8">
+              Request a demo
             </ButtonA>
           </div>
         </div>

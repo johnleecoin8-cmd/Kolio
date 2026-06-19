@@ -2,18 +2,16 @@ import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
 import { CircleCheck } from 'lucide-react';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 const PERFORMANCE = [
-  'Average views',
-  'Average comments',
-  'Average shares',
-  'Paid vs. organic',
+  'Average views & impressions',
+  'Engagement rate',
+  'Paid vs. organic posts',
   'Follower growth',
-  'Fake followers',
+  'Bot & fake-follower share',
+  'On-chain campaign attribution',
 ];
 
-const AUDIENCE = ['Countries', 'Cities', 'Gender', 'Language', 'Interests'];
+const AUDIENCE = ['Countries', 'Languages', 'Crypto niche (DeFi, NFTs, L1/L2)', 'Wallet-active share', 'Sentiment'];
 
 function CheckItem({ label }: { label: string }) {
   return (
@@ -24,25 +22,66 @@ function CheckItem({ label }: { label: string }) {
   );
 }
 
-/** First feature: emails + all the influencer data, with a two-column checklist. */
+/** Brand-neutral KOL profile card built from divs. */
+function ProfileCard() {
+  return (
+    <div className="rounded-xl border border-black/10 bg-background-soft p-6 shadow-sm">
+      <div className="flex items-center gap-4">
+        <div className="h-14 w-14 shrink-0 rounded-full bg-gradient-brand" />
+        <div className="min-w-0">
+          <div className="text-body-md font-semibold text-foreground">@defi_signal</div>
+          <div className="text-body-sm text-foreground/60">DeFi & L2 research・X / YouTube</div>
+        </div>
+        <span className="ml-auto rounded-full bg-gradient-brand px-3 py-1 text-body-sm font-semibold text-white">
+          Verified
+        </span>
+      </div>
+
+      <div className="mt-6 grid grid-cols-3 gap-4">
+        {[
+          { v: '184K', l: 'Followers' },
+          { v: '6.2%', l: 'Engagement' },
+          { v: '2.1%', l: 'Fake followers' },
+        ].map((m) => (
+          <div key={m.l} className="rounded-lg border border-black/10 bg-white p-3 text-center">
+            <div className="font-display text-2xl text-foreground">{m.v}</div>
+            <div className="mt-1 text-body-sm text-foreground/60">{m.l}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 space-y-3">
+        {[
+          { l: 'DeFi', w: 'w-[78%]' },
+          { l: 'L1 / L2', w: 'w-[54%]' },
+          { l: 'Trading', w: 'w-[38%]' },
+        ].map((b) => (
+          <div key={b.l}>
+            <div className="mb-1 flex justify-between text-body-sm text-foreground/70">
+              <span>{b.l}</span>
+            </div>
+            <div className="h-2 rounded-full bg-black/5">
+              <div className={`h-2 rounded-full bg-gradient-brand ${b.w}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** First feature: contacts + all the KOL data, with a two-column checklist. */
 export default function DataFeature() {
   return (
     <section className="py-16 md:py-32">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <img
-              src={`${CDN}/68407cdb23cf3d289f138917_img_analytics_01.avif`}
-              srcSet={`${CDN}/68407cdb23cf3d289f138917_img_analytics_01-p-500.avif 500w, ${CDN}/68407cdb23cf3d289f138917_img_analytics_01.avif 1120w`}
-              sizes="(max-width: 767px) 100vw, 560px"
-              alt="Influencer profile analytics"
-              loading="lazy"
-              className="w-full"
-            />
+            <ProfileCard />
           </div>
           <div>
             <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-h3">
-              Find influencer emails, plus all the other data you need
+              Get KOL contacts, plus the proof you need to vet them
             </h2>
 
             <div className="mt-7 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
@@ -68,12 +107,8 @@ export default function DataFeature() {
               </div>
             </div>
 
-            <ButtonA
-              href="https://marketer.modash.io/register/marketer"
-              variant="primary"
-              className="mt-8"
-            >
-              Try for Free
+            <ButtonA href="/demo-confirmation" variant="primary" className="mt-8">
+              Request a demo
             </ButtonA>
           </div>
         </div>

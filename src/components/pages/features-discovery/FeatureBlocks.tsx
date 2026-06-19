@@ -2,77 +2,140 @@ import Container from '@/components/ui/Container';
 import SectionHeading from './SectionHeading';
 
 type Item = { title: string; body: string };
-type Block = { img: string; heading: string; items: Item[] };
+type Mock = 'search' | 'audience' | 'lookalike';
+type Block = { mock: Mock; heading: string; items: Item[] };
 
 const BLOCKS: Block[] = [
   {
-    img: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699439a908a01a0f537a4ec3_img_discover_block_01.avif',
-    heading: 'Match with the right creators, instantly',
+    mock: 'search',
+    heading: 'Match with the right KOLs, instantly',
     items: [
       {
-        title: 'AI-powered search across 380M+ profiles',
-        body: "Describe what you're looking for with your words. Modash analyzes bios, captions, and visuals to surface the right profiles in seconds.",
+        title: 'Search every crypto KOL by niche and chain',
+        body: 'Describe what you need in plain words. Kolio reads bios, threads, and on-chain context to surface DeFi, L1/L2, NFT, trading, and gaming KOLs in seconds.',
       },
       {
-        title: 'Visual search',
-        body: 'Upload an image and find creators whose visual aesthetic matches it.',
+        title: 'Filter the way web3 actually works',
+        body: 'Narrow by audience geography, language, follower band, and the chains a KOL’s community actually transacts on — not just a follower count.',
       },
       {
-        title: 'Precision filters',
-        body: 'Filter by audience demographics, location, engagement rate, and content topics to find exactly who you need.',
+        title: 'Cross-platform in one search',
+        body: 'X, YouTube, TikTok, and Telegram side by side, so you build a full shortlist without tab-hopping.',
       },
     ],
   },
   {
-    img: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/69c39f318a002ac60c799167_img_discover_block_02.avif',
-    heading: 'Make sure creators are a good fit before you reach out',
+    mock: 'audience',
+    heading: 'Vet a KOL’s reach before you fund anything',
     items: [
       {
-        title: 'Audience demographics, not just creator bios',
-        body: 'See the age, gender, location, and interests of their followers, before you send a single email.',
+        title: 'Audience quality, not vanity metrics',
+        body: 'See real reach, engagement, and the share of an audience that is genuine — before a single token leaves escrow.',
       },
       {
-        title: 'Authenticity checks built in',
-        body: 'Spot fake followers so you don’t budget on bot accounts. Move to outreach with confidence.',
+        title: 'Bot and bought-engagement detection',
+        body: 'Spot inflated follower counts and farmed engagement so your campaign budget backs creators with real influence.',
       },
       {
-        title: 'Brand collaborations timeline',
-        body: "Review which brands they've worked with, what the content looked like, and how it performed.",
+        title: 'On-chain campaign history',
+        body: 'Review which projects a KOL has promoted, how those campaigns performed, and whether disclosures were made.',
       },
     ],
   },
   {
-    img: 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699439bf59b0d14ed09daa8e_img_discover_block_03.avif',
-    heading: 'Turn one win into many, repeatedly',
+    mock: 'lookalike',
+    heading: 'Turn one breakout KOL into a roster',
     items: [
       {
         title: 'Lookalike search from top performers',
-        body: 'Found one creator who crushed it? Find 20 more with similar audiences or content styles.',
+        body: 'Found a KOL who drove real wallets and volume? Find 20 more with similar audiences and content across the same niche.',
       },
       {
-        title: 'Influential fans',
-        body: 'Skip the cold outreach and surface creators who already follow and engage with your brand.',
+        title: 'Already in your community',
+        body: 'Surface KOLs who already hold your token or engage with your project — warm partners instead of cold DMs.',
       },
       {
-        title: 'Influential customers',
-        body: 'Discover creators who are already your customers. Pure gold for authenticity.',
+        title: 'Attribution that proves it worked',
+        body: 'Tie discovery to on-chain attribution so you know which KOLs actually drove sign-ups, swaps, and holders.',
       },
     ],
   },
 ];
 
-/** Intro heading + three large gray feature blocks (image + bullet list). */
+function Mockup({ kind }: { kind: Mock }) {
+  if (kind === 'search') {
+    return (
+      <div className="rounded-lg border border-black/5 bg-white p-5">
+        <div className="h-9 rounded-pill bg-background-soft px-3">
+          <span className="text-body-sm leading-9 text-foreground/50">“DeFi educators with KR + EN audience”</span>
+        </div>
+        <div className="mt-4 space-y-2.5">
+          {['CryptoMaria', 'onchain.eth', 'DeFiDad_kr', 'rollup_rin'].map((h, n) => (
+            <div key={h} className="flex items-center justify-between rounded-md bg-background-soft px-3 py-2.5">
+              <span className="text-body-sm font-medium text-foreground">@{h}</span>
+              <span className="text-body-sm font-semibold text-positive">{[96, 91, 94, 89][n]}% real</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (kind === 'audience') {
+    return (
+      <div className="rounded-lg border border-black/5 bg-white p-5">
+        <p className="text-body-sm font-semibold text-foreground/60">Audience quality</p>
+        <div className="mt-3 space-y-3">
+          {[
+            ['Real followers', 92, 'bg-positive'],
+            ['Suspicious', 6, 'bg-brand/50'],
+            ['Bots', 2, 'bg-foreground/30'],
+          ].map(([label, pct, color]) => (
+            <div key={label as string}>
+              <div className="flex justify-between text-body-sm text-foreground/70">
+                <span>{label}</span>
+                <span className="font-semibold text-foreground">{pct}%</span>
+              </div>
+              <div className="mt-1 h-2 rounded-pill bg-background-soft">
+                <div className={`h-2 rounded-pill ${color}`} style={{ width: `${pct}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 flex gap-2">
+          {['🇰🇷 38%', '🇺🇸 24%', '🇸🇬 11%', '🇧🇷 9%'].map((g) => (
+            <span key={g} className="rounded-pill bg-pink px-2.5 py-1 text-body-sm text-ink">{g}</span>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="rounded-lg border border-black/5 bg-white p-5">
+      <p className="text-body-sm font-semibold text-foreground/60">Lookalikes of @onchain.eth</p>
+      <div className="mt-3 grid grid-cols-2 gap-2.5">
+        {['blockbuilder', 'l2_liz', 'yield.sensei', 'gm_protocol', 'stake_sam', 'nft_nadia'].map((h) => (
+          <div key={h} className="rounded-md bg-background-soft px-3 py-2.5">
+            <span className="text-body-sm font-medium text-foreground">@{h}</span>
+            <span className="ml-1 text-body-sm text-foreground/50">match</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Intro heading + three large gray feature blocks (mockup + bullet list). */
 export default function FeatureBlocks() {
   return (
     <section className="py-12 md:py-16">
       <Container>
-        <div className="mx-auto max-w-[750px] text-center">
+        <div className="mx-auto max-w-[760px] text-center">
           <SectionHeading>
-            Find creators worth your time, without the guesswork
+            Find KOLs worth your treasury, without the guesswork
           </SectionHeading>
           <p className="mt-4 mx-auto max-w-[640px] text-body md:text-body-md text-foreground/75">
-            Pull from 380M+ profiles and build shortlists you'd actually bet on, whenever you need
-            them.
+            Search the crypto creator landscape and build shortlists you’d actually stake budget
+            on, whenever a launch or campaign needs them.
           </p>
         </div>
 
@@ -82,12 +145,7 @@ export default function FeatureBlocks() {
               key={b.heading}
               className="grid items-center gap-6 rounded-xl bg-background-soft p-5 md:grid-cols-2 md:gap-10 md:p-8"
             >
-              <img
-                src={b.img}
-                alt=""
-                className="w-full rounded-lg"
-                loading="lazy"
-              />
+              <Mockup kind={b.mock} />
               <div>
                 <h3 className="text-body-lg font-semibold text-foreground">{b.heading}</h3>
                 <ul className="mt-5 space-y-4">
@@ -99,10 +157,10 @@ export default function FeatureBlocks() {
                   ))}
                 </ul>
                 <a
-                  href="https://marketer.modash.io/register/marketer"
+                  href="/demo-confirmation"
                   className="mt-6 inline-flex items-center justify-center h-10 px-[1.125rem] rounded-sm bg-ink text-white text-body font-semibold transition hover:opacity-90"
                 >
-                  Try for free
+                  Start free
                 </a>
               </div>
             </div>

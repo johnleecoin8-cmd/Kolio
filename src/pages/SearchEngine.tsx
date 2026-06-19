@@ -6,7 +6,7 @@ import Quote from '@/components/pages/search-engine/Quote';
 import Faq from '@/components/pages/search-engine/Faq';
 import GrowCta from '@/components/pages/search-engine/GrowCta';
 
-/** modash.io /influencer-search-engine — 1:1 clone. */
+/** Kolio /search-engine — web3 KOL discovery & vetting. */
 export default function SearchEngine() {
   return (
     <main>

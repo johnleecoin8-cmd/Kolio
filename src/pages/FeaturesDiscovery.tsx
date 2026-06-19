@@ -12,7 +12,7 @@ import WorkflowGrid from '@/components/pages/features-discovery/WorkflowGrid';
 import Faq from '@/components/pages/features-discovery/Faq';
 import FinalCta from '@/components/pages/features-discovery/FinalCta';
 
-/** modash.io /features/influencer-discovery — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio /features/influencer-discovery — crypto KOL discovery. Sections render top-to-bottom. */
 export default function FeaturesDiscovery() {
   return (
     <main>

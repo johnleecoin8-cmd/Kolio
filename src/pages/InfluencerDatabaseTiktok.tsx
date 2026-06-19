@@ -7,7 +7,7 @@ import EverythingElse from '@/components/pages/influencer-database-tiktok/Everyt
 import Testimonials from '@/components/pages/influencer-database-tiktok/Testimonials';
 import EndCta from '@/components/pages/influencer-database-tiktok/EndCta';
 
-/** modash.io /influencer-database/tiktok — 1:1 clone. Sections render top-to-bottom. */
+/** Kolio /influencer-database/tiktok — crypto KOL discovery for TikTok. Sections render top-to-bottom. */
 export default function InfluencerDatabaseTiktok() {
   return (
     <main>

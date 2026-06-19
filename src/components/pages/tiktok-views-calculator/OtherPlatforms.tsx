@@ -3,13 +3,13 @@ import Container from '@/components/ui/Container';
 const CARDS = [
   {
     title: 'Instagram Average Views Calculator',
-    body: 'Check the average Reel plays for any Instagram influencer. Free, no sign-up needed.',
-    href: 'https://www.modash.io/tools/instagram-average-views-calculator',
+    body: 'Check the average Reel plays for any crypto KOL on Instagram. Free, no sign-up needed.',
+    href: '/instagram-average-views-calculator',
   },
   {
-    title: 'YouTube Average Views Calculator',
-    body: 'Check the average views for any YouTube creator. Free, no sign-up needed.',
-    href: 'https://www.modash.io/tools/youtube-average-views-calculator',
+    title: 'KOL Engagement Rate Calculator',
+    body: 'Pressure-test a crypto KOL’s real engagement rate across platforms. Free, no sign-up needed.',
+    href: '/engagement-rate-calculator',
   },
 ];
 
@@ -19,11 +19,11 @@ export default function OtherPlatforms() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <h2 className="mx-auto max-w-[18ch] text-center font-display text-[2.5rem] uppercase leading-[1.02] text-foreground md:text-[4rem]">
-          Check average views on other platforms
+          Vet KOLs across more channels
         </h2>
         <p className="mx-auto mt-5 max-w-[560px] text-center text-body text-foreground/75 md:text-body-md">
-          Use our free average views calculators to analyze influencer
-          performance across all major social platforms.
+          Use Kolio's free tools to pressure-test crypto KOL performance across
+          every channel that moves on-chain demand.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">

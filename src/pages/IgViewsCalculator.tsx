@@ -5,21 +5,21 @@ import OtherPlatforms from '@/components/pages/ig-views-calculator/OtherPlatform
 import PlatformFeatures from '@/components/pages/ig-views-calculator/PlatformFeatures';
 import Faq from '@/components/pages/ig-views-calculator/Faq';
 
-/** modash.io Instagram Average Views Calculator — 1:1 clone. */
+/** Kolio — Crypto KOL Reach & Engagement Checker. Free vetting tool for web3 brands. */
 export default function IgViewsCalculator() {
   return (
     <main>
       <Hero />
       <PinkCtaBlock
         gradient
-        lead="Use Modash to"
-        title="analyze Instagram creators & their audiences"
-        description="Inside Modash, you get a complete analysis of any Instagram creator, including average views, engagement, audience quality, location, and more."
+        lead="Use Kolio to"
+        title="vet crypto KOLs & their real audiences"
+        description="Inside Kolio, you get a proof-based read on any crypto KOL — real reach, audience quality, engagement, regional split, and past project work — before a single dollar of budget leaves escrow."
       />
       <ContentSections />
       <PinkCtaBlock
-        title="Checking average views is just the beginning"
-        description="Modash helps you find creators, evaluate their audiences, and run campaigns end-to-end."
+        title="Checking reach is just the start of vetting a KOL"
+        description="Kolio helps web3 brands discover crypto KOLs, verify their audiences, pay them on-chain through escrow, and attribute every campaign end-to-end."
       />
       <OtherPlatforms />
       <PlatformFeatures />

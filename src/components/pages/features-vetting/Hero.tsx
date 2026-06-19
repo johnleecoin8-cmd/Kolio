@@ -13,28 +13,26 @@ export default function Hero() {
           {/* Copy */}
           <div className="pb-8 text-center md:pb-24 md:text-left">
             <h1 className="font-display text-[2.75rem] uppercase leading-[1.02] text-ink sm:text-[3.5rem] md:text-[4rem] lg:text-[4.25rem]">
-              Vet &amp; research influencers, Before you Reach out
+              <span className="text-gradient-brand">Vet</span> crypto KOLs before you spend a dollar
             </h1>
 
             <p className="mx-auto mt-6 max-w-[520px] text-body-md text-ink/75 md:mx-0">
-              Find influencers, then get all the profile information you need — all
-              in the same place.
+              Find the right key opinion leaders across X, YouTube, TikTok and
+              Telegram — then see every number that matters before you ever send a
+              DM.
               <br />
               <br />
-              Check audience demographics, performance data, and past collabs -
-              without having to reach out.
+              Real reach, audience quality, and proof of past on-chain campaigns.
+              No vanity metrics, no guesswork.
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-4 md:items-start">
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <ButtonA
-                  href="https://marketer.modash.io/register/marketer"
-                  variant="primary"
-                >
-                  Try for Free
+                <ButtonA href="/demo-confirmation" variant="primary">
+                  Start vetting free
                 </ButtonA>
-                <ButtonA href="https://www.modash.io/book-demo" variant="secondary">
-                  Book a call
+                <ButtonA href="/demo-confirmation" variant="secondary">
+                  Book a demo
                 </ButtonA>
               </div>
               <p className="text-body-sm text-ink/60">

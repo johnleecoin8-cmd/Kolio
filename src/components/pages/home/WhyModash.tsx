@@ -1,63 +1,64 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
-
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
+import { Workflow, Globe, ShieldCheck, Wallet, LineChart, Sparkles } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: `${CDN}/6842ca952d91864160ff1a1c_Fistbump.avif`,
+    Icon: Workflow,
     title: 'One connected workflow',
-    body: 'Modash brings paid partnerships, affiliates, and gifting all in one place.',
+    body: 'Kolio brings discovery, vetting, attribution, and payments all in one place.',
   },
   {
-    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
-    title: 'Every creator on earth',
-    body: 'Find any creator on Instagram, YouTube and TikTok, with trusted data.',
+    Icon: Globe,
+    title: 'Every crypto KOL that matters',
+    body: 'Find KOLs across X, YouTube, TikTok, and Telegram — backed by trusted data.',
   },
   {
-    icon: `${CDN}/6842caa03aef8b676a0fbbf3_AI.avif`,
-    title: 'Automations handle the busywork',
-    body: 'Modash automatically captures every post so you never miss a thing.',
+    Icon: ShieldCheck,
+    title: 'Proof, not vanity metrics',
+    body: 'See real reach and audience quality. Spot bots and farmed engagement instantly.',
   },
   {
-    icon: `${CDN}/693fe9551206f9cd7db985ad_ic_Creator%20Cost.avif`,
-    title: 'Enterprise power, clear pricing',
-    body: 'Modash delivers enterprise-grade capabilities without the hidden costs.',
+    Icon: Wallet,
+    title: 'On-chain payments & escrow',
+    body: 'Hold budget in escrow and release on delivery. Settle in stablecoins, worldwide.',
   },
   {
-    icon: `${CDN}/693fe955e15f63b343173cc4_ic_QR%20Code.avif`,
-    title: 'Essential integrations',
-    body: 'Modash syncs with Shopify, Gmail or Outlook to run things smoothly.',
+    Icon: LineChart,
+    title: 'Web3 attribution built in',
+    body: 'Tie KOL content to on-chain outcomes — sign-ups, swaps, and mints.',
   },
   {
-    icon: `${CDN}/690b29f0b3d9a5f7e68184d3_ic_modash.avif`,
-    title: 'Beautifully designed',
-    body: 'Easy to use for both creators and brands. Zero onboarding needed.',
+    Icon: Sparkles,
+    title: 'Clean and credible',
+    body: 'Easy for both brands and KOLs. No degen chaos, no onboarding overhead.',
   },
 ];
 
-/** "Why Modash" — 3x2 icon feature grid + pricing CTA. */
+/** "Why Kolio" — 3x2 icon feature grid + pricing CTA. */
 export default function WhyModash() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 max-w-[640px] text-center">
           <p className="text-body-sm font-bold text-foreground/50">
-            Why Modash
+            Why Kolio
           </p>
           <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
-            Influencer marketing that just flows
+            Web3 KOL marketing that just flows
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/75">
-            Modash is where influencer marketing stops feeling messy and starts making
-            sense – across your whole workflow, end to end.
+            Kolio brings the rigor of mature web2 creator platforms to crypto — so KOL
+            marketing stops feeling like a gamble and starts being measurable, end to end.
           </p>
         </div>
 
         <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
           {FEATURES.map((f) => (
             <div key={f.title} className="flex flex-col items-center text-center">
-              <img src={f.icon} alt="" loading="lazy" width={24} className="h-6 w-6" />
+              <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-coral-bg text-brand">
+                <f.Icon className="h-6 w-6" />
+              </span>
               <h3 className="mt-4 text-body-md font-semibold text-foreground">
                 {f.title}
               </h3>
@@ -69,10 +70,10 @@ export default function WhyModash() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-3">
-          <ButtonA href="/pricing" variant="primary">
+          <ButtonA href="/demo-confirmation" variant="primary">
             Find your pricing
           </ButtonA>
-          <p className="text-body-sm text-foreground/60">Starts at $199/ mo</p>
+          <p className="text-body-sm text-foreground/60">Plans scale with your campaigns</p>
         </div>
       </Container>
     </section>

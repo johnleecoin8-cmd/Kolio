@@ -4,36 +4,40 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'How does Modash track creator content?',
-    a: 'Once you add creators to a campaign, Modash automatically captures every post, video, and Story they publish about your brand across Instagram, TikTok, and YouTube—no creator sign-up required. We do not track TikTok Stories.\n\nWe detect content in two ways:\n- When creators tag your brand handle or use campaign-specific hashtags\n- With Event Mode enabled, we capture everything creators post during your campaign period, even if they forget to tag your brand.\n\nAll performance data—views, engagement, EMV, link clicks, code redemptions, and revenue—appears automatically in your campaign dashboard.',
+    q: 'How does Kolio track KOL content?',
+    a: 'Once you add KOLs to a campaign, Kolio automatically captures every post, thread, video, and broadcast they publish about your project across X, YouTube, TikTok, and Telegram—no KOL sign-up required.\n\nWe detect content in two ways:\n- When KOLs tag your project handle, $ticker, or campaign-specific hashtags\n- With Event Mode enabled, we capture everything your KOLs post during the campaign window, even if they forget to tag you.\n\nAll performance data—impressions, engagement, verified reach, link clicks, code redemptions, and on-chain conversions—appears automatically in your campaign dashboard.',
   },
   {
-    q: 'Do creators need to sign up for Modash to make tracking work?',
-    a: 'Nope! No creator signup needed. As long as they tag your brand or use your tracking links, Modash automatically captures and organizes all content.',
+    q: 'Do KOLs need to sign up for Kolio to make tracking work?',
+    a: 'Nope. No KOL signup needed. As long as they tag your project or use your referral links and codes, Kolio automatically captures and organizes everything they post.',
   },
   {
-    q: 'What content does Modash track (and what does it miss)?',
-    a: 'Modash tracks publicly available branded content across Instagram, TikTok, and YouTube, including posts, videos, and Stories (excluding TikTok Stories).\n\nWe can only track content that is publicly accessible on each platform. This means we don’t see private accounts, Close Friends stories, content shared in DMs, deleted posts, or posts that are never published publicly. If a platform restricts access to a content type, we respect those limitations.\n\nWhen creators publish branded content publicly, Modash automatically collects it and keeps your campaign reporting complete, without requiring creators to sign up or install anything.',
+    q: 'What content does Kolio track (and what does it miss)?',
+    a: 'Kolio tracks publicly available content across X, YouTube, TikTok, and public Telegram channels, including posts, threads, videos, and broadcasts.\n\nWe can only track content that is publicly accessible on each platform. That means we don’t see private accounts, private Telegram groups, content shared in DMs, or posts that are never published publicly. We do, however, keep a record of posts that are later deleted, so a KOL can’t take down a paid post and erase the proof.\n\nWhen KOLs publish publicly, Kolio collects it automatically and keeps your campaign reporting complete, without requiring anyone to sign up or install anything.',
   },
   {
     q: 'What is Event Mode, and when should I use it?',
-    a: 'Event Mode captures every piece of content your creators post during a specific time period, even if they forget to tag your brand or use required hashtags.\n\nUse Event Mode when:\n- Running product launches where you need to capture all creator buzz\n- Hosting brand events\n- Managing time-sensitive campaigns with strict reporting requirements\n- Working with creators who might forget to tag your brand consistently\n- High-stakes campaigns that require complete coverage.\n\nImportant: When enabled, each creator tracked counts as 2 creators. (When disabled, each creator tracked counts as 1.)',
+    a: 'Event Mode captures every post your KOLs publish during a specific window, even if they forget to tag your project or use the required $ticker or hashtags.\n\nUse Event Mode when:\n- Running a token launch or TGE where you need to capture all the buzz\n- Coordinating an exchange listing\n- Managing time-sensitive campaigns with strict reporting requirements\n- Working with KOLs who don’t always tag consistently\n- High-stakes pushes that require complete coverage.\n\nImportant: when enabled, each KOL tracked counts as 2 KOLs. (When disabled, each KOL counts as 1.)',
   },
   {
-    q: 'Can Modash help me ensure ad disclosure compliance?',
-    a: 'Yes, Modash flags posts missing required ad disclosures so you can ensure compliance and address issues before they become problems.',
+    q: 'Can Kolio help me verify that a KOL’s reach is real?',
+    a: 'Yes. Kolio is built around proof-based vetting. We measure real impressions and audience quality rather than follower counts, and flag bot-inflated or low-quality reach, so you pay for genuine attention, not vanity metrics.',
   },
   {
-    q: 'Can I track sales and attribute revenue and website traffic to creators?',
-    a: 'Yes. When you connect your Shopify store, all sales data syncs automatically to your Modash dashboard. You’ll see exactly which creators drive the most revenue for your brand.\n\nWhen you connect your Shopify store and codes, you can track:\n- Sales from discount codes: Monitor how many times each creator’s discount code is used and the revenue generated from those purchases.\n- Sales from affiliate links: Track clicks, conversions, and revenue from unique affiliate links assigned to each creator.\n- ROAS (Return on Ad Spend): Calculate the exact return on investment for each creator and campaign based on actual sales data when creator costs are added.\n\nBy using UTM tracking links, you’ll also see how many visitors each creator sends to your site and which pages they visit. All tracking data syncs automatically to your Modash dashboard, giving you real-time visibility into which creators drive the most valuable traffic.',
+    q: 'Can I attribute on-chain conversions and volume to each KOL?',
+    a: 'Yes. When you connect your referral program, smart contract, or referral codes, on-chain results sync automatically to your Kolio dashboard. You’ll see exactly which KOLs drive the most value for your project.\n\nOnce connected, you can track:\n- Conversions from referral codes: how many times each KOL’s code is used and the on-chain activity it generates.\n- Conversions from referral links: clicks, sign-ups, and conversions from unique links assigned to each KOL.\n- Cost per conversion and ROI: the exact return for each KOL and campaign based on real on-chain activity, once KOL costs are added.\n\nWith UTM tracking links you’ll also see how much traffic each KOL sends and where it lands. Everything syncs automatically, giving you real-time visibility into which KOLs drive the most valuable on-chain activity.',
   },
   {
     q: 'Can I export tracking data and reports?',
-    a: 'Yes. On Performance and Enterprise plans, you can export campaign data, creator lists, and performance metrics to CSV or Excel. Filter by creator, campaign, date range, or metric to show exactly what matters. You can also download content posted by your creators for marketing, testimonials, or archives.',
+    a: 'Yes. On Performance and Enterprise plans, you can export campaign data, KOL lists, and performance metrics to CSV or Excel. Filter by KOL, campaign, date range, or metric to show exactly what matters. You can also download the content your KOLs posted for archives, compliance, or your DAO’s records.',
   },
   {
-    q: 'How long is campaign and performance campaign data stored?',
-    a: 'We store all campaign data for as long as your account is active, and you don’t delete the campaign. This includes creator profiles, content history, performance metrics, tracking links, and analytics.\n\nWhen you finish a campaign, all content and data are moved to the Finished tab, and remain there unless you delete them. Once you delete a campaign, the action is permanent and can’t be undone.',
+    q: 'How are payments to KOLs handled?',
+    a: 'Kolio supports on-chain payments and escrow. You can fund a deal into escrow, and the payout releases against verified deliverables, so KOLs are paid for posts that actually went live and you keep a clean, recorded paper trail of every settlement.',
+  },
+  {
+    q: 'How long is campaign and performance data stored?',
+    a: 'We store all campaign data for as long as your account is active and you don’t delete the campaign. This includes KOL profiles, content history, verified-reach metrics, tracking links, attribution, and analytics.\n\nWhen you finish a campaign, all content and data move to the Finished tab and stay there unless you delete them. Once you delete a campaign, the action is permanent and can’t be undone.',
   },
 ];
 

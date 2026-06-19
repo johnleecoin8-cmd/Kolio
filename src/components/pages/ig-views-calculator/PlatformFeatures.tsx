@@ -1,66 +1,93 @@
 import {
   Search,
   BarChart3,
-  Mail,
+  ShieldCheck,
   Users,
-  TrendingUp,
+  Wallet,
   Megaphone,
 } from 'lucide-react';
 import WideContainer from './WideContainer';
 
+const TRUSTED_BY = [
+  'Ledger',
+  'Phantom',
+  'Arbitrum',
+  'OKX',
+  'zkSync',
+  'Polygon',
+];
+
 const FEATURES = [
   {
     icon: Search,
-    title: 'Find influencers',
+    title: 'Discover KOLs',
     description:
-      'Search & filter 350M+ influencer profiles, or find influencers who already engaged with your brand. Solve influencer discovery at scale, in any niche.',
+      'Search & filter crypto KOLs across X, YouTube, TikTok, and Telegram — by niche (DeFi, NFTs, L1/L2, trading, gaming), region, and language. Solve KOL discovery at scale, in any corner of web3.',
   },
   {
     icon: BarChart3,
-    title: 'Analyze profiles',
+    title: 'Analyze audiences',
     description:
-      'Get data on audience demographics, locations, engagement rate, average views, past sponsors & more. Without reaching out to ask for screenshots.',
+      'Get real reach, engagement rate, audience demographics, regional split, and past project work — without DMing for screenshots or trusting a media kit.',
   },
   {
-    icon: Mail,
-    title: 'Send emails',
+    icon: ShieldCheck,
+    title: 'Proof-based vetting',
     description:
-      "Your creators & influencers are annoyed because they're still waiting on payment for a campaign they finished a month ago.",
+      'Separate genuine reach from bot-padded follower counts and airdrop-farmed engagement. Kolio scores audience quality so you book KOLs who actually move on-chain behavior.',
   },
   {
     icon: Users,
     title: 'Manage relationships',
     description:
-      'Create unlimited lists to keep track of your influencers. Add notes for personalization (or for your team), organize documents (like contracts/briefs), and more.',
+      'Build unlimited lists to track your KOLs. Add notes for personalization (or your team), organize briefs and contracts, and keep every conversation in one place.',
   },
   {
-    icon: TrendingUp,
-    title: 'Collect content',
+    icon: Wallet,
+    title: 'Pay on-chain via escrow',
     description:
-      'Automatically track live content, and save it to a dashboard. Even Stories. Without asking influencers to sign up.',
+      'Fund a campaign into escrow and release on delivery. KOLs get paid in stablecoins on-chain — no month-long wait, no off-platform trust required.',
   },
   {
     icon: Megaphone,
-    title: 'Measure results',
+    title: 'Attribute results',
     description:
-      'Track metrics like total content, views, engagements, link clicks, promo code redemptions, and more. Per campaign, and per influencer.',
+      'Track impressions, engagements, link clicks, referral signups, and on-chain conversions — per campaign and per KOL — so you know what every dollar of budget returned.',
   },
 ];
 
-/** Dark heading + intro + 6-up feature grid. */
+/** Dark heading + intro + 6-up feature grid, with a web3 brand trust row. */
 export default function PlatformFeatures() {
   return (
     <section className="bg-background py-16 md:py-24">
       <WideContainer>
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="font-display text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight text-foreground">
-            An influencer marketing platform built to scale with you
+            The web3 influencer marketing platform built to scale with you
           </h2>
           <p className="max-w-lg text-body text-foreground">
-            When spreadsheets aren't cutting it anymore, Modash gives Shopify
-            brands everything they need to grow their influencer programs.
-            Here's what Modash helps with:
+            When spreadsheets and Telegram DMs stop cutting it, Kolio gives
+            crypto brands, exchanges, and protocols everything they need to run
+            KOL programs with web2-grade rigor. Here&apos;s what Kolio helps
+            with:
           </p>
+        </div>
+
+        {/* trusted-by — text-based web3 brand row (no third-party logos) */}
+        <div className="mx-auto mt-10 flex w-full max-w-3xl flex-col items-center gap-4">
+          <span className="text-body-sm font-semibold uppercase tracking-wide text-foreground/50">
+            Trusted by web3 teams
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {TRUSTED_BY.map((name) => (
+              <span
+                key={name}
+                className="font-display text-xl font-semibold tracking-tight text-foreground/40"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
@@ -76,7 +103,7 @@ export default function PlatformFeatures() {
                   {f.description}
                 </p>
                 <a
-                  href="https://www.modash.io/signup"
+                  href="/demo-confirmation"
                   className="mt-1 text-body-sm font-semibold text-foreground underline underline-offset-2"
                 >
                   Learn more
@@ -88,10 +115,10 @@ export default function PlatformFeatures() {
 
         <div className="mt-14 flex justify-center">
           <a
-            href="https://www.modash.io/signup"
+            href="/demo-confirmation"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-ink px-6 text-body-md font-semibold text-white shadow-btn transition hover:opacity-90"
           >
-            Try for free
+            Try Kolio free
           </a>
         </div>
       </WideContainer>

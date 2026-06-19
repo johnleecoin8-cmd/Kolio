@@ -4,15 +4,15 @@ import { ButtonA } from '@/components/ui/Button';
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const PERFORMANCE = [
-  'Average views',
-  'Average comments',
-  'Average shares',
+  'Real reach',
+  'Engagement rate',
+  'Audience authenticity',
   'Paid vs. organic',
   'Follower growth',
-  'Fake followers',
+  'Bot & farm detection',
 ];
 
-const AUDIENCE = ['Countries', 'Cities', 'Gender', 'Language', 'Interests'];
+const AUDIENCE = ['Regions', 'Chains held', 'Crypto niches', 'Languages', 'Interests'];
 
 const CHECK = `${CDN}/682de021530893fd2b4bcae7_Check%20Circle.png`;
 
@@ -25,7 +25,7 @@ function CheckItem({ label }: { label: string }) {
   );
 }
 
-/** First feature row: screenshot left, two-column metric checklist + copy right. */
+/** First feature row: dashboard mockup left, two-column KOL metric checklist + copy right. */
 export default function DataNoTabs() {
   return (
     <section className="py-14 md:py-24">
@@ -34,7 +34,7 @@ export default function DataNoTabs() {
           <div className="md:order-1">
             <img
               src={`${CDN}/68407cdb23cf3d289f138917_img_analytics_01.avif`}
-              alt="Influencer analytics overview"
+              alt="KOL analytics overview"
               loading="lazy"
               className="w-full rounded-lg"
             />
@@ -42,7 +42,7 @@ export default function DataNoTabs() {
 
           <div className="md:order-2">
             <h2 className="max-w-[460px] font-sans text-[2rem] font-bold leading-[1.12] tracking-tight text-foreground md:text-[2.5rem]">
-              The data you need, without switching tabs
+              Every signal you need, without leaving the profile
             </h2>
 
             <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4">
@@ -69,11 +69,8 @@ export default function DataNoTabs() {
             </div>
 
             <div className="mt-8">
-              <ButtonA
-                href="https://marketer.modash.io/register/marketer"
-                variant="primary"
-              >
-                Try for free
+              <ButtonA href="/demo-confirmation" variant="primary">
+                Start vetting KOLs
               </ButtonA>
             </div>
           </div>

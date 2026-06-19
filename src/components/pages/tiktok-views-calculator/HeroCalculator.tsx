@@ -2,12 +2,14 @@ import { useMemo, useState } from 'react';
 import { Search, Eye, Heart, Users, BadgeCheck, Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-/** Deterministic mock profiles keyed by handle so the result card shows
- *  real-looking Modash-style data (the live page renders Modash API data;
- *  we approximate the visual + compute the average from recent videos). */
+/** Deterministic mock crypto-KOL profiles keyed by handle so the result card
+ *  shows real-looking Kolio data. On the live platform this renders verified
+ *  reach pulled from Kolio's KOL graph; here we approximate the visual and
+ *  compute the average from recent videos. */
 type Profile = {
   handle: string;
   name: string;
+  niche: string;
   followers: string;
   engagement: string;
   /** recent video view counts (used to compute average views) */
@@ -16,20 +18,22 @@ type Profile = {
 };
 
 const PROFILES: Record<string, Profile> = {
-  'khaby.lame': {
-    handle: 'khaby.lame',
-    name: 'Khabane lame',
-    followers: '162.4M',
-    engagement: '2.4%',
-    recent: [9_100_000, 7_800_000, 12_400_000, 6_200_000, 8_900_000, 7_100_000],
+  cryptobanter: {
+    handle: 'cryptobanter',
+    name: 'Crypto Banter',
+    niche: 'Trading / Markets',
+    followers: '1.2M',
+    engagement: '4.6%',
+    recent: [184_000, 92_000, 310_000, 145_000, 121_000, 168_000],
     avatarBg: 'from-pink-light via-pink to-pink-hot',
   },
-  charlidamelio: {
-    handle: 'charlidamelio',
-    name: 'charli d’amelio',
-    followers: '155.1M',
-    engagement: '3.1%',
-    recent: [4_200_000, 5_800_000, 3_900_000, 6_100_000, 4_700_000, 5_200_000],
+  defidegen: {
+    handle: 'defidegen',
+    name: 'DeFi Degen',
+    niche: 'DeFi / Yield',
+    followers: '486K',
+    engagement: '6.1%',
+    recent: [74_000, 58_000, 91_000, 63_000, 47_000, 82_000],
     avatarBg: 'from-violet-light via-violet to-violet-dark',
   },
 };
@@ -56,7 +60,7 @@ export default function HeroCalculator() {
 
   const profile = useMemo(() => {
     const key = query.trim().replace(/^@/, '').toLowerCase();
-    return PROFILES[key] ?? PROFILES['khaby.lame'];
+    return PROFILES[key] ?? PROFILES['cryptobanter'];
   }, [query]);
 
   const avgViews = useMemo(() => {
@@ -68,11 +72,13 @@ export default function HeroCalculator() {
     <section className="bg-background pt-16 pb-16 md:pt-24 md:pb-24">
       <Container>
         <h1 className="mx-auto max-w-[18ch] text-center font-display text-[2.75rem] uppercase leading-[1.0] text-foreground md:text-[5rem]">
-          TikTok Average Views Calculator
+          TikTok KOL{' '}
+          <span className="text-gradient-brand">Views</span> Calculator
         </h1>
         <p className="mx-auto mt-6 max-w-[620px] text-center text-body text-foreground/75 md:text-body-md">
-          Check any TikTok creator's average views, engagement rate, audience
-          quality, and top videos. Free, with no sign-up needed.
+          See any crypto KOL's real average views, engagement, and recent
+          performance on TikTok before you spend a dollar on a campaign. Free,
+          no sign-up — proof over promises.
         </p>
 
         {/* Search bar — single rounded container */}
@@ -81,11 +87,11 @@ export default function HeroCalculator() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="@khaby.lame"
+            placeholder="@cryptobanter"
             className="h-11 flex-1 bg-transparent text-body text-foreground outline-none placeholder:text-foreground/40 md:text-body-md"
           />
           <button className="inline-flex h-12 shrink-0 items-center justify-center rounded-pill bg-ink px-6 text-body font-semibold text-white transition hover:opacity-90">
-            Check Profile
+            Check KOL
           </button>
         </div>
 
@@ -106,12 +112,12 @@ export default function HeroCalculator() {
                     <BadgeCheck size={18} className="text-[#4AABED]" />
                   </div>
                   <span className="text-body-sm text-foreground/55">
-                    @{profile.handle}
+                    @{profile.handle} · {profile.niche}
                   </span>
                 </div>
               </div>
               <a
-                href="https://www.modash.io/"
+                href="/demo-confirmation"
                 className="inline-flex h-11 items-center justify-center rounded-pill bg-ink px-5 text-body-sm font-semibold text-white transition hover:opacity-90"
               >
                 View full report

@@ -5,19 +5,19 @@ import Container from '@/components/ui/Container';
 const FAQS = [
   {
     q: 'How do you get your data?',
-    a: 'Modash works similarly to Google Search. Data is collected by a software program that collects public information on creators and brings it into Modash.',
+    a: 'Kolio works similarly to a search engine. Software continuously indexes public information about crypto KOLs across X, YouTube, TikTok, and Telegram — plus public on-chain activity tied to their campaigns — and brings it into Kolio.',
   },
   {
-    q: 'Is Modash GDPR compliant?',
-    a: 'Yes. Modash is headquartered in Tallinn, Estonia, and complies with the General Data Protection Regulation to keep our customer data safe. Find our Terms of Service here & our Privacy Policy here.',
+    q: 'Is Kolio GDPR compliant?',
+    a: 'Yes. Kolio is built to comply with the General Data Protection Regulation and processes only publicly available data to keep our customer data safe. You can find our Terms of Service and Privacy Policy linked in the footer.',
   },
   {
-    q: 'Where is Modash data stored?',
-    a: 'Data is stored within Europe (Frankfurt, Germany on AWS servers). Data from third-party tools & partners are stored in other hosting facilities. For more information, check out our Privacy Policy.',
+    q: 'Where is Kolio data stored?',
+    a: 'Customer data is stored on hardened, audited cloud infrastructure with encryption at rest and in transit. Data from third-party tools and partners is stored in their respective facilities. For details, check out our Privacy Policy.',
   },
   {
-    q: 'Have creators signed up to be found on your platform?',
-    a: 'Influencers & creators do not opt-in to our database, but they can opt out at any time. Modash is an open network database. We list publicly available info only. This allows creators to be found more easily by brands & get paid to do what they love.',
+    q: 'Do KOLs sign up to be found on Kolio?',
+    a: 'Crypto KOLs do not opt in to our database, but they can opt out at any time. Kolio is an open network — we index publicly available information only. This makes credible KOLs easier for web3 brands to discover, vet, and pay fairly.',
   },
 ];
 

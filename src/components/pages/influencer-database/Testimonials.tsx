@@ -2,75 +2,65 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 type Card = {
   bg: string;
-  logo: string;
+  brand: string;
   quote: string;
   author: string;
   role: string;
-  avatar: string;
 };
 
 const CARDS: Card[] = [
   {
     bg: 'bg-pink-bg',
-    logo: `${CDN}/6835b37a2bcf770c96efc606_logo_burga.avif`,
+    brand: 'Ledger',
     quote:
-      'I’ve worked with Modash for 3+ years across two companies. I can honestly say that it is one of the best tools for influencer discovery and analytics.',
+      'Kolio cut our KOL vetting from weeks to an afternoon. Seeing real reach and bot share upfront meant we stopped paying for inflated follower counts and started backing KOLs who actually convert.',
     author: 'Rugile Paleviciute',
-    role: 'Head of Global Partnerships',
-    avatar: `${CDN}/6835b5043bd7736424b5dc9b_img_rugile.avif`,
+    role: 'Head of Growth',
   },
   {
     bg: 'bg-violet-bg',
-    logo: `${CDN}/6835b80c4ae314b5e9e00e79_logo_regalrose.avif`,
+    brand: 'Arbitrum',
     quote:
-      'Before Modash, I tested platforms for months, none quite worked. Modash was a game changer, reliable discovery and live content tracking.',
+      'We tested every crypto marketing tool out there; none gave us trustworthy data. Kolio was the turning point — reliable KOL discovery plus live content tracking across X and Telegram.',
     author: 'Ayme Mendes Da Costa',
-    role: 'Influencer Marketing Manager',
-    avatar: `${CDN}/6835b72de87970a6c16b6a89_img_ayme.avif`,
+    role: 'KOL Marketing Manager',
   },
   {
     bg: 'bg-orange-bg',
-    logo: `${CDN}/6835b7bed20fc3d0c262fc0f_logo_nordvpn.png`,
+    brand: 'Phantom',
     quote:
-      'I’ve been working with Modash for over 3 years. Previously, I was at a beauty brand and when I started at NordVPN I told my team lead, "I\'m going to need Modash”.',
+      'On-chain escrow changed how we work with KOLs. Budget only releases once the content ships and performs, so both sides are protected. I won’t run a campaign without Kolio now.',
     author: 'Laura Garsdal',
-    role: 'Influencer Marketing Manager',
-    avatar: `${CDN}/6835b7f328e78abe2cbdde7a_img_laura.avif`,
+    role: 'Campaign Lead',
   },
   {
     bg: 'bg-coral-bg',
-    logo: `${CDN}/6835bda2f56382ae4bd7812f_logo_trendhim.png`,
+    brand: 'OKX',
     quote:
-      'For large-scale micro-influencer campaigns, Modash is unmatched. Its huge data pool let us quickly find thousands of creators with the right audience.',
+      'For large micro-KOL pushes around a listing, Kolio is unmatched. We found hundreds of DeFi and trading KOLs with the right audience in days, and attribution showed us exactly who drove volume.',
     author: 'Maris Niilus',
-    role: 'Influencer Campaign Specialist',
-    avatar: `${CDN}/6835bdd8e07dcabf9d72ddf0_img_maris.avif`,
+    role: 'KOL Campaign Specialist',
   },
 ];
 
 function Slide({ card }: { card: Card }) {
   return (
     <div className={`flex h-full flex-col rounded-xl ${card.bg} p-8 md:p-10`}>
-      <img
-        src={card.logo}
-        width={112}
-        alt=""
-        className="h-7 w-auto self-start object-contain"
-      />
+      <span className="self-start text-body-md font-display font-semibold uppercase tracking-tight text-foreground/80">
+        {card.brand}
+      </span>
       <p className="mt-6 flex-1 text-body-md leading-snug text-foreground">
         {card.quote}
       </p>
       <div className="mt-8 flex items-center gap-3">
-        <img
-          src={card.avatar}
-          width={56}
-          alt={card.author}
-          className="h-14 w-14 rounded-full object-cover"
-        />
+        <span
+          aria-hidden
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand text-body-md font-semibold text-white"
+        >
+          {card.author.charAt(0)}
+        </span>
         <div>
           <div className="text-body font-semibold text-foreground">
             {card.author}
@@ -97,7 +87,7 @@ export default function Testimonials() {
               Testimonials
             </div>
             <h3 className="mt-3 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-              What Modash customers say
+              What crypto teams say about Kolio
             </h3>
           </div>
 

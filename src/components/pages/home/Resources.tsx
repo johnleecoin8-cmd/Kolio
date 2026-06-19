@@ -6,23 +6,23 @@ const SMALL = [
   {
     tag: 'Return on Influence',
     img: `${CDN}/694013ac4e94bd043b8bb0b6_img_thumbnail_newsletter.avif`,
-    title: 'Read our latest tips',
-    body: 'Get ideas from pro influencer marketers about how to run influencer marketing. Direct to your inbox, twice a month.',
-    href: '/newsletter',
+    title: 'Read our latest playbooks',
+    body: 'Get tactics from operators running real crypto KOL campaigns — discovery, vetting, and attribution. Direct to your inbox, twice a month.',
+    href: '/demo-confirmation',
   },
   {
-    tag: 'Survey Says',
+    tag: 'Data Stories',
     img: `${CDN}/694013bed5274e17d8575a5b_img_thumbnail_blog.avif`,
-    title: 'See what everyone else is doing',
-    body: 'How do you pay influencers? When do you start planning for Black Friday? Is it normal to get ghosted this much? We have the answers.',
-    href: 'https://www.modash.io/category/data-stories',
+    title: 'See what other web3 teams do',
+    body: 'How much should you pay a KOL? Which niches convert around a listing? How common is bot-inflated reach? We dug into the data.',
+    href: '/demo-confirmation',
   },
   {
-    tag: 'MoTok',
+    tag: 'Benchmarks',
     img: `${CDN}/6943de5be000eace5d14a79e_img_resources_simone_tiktok.avif`,
-    title: 'Watch what Simone’s up to',
-    body: 'Follow Modash on TikTok to watch what Simone is revealing about the world of influencer marketing.',
-    href: 'https://www.tiktok.com/@modash.io',
+    title: 'Crypto KOL rate benchmarks',
+    body: 'See real reach-to-cost ratios across X, YouTube, and Telegram so you never overpay for a thread or a shill again.',
+    href: '/demo-confirmation',
   },
 ];
 
@@ -36,20 +36,17 @@ export default function Resources() {
             Resources
           </p>
           <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
-            Become everyone’s favorite marketer
+            Run the smartest KOL campaigns in the room
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/75">
-            With a mix of insights, surveys, and stories created with love to make your
-            work feel easier.
+            A mix of playbooks, benchmarks, and data stories from across web3 — made to
+            help you spend with confidence.
           </p>
         </div>
 
         {/* featured webinar */}
         <div className="grid gap-8 rounded-xl border border-black/5 p-6 md:grid-cols-2 md:items-center md:p-8">
-          <a
-            href="https://watch.getcontrast.io/register/modash-how-brands-do-influencer-marketing"
-            className="block overflow-hidden rounded-lg"
-          >
+          <a href="/demo-confirmation" className="block overflow-hidden rounded-lg">
             <img
               src={`${CDN}/69aad1863cb11547b1560806_image%20(23).avif`}
               alt=""
@@ -61,17 +58,13 @@ export default function Resources() {
             <span className="rounded-pill bg-pink px-3 py-1 text-eyebrow font-semibold text-ink">
               Webinars
             </span>
-            <a
-              href="https://watch.getcontrast.io/register/modash-how-brands-do-influencer-marketing"
-              className="font-sans text-h4 font-bold text-foreground"
-            >
-              How brands actually run influencer marketing
+            <a href="/demo-confirmation" className="font-sans text-h4 font-bold text-foreground">
+              How web3 teams actually run KOL marketing
             </a>
             <p className="text-body-sm text-foreground/60">
-              Join Georgia Humphries (Stanley 1913), Tess Goodwin (Goodwipes), and Enara
-              Roy (Oddball) in this special edition of Modash Live. Hear how they build
-              ambassador programs, run creator led campaigns, and use unexpected
-              partnerships to grow their brands through influencers.
+              Growth leads from leading exchanges and protocols join a special edition of
+              Kolio Live. Hear how they brief KOLs ahead of a listing, vet audiences before
+              they pay, and use on-chain attribution to prove what actually drove sign-ups.
             </p>
             <span className="text-eyebrow text-foreground/50">March 25, 2026</span>
           </div>

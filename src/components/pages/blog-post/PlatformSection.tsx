@@ -1,12 +1,12 @@
 import { Platform } from './platforms';
-import ModashBody from './ModashBody';
+import KolioFeatures from './KolioFeatures';
 
 const GLANCE_ICON: Record<string, string> = {
   'Best for': '🥇',
   'Free trial': '🆓',
   Price: '💵',
   Platforms: '📱',
-  'Influencer database size': '📇',
+  'KOL coverage': '📇',
   'Used by': '🤝',
   'Review score': '✨',
 };
@@ -25,7 +25,7 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       {img && (
         <img
           src={img}
-          alt={`${short} influencer marketing platform`}
+          alt={`${short} web3 KOL marketing platform`}
           loading="lazy"
           className="mt-6 w-full rounded-lg border border-black/5"
         />
@@ -51,8 +51,8 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       </h3>
       <p className="mt-3 text-body leading-relaxed text-foreground/80">{whatis}</p>
 
-      {/* Modash feature deep-dive (recruitment / relationships / payments / tracking) */}
-      {num === 1 && <ModashBody />}
+      {/* Kolio feature deep-dive (discovery / relationships / payments / attribution) */}
+      {num === 1 && <KolioFeatures />}
 
       {/* Strengths */}
       {strengths.length > 0 && (

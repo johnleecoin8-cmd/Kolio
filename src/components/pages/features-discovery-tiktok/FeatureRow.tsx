@@ -25,7 +25,7 @@ export default function FeatureRow({
   imgAlt,
   visual,
   ctaLabel,
-  ctaHref = 'https://marketer.modash.io/register/marketer',
+  ctaHref = '/demo-confirmation',
   imageOn = 'right',
   bg = 'white',
 }: Props) {

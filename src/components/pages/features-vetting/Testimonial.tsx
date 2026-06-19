@@ -16,10 +16,10 @@ export default function Testimonial() {
             loading="lazy"
           />
           <p className="mt-6 text-[1.625rem] leading-[1.2] text-foreground md:text-[2rem]">
-            Using Modash, we&rsquo;ve been able to contract 70+ influencers and 500+
-            nano influencers — and we plan to scale internationally! We start every
-            campaign by using the influencer discovery tools, and Modash also makes it
-            quick to see the metrics we care about &amp; how their content performs.
+            With Kolio we vetted and onboarded 60+ crypto KOLs and 400+ nano voices
+            for our token launch — across X, Telegram and YouTube. The proof-based
+            profiles let us cut the bot-inflated accounts on day one, and on-chain
+            attribution showed us exactly which KOLs actually drove wallets.
           </p>
 
           <div className="mt-8 flex items-center gap-4">
@@ -32,16 +32,13 @@ export default function Testimonial() {
             <div className="text-left">
               <div className="text-body font-semibold text-foreground">Alíz Sipkai</div>
               <div className="text-body-sm text-foreground/60">
-                Influencer Marketing Manager
+                Head of Growth, Web3 Protocol
               </div>
             </div>
             <div className="mx-2 h-10 w-px bg-black/10" />
-            <img
-              src={`${CDN}/683fe83472a17e0f010f0027_logo_biotech.avif`}
-              alt="Biotech"
-              className="h-7 w-auto"
-              loading="lazy"
-            />
+            <span className="font-display text-lg font-bold tracking-tight text-foreground">
+              Helix<span className="text-gradient-brand">Labs</span>
+            </span>
           </div>
         </div>
       </Container>

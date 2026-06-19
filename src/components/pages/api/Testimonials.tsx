@@ -2,42 +2,34 @@ import { useState } from 'react';
 import Container from '@/components/ui/Container';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
 const ITEMS = [
   {
-    company: 'Pietra',
-    logo: `${CDN}/691457b863728c257bb812c0_logo_pietra.avif`,
+    company: 'Helix Exchange',
     bg: 'bg-pink',
     quote:
-      'The Modash API allows us to deliver actionable social insights and empowers our users to hire and manage creators that are already creating content within their niche.',
+      'The Kolio API lets us surface vetted crypto KOLs that already create for our niche — and prove their audience is real before we ever fund a campaign.',
     name: 'Ronak Trivedi',
-    role: 'Co-Founder & CEO at Pietra',
-    avatar: `${CDN}/6842bde7a4d4bb9d928497a0_img_ronak.avif`,
+    role: 'Head of Growth at Helix Exchange',
   },
   {
-    company: 'Clay',
-    logo: `${CDN}/691457c3a8651e34ea72823a_logo_clay.avif`,
+    company: 'Northwind Protocol',
     bg: 'bg-purple-light',
     quote:
-      "We're very excited to give our users access to such deep and detailed creator data through the Modash API. The creator economy is a vital part of going to market and partnering with Modash means our users can add yet another distribution channel to their own growth strategies.",
+      "Giving our team programmatic access to this depth of KOL and on-chain attribution data is a game-changer. In crypto, distribution is everything — and Kolio turned it into a measurable channel we can actually trust.",
     name: 'Stefan Kollenberg',
-    role: 'Technology Partnerships at Clay',
-    avatar: `${CDN}/6842bdf4a923a68d024b721d_img_stefan.avif`,
+    role: 'BD & Partnerships at Northwind Protocol',
   },
   {
-    company: 'Health Labs Care',
-    logo: `${CDN}/691457d0b38465599295903e_logo_health%20labs.avif`,
+    company: 'Mesa Labs',
     bg: 'bg-violet-light',
     quote:
-      "Modash is our essential partner in very modern, data-driven influencer marketing. Without Modash, it'd be impossible for us to build our CRM with the resources we have.",
+      "Kolio is our essential partner for proof-based web3 influencer marketing. Without it, building our own KOL vetting and attribution stack would be impossible with the team we have.",
     name: 'Aleksander Kopyt',
-    role: 'Head of Affiliate Marketing, Health Labs Care',
-    avatar: `${CDN}/6842be1c6db6bb365e340943_img_aleksander.avif`,
+    role: 'Head of Affiliate Marketing, Mesa Labs',
   },
 ];
 
-/** "Why they love Modash" — horizontal scrolling testimonial cards + arrows. */
+/** "Why they love Kolio" — horizontal scrolling testimonial cards + arrows. */
 export default function Testimonials() {
   const [active, setActive] = useState(0);
   const prev = () => setActive((a) => Math.max(0, a - 1));
@@ -52,7 +44,7 @@ export default function Testimonials() {
               Testimonials
             </p>
             <h3 className="mt-2 text-[1.75rem] font-semibold leading-[1.15] text-foreground">
-              Why they love Modash
+              Why web3 teams build on Kolio
             </h3>
           </div>
           <div className="flex gap-2">
@@ -86,21 +78,18 @@ export default function Testimonials() {
                 className={`${t.bg} flex w-[85%] shrink-0 flex-col justify-between rounded-xl p-8 md:w-[calc(50%-0.75rem)] md:p-10`}
               >
                 <div>
-                  <img
-                    src={t.logo}
-                    alt={t.company}
-                    loading="lazy"
-                    className="h-6 w-auto object-contain"
-                  />
+                  <span className="text-body-lg font-display font-bold tracking-tight text-ink">
+                    {t.company}
+                  </span>
                   <p className="mt-4 text-body-md font-medium text-ink">{t.quote}</p>
                 </div>
                 <div className="mt-8 flex items-center gap-3">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    loading="lazy"
-                    className="h-12 w-12 rounded-pill object-cover"
-                  />
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-pill bg-white text-body-md font-bold text-ink shadow-btn">
+                    {t.name
+                      .split(' ')
+                      .map((w) => w[0])
+                      .join('')}
+                  </span>
                   <div>
                     <p className="text-body font-semibold text-ink">{t.name}</p>
                     <p className="text-body-sm text-ink/60">{t.role}</p>

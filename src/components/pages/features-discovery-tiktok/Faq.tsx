@@ -4,24 +4,24 @@ import Container from '@/components/ui/Container';
 
 const FAQS = [
   {
-    q: 'What is influencer discovery?',
-    a: 'Influencer discovery is the process of finding influencers that are the right fit to promote your brand or product.',
+    q: 'What is crypto KOL discovery?',
+    a: 'KOL discovery is the process of finding crypto key opinion leaders who are the right fit to promote your token, exchange, or protocol — and verifying their reach and audience before you run a campaign.',
   },
   {
-    q: 'How many TikTok influencers are in the Modash database?',
-    a: "Modash simply lists every creator on Earth with 1k+ followers across Instagram, YouTube, and TikTok. For TikTok specifically, that's over 96M+ accounts; the largest database on the market, and it grows every day.",
+    q: 'Which crypto KOLs does Kolio cover on TikTok?',
+    a: "Kolio indexes crypto-native TikTok creators — from micro creators with a few thousand followers to the accounts moving markets — and enriches each profile with proof-based metrics. Coverage grows every day and spans the niches that matter in web3: DeFi, L1/L2, trading, NFTs, and gaming.",
   },
   {
     q: 'Which discovery filters are available?',
-    a: 'There are filters available for the influencer, and for their audience – and they vary slightly per platform. For TikTok, here are some of the filters available. For audiences: location (city/country), gender, age, and language. And for influencers: location, follower range, engagement rate, language, keywords mentioned in bios/posts, contact information availability, and more. See all available filters by signing up for a free trial.',
+    a: 'Filters apply to both the KOL and their audience. For audiences: location, age, language, and crypto-awareness. For KOLs: follower range, engagement rate, real-follower rate, language, niche, keywords in bios and posts, channel (TikTok, X, YouTube, Telegram), and contact availability. See every filter by starting a free trial.',
   },
   {
-    q: 'Can you use Modash to discover micro TikTok influencers?',
-    a: "Yes! A 'micro influencer' would typically be defined by their number of subscribers. In Modash, you can simply apply a filter to only see TikTok profiles with a subscribers range between X and Y (e.g. 10k-25k). Combine those with other filters like interests, keywords, and audience locations to find the perfect fit.",
+    q: 'Can you use Kolio to find micro crypto KOLs?',
+    a: "Yes. Apply a follower-range filter to only see profiles between X and Y followers (e.g. 10k–25k), then combine it with niche, keyword, and audience-location filters to find the right micro-KOL fit — often the highest-converting tier for early-stage projects.",
   },
   {
-    q: 'Can Modash help with vetting TikTok influencers too?',
-    a: 'Yes. Every influencer you discover can be analyzed inside Modash. You can check quantitative factors like engagement rate & follower growth rate, and audience breakdown by locations & gender. Qualitatively, you can also check their recent posts, popular posts, sponsored posts, and more.',
+    q: 'Does Kolio handle vetting and payments too?',
+    a: 'Yes. Every KOL can be analyzed inside Kolio with proof-based metrics — engagement rate, real-follower rate, audience breakdown, and recent or sponsored posts. When you are ready to run a deal, fund it into on-chain escrow, release on delivery, and track attribution for the campaign.',
   },
 ];
 
@@ -34,7 +34,7 @@ export default function Faq() {
       <Container>
         <div className="mx-auto max-w-[820px]">
           <h3 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
-            Modash TikTok discovery tool FAQs
+            Kolio crypto KOL discovery FAQs
           </h3>
 
           <div className="divide-y divide-black/10 border-y border-black/10">
