@@ -1,7 +1,6 @@
-import { Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-/** See it in action — interactive demo embed placeholder. */
+/** See it in action — Navattic interactive demo embed. */
 export default function SeeItInAction() {
   return (
     <section className="bg-background py-12 md:py-16">
@@ -17,10 +16,14 @@ export default function SeeItInAction() {
           </p>
         </div>
 
-        <div className="mt-10 flex aspect-[16/9] w-full items-center justify-center rounded-xl bg-background-soft">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-ink text-white shadow-lg">
-            <Play className="h-6 w-6 translate-x-0.5" fill="currentColor" />
-          </div>
+        <div className="mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl bg-background-soft">
+          <iframe
+            src="https://capture.navattic.com/cmewtk9pn000004kyb37kagzn"
+            title="Modash Payments interactive demo"
+            loading="lazy"
+            allow="fullscreen"
+            className="h-full w-full border-0"
+          />
         </div>
       </Container>
     </section>

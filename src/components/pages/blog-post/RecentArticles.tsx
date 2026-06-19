@@ -1,25 +1,25 @@
 import Container from '@/components/ui/Container';
 
-const IMG_A =
+const THUMB =
   'https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719/69b41a41d4ba001370265a96_68efa820d3afe14813784845_Klear%20Alternatives%20Influencer%20Marketing.avif';
-const IMG_B =
+const AUTHOR_AVATAR =
   'https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719/66dad82f68010bced8ff8a36_1517376322625.avif';
 
 const ARTICLES = [
   {
-    img: IMG_A,
+    img: THUMB,
     title: '10 Best Tapfiliate Alternatives to Use in 2026',
     date: 'June 14, 2026',
     read: '14 mins',
   },
   {
-    img: IMG_B,
+    img: THUMB,
     title: '9 Best Creator Affiliate Management Tools to Use in 2026',
     date: 'June 14, 2026',
     read: '10 mins',
   },
   {
-    img: IMG_A,
+    img: THUMB,
     title: '9 Best Impact Alternatives to Use in 2026',
     date: 'May 29, 2026',
     read: '18 mins',
@@ -56,9 +56,17 @@ export default function RecentArticles() {
                 <h3 className="text-body font-semibold leading-snug text-foreground">
                   {a.title}
                 </h3>
-                <p className="mt-3 text-body-sm text-foreground/55">
-                  {a.date} <span className="mx-1">•</span> {a.read}
-                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <img
+                    src={AUTHOR_AVATAR}
+                    alt="Phil Norris"
+                    loading="lazy"
+                    className="h-7 w-7 rounded-full object-cover"
+                  />
+                  <p className="text-body-sm text-foreground/55">
+                    {a.date} <span className="mx-1">•</span> {a.read}
+                  </p>
+                </div>
               </div>
             </a>
           ))}

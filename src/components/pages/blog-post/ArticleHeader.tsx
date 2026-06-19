@@ -25,10 +25,16 @@ export default function ArticleHeader() {
           </h1>
 
           {/* author */}
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink text-body-sm font-semibold text-ink">
-              PN
-            </div>
+          <p className="mt-8 text-eyebrow font-semibold uppercase tracking-wide text-foreground/45">
+            Post author &amp; contributor
+          </p>
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <img
+              src="https://cdn.prod.website-files.com/5f59e07fe9136eb4299c5719/66dad82f68010bced8ff8a36_1517376322625.avif"
+              alt="Phil Norris"
+              loading="lazy"
+              className="h-10 w-10 rounded-full object-cover"
+            />
             <div className="text-left">
               <p className="text-body-sm font-semibold text-foreground">Phil Norris</p>
               <p className="text-body-sm text-foreground/55">Writer @ Modash</p>

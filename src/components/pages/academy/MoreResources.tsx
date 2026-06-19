@@ -15,7 +15,7 @@ const CARDS = [
   {
     tag: 'Programs',
     read: '4 mins read',
-    img: `${CDN}/69c56fc7fd146c17d6a768e6_68efab9808d0e9e998a3d4ba_micro%20influencer%20examples.avif`,
+    img: `${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`,
     title: '[Survey] Are Creators Really Over Gifting?',
     body: 'Marketers said creators aren’t open to gifting collabs. But is that true? We asked 25 creators to weigh in on gifting: the good, the bad, and the ugly.',
     date: 'June 12, 2026',
@@ -24,7 +24,7 @@ const CARDS = [
   {
     tag: 'Relationships',
     read: '14 mins read',
-    img: `${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`,
+    img: `${CDN}/69c56fc7fd146c17d6a768e6_68efab9808d0e9e998a3d4ba_micro%20influencer%20examples.avif`,
     title: 'Affiliate Onboarding: How to Set Up New Affiliates So They Actually Start Posting',
     body: '',
     date: 'June 4, 2026',

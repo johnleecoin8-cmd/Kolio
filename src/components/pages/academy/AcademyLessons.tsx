@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 type Lesson = { n: number; video: string; title: string; body: React.ReactNode };
@@ -13,7 +12,7 @@ const TABS = [
 const DISCOVERY: Lesson[] = [
   {
     n: 1,
-    video: 'AKee3_ydUPA',
+    video: 'l3VdOPkBipI',
     title: 'Running Your First Search: Setting Up For Success With Modash',
     body: (
       <>
@@ -25,7 +24,7 @@ const DISCOVERY: Lesson[] = [
   },
   {
     n: 2,
-    video: 'G81jF1lPtKM',
+    video: 'dh9EmN9jLJo',
     title: 'Introduction To Using Modash Search Filters Effectively',
     body: (
       <>
@@ -37,7 +36,7 @@ const DISCOVERY: Lesson[] = [
   },
   {
     n: 3,
-    video: 'Nd3jvoANHB8',
+    video: 'AKee3_ydUPA',
     title: 'Modash Search Filters Continued: 6 Expert Tips For Finding Influencers',
     body: (
       <>
@@ -49,7 +48,7 @@ const DISCOVERY: Lesson[] = [
   },
   {
     n: 4,
-    video: 'dh9EmN9jLJo',
+    video: 'Nd3jvoANHB8',
     title: 'Replicate Your Success By Finding Lookalikes In Modash',
     body: (
       <>
@@ -62,7 +61,7 @@ const DISCOVERY: Lesson[] = [
   },
   {
     n: 5,
-    video: 'l3VdOPkBipI',
+    video: 'G81jF1lPtKM',
     title: 'Tips On Finding Niche-Specific Influencers With Modash',
     body: (
       <>
@@ -74,14 +73,14 @@ const DISCOVERY: Lesson[] = [
   },
 ];
 
-function VideoEmbed({ id }: { id: string }) {
-  const [play, setPlay] = useState(false);
+function VideoEmbed({ id, eager = false }: { id: string; eager?: boolean }) {
+  const [play, setPlay] = useState(eager);
   if (play) {
     return (
-      <div className="aspect-video w-full overflow-hidden rounded bg-gray-200">
+      <div className="aspect-video w-full overflow-hidden rounded bg-[#e0e0e0]">
         <iframe
           className="h-full w-full"
-          src={`https://www.youtube.com/embed/${id}?rel=0&controls=1&autoplay=1`}
+          src={`https://www.youtube.com/embed/${id}?rel=0&controls=1&autoplay=0&mute=0&start=0`}
           title="Modash Academy lesson"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -89,26 +88,23 @@ function VideoEmbed({ id }: { id: string }) {
       </div>
     );
   }
+  // Unloaded YouTube lazy-embed look: flat gray box with the faint YouTube play glyph.
   return (
     <button
       type="button"
       onClick={() => setPlay(true)}
       aria-label="Play video"
-      className="group relative block aspect-video w-full overflow-hidden rounded bg-gray-200"
+      className="group relative block aspect-video w-full overflow-hidden rounded bg-[#e0e0e0]"
     >
-      <img
-        src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-        alt=""
-        loading="lazy"
-        className="h-full w-full object-cover"
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.opacity = '0';
-        }}
-      />
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex h-14 w-20 items-center justify-center rounded-lg bg-black/70 transition group-hover:bg-[#ff0000]">
-          <Play className="h-6 w-6 fill-white text-white" />
-        </span>
+        <svg
+          viewBox="0 0 90 64"
+          className="h-16 w-[5.5rem] text-[#c5c5c5] transition group-hover:text-[#ff0000]"
+          aria-hidden="true"
+        >
+          <rect width="90" height="64" rx="14" fill="currentColor" />
+          <path d="M36 20 L62 32 L36 44 Z" fill="#ffffff" />
+        </svg>
       </span>
     </button>
   );
@@ -146,7 +142,7 @@ export default function AcademyLessons() {
               key={l.n}
               className="grid items-start gap-6 md:grid-cols-2 md:gap-12"
             >
-              <VideoEmbed id={l.video} />
+              <VideoEmbed id={l.video} eager={l.n === 1} />
               <div className="md:pt-2">
                 <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/45">
                   Lesson {l.n}

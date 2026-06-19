@@ -7,6 +7,7 @@ const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 const ITEMS = [
   {
     company: 'Pietra',
+    logo: `${CDN}/691457b863728c257bb812c0_logo_pietra.avif`,
     bg: 'bg-pink',
     quote:
       'The Modash API allows us to deliver actionable social insights and empowers our users to hire and manage creators that are already creating content within their niche.',
@@ -16,6 +17,7 @@ const ITEMS = [
   },
   {
     company: 'Clay',
+    logo: `${CDN}/691457c3a8651e34ea72823a_logo_clay.avif`,
     bg: 'bg-purple-light',
     quote:
       "We're very excited to give our users access to such deep and detailed creator data through the Modash API. The creator economy is a vital part of going to market and partnering with Modash means our users can add yet another distribution channel to their own growth strategies.",
@@ -25,6 +27,7 @@ const ITEMS = [
   },
   {
     company: 'Health Labs Care',
+    logo: `${CDN}/691457d0b38465599295903e_logo_health%20labs.avif`,
     bg: 'bg-violet-light',
     quote:
       "Modash is our essential partner in very modern, data-driven influencer marketing. Without Modash, it'd be impossible for us to build our CRM with the resources we have.",
@@ -83,9 +86,12 @@ export default function Testimonials() {
                 className={`${t.bg} flex w-[85%] shrink-0 flex-col justify-between rounded-xl p-8 md:w-[calc(66.666%-1rem)] md:p-10`}
               >
                 <div>
-                  <p className="text-eyebrow font-semibold uppercase tracking-wide text-ink/50">
-                    {t.company}
-                  </p>
+                  <img
+                    src={t.logo}
+                    alt={t.company}
+                    loading="lazy"
+                    className="h-6 w-auto object-contain"
+                  />
                   <p className="mt-4 text-body-md font-medium text-ink">{t.quote}</p>
                 </div>
                 <div className="mt-8 flex items-center gap-3">

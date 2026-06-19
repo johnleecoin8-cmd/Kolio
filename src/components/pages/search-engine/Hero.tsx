@@ -40,14 +40,19 @@ function SearchMockup() {
   return (
     <div className="relative ml-auto flex w-full max-w-[520px] gap-3">
       {/* left dark rail */}
-      <div className="hidden w-[72px] shrink-0 rounded-xl bg-violet-dark p-4 sm:block">
-        <div className="mb-6 flex items-center gap-1.5">
-          <div className="h-5 w-5 rounded-full bg-white/80" />
+      <div className="hidden w-[112px] shrink-0 rounded-xl bg-violet-dark p-4 sm:block">
+        <div className="mb-8 flex items-center gap-1.5">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[8px] font-extrabold leading-none text-violet-dark">
+            MO
+          </span>
+          <span className="text-[12px] font-extrabold uppercase tracking-tight text-white">
+            Modash
+          </span>
         </div>
-        <div className="space-y-3">
-          <div className="h-2.5 w-10 rounded-pill bg-white/20" />
-          <div className="h-2.5 w-8 rounded-pill bg-white/20" />
-          <div className="h-2.5 w-9 rounded-pill bg-white/20" />
+        <div className="space-y-4">
+          <div className="h-3 w-full rounded-pill bg-white/10" />
+          <div className="h-3 w-full rounded-pill bg-white/10" />
+          <div className="h-3 w-full rounded-pill bg-white/10" />
         </div>
       </div>
 

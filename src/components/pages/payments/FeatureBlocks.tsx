@@ -15,7 +15,7 @@ type Block = {
 
 const BLOCKS: Block[] = [
   {
-    img: `${CDN}/69a572026a3bd64adee010f4_img_payments_02.avif`,
+    img: `${CDN}/69afd245124e6c7889497872_img_payments_01.avif`,
     alt: 'Pay in any currency',
     heading: 'Pay any creator, in any country, in any currency',
     points: [
@@ -34,7 +34,7 @@ const BLOCKS: Block[] = [
     ],
   },
   {
-    img: `${CDN}/69a5720d92d335910003ea31_img_payments_03.avif`,
+    img: `${CDN}/69a572026a3bd64adee010f4_img_payments_02.avif`,
     alt: 'Never chase an invoice again',
     heading: 'Never chase an invoice again',
     reverse: true,
@@ -54,7 +54,7 @@ const BLOCKS: Block[] = [
     ],
   },
   {
-    img: `${CDN}/69a57241e35ba4c9cd70d8ad_img_payments_05.avif`,
+    img: `${CDN}/69a5720d92d335910003ea31_img_payments_03.avif`,
     alt: 'Compliance and tracking',
     heading: 'Compliance and tracking — fully handled',
     points: [

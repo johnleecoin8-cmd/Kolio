@@ -1,27 +1,28 @@
-import { Users, Search, Mail, BarChart3 } from 'lucide-react';
 import Container from '@/components/ui/Container';
+
+const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const TOOLS = [
   {
-    icon: Users,
+    icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
     title: 'Manage',
     body: 'Keep every relationship under control and details out of your head.',
     href: 'https://www.modash.io/manage',
   },
   {
-    icon: Search,
+    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
     title: 'Discover',
     body: "Find the right creators for your brand and know they're a fit before you reach out.",
     href: 'https://www.modash.io/discover',
   },
   {
-    icon: Mail,
+    icon: `${CDN}/68370b6b110cbb6fa07e64a9_ic_send%20emails.avif`,
     title: 'Inbox',
     body: 'Reach out to more creators and build long-term relationships without drowning in emails.',
     href: 'https://www.modash.io/inbox',
   },
   {
-    icon: BarChart3,
+    icon: `${CDN}/68370b6b8dcc81bc9e714810_ic_analyze%20profiles.png`,
     title: 'Track',
     body: 'See every post, every click, every sale, automatically.',
     href: 'https://www.modash.io/track',
@@ -44,13 +45,20 @@ export default function ConnectedTools() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {TOOLS.map(({ icon: Icon, title, body, href }) => (
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {TOOLS.map(({ icon, title, body, href }) => (
             <div
               key={title}
               className="flex flex-col rounded-xl bg-background-soft p-6 md:p-7"
             >
-              <Icon className="h-6 w-6 text-ink" strokeWidth={2} />
+              <img
+                src={icon}
+                alt=""
+                loading="lazy"
+                width={24}
+                height={24}
+                className="h-6 w-6 object-contain"
+              />
               <h3 className="mt-7 text-body font-bold text-ink">{title}</h3>
               <p className="mt-2 flex-1 text-body-sm text-foreground/70">{body}</p>
               <a

@@ -1,13 +1,21 @@
-import { Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const OFFSITES = [
-  'In 2025, 60+ Modashians strutted into Sesimbra, Portugal.',
-  'In 2024, 40+ Modashians descended on Split, Croatia.',
-  'In 2023, 20+ Modashians met up in Madeira, Portugal.',
+  {
+    id: 'KvyYHv9MgQ4',
+    caption: 'In 2025, 60+ Modashians strutted into Sesimbra, Portugal.',
+  },
+  {
+    id: 'GRnuPV22MTI',
+    caption: 'In 2024, 40+ Modashians descended on Split, Croatia.',
+  },
+  {
+    id: 'FkWKyoiHo-0',
+    caption: 'In 2023, 20+ Modashians met up in Madeira, Portugal.',
+  },
 ];
 
-/** Our annual offsite — heading, intro copy, three video placeholders with captions. */
+/** Our annual offsite — heading, intro copy, three YouTube video embeds with captions. */
 export default function AnnualOffsite() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -25,15 +33,17 @@ export default function AnnualOffsite() {
         </div>
 
         <div className="mx-auto mt-12 max-w-[1136px] space-y-12 md:mt-16 md:space-y-16">
-          {OFFSITES.map((caption) => (
-            <div key={caption}>
-              <div className="group flex aspect-video w-full items-center justify-center rounded-xl bg-gray-200 transition">
-                <div className="flex h-16 w-24 items-center justify-center rounded-2xl bg-white/40 transition group-hover:bg-white/60">
-                  <Play
-                    className="h-8 w-8 fill-white text-white"
-                    strokeWidth={0}
-                  />
-                </div>
+          {OFFSITES.map(({ id, caption }) => (
+            <div key={id}>
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&controls=0&autoplay=0&mute=0&start=0`}
+                  title={caption}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="h-full w-full border-0"
+                />
               </div>
               <p className="mt-4 text-center text-body text-foreground/60">
                 {caption}

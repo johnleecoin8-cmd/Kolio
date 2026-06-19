@@ -6,24 +6,24 @@ const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 /** Hero — dark headline on warm bg, pill tag, dual CTA, large product screenshot. */
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background-warm pt-12 md:pt-16">
+    <section className="relative overflow-hidden bg-ink pb-10 pt-12 text-white md:pb-14 md:pt-16">
       <Container>
         <div className="flex flex-col items-center text-center">
           {/* eyebrow pill tag */}
           <a
             href="/shopify"
-            className="mb-6 inline-flex items-center gap-2 rounded-pill bg-ink/5 px-3 py-1.5 text-eyebrow font-semibold text-foreground/70 transition hover:bg-ink/10"
+            className="mb-6 inline-flex items-center gap-2 rounded-pill bg-white/10 px-3 py-1.5 text-eyebrow font-semibold text-white/70 transition hover:bg-white/20"
           >
             Influencer Marketing Platform for Brands on Shopify
           </a>
 
-          <h1 className="font-display text-[2.75rem] leading-[1.05] text-foreground sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem]">
+          <h1 className="font-display text-[2.75rem] leading-[1.05] text-white sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem]">
             Manage &amp; grow your
             <br />
             influencer program
           </h1>
 
-          <p className="mx-auto mt-6 max-w-[640px] text-body-md text-foreground/70">
+          <p className="mx-auto mt-6 max-w-[640px] text-body-md text-white/70">
             Run paid partnerships, affiliate, and gifting campaigns. Find creators,
             track performance, and pay partners, all from one place.
           </p>
@@ -43,14 +43,14 @@ export default function Hero() {
                 Request a demo
               </ButtonA>
             </div>
-            <p className="text-body-sm text-foreground/60">
+            <p className="text-body-sm text-white/60">
               14-day free trial・No credit card required
             </p>
           </div>
         </div>
       </Container>
 
-      {/* full-bleed product screenshot */}
+      {/* full-bleed product screenshot collage */}
       <div className="mx-auto mt-12 w-full max-w-[1376px] px-4 sm:px-6 md:mt-16">
         <img
           src={`${CDN}/68344e756f6cb66a17259301_hero_image.avif`}

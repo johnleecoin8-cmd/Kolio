@@ -27,7 +27,7 @@ const TABS: Tab[] = [
       'Uses stateless communication and a uniform, consistent interface.',
       'Clean, structured JSON, making requests and responses easy to handle.',
     ],
-    image: `${CDN}/69131bcd74ec1c5a5f25293c_img_API_02.avif`,
+    image: `${CDN}/6917195f572ff24b5593e6c5_image%20350.avif`,
     cta: { label: 'View Docs', href: 'https://docs.modash.io/' },
   },
   {
@@ -40,7 +40,7 @@ const TABS: Tab[] = [
       'Make successful API call in under five minutes in multiple languages, including Node.js, Python, Java and more.',
       'Test endpoints and see live responses directly within the documentation without writing any code.',
     ],
-    image: `${CDN}/6981d76134cc4acfc1befbd7_img_API_03.avif`,
+    image: `${CDN}/69131bcd74ec1c5a5f25293c_img_API_02.avif`,
     cta: { label: 'View Docs', href: 'https://docs.modash.io/' },
   },
   {
@@ -52,7 +52,7 @@ const TABS: Tab[] = [
       'You’ll get a dedicated account manager eager to understand your goals and guide you every step of the way to success.',
       'We use the Modash API ourselves to power modash.io! That means we’ve lived the challenges, built around them, and have best practices to share.',
     ],
-    image: `${CDN}/6917195f572ff24b5593e6c5_image%20350.avif`,
+    image: `${CDN}/6981d76134cc4acfc1befbd7_img_API_03.avif`,
   },
 ];
 

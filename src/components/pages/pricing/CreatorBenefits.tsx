@@ -16,23 +16,23 @@ const BENEFITS = [
     text: 'Outreach comes from real brand emails, not generic platform inboxes.',
   },
   {
-    icon: `${CDN}/68370b6a349bf837c4481e3b_ic_manage%20relationships.avif`,
+    icon: `${CDN}/6842ca952d91864160ff1a1c_Fistbump.avif`,
     text: 'Creators work directly with humans, enabling real long-term relationships.',
   },
   {
-    icon: `${CDN}/68e5125e4c5a771a705c4b22_ic_sponsored%20content_black.png`,
+    icon: `${CDN}/686bb56918868e7c9f8bc4de_Image.avif`,
     text: 'Creators don’t upload screenshots, links, or performance reports.',
   },
   {
-    icon: `${CDN}/68370b6b9eae2d6b80f9cac2_ic_measure%20results.avif`,
+    icon: `${CDN}/6979f7c89fe585403a604e99_ic-tracking.avif`,
     text: 'All tracking happens automatically in the background.',
   },
   {
-    icon: `${CDN}/698988e2410a04a449e8b444_ic_affiliates.avif`,
+    icon: `${CDN}/6839880de4b9dfb7a7cb6c5e_ic_pay.avif`,
     text: 'Creators have full transparency into their affiliate earnings.',
   },
   {
-    icon: `${CDN}/6839880de4b9dfb7a7cb6c5e_ic_pay.avif`,
+    icon: `${CDN}/6979f7e9aa0667e17faa96e2_ic_Unique%20Click.avif`,
     text: 'Fast, automated payments with dedicated human support when needed.',
   },
 ];

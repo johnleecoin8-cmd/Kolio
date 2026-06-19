@@ -2,13 +2,13 @@ import Container from '@/components/ui/Container';
 
 const LOGOS = [
   ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e2f2297f8dfc363874dd0_logo_square_mixtiles.avif', 'Mixtiles'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6835b37a2bcf770c96efc606_logo_burga.avif', 'Joom'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6994372c86903c2d65de0af0_logo_biotech_testimonial.avif', 'Stanley 1913'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699438738d459b765567601e_logo_blast_testimonial.avif', 'Montblanc'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e2f2297f8dfc363874dd0_logo_square_mixtiles.avif', 'NordVPN'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6835b37a2bcf770c96efc606_logo_burga.avif', 'Bonprix'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/6994372c86903c2d65de0af0_logo_biotech_testimonial.avif', 'Sennheiser'],
-  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/699438738d459b765567601e_logo_blast_testimonial.avif', 'Birkenstock'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e31383e7f179a9e1126a9_logo_square_birkenstock.avif', 'Birkenstock'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e3378f46f597d97c511fa_logo_square_joom.avif', 'Joom'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e36d82a8d1ed031b06397_logo_square_stanley.avif', 'Stanley 1913'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e37060aaf7e4f6196ad87_logo_square_montblanc.avif', 'Montblanc'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e37a1fa416941c83a472f_logo_square_nordvpn.avif', 'NordVPN'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e3bf72ab66825311a1a16_logo_square_bonprix.avif', 'Bonprix'],
+  ['https://cdn.prod.website-files.com/5ef4691542433bca43839ceb/695e3c004f1d55f72651370c_logo_square_sennheiser.avif', 'Sennheiser'],
 ] as const;
 
 /** "Trusted by 2300+ teams" heading + horizontal logo row. */

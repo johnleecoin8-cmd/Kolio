@@ -1,9 +1,6 @@
 import Container from '@/components/ui/Container';
-import { PlayCircle } from 'lucide-react';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** "See it in action" — interactive demo embed area. */
+/** "See it in action" — Navattic interactive demo embed. */
 export default function SeeItInAction() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -19,22 +16,14 @@ export default function SeeItInAction() {
           </p>
         </div>
 
-        <div className="relative mt-12 overflow-hidden rounded-xl border border-black/5 bg-background-soft shadow-nav">
-          <img
-            src={`${CDN}/699d54887fa7999c802e5350_img_hero_manage.avif`}
-            alt="Modash Track interactive demo"
+        <div className="relative mt-12 aspect-[3/4] w-full overflow-hidden rounded-[20px] sm:aspect-[16/13] md:aspect-[1136/1014]">
+          <iframe
+            src="https://capture.navattic.com/cmettlfeq000004ih8lgo7qij"
+            title="Modash Track interactive demo"
             loading="lazy"
-            className="w-full opacity-95"
+            allow="fullscreen"
+            className="absolute inset-0 h-full w-full rounded-[20px] border-none"
           />
-          <button
-            type="button"
-            className="absolute inset-0 flex items-center justify-center bg-ink/10 transition hover:bg-ink/20"
-            aria-label="Play interactive demo"
-          >
-            <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-ink shadow-nav">
-              <PlayCircle size={32} />
-            </span>
-          </button>
         </div>
       </Container>
     </section>

@@ -1,41 +1,35 @@
-import {
-  Search,
-  MousePointerClick,
-  UserPlus,
-  Megaphone,
-  FileText,
-  DollarSign,
-} from 'lucide-react';
 import Container from '@/components/ui/Container';
+
+const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
 const STEPS = [
   {
-    icon: Search,
+    icon: `${CDN}/6837096d4faddb80cd0aec3f_ic_find%20influencers.avif`,
     title: '1. Fund your wallet',
     body: 'Transfer funds to your Modash payment wallet.',
   },
   {
-    icon: MousePointerClick,
+    icon: `${CDN}/6979f75c8f82dc047c9ed943_ic_click.avif`,
     title: '2. Set up payments',
     body: 'Select creators, amounts, deliverables, and currencies.',
   },
   {
-    icon: UserPlus,
+    icon: `${CDN}/6842ca952d91864160ff1a1c_Fistbump.avif`,
     title: '3. Creator onboarding',
     body: 'Creators add their personal and banking details for the first time.',
   },
   {
-    icon: Megaphone,
+    icon: `${CDN}/68370b6b9eae2d6b80f9cac2_ic_measure%20results.avif`,
     title: '4. Send payment link',
     body: 'Share a secure payment link with creators.',
   },
   {
-    icon: FileText,
+    icon: `${CDN}/688b29d047d224c3d89fcf9c_ic_details.avif`,
     title: '5. Invoice submission',
     body: 'Creators upload or auto-generate compliant invoices.',
   },
   {
-    icon: DollarSign,
+    icon: `${CDN}/6878ecfd01a1d81e6a0b37e8_Coin.avif`,
     title: '6. Payment processing',
     body: 'Modash validates, handles compliance, and processes payment.',
   },
@@ -53,12 +47,21 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {STEPS.map(({ icon: Icon, title, body }) => (
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {STEPS.map(({ icon, title, body }) => (
             <div key={title} className="rounded-xl bg-background-soft p-6 md:p-8">
-              <Icon className="h-6 w-6 text-ink" strokeWidth={2} />
-              <h3 className="mt-8 text-body font-bold text-ink">{title}</h3>
-              <p className="mt-2 text-body-sm text-foreground/70">{body}</p>
+              <div className="flex items-center gap-3">
+                <img
+                  src={icon}
+                  alt=""
+                  loading="lazy"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 shrink-0 object-contain"
+                />
+                <h3 className="text-body font-bold text-ink">{title}</h3>
+              </div>
+              <p className="mt-3 text-body-sm text-foreground/70">{body}</p>
             </div>
           ))}
         </div>

@@ -41,7 +41,7 @@ function LogoRow() {
 /** Trusted-by logo marquee — two duplicated rows scrolling right→left. */
 export default function LogoBar() {
   return (
-    <section className="bg-background-warm pb-16 pt-20 md:pb-24 md:pt-28">
+    <section className="bg-white pb-16 pt-20 md:pb-24 md:pt-28">
       <Container>
         <div className="mb-10 text-center">
           <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
@@ -59,8 +59,8 @@ export default function LogoBar() {
             <LogoRow />
           </div>
           {/* edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background-warm to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background-warm to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent" />
         </div>
       </Container>
 

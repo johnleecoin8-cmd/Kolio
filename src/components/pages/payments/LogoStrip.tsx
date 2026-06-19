@@ -11,13 +11,6 @@ const LOGOS = [
   { src: `${CDN}/695e37a1fa416941c83a472f_logo_square_nordvpn.avif`, name: 'NordVPN' },
   { src: `${CDN}/695e3bf72ab66825311a1a16_logo_square_bonprix.avif`, name: 'Bonprix' },
   { src: `${CDN}/695e3c004f1d55f72651370c_logo_square_sennheiser.avif`, name: 'Sennheiser' },
-  { src: `${CDN}/695e3e11264ab4e00b78a64f_logo_square_adapt%20naturals.avif`, name: 'Adapt Naturals' },
-  { src: `${CDN}/695e3c86fa741abad6a4018f_logo_square_charles-keith.avif`, name: 'Charles & Keith' },
-  { src: `${CDN}/695e3c90d80020731995ce9e_logo_square_dbrand.avif`, name: 'dbrand' },
-  { src: `${CDN}/695e3cd668139657682e6d17_logo_square_victoria%20secret.avif`, name: "Victoria's Secret" },
-  { src: `${CDN}/695e3df7119d17bbc064df4b_logo_square_farfetch.avif`, name: 'Farfetch' },
-  { src: `${CDN}/695e3e03a94c51fe33acbcc9_logo_square_9%20sleep.avif`, name: 'Eight Sleep' },
-  { src: `${CDN}/695e3e11264ab4e00b78a64f_logo_square_adapt%20naturals.avif`, name: 'BURGA' },
 ];
 
 /** Social proof — heading + grid of brand logos. */

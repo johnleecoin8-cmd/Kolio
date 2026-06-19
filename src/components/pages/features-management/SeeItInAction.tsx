@@ -1,8 +1,6 @@
 import Container from '@/components/ui/Container';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** "See it in action" — interactive product tour embed area. */
+/** "See it in action" — interactive Navattic product tour embed. */
 export default function SeeItInAction() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -17,12 +15,13 @@ export default function SeeItInAction() {
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-[1000px] overflow-hidden rounded-xl border border-black/5 bg-background-soft shadow-nav">
-          <img
-            src={`${CDN}/699c169e4a6ffdde6e65c136_img_manage_01.avif`}
-            alt="Modash Manage interactive tour"
+        <div className="mx-auto mt-10 max-w-[1100px] overflow-hidden rounded-xl">
+          <iframe
+            src="https://capture.navattic.com/cmetr6op5000004johshvfjrd"
+            title="Modash Manage interactive tour"
             loading="lazy"
-            className="w-full"
+            allow="fullscreen"
+            className="aspect-[16/10] w-full border-0"
           />
         </div>
       </Container>
