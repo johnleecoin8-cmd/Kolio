@@ -11,3 +11,4 @@ _capture/pages/
 _capture/local/
 _capture/css/
 _capture/*.log
+.vercel
