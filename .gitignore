@@ -15,3 +15,6 @@ _capture/*.log
 
 # local screenshots
 _shots/
+
+# reference captures (do not commit)
+_ref/

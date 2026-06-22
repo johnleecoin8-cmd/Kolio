@@ -1,46 +1,25 @@
 import Hero from '@/components/pages/home/Hero';
+import FloatingCards from '@/components/pages/home/FloatingCards';
 import PartnerMarquee from '@/components/pages/home/PartnerMarquee';
-import AudienceFork from '@/components/kit/AudienceFork';
-import HomeStats from '@/components/pages/home/HomeStats';
-import ProductSpine from '@/components/pages/home/ProductSpine';
-import HomeComparison from '@/components/pages/home/HomeComparison';
-import CollaborationGrid from '@/components/pages/home/CollaborationGrid';
-import WhyModash from '@/components/pages/home/WhyModash';
-import ShopifyFeature from '@/components/pages/home/ShopifyFeature';
-import HomeTestimonials from '@/components/pages/home/Testimonials';
-import Resources from '@/components/pages/home/Resources';
-import Faq from '@/components/pages/home/Faq';
-import CtaStack from '@/components/pages/home/CtaStack';
-import LiveStats from '@/components/live/LiveStats';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import GetStarted from '@/components/pages/home/GetStarted';
 
-/** Kolio homepage — web3 KOL marketing platform.
- *  Surface rhythm: dark hero -> white marquee -> fork -> neutral stats ->
- *  white spine -> comparison -> use cases -> live proof -> testimonials ->
- *  resources/faq -> dark on-chain CTA punctuation + single red finale. */
+/** Kolio homepage — calm-premium rebuild (phantom.com structure, Kolio brand):
+ *  soft warm canvas, big rounded dark hero with flowing art, floating product
+ *  cards, trust marquee, live real-data proof, calm get-started closing. */
 export default function Home() {
   return (
-    <main>
+    <main className="canvas-warm">
       <Hero />
+      <FloatingCards />
       <PartnerMarquee />
-      <AudienceFork />
-      <HomeStats />
-      <ProductSpine />
-      <HomeComparison />
-      <CollaborationGrid />
-      <WhyModash />
-      <ShopifyFeature />
-      <LiveStats heading="The Kolio index, live right now" />
       <LiveCreatorRail
-        title="Trending crypto KOLs right now"
-        subtitle="Real creators from the Kolio index — click any card for the full proof report."
+        title="Real crypto KOLs, scored on-chain"
+        subtitle="A live slice of the Kolio index. Open any card for the full proof report."
         filters={{ category: 'crypto' }}
         count={8}
       />
-      <HomeTestimonials />
-      <Resources />
-      <Faq />
-      <CtaStack />
+      <GetStarted />
     </main>
   );
 }

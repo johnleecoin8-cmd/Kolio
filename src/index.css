@@ -135,6 +135,49 @@ body {
   background-image: linear-gradient(120deg, hsl(var(--brand)) 0%, hsl(var(--brand-coral)) 100%);
 }
 
+/* ============================ PHANTOM-CRAFT FOUNDATION (v2) ============================ */
+/* Calm-premium reference (phantom.com): light-weight large display, soft tinted
+   canvas, big rounded dark hero panel with flowing art, floating cards with real
+   depth, ONE confident accent. Reskinned to Kolio red. */
+:root {
+  --canvas: 18 46% 97%;        /* soft warm off-white page base (#fbf4f1) */
+  --canvas-2: 14 38% 95%;      /* slightly deeper warm panel */
+  --hero-ink: 240 14% 7%;      /* #0f0f14 deep hero panel */
+  --hero-text: 36 60% 99%;     /* #fffdf8 warm off-white on dark */
+  --ink-2: 258 24% 28%;        /* #3c315b-style muted ink (Phantom body color, warmed toward Kolio) */
+}
+
+.canvas-warm  { background-color: hsl(var(--canvas)); }
+.canvas-warm2 { background-color: hsl(var(--canvas-2)); }
+
+/* Big rounded dark hero panel. */
+.hero-panel {
+  position: relative; overflow: hidden;
+  background-color: hsl(var(--hero-ink));
+  border-radius: 2rem;
+  color: hsl(var(--hero-text));
+}
+@media (min-width: 768px) { .hero-panel { border-radius: 2.75rem; } }
+
+/* Calm light-weight large display (the key craft fix: NOT heavy/shouting). */
+.display-light {
+  font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  font-weight: 450; letter-spacing: -0.035em; line-height: 1.02; text-wrap: balance;
+}
+.display-light strong, .display-light .accent { font-weight: 600; }
+
+/* Floating card with layered soft depth (product mockups, proof cards). */
+.shadow-float {
+  box-shadow:
+    0 2px 6px -2px hsl(258 30% 30% / 0.10),
+    0 18px 40px -16px hsl(258 30% 30% / 0.22),
+    0 40px 80px -40px hsl(258 30% 20% / 0.20);
+}
+.shadow-float-sm { box-shadow: 0 2px 6px -2px hsl(258 30% 30% / 0.10), 0 12px 28px -14px hsl(258 30% 30% / 0.18); }
+
+/* Soft pill CTA used on the dark hero (warm off-white). */
+.pill-light { background: hsl(var(--hero-text)); color: hsl(var(--hero-ink)); }
+
 /* ============================ CRYPTO-NATIVE IDENTITY ============================ */
 /* Dark on-chain surfaces, used as PUNCTUATION against the white base. */
 .bg-surface-ink     { background-color: hsl(var(--surface-ink)); }
