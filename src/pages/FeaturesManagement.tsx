@@ -11,12 +11,14 @@ import Testimonials from '@/components/pages/features-management/Testimonials';
 import WorkflowGrid from '@/components/pages/features-management/WorkflowGrid';
 import Faq from '@/components/pages/features-management/Faq';
 import CtaBlock from '@/components/pages/features-management/CtaBlock';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
 /** Kolio — KOL relationship management feature page. Sections top-to-bottom. */
 export default function FeaturesManagement() {
   return (
     <main>
       <Hero />
+      <LiveCreatorRail title="Manage real creator relationships" count={8} />
       <ProblemStatement />
       <Comparison />
       <FeatureBlocks />

@@ -30,6 +30,7 @@ import Academy from './pages/Academy';
 import Careers from './pages/Careers';
 import Podcast from './pages/Podcast';
 import Legal from './pages/Legal';
+import CreatorProfile from './pages/CreatorProfile';
 
 export default function App() {
   return (
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/legal/privacy-policy" element={<Legal />} />
+        <Route path="/creator/:id" element={<CreatorProfile />} />
       </Routes>
     </Layout>
   );

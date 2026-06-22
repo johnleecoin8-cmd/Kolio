@@ -11,12 +11,19 @@ import Testimonials from '@/components/pages/features-discovery/Testimonials';
 import WorkflowGrid from '@/components/pages/features-discovery/WorkflowGrid';
 import Faq from '@/components/pages/features-discovery/Faq';
 import FinalCta from '@/components/pages/features-discovery/FinalCta';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import LiveStats from '@/components/live/LiveStats';
 
 /** Kolio /features/influencer-discovery — crypto KOL discovery. Sections render top-to-bottom. */
 export default function FeaturesDiscovery() {
   return (
     <main>
       <Hero />
+      <LiveCreatorRail
+        title="Discover real creators now"
+        subtitle="A live slice of the Kolio discovery index."
+        count={8}
+      />
       <ProblemIntro />
       <OldVsNew />
       <FeatureBlocks />
@@ -27,6 +34,7 @@ export default function FeaturesDiscovery() {
       <DemoSection />
       <Testimonials />
       <WorkflowGrid />
+      <LiveStats />
       <Faq />
       <FinalCta />
     </main>

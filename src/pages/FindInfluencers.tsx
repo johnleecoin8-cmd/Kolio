@@ -1,3 +1,4 @@
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import PageHeader from '@/components/pages/find-influencers/PageHeader';
 import ResultsPanel from '@/components/pages/find-influencers/ResultsPanel';
 import RelatedSearches from '@/components/pages/find-influencers/RelatedSearches';
@@ -12,6 +13,11 @@ export default function FindInfluencers() {
   return (
     <>
       <PageHeader />
+      <LiveCreatorRail
+        title="Fitness creators on Kolio"
+        filters={{ category: 'fitness' }}
+        count={8}
+      />
       <ResultsPanel />
       <RelatedSearches />
       <Faq />

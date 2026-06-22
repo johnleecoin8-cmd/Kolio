@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Search, BadgeCheck, Loader2 } from 'lucide-react';
 import { BACKEND_ENABLED } from '@/lib/supabase';
 import { searchCreators } from '@/api/creators';
@@ -85,16 +86,16 @@ export default function LiveDiscovery() {
               {rows.map((c) => (
                 <tr key={c.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
                   <td className="px-4 py-3">
-                    <div className="flex items-center gap-3">
+                    <Link to={`/creator/${c.id}`} className="flex items-center gap-3">
                       <img src={c.avatar_url ?? ''} alt="" className="h-9 w-9 rounded-pill object-cover" loading="lazy" />
                       <div>
-                        <div className="flex items-center gap-1 font-semibold text-foreground">
+                        <div className="flex items-center gap-1 font-semibold text-foreground hover:text-brand">
                           {c.display_name}
                           {c.is_verified && <BadgeCheck className="h-4 w-4 text-blue" />}
                         </div>
                         <div className="text-eyebrow text-foreground/50">@{c.handle}</div>
                       </div>
-                    </div>
+                    </Link>
                   </td>
                   <td className="px-4 py-3 capitalize text-foreground/70">{c.platform}</td>
                   <td className="px-4 py-3 capitalize text-foreground/70">{c.category}</td>

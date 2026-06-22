@@ -8,6 +8,7 @@ import {
   AttributionVisual,
 } from '@/components/pages/influencer-database/FeatureVisuals';
 import EverythingElse from '@/components/pages/influencer-database/EverythingElse';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import Testimonials from '@/components/pages/influencer-database/Testimonials';
 import BottomCta from '@/components/pages/influencer-database/BottomCta';
 
@@ -18,6 +19,8 @@ export default function InfluencerDatabase() {
       <Hero />
 
       <LiveDiscovery />
+
+      <LiveCreatorRail title="Top creators in the database" count={8} />
 
       <SearchFilterFeature />
 

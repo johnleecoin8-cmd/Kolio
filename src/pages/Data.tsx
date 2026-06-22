@@ -1,4 +1,5 @@
 import Hero from '@/components/pages/data/Hero';
+import LiveStats from '@/components/live/LiveStats';
 import TrustedBy from '@/components/pages/data/TrustedBy';
 import HowItWorks from '@/components/pages/data/HowItWorks';
 import Searchable from '@/components/pages/data/Searchable';
@@ -12,6 +13,7 @@ export default function Data() {
   return (
     <main>
       <Hero />
+      <LiveStats heading="The numbers behind Kolio data" />
       <TrustedBy />
       <HowItWorks />
       <Searchable />

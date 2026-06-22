@@ -11,12 +11,16 @@ import Testimonials from '@/components/pages/features-tracking/Testimonials';
 import Workflow from '@/components/pages/features-tracking/Workflow';
 import Faq from '@/components/pages/features-tracking/Faq';
 import FinalCta from '@/components/pages/features-tracking/FinalCta';
+import LiveStats from '@/components/live/LiveStats';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
 /** Kolio /features/kol-tracking — web3 KOL campaign tracking. Sections top-to-bottom. */
 export default function FeaturesTracking() {
   return (
     <main>
       <Hero />
+      <LiveStats heading="Tracking real campaign reach" />
+      <LiveCreatorRail title="Creators you can track" count={8} />
       <PainIntro />
       <Comparison />
       <TrackCampaigns />

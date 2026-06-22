@@ -1,3 +1,4 @@
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import Hero from '@/components/pages/features-discovery-tiktok/Hero';
 import UnmatchedScale from '@/components/pages/features-discovery-tiktok/UnmatchedScale';
 import PerformanceTabs from '@/components/pages/features-discovery-tiktok/PerformanceTabs';
@@ -15,6 +16,7 @@ export default function FeaturesDiscoveryTiktok() {
   return (
     <main>
       <Hero />
+      <LiveCreatorRail title="Discover TikTok creators" filters={{ platform: 'tiktok' }} count={8} />
       <UnmatchedScale />
       <PerformanceTabs />
       <FeatureRows />

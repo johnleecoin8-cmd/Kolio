@@ -1,3 +1,5 @@
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import LiveStats from '@/components/live/LiveStats';
 import Hero from '@/components/pages/search-engine/Hero';
 import FilterShowcase from '@/components/pages/search-engine/FilterShowcase';
 import AnalyzeFeature from '@/components/pages/search-engine/AnalyzeFeature';
@@ -11,6 +13,8 @@ export default function SearchEngine() {
   return (
     <main>
       <Hero />
+      <LiveCreatorRail title="Search results, powered by Kolio" count={8} />
+      <LiveStats />
       <FilterShowcase />
       <AnalyzeFeature />
       <EmailsFeature />

@@ -13,12 +13,14 @@ import Testimonials from '@/components/pages/payments/Testimonials';
 import ConnectedTools from '@/components/pages/payments/ConnectedTools';
 import Faq from '@/components/pages/payments/Faq';
 import FinalCta from '@/components/pages/payments/FinalCta';
+import LiveStats from '@/components/live/LiveStats';
 
 /** Kolio /payments — on-chain payouts for crypto KOLs. Sections render top-to-bottom. */
 export default function Payments() {
   return (
     <main>
       <Hero />
+      <LiveStats heading="Paying real creators, on-chain" />
       <Problem />
       <Comparison />
       <FeatureBlocks />

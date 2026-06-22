@@ -12,3 +12,6 @@ _capture/local/
 _capture/css/
 _capture/*.log
 .vercel
+
+# local screenshots
+_shots/

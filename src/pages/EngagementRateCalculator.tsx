@@ -1,5 +1,6 @@
 import Hero from '@/components/pages/engagement-rate-calculator/Hero';
 import AnalyzeBlock from '@/components/pages/engagement-rate-calculator/AnalyzeBlock';
+import LiveBenchmark from '@/components/pages/engagement-rate-calculator/LiveBenchmark';
 import GoodRate from '@/components/pages/engagement-rate-calculator/GoodRate';
 import HowToCheck from '@/components/pages/engagement-rate-calculator/HowToCheck';
 import ContentFormat from '@/components/pages/engagement-rate-calculator/ContentFormat';
@@ -12,6 +13,7 @@ export default function EngagementRateCalculator() {
   return (
     <main>
       <Hero />
+      <LiveBenchmark />
       <AnalyzeBlock />
       <GoodRate />
       <HowToCheck />

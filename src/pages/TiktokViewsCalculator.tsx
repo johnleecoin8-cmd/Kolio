@@ -1,4 +1,5 @@
 import HeroCalculator from '@/components/pages/tiktok-views-calculator/HeroCalculator';
+import LiveTiktokBenchmark from '@/components/pages/tiktok-views-calculator/LiveTiktokBenchmark';
 import AnalyzeHero from '@/components/pages/tiktok-views-calculator/AnalyzeHero';
 import HowWeCalculate from '@/components/pages/tiktok-views-calculator/HowWeCalculate';
 import ContentFormat from '@/components/pages/tiktok-views-calculator/ContentFormat';
@@ -12,6 +13,7 @@ export default function TiktokViewsCalculator() {
   return (
     <main>
       <HeroCalculator />
+      <LiveTiktokBenchmark />
       <AnalyzeHero />
       <HowWeCalculate />
       <ContentFormat />

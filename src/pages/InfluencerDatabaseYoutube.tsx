@@ -5,12 +5,22 @@ import ApiFeature from '@/components/pages/influencer-database-youtube/ApiFeatur
 import PlusGrid from '@/components/pages/influencer-database-youtube/PlusGrid';
 import Testimonials from '@/components/pages/influencer-database-youtube/Testimonials';
 import CtaBlock from '@/components/pages/influencer-database-youtube/CtaBlock';
+import LiveStats from '@/components/live/LiveStats';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
 /** Kolio — the web3 influencer marketing platform. YouTube crypto KOL database page. */
 export default function InfluencerDatabaseYoutube() {
   return (
     <main>
       <Hero />
+
+      <LiveStats heading="The YouTube creator graph, live" />
+      <LiveCreatorRail
+        title="Top YouTube creators"
+        filters={{ platform: 'youtube' }}
+        count={8}
+      />
+
       <SearchFilter />
 
       <FeatureRow

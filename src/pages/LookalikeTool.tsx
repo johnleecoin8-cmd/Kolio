@@ -1,3 +1,4 @@
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import Hero from '@/components/pages/lookalike-tool/Hero';
 import FindLookalikes from '@/components/pages/lookalike-tool/FindLookalikes';
 import FilteringLayers from '@/components/pages/lookalike-tool/FilteringLayers';
@@ -10,6 +11,11 @@ export default function LookalikeTool() {
   return (
     <>
       <Hero />
+      <LiveCreatorRail
+        title="Lookalike creators"
+        subtitle="Find creators similar to your top performers — open a profile to see its lookalikes."
+        count={8}
+      />
       <FindLookalikes />
       <FilteringLayers />
       <AnalyzeProfiles />

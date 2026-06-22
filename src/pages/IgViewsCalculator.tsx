@@ -1,4 +1,5 @@
 import Hero from '@/components/pages/ig-views-calculator/Hero';
+import LiveAvgViewsBenchmark from '@/components/pages/ig-views-calculator/LiveAvgViewsBenchmark';
 import PinkCtaBlock from '@/components/pages/ig-views-calculator/PinkCtaBlock';
 import ContentSections from '@/components/pages/ig-views-calculator/ContentSections';
 import OtherPlatforms from '@/components/pages/ig-views-calculator/OtherPlatforms';
@@ -10,6 +11,7 @@ export default function IgViewsCalculator() {
   return (
     <main>
       <Hero />
+      <LiveAvgViewsBenchmark />
       <PinkCtaBlock
         gradient
         lead="Use Kolio to"

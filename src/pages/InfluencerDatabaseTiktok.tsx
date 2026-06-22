@@ -1,3 +1,5 @@
+import LiveStats from '@/components/live/LiveStats';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import Hero from '@/components/pages/influencer-database-tiktok/Hero';
 import SearchFilter from '@/components/pages/influencer-database-tiktok/SearchFilter';
 import GoodFit from '@/components/pages/influencer-database-tiktok/GoodFit';
@@ -12,6 +14,8 @@ export default function InfluencerDatabaseTiktok() {
   return (
     <main>
       <Hero />
+      <LiveStats heading="The TikTok creator graph, live" />
+      <LiveCreatorRail title="Top TikTok creators" filters={{ platform: 'tiktok' }} count={8} />
       <SearchFilter />
       <GoodFit />
       <BulkEmail />

@@ -34,3 +34,29 @@ export type AudienceRow = {
   bucket: string;
   share: number;
 };
+
+export type MetricRow = {
+  captured_on: string;
+  followers: number;
+  engagement_rate: number;
+  avg_views: number;
+};
+
+export type ContentRow = {
+  id: string;
+  thumbnail_url: string | null;
+  post_url: string | null;
+  kind: string;
+  likes: number;
+  comments: number;
+  posted_at: string;
+};
+
+export type CreatorStats = {
+  total: number;
+  verified: number;
+  avg_engagement: number;
+  total_reach: number;
+  by_platform: Record<string, number>;
+  by_category: Record<string, number>;
+};

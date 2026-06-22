@@ -3,6 +3,8 @@ import DataNoTabs from '@/components/pages/features-analytics/DataNoTabs';
 import FeatureRow from '@/components/pages/features-analytics/FeatureRow';
 import Testimonial from '@/components/pages/features-analytics/Testimonial';
 import CtaBlock from '@/components/pages/features-analytics/CtaBlock';
+import LiveStats from '@/components/live/LiveStats';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
@@ -11,6 +13,14 @@ export default function FeaturesAnalytics() {
   return (
     <main>
       <Hero />
+
+      <LiveStats heading="Analytics on real creators" />
+
+      <LiveCreatorRail
+        title="Open any creator for full analytics"
+        subtitle="Each profile has live follower-growth charts and audience breakdowns."
+        count={8}
+      />
 
       <DataNoTabs />
 
