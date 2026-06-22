@@ -2,5 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================================
+   KOLIO design system — calm-premium, crypto-native. Original system; the
+   craft bar (light display type, soft canvas, deep rounded panels, layered
+   depth, restrained accent) is set high. Single accent: Kolio red.
+   ========================================================================= */
+:root {
+  /* surfaces */
+  --canvas: 24 44% 97.5%;        /* #fbf5f2 soft warm page base */
+  --canvas-2: 20 36% 95.5%;      /* #f6ede9 deeper warm panel */
+  --paper: 0 0% 100%;            /* white cards */
+  --ink: 240 16% 8%;             /* #11121a near-black text */
+  --ink-soft: 240 8% 40%;        /* muted body */
+  --panel: 240 18% 7%;           /* #0f0f17 dark hero panel */
+  --panel-2: 240 16% 11%;        /* raised dark surface */
+  --hairline: 240 12% 88%;       /* light borders */
+  --hairline-dark: 240 10% 22%;  /* dark-surface borders */
+  --on-dark: 36 56% 99%;         /* #fffdf9 warm off-white on dark */
+
+  /* brand — used as a restrained accent only */
+  --brand: 8 78% 52%;            /* #e23b28 Kolio red */
+  --brand-2: 14 90% 68%;         /* #f8836b coral */
+  --brand-ink: 8 70% 38%;        /* deep red for text on light */
+  --mint: 158 64% 46%;           /* verified / on-chain positive */
+
+  /* radius — generous, Phantom-caliber rounding */
+  --r-sm: 0.625rem;
+  --r: 1rem;
+  --r-lg: 1.5rem;
+  --r-xl: 2rem;
+  --r-2xl: 2.75rem;
+  --r-pill: 999px;
+
+  --container: 1200px;
+}
+
 html { scroll-behavior: smooth; }
-body { @apply bg-white text-neutral-900 antialiased; }
+* { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+body {
+  background: hsl(var(--canvas));
+  color: hsl(var(--ink));
+  font-family: "General Sans", system-ui, -apple-system, sans-serif;
+  font-feature-settings: "ss01" 1;
+}
+
+/* ---- Type: calm light display (the key craft move) ---- */
+.display {
+  font-family: "General Sans", system-ui, sans-serif;
+  font-weight: 400;                 /* light, not heavy */
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  text-wrap: balance;
+}
+.display-2 { font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; text-wrap: balance; }
+.eyebrow {
+  font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em;
+  color: hsl(var(--ink-soft));
+}
+.num { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+/* ---- Accent helpers ---- */
+.text-grad {
+  background-image: linear-gradient(96deg, hsl(var(--brand)) 0%, hsl(var(--brand-2)) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---- Surfaces ---- */
+.canvas   { background: hsl(var(--canvas)); }
+.canvas-2 { background: hsl(var(--canvas-2)); }
+.panel    { background: hsl(var(--panel)); color: hsl(var(--on-dark)); }
+
+/* deep rounded hero / showcase panel */
+.bigpanel { border-radius: var(--r-xl); }
+@media (min-width: 768px) { .bigpanel { border-radius: var(--r-2xl); } }
+
+/* ---- Depth: layered float shadows ---- */
+.float {
+  box-shadow:
+    0 1px 2px hsl(240 30% 12% / 0.06),
+    0 8px 20px -8px hsl(240 30% 12% / 0.14),
+    0 30px 60px -30px hsl(240 30% 12% / 0.22);
+}
+.float-sm { box-shadow: 0 1px 2px hsl(240 30% 12% / 0.06), 0 10px 24px -14px hsl(240 30% 12% / 0.18); }
+.float-brand { box-shadow: 0 10px 40px -12px hsl(var(--brand) / 0.45); }
+
+/* premium card */
+.card {
+  background: hsl(var(--paper));
+  border: 1px solid hsl(var(--hairline));
+  border-radius: var(--r-lg);
+}
+
+/* chips */
+.chip { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: var(--r-pill); padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 500; line-height: 1; }
+.chip-brand { background: hsl(var(--brand) / 0.10); color: hsl(var(--brand-ink)); }
+.chip-mint  { background: hsl(var(--mint) / 0.14); color: hsl(var(--mint)); }
+.chip-dark  { background: hsl(0 0% 100% / 0.08); color: hsl(var(--on-dark) / 0.85); }
+
+/* grain overlay for dark panels (adds richness, kills flatness) */
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

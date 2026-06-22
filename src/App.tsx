@@ -1,8 +1,16 @@
-/** Clean canvas. Previous build lives in git history. */
+import { Routes, Route } from 'react-router-dom';
+import Layout from '@/components/layout/Layout';
+import Home from '@/pages/Home';
+
+/** Home-first rebuild. Other routes land on Home until the full site is built
+ *  out in the new design language (Phase 4). */
 export default function App() {
   return (
-    <div className="min-h-screen grid place-items-center bg-white text-neutral-900">
-      <p className="text-sm tracking-wide text-neutral-400">Kolio — clean slate</p>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Layout>
   );
 }
