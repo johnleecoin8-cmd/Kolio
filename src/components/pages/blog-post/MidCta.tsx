@@ -1,8 +1,8 @@
 /** In-article closing CTA after the platform list. */
 export default function MidCta() {
   return (
-    <section className="mt-16 border-t border-gray-200 pt-12">
-      <h2 className="display-lg font-display text-[1.75rem] leading-tight text-foreground md:text-[2.125rem]">
+    <section className="mt-16 border-t border-hairline pt-12">
+      <h2 className="display-light text-[1.75rem] leading-[1.1] text-foreground md:text-[2.125rem]">
         See why web3 brands run their KOL campaigns on Kolio
       </h2>
       <p className="mt-4 text-body leading-[1.75] text-foreground/80">

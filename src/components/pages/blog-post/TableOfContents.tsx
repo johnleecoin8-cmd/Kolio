@@ -14,12 +14,12 @@ export default function TableOfContents() {
   return (
     <nav aria-label="Table of contents" className="text-body-sm">
       <p className="eyebrow mb-3">On this page</p>
-      <ul className="border-t border-gray-200">
+      <ul className="border-t border-hairline">
         {PLATFORMS.map((p) => {
           const full = labels[p.num] ?? `${p.num}. ${p.name}`;
           const name = full.replace(/^\d+\.\s*/, '');
           return (
-            <li key={p.num} className="border-b border-gray-200">
+            <li key={p.num} className="border-b border-hairline">
               <a
                 href={`#${slug(p.num)}`}
                 className="group flex items-baseline gap-2.5 py-2.5 text-foreground/65 transition hover:text-foreground"

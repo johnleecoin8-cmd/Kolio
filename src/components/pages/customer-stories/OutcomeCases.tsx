@@ -1,174 +1,98 @@
+import { ArrowUpRight, BadgeCheck, ShieldCheck, Wallet } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import { ArrowUpRight } from 'lucide-react';
 
-type Case = {
-  metric: string;        // the outcome headline (the result number)
-  metricLabel: string;   // what the number measures
-  brand: string;         // crypto brand wordmark
-  vertical: string;      // niche / category
-  summary: string;       // one-line outcome story
-  proof: { value: string; label: string }[];
-  lead?: boolean;        // bigger / dark focal card
-};
-
-const CASES: Case[] = [
-  {
-    metric: '2 hrs/day',
-    metricLabel: 'manual KOL vetting eliminated',
-    brand: 'Arbiscan',
-    vertical: 'L2 explorer · DeFi',
-    summary:
-      'Replaced screenshot-based vetting with verified reach and real-audience scoring across 100 collabs a month.',
-    proof: [
-      { value: '100', label: 'collabs / month' },
-      { value: '94%', label: 'real audience' },
-      { value: '0', label: 'unverified DMs' },
-    ],
-    lead: true,
-  },
-  {
-    metric: '6.2x',
-    metricLabel: 'return on KOL spend',
-    brand: 'Helix DEX',
-    vertical: 'Perps · Trading',
-    summary:
-      'On-chain attribution tied every paid post to wallet sign-ups, killing the campaigns that did not convert.',
-    proof: [
-      { value: '6.2x', label: 'ROAS' },
-      { value: '38K', label: 'wallets' },
-    ],
-  },
-  {
-    metric: '11 days',
-    metricLabel: 'from brief to live campaign',
-    brand: 'Lumen Wallet',
-    vertical: 'Consumer · Wallet',
-    summary:
-      'Discovery, vetting, escrow and payout in one loop cut a six-week agency cycle to under two.',
-    proof: [
-      { value: '11', label: 'days to live' },
-      { value: '23', label: 'KOLs booked' },
-    ],
-  },
-  {
-    metric: '0 disputes',
-    metricLabel: 'across $480K in escrow',
-    brand: 'Parity Protocol',
-    vertical: 'Infra · L1',
-    summary:
-      'On-chain escrow released on delivery removed invoice chasing and wallet-address roulette entirely.',
-    proof: [
-      { value: '$480K', label: 'paid via escrow' },
-      { value: '100%', label: 'on-time payout' },
-    ],
-  },
-];
-
-function ProofRow({
-  proof,
-  dark,
-}: {
-  proof: { value: string; label: string }[];
-  dark?: boolean;
-}) {
-  return (
-    <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t pt-5"
-      style={{ borderColor: dark ? 'rgba(255,255,255,0.12)' : undefined }}>
-      {proof.map((p) => (
-        <div key={p.label}>
-          <div
-            className={`font-mono-tnum num-display text-body-lg ${
-              dark ? 'text-white' : 'text-foreground'
-            }`}
-          >
-            {p.value}
-          </div>
-          <div
-            className={`text-eyebrow ${
-              dark ? 'text-white/50' : 'text-foreground/50'
-            }`}
-          >
-            {p.label}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function CaseCard({ c }: { c: Case }) {
-  if (c.lead) {
-    return (
-      <article className="surface-onchain glow-brand md:col-span-2 flex flex-col rounded-2xl p-8 md:p-10">
-        <div className="flex items-center justify-between">
-          <span className="chip chip-onchain">Featured outcome</span>
-          <span className="font-mono-tnum text-eyebrow text-white/45">
-            {c.vertical}
-          </span>
-        </div>
-        <p className="eyebrow mt-7 text-brand-coral">{c.metricLabel}</p>
-        <h3 className="display-xl mt-2 font-display text-h1 leading-none text-white">
-          {c.metric}
-        </h3>
-        <p className="mt-5 max-w-xl text-body-md leading-snug text-white/75">
-          {c.summary}
-        </p>
-        <div className="mt-7 flex items-center gap-2">
-          <span className="font-display text-body-lg tracking-tight text-white">
-            {c.brand}
-          </span>
-        </div>
-        <ProofRow proof={c.proof} dark />
-      </article>
-    );
-  }
-  return (
-    <article className="card-kit flex flex-col p-7 transition-transform duration-300 hover:-translate-y-0.5">
-      <div className="flex items-center justify-between">
-        <span className="font-display text-body-lg tracking-tight text-foreground/80">
-          {c.brand}
-        </span>
-        <ArrowUpRight className="h-4 w-4 text-foreground/30" />
-      </div>
-      <span className="mt-1 font-mono-tnum text-eyebrow text-foreground/45">
-        {c.vertical}
-      </span>
-      <p className="eyebrow mt-6">{c.metricLabel}</p>
-      <h3 className="display-lg mt-1 font-display text-h2 leading-none text-gradient-brand">
-        {c.metric}
-      </h3>
-      <p className="mt-4 flex-1 text-body leading-snug text-foreground/75">
-        {c.summary}
-      </p>
-      <ProofRow proof={c.proof} />
-    </article>
-  );
-}
-
-/** Outcome-titled case grid: each card headline IS the result number, in a premium card. */
+/** Outcome-titled floating case cards: each headline IS the result number.
+ *  Built as rounded mini product-UIs (on-chain escrow, Proof Score, discovery
+ *  roster) with gentle rotate/translate depth — the calm-premium signature. */
 export default function OutcomeCases() {
   return (
-    <section className="bg-gray-50">
-      <Container className="py-16 md:py-24">
+    <section className="canvas-warm py-20 md:py-28">
+      <Container>
         <div className="max-w-2xl">
-          <span className="eyebrow">Customer outcomes</span>
-          <h2 className="mt-3 display-lg font-display text-h2 text-foreground">
-            The result, not the testimonial.
+          <span className="eyebrow">Case files</span>
+          <h2 className="display-light mt-3 text-[2.25rem] leading-[1.05] text-foreground md:text-[3.25rem]">
+            The number is the headline
           </h2>
-          <p className="mt-4 text-body-md text-foreground/65">
-            Every card below leads with what changed on-chain. Crypto teams use
-            Kolio to discover, verify, manage and pay KOLs in one loop — and
-            here is what it earned them.
+          <p className="mt-5 max-w-lg text-body-md text-foreground/60">
+            Every Kolio campaign closes with a settled, on-chain record. These are
+            real outcomes — measured the same way for every team, never pitched.
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {CASES.map((c) => (
-            <CaseCard key={c.brand} c={c} />
-          ))}
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {/* Lead dark case — verified holder reach, escrow mini UI */}
+          <article className="surface-onchain shadow-float -rotate-1 rounded-2xl p-7 text-white transition hover:rotate-0 md:translate-y-2">
+            <div className="flex items-center justify-between">
+              <span className="chip chip-onchain">Helix DEX · launch</span>
+              <Wallet className="h-5 w-5 text-mint" />
+            </div>
+            <div className="mt-7">
+              <div className="num-display text-[3.75rem] leading-none text-white">+412%</div>
+              <div className="mt-2 text-body-md text-white/65">
+                verified holder reach vs. their prior agency run
+              </div>
+            </div>
+            <div className="mt-7 space-y-2 font-mono-tnum text-eyebrow">
+              <div className="flex justify-between text-white/70"><span>escrow funded</span><span className="text-mint">42,000 USDC</span></div>
+              <div className="flex justify-between text-white/70"><span>KOLs settled</span><span className="text-mint">17 / 17</span></div>
+              <div className="flex justify-between text-white"><span>disputed payouts</span><span className="text-mint">0</span></div>
+            </div>
+            <div className="mt-7 flex items-center gap-1.5 text-body-sm font-semibold text-mint">
+              Read the full record <ArrowUpRight className="h-4 w-4" />
+            </div>
+          </article>
+
+          {/* Cost per verified action — Proof Score mini UI */}
+          <article className="card-kit shadow-float rounded-2xl p-7 transition hover:-translate-y-1 md:-translate-y-2">
+            <div className="flex items-center justify-between">
+              <span className="chip chip-brand">Parity Protocol · awareness</span>
+              <ShieldCheck className="h-5 w-5 text-brand" />
+            </div>
+            <div className="mt-7">
+              <div className="num-display text-[3.75rem] leading-none text-foreground">$0.38</div>
+              <div className="mt-2 text-body-md text-foreground/60">
+                cost per verified on-chain action — down from $2.10
+              </div>
+            </div>
+            <div className="mt-7 space-y-2.5">
+              {[['Avg. KOL Proof Score', '89%', 'bg-brand'], ['Holders engaged', '74%', 'bg-brand-coral'], ['Bots filtered out', '31%', 'bg-gray-300']].map(([l, v, c]) => (
+                <div key={l}>
+                  <div className="mb-1 flex justify-between text-eyebrow text-foreground/55"><span>{l}</span><span className="font-mono-tnum">{v}</span></div>
+                  <div className="h-1.5 rounded-pill bg-gray-100">
+                    <div className={`h-full rounded-pill ${c}`} style={{ width: v as string }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          {/* Attributed wallets — discovery roster mini UI */}
+          <article className="card-kit shadow-float rotate-1 rounded-2xl p-7 transition hover:rotate-0 md:translate-y-2">
+            <div className="flex items-center justify-between">
+              <span className="chip chip-onchain">Lumen Wallet · growth</span>
+              <BadgeCheck className="h-5 w-5 text-brand" />
+            </div>
+            <div className="mt-7">
+              <div className="num-display text-[3.75rem] leading-none text-foreground">9,140</div>
+              <div className="mt-2 text-body-md text-foreground/60">
+                wallets attributed to KOL links in 21 days
+              </div>
+            </div>
+            <div className="mt-7 space-y-2.5">
+              {[['CryptoWhale', 'DeFi', 94], ['L2Maxi', 'Layer2', 90], ['OnchainAna', 'Trading', 87]].map(([h, n, s]) => (
+                <div key={h as string} className="flex items-center gap-3 rounded-lg border border-gray-100 p-2.5">
+                  <span className="grid h-9 w-9 place-items-center rounded-pill bg-gradient-brand text-eyebrow font-bold text-white">{(h as string).slice(0, 2).toUpperCase()}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1 text-body-sm font-semibold text-foreground">@{h}<BadgeCheck className="h-3.5 w-3.5 text-brand" /></div>
+                    <div className="text-eyebrow text-foreground/50">{n} KOL</div>
+                  </div>
+                  <span className="num-display rounded-pill bg-coral-bg px-2 py-1 text-eyebrow font-bold text-brand">{s as number}</span>
+                </div>
+              ))}
+            </div>
+          </article>
         </div>
       </Container>
     </section>
   );
 }
-
-export type { Case };

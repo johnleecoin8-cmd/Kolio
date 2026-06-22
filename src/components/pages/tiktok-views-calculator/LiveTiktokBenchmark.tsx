@@ -31,29 +31,25 @@ export default function LiveTiktokBenchmark() {
   if (!BACKEND_ENABLED || avg === null) return null;
 
   return (
-    <section className="bg-background pb-4 md:pb-8">
+    <section className="canvas-warm pb-12 pt-2 md:pb-16">
       <Container>
-        <div className="mx-auto flex max-w-[920px] flex-col items-center justify-between gap-4 rounded-xl bg-gradient-brand px-6 py-5 text-white sm:flex-row">
+        <div className="card-kit mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 shadow-float-sm sm:flex-row">
           <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/20">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-pill surface-onchain text-mint">
               <Eye size={20} />
             </span>
             <div className="flex flex-col">
-              <span className="text-body-sm font-semibold uppercase tracking-wide text-white/80">
-                Kolio TikTok benchmark
-              </span>
-              <span className="text-body-sm text-white/70">
+              <span className="eyebrow !text-foreground/50">Kolio TikTok benchmark</span>
+              <span className="text-body-sm text-foreground/60">
                 Live average across {count} top TikTok KOLs in our index
               </span>
             </div>
           </div>
           <div className="flex items-baseline gap-2 self-start sm:self-auto">
-            <span className="font-display text-[2rem] leading-none">
+            <span className="num-display font-mono-tnum text-[2rem] leading-none text-brand">
               {fmt(avg)}
             </span>
-            <span className="text-body-sm font-semibold text-white/75">
-              avg views
-            </span>
+            <span className="text-body-sm font-semibold text-foreground/50">avg views</span>
           </div>
         </div>
       </Container>

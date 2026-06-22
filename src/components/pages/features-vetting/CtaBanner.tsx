@@ -1,35 +1,21 @@
-import Container from '@/components/ui/Container';
-import { ButtonA } from '@/components/ui/Button';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 
-/** Closing pink CTA band. */
+/** Calm closing — HeroPanel-style CTA, no loud gradient band. */
 export default function CtaBanner() {
   return (
-    <section className="rounded-t-[32px] bg-pink md:rounded-t-[48px]">
-      <Container className="py-20 md:py-32">
-        <div className="flex flex-col items-center text-center">
-          <h2 className="font-display text-[2.75rem] uppercase leading-[1.02] text-ink sm:text-[4rem] md:text-[5rem] lg:text-[5.75rem]">
-            Book crypto KOLs
-            <br />
-            with proof, not
-            <br />
-            promises
-          </h2>
-
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <ButtonA href="/demo-confirmation" variant="primary">
-                Start vetting free
-              </ButtonA>
-              <ButtonA href="/demo-confirmation" variant="secondary">
-                Book a demo
-              </ButtonA>
-            </div>
-            <p className="text-body-sm text-ink/60">
-              14-day free trial・No credit card required
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <HeroPanel
+      eyebrow="Vet before you wire a dollar"
+      title={<>Book crypto KOLs on <span className="text-gradient-brand">proof</span>, not promises</>}
+      subtitle="Run every creator through True Reach and the Proof Score in seconds. Free to explore — no wallet connect required."
+    >
+      <Link to="/influencer-database" className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90">
+        Vet a KOL free <ArrowRight className="h-4 w-4" />
+      </Link>
+      <Link to="/demo-confirmation" className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10">
+        Book a demo
+      </Link>
+    </HeroPanel>
   );
 }

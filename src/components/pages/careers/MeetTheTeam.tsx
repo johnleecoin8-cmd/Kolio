@@ -1,104 +1,76 @@
+import { ArrowUpRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import LogoMarquee from '@/components/kit/LogoMarquee';
 
-/** Web3 brands/exchanges that run campaigns on Kolio — rendered as styled text,
- *  not logos (the original Modash customer images are intentionally removed). */
+/** Web3 brands/exchanges that run campaigns on Kolio — styled text, not logos. */
 const TRUSTED_BY = [
-  'OKX',
-  'Ledger',
-  'Phantom',
-  'Arbitrum',
-  'Kaito',
-  'Optimism',
-  'Base',
-  'MetaMask',
-  'dYdX',
-  'Polygon',
-  'Uniswap',
-  'Magic Eden',
+  'OKX', 'Ledger', 'Phantom', 'Arbitrum', 'Kaito', 'Optimism',
+  'Base', 'MetaMask', 'dYdX', 'Polygon', 'Uniswap', 'Magic Eden',
 ];
 
-/** Senior team, by discipline — branded initials tiles (no invented headshots). */
+/** Disciplines you can join — branded initials, no invented headshots. */
 const PODS = [
-  { initials: 'GR', name: 'Growth & Partnerships', note: 'Ex-exchange / protocol growth leads' },
-  { initials: 'DA', name: 'Data & Social Graph', note: 'Cross-chain indexing pipelines' },
-  { initials: 'AU', name: 'Audience Authenticity', note: 'Bot & fraud detection' },
-  { initials: 'ON', name: 'On-chain Engineering', note: 'Escrow, payouts, attribution' },
+  { initials: 'GR', name: 'Growth & Partnerships', note: 'Ex-exchange and protocol growth leads', tone: 'brand' as const },
+  { initials: 'DA', name: 'Data & Social Graph', note: 'Cross-chain indexing pipelines', tone: 'ink' as const },
+  { initials: 'AU', name: 'Audience Authenticity', note: 'Bot and fraud detection', tone: 'ink' as const },
+  { initials: 'ON', name: 'On-chain Engineering', note: 'Escrow, payouts, attribution', tone: 'onchain' as const },
 ];
 
-/** Meet the Team — heading, 2-col copy, branded discipline tiles, and a "trusted by" marquee. */
+/** Who you'll work with — calm white surface, floating discipline cards, marquee. */
 export default function MeetTheTeam() {
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <Container>
-        <div className="text-center">
-          <p className="eyebrow mb-3 justify-center">Who you&rsquo;ll work with</p>
-          <h2 className="display-lg font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
-            Meet the Team
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow mb-4 justify-center">Who you&rsquo;ll work with</p>
+          <h2 className="display-light text-[2.25rem] leading-[1.05] text-foreground md:text-[3.5rem]">
+            A small, senior team that has lived on <span className="accent text-gradient-brand">both sides</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-body-md text-foreground/65">
+            We&rsquo;ve run growth at exchanges and protocols, and built the data
+            infrastructure behind creator marketing at scale. Kolio is where those
+            two worlds meet. Remote-first across Europe, with deliberate in-person
+            time, and far more interested in craft and ownership than in where you sit.
+          </p>
         </div>
 
-        <div className="mx-auto mt-8 grid max-w-[940px] gap-6 text-body-sm leading-relaxed text-foreground/70 md:mt-10 md:grid-cols-2 md:gap-10 md:text-body">
-          <div className="space-y-4">
-            <p>
-              We&rsquo;re a small, senior team of operators who&rsquo;ve lived on
-              both sides of the table &mdash; running growth at exchanges and
-              protocols, and building the data infrastructure that powers
-              creator marketing at scale. Kolio is where those two worlds meet.
-            </p>
-            <p>
-              Web3 brands, exchanges, and protocols use Kolio to discover crypto
-              KOLs, vet their real reach and audience quality, and run campaigns
-              with on-chain escrow and attribution &mdash; no more paying for
-              vanity metrics.
-            </p>
-            <p>
-              Some of our customers are blue-chip names. Many are protocols just
-              finding their first thousand users. For both, Kolio is the channel
-              they trust to turn influence into measurable growth.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <p>
-              We move fast and ship in the open. You&rsquo;ll work alongside
-              people who have built indexing pipelines across multiple chains,
-              shipped consumer products to millions, and gone deep on the
-              messy reality of social data &mdash; bot detection, audience
-              authenticity, cross-platform identity.
-            </p>
-            <p>
-              Remote-first across Europe, with deliberate in-person time. We care
-              about craft, judgment, and ownership far more than about where you
-              sit. If you want to define a category instead of joining one, this
-              is the place.
-            </p>
-            <p>
-              Come build the verification layer for crypto influence. Do great
-              work, with great people, on a problem that actually matters.
-            </p>
-          </div>
-        </div>
-
-        {/* Discipline tiles — branded initials, not invented headshots */}
-        <div className="mx-auto mt-14 grid max-w-[1136px] grid-cols-2 gap-4 md:mt-20 md:grid-cols-4 md:gap-6">
-          {PODS.map((pod) => (
-            <div key={pod.initials} className="card-kit flex flex-col p-6 text-left">
-              <div className="bg-gradient-brand flex h-12 w-12 items-center justify-center rounded-lg font-display text-body-lg font-bold tracking-tight text-white">
-                {pod.initials}
+        {/* Floating discipline cards — gentle rotation/translate, branded initials */}
+        <div className="mx-auto mt-14 grid max-w-[1100px] grid-cols-1 gap-6 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
+          {PODS.map((pod, i) => {
+            const dark = pod.tone === 'onchain';
+            const initialBg =
+              pod.tone === 'brand' ? 'bg-gradient-brand text-white'
+              : pod.tone === 'onchain' ? 'bg-white/10 text-mint'
+              : 'bg-coral-bg text-brand';
+            const offset = ['-rotate-1 md:translate-y-3', 'rotate-1 md:-translate-y-2', '-rotate-1 md:translate-y-2', 'rotate-1 md:-translate-y-3'][i];
+            return (
+              <div
+                key={pod.initials}
+                className={`${dark ? 'surface-onchain text-white' : 'card-kit'} shadow-float ${offset} flex flex-col rounded-2xl p-6 transition hover:rotate-0 hover:translate-y-0`}
+              >
+                <div className={`grid h-12 w-12 place-items-center rounded-xl text-body-lg font-bold tracking-tight ${initialBg}`}>
+                  {pod.initials}
+                </div>
+                <h3 className={`mt-5 text-body font-semibold leading-tight ${dark ? 'text-white' : 'text-foreground'}`}>
+                  {pod.name}
+                </h3>
+                <p className={`mt-1.5 text-body-sm leading-snug ${dark ? 'text-white/55' : 'text-foreground/55'}`}>
+                  {pod.note}
+                </p>
+                <a
+                  href="#open-roles"
+                  className={`mt-5 inline-flex items-center gap-1 text-body-sm font-semibold ${dark ? 'text-mint' : 'text-brand'}`}
+                >
+                  View roles <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
               </div>
-              <h3 className="mt-4 text-body font-semibold leading-tight text-foreground">
-                {pod.name}
-              </h3>
-              <p className="mt-1 text-body-sm leading-snug text-foreground/55">
-                {pod.note}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
 
-      {/* Trusted by — web3 brands that run campaigns on Kolio */}
-      <div className="mt-14 md:mt-20">
+      {/* Trusted by — web3 teams that run campaigns on Kolio */}
+      <div className="mt-16 md:mt-24">
         <LogoMarquee label="Trusted by teams across web3" names={TRUSTED_BY} />
       </div>
     </section>

@@ -1,38 +1,43 @@
-import Hero from '@/components/pages/features-tracking/Hero';
-import PainIntro from '@/components/pages/features-tracking/PainIntro';
-import Comparison from '@/components/pages/features-tracking/Comparison';
-import TrackCampaigns from '@/components/pages/features-tracking/TrackCampaigns';
-import LogoBar from '@/components/pages/features-tracking/LogoBar';
-import MeasureGrid from '@/components/pages/features-tracking/MeasureGrid';
-import WeekendsBack from '@/components/pages/features-tracking/WeekendsBack';
-import RightForYou from '@/components/pages/features-tracking/RightForYou';
-import SeeItInAction from '@/components/pages/features-tracking/SeeItInAction';
-import Testimonials from '@/components/pages/features-tracking/Testimonials';
-import Workflow from '@/components/pages/features-tracking/Workflow';
-import Faq from '@/components/pages/features-tracking/Faq';
-import FinalCta from '@/components/pages/features-tracking/FinalCta';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
+import AttributionFlow from '@/components/pages/features-tracking/AttributionFlow';
+import TrackingClose from '@/components/pages/features-tracking/TrackingClose';
 import LiveStats from '@/components/live/LiveStats';
-import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
-/** Kolio /features/kol-tracking — web3 KOL campaign tracking. Sections top-to-bottom. */
+/** Kolio /features/kol-tracking — calm-premium rebuild. Dark HeroPanel hero,
+ *  floating on-chain attribution card, live real-data proof, calm closing CTA. */
 export default function FeaturesTracking() {
   return (
-    <main>
-      <Hero />
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="On-chain attribution"
+        title={
+          <>
+            Track the campaigns you can <span className="text-gradient-brand">prove</span>
+          </>
+        }
+        subtitle="Tie every KOL post to the swaps and mints it drove. No screenshots — signed on-chain events, measured against your baseline."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Find KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
+      <AttributionFlow />
+
       <LiveStats heading="Tracking real campaign reach" />
-      <LiveCreatorRail title="Creators you can track" count={8} />
-      <PainIntro />
-      <Comparison />
-      <TrackCampaigns />
-      <LogoBar />
-      <MeasureGrid />
-      <WeekendsBack />
-      <RightForYou />
-      <SeeItInAction />
-      <Testimonials />
-      <Workflow />
-      <Faq />
-      <FinalCta />
+
+      <TrackingClose />
     </main>
   );
 }

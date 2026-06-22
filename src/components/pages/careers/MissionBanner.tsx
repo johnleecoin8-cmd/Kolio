@@ -1,43 +1,41 @@
 import Container from '@/components/ui/Container';
+import StatTrio from '@/components/kit/StatTrio';
 
-/** Mission statement on a dark on-chain terminal panel — the one dark punctuation of the page. */
+/** Why we exist — calm warm section: light-weight headline + restrained copy,
+ *  closed with three shared count-up stats. No loud full-bleed gradient band. */
 export default function MissionBanner() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="canvas-warm py-20 md:py-28">
       <Container>
-        <div className="surface-onchain glow-brand relative overflow-hidden rounded-2xl px-6 py-16 md:px-16 md:py-24">
-          <div className="relative mx-auto flex max-w-[860px] flex-col items-center text-center">
-            <span className="chip chip-onchain mb-7">Why we exist</span>
-
-            <h2 className="display-xl font-display uppercase leading-[0.9] text-[3rem] sm:text-[4.5rem] md:text-[6rem]">
-              <span className="text-gradient-brand">Kolio</span> Mission
-            </h2>
-
-            <p className="mx-auto mt-8 max-w-[720px] text-body-lg font-semibold leading-snug text-white/90 md:mt-10">
-              Crypto runs on influence, but the marketing around it is still
-              guesswork. Inflated follower counts, no attribution, payments on a
-              handshake. We&rsquo;re here to fix that &mdash; bringing the rigor of
-              mature web2 creator platforms to web3, so every campaign with a KOL
-              is measurable, verifiable, and worth the spend.
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3 font-mono-tnum text-body-sm text-white/55">
-              <span>verify_reach()</span>
-              <span className="text-white/25">·</span>
-              <span>escrow.lock(USDC)</span>
-              <span className="text-white/25">·</span>
-              <span>attribution.onchain()</span>
-            </div>
-
-            <a
-              href="#open-roles"
-              className="mt-10 inline-flex h-11 items-center justify-center rounded-sm bg-white px-5 text-body font-semibold text-ink shadow-btn transition hover:opacity-90"
-            >
-              Join us
-            </a>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow mb-4 justify-center">Why we exist</p>
+          <h2 className="display-light text-[2.25rem] leading-[1.05] text-foreground md:text-[3.5rem]">
+            Crypto runs on influence. The marketing around it is still <span className="accent text-gradient-brand">guesswork</span>.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-body-md text-foreground/65">
+            Inflated follower counts, no attribution, payouts on a handshake. Kolio
+            brings the rigor of mature creator platforms to web3 &mdash; so every
+            campaign with a KOL is measurable, verifiable, and worth the spend. The
+            standard we build into the product is the standard we hire for.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 font-mono-tnum text-body-sm text-foreground/45">
+            <span>verify_reach()</span>
+            <span className="text-foreground/25">&middot;</span>
+            <span>escrow.lock(USDC)</span>
+            <span className="text-foreground/25">&middot;</span>
+            <span>attribution.onchain()</span>
           </div>
         </div>
       </Container>
+
+      <StatTrio
+        stats={[
+          { value: 120, suffix: 'K+', label: 'Crypto KOLs profiled' },
+          { value: 40, suffix: '+', label: 'Web3 niches covered' },
+          { value: 100, suffix: '%', label: 'Payouts settled on-chain' },
+        ]}
+        source="Kolio index, June 2026 — every figure traceable to a source."
+      />
     </section>
   );
 }

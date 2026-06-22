@@ -1,92 +1,52 @@
-import Hero from '@/components/pages/influencer-database-youtube/Hero';
-import SearchFilter from '@/components/pages/influencer-database-youtube/SearchFilter';
-import FeatureRow from '@/components/pages/influencer-database-youtube/FeatureRow';
-import OnchainSettlement from '@/components/pages/influencer-database-youtube/OnchainSettlement';
-import ApiFeature from '@/components/pages/influencer-database-youtube/ApiFeature';
-import PlusGrid from '@/components/pages/influencer-database-youtube/PlusGrid';
-import Testimonials from '@/components/pages/influencer-database-youtube/Testimonials';
-import CtaBlock from '@/components/pages/influencer-database-youtube/CtaBlock';
-import StatTrio from '@/components/kit/StatTrio';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 import LiveStats from '@/components/live/LiveStats';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import TiersAndProof from '@/components/pages/influencer-database-youtube/TiersAndProof';
+import Close from '@/components/pages/influencer-database-youtube/Close';
 
-/** Kolio — the web3 influencer marketing platform. YouTube crypto KOL database page. */
+/** Kolio — YouTube crypto KOL database. Calm-premium rebuild:
+ *  rounded dark hero panel, live platform proof, reach tiers + signature
+ *  floating cards, and a calm get-started close. */
 export default function InfluencerDatabaseYoutube() {
   return (
-    <main>
-      <Hero />
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="The YouTube crypto KOL database"
+        title={
+          <>
+            The YouTube creators worth your budget, <span className="text-gradient-brand">proven</span>
+          </>
+        }
+        subtitle="Search vetted crypto YouTubers by real watch time and on-chain audience, then book in escrow — one rail from discovery to settled payout."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Find YouTube KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
 
       <LiveStats heading="The YouTube creator graph, live" />
 
-      <StatTrio
-        stats={[
-          { value: 4.2, suffix: 'M', decimals: 1, label: 'YouTube creator profiles indexed' },
-          { value: 94, suffix: '%', label: 'Median real-audience share, verified KOLs' },
-          { value: 1284, label: 'KOLs matching a typical DeFi brief' },
-        ]}
-        source="Source: Kolio creator graph, YouTube segment (sampled June 2026)"
-      />
-
       <LiveCreatorRail
-        title="Top YouTube creators"
+        title="Top YouTube crypto KOLs"
+        subtitle="A live slice of the Kolio index, ranked by engagement. Open any card for the full proof report."
         filters={{ platform: 'youtube' }}
         count={8}
       />
 
-      <SearchFilter />
+      <TiersAndProof />
 
-      <FeatureRow
-        eyebrow="Vet with proof"
-        title="Vet crypto KOLs with proof BEFORE you reach out"
-        body={
-          <p>
-            Vetting is the riskiest part of crypto KOL marketing — anyone can buy
-            followers. Kolio gives you the proof upfront: real average views,
-            engagement, audience demographics, bot share, and past sponsorships,
-            so you back genuine influence instead of vanity metrics.
-          </p>
-        }
-        media={
-          <div className="card-kit w-full p-5">
-            <div className="flex items-center justify-between border-b border-hairline pb-3">
-              <p className="text-body-sm font-semibold text-foreground">
-                Audience quality breakdown
-              </p>
-              <span className="chip chip-onchain">Verified</span>
-            </div>
-            <div className="mt-5 space-y-4">
-              {[
-                { label: 'Real, engaged audience', pct: 94, flag: false },
-                { label: 'Audience in target geo', pct: 71, flag: false },
-                { label: 'Suspected bots', pct: 6, flag: true },
-              ].map((row) => (
-                <div key={row.label}>
-                  <div className="flex justify-between text-body-sm">
-                    <span className="text-foreground/70">{row.label}</span>
-                    <span className="num-display text-foreground">{row.pct}%</span>
-                  </div>
-                  <div className="mt-1.5 h-2 rounded-full bg-gray-100">
-                    <div
-                      className={`h-2 rounded-full ${row.flag ? 'bg-gray-400' : 'bg-gradient-brand'}`}
-                      style={{ width: `${row.pct}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 font-mono-tnum text-eyebrow text-foreground/40">
-              Source: Kolio audience graph · sampled 2.1M YouTube viewers
-            </p>
-          </div>
-        }
-      />
-
-      <OnchainSettlement />
-
-      <ApiFeature />
-      <PlusGrid />
-      <Testimonials />
-      <CtaBlock />
+      <Close />
     </main>
   );
 }

@@ -1,63 +1,21 @@
-import Container from '@/components/ui/Container';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 
-/** Careers hero — centered big headline with one gradient-highlighted word, subtitle, dual CTA. */
+/** Careers hero — shared calm-premium HeroPanel, light-weight display headline. */
 export default function CareersHero() {
   return (
-    <section className="bg-background pt-10 md:pt-14">
-      <Container>
-        <div className="flex flex-col items-center text-center">
-          <p className="eyebrow mb-4">Careers at Kolio</p>
-          <h1 className="display-xl font-display uppercase text-foreground text-[2.75rem] sm:text-[4rem] md:text-[5rem]">
-            Build the future of
-            <br />
-            <span className="text-gradient-brand">web3</span> marketing
-          </h1>
-          <p className="mx-auto mt-5 max-w-[600px] text-body-md text-foreground/70">
-            Help us bring web2-grade rigor to crypto influence. We&rsquo;re
-            building the platform that brands, exchanges, and protocols trust to
-            find, vet, and run campaigns with crypto KOLs.
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#open-roles"
-              className="inline-flex h-10 items-center justify-center rounded-sm bg-ink px-[1.125rem] text-body font-semibold text-white shadow-btn transition hover:opacity-90"
-            >
-              View open roles
-            </a>
-            <a
-              href="/demo-confirmation"
-              className="inline-flex h-10 items-center justify-center rounded-sm border border-gray-300 bg-white px-[1.125rem] text-body font-semibold text-gray-700 shadow-btn transition hover:bg-gray-50"
-            >
-              See Kolio in action
-            </a>
-          </div>
-        </div>
-      </Container>
-
-      {/* full-width stat band — the ONE red moment on this page */}
-      <div className="mx-auto mt-10 w-full max-w-[1376px] px-4 sm:px-6 md:mt-14">
-        <div className="bg-gradient-brand rounded-xl px-6 py-14 text-white md:py-20">
-          <div className="mb-8 flex justify-center">
-            <span className="chip bg-white/15 text-white">The product is the standard we hire for</span>
-          </div>
-          <div className="mx-auto grid max-w-[1000px] grid-cols-2 gap-8 text-center md:grid-cols-4">
-            {[
-              { n: '120K+', l: 'Crypto KOLs profiled' },
-              { n: '4', l: 'Platforms tracked' },
-              { n: '40+', l: 'Web3 niches covered' },
-              { n: 'On-chain', l: 'Escrow & payouts' },
-            ].map(({ n, l }) => (
-              <div key={l}>
-                <div className="num-display font-display text-h3 leading-none md:text-h2">
-                  {n}
-                </div>
-                <div className="mt-2 text-body-sm text-white/80">{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeroPanel
+      eyebrow="Careers at Kolio"
+      title={<>Build the proof layer crypto marketing can <span className="accent text-gradient-brand">trust</span></>}
+      subtitle="We are a small, on-chain-native team making KOL campaigns measurable, escrowed, and honest. Help us turn opaque influencer spend into outcomes you can verify."
+    >
+      <a href="#open-roles" className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90">
+        See open roles <ArrowRight className="h-4 w-4" />
+      </a>
+      <Link to="/demo-confirmation" className="inline-flex items-center gap-2 rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10">
+        Meet the team
+      </Link>
+    </HeroPanel>
   );
 }

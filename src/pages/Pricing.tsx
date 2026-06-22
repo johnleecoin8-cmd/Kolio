@@ -1,26 +1,17 @@
-import Hero from '@/components/pages/pricing/Hero';
-import PricingCards from '@/components/pages/pricing/PricingCards';
-import ValueAccordion from '@/components/pages/pricing/ValueAccordion';
-import PlanHelpCta from '@/components/pages/pricing/PlanHelpCta';
-import LogoCarousel from '@/components/pages/pricing/LogoCarousel';
-import Proof from '@/components/pages/pricing/Proof';
-import CreatorBenefits from '@/components/pages/pricing/CreatorBenefits';
-import Faq from '@/components/pages/pricing/Faq';
-import FinalCta from '@/components/pages/pricing/FinalCta';
+import PricingHero from '@/components/pages/pricing/PricingHero';
+import PricingTiers from '@/components/pages/pricing/PricingTiers';
+import PricingFaq from '@/components/pages/pricing/PricingFaq';
+import PricingClose from '@/components/pages/pricing/PricingClose';
 
-/** Kolio pricing page — web3 KOL marketing platform. Sections render top-to-bottom. */
+/** Kolio pricing — calm-premium rebuild: dark HeroPanel, usage-based 3-tier floating
+ *  cards (middle dark "Recommended" with strikethrough anchor), calm FAQ, get-started close. */
 export default function Pricing() {
   return (
-    <main>
-      <Hero />
-      <PricingCards />
-      <ValueAccordion />
-      <PlanHelpCta />
-      <LogoCarousel />
-      <Proof />
-      <CreatorBenefits />
-      <Faq />
-      <FinalCta />
+    <main className="canvas-warm">
+      <PricingHero />
+      <PricingTiers />
+      <PricingFaq />
+      <PricingClose />
     </main>
   );
 }

@@ -1,28 +1,40 @@
-import Hero from '@/components/pages/influencer-database/Hero';
-import LiveDiscovery from '@/components/pages/influencer-database/LiveDiscovery';
-import SearchFilterFeature from '@/components/pages/influencer-database/SearchFilterFeature';
-import FeatureSection from '@/components/pages/influencer-database/FeatureSection';
-import {
-  VettingVisual,
-  PaymentsVisual,
-  AttributionVisual,
-} from '@/components/pages/influencer-database/FeatureVisuals';
-import EverythingElse from '@/components/pages/influencer-database/EverythingElse';
-import InfluenceTiers from '@/components/pages/influencer-database/InfluenceTiers';
-import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 import StatTrio from '@/components/kit/StatTrio';
-import KitTestimonials from '@/components/kit/Testimonial';
-import BottomCta from '@/components/pages/influencer-database/BottomCta';
+import Container from '@/components/ui/Container';
+import LiveDiscovery from '@/components/pages/influencer-database/LiveDiscovery';
+import FilterRail from '@/components/pages/influencer-database/FilterRail';
+import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 
-/** Kolio /influencer-database — searchable crypto KOL database product page. */
+/** Kolio /influencer-database — calm-premium rebuild.
+ *  HeroPanel hero, restyled live/preview discovery, a floating filter-rail card
+ *  with influence-tier chips, live creator proof, and a calm closing CTA. */
 export default function InfluencerDatabase() {
   return (
-    <main>
-      <Hero />
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="The crypto KOL database"
+        title={<>Find the crypto KOLs you can actually <span className="text-gradient-brand">trust</span></>}
+        subtitle="Search a vetted index of crypto creators, see real on-chain reach and Proof Scores, and shortlist by influence tier — before a single token leaves your wallet."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Find KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
 
       <LiveDiscovery />
 
-      <LiveCreatorRail title="Top creators in the database" count={8} />
+      <FilterRail />
 
       <StatTrio
         stats={[
@@ -33,96 +45,41 @@ export default function InfluencerDatabase() {
         source="Source: Kolio internal index, Q2 2026 (proof score = reach × audience-quality × bot-adjusted engagement)"
       />
 
-      <SearchFilterFeature />
-
-      <InfluenceTiers />
-
-      <FeatureSection
-        reverse
-        title="Vet a KOL before a single token leaves your wallet"
-        visual={<VettingVisual />}
-        body={
-          <>
-            In crypto, follower counts lie. Kolio scores every KOL on what actually
-            matters: real reach, the share of bots and fake followers, genuine
-            engagement, and the quality of their audience — real holders and traders,
-            not vanity numbers.
-            <br />
-            <br />
-            You see the proof upfront, so you can commit budget to the few KOLs who
-            will actually move your token, mint, or protocol.
-          </>
-        }
+      <LiveCreatorRail
+        title="Top creators in the index, scored on-chain"
+        subtitle="A live slice of the database. Open any card for the full proof report."
+        filters={{ category: 'crypto' }}
+        count={8}
       />
 
-      <FeatureSection
-        title="Pay KOLs on-chain, with escrow built in"
-        visual={<PaymentsVisual />}
-        body={
-          <>
-            Stop wiring stablecoins on trust. Fund a campaign into escrow, let the KOL
-            deliver, then release payment on-chain once the work is approved.
-            <br />
-            <br />
-            Every deal is transparent and verifiable — protecting brands and KOLs
-            alike, and bringing web2-grade accountability to crypto creator deals.
-          </>
-        }
-      />
-
-      <FeatureSection
-        reverse
-        title="Real attribution for web3 campaigns"
-        visual={<AttributionVisual />}
-        ctaLabel="See it live"
-        ctaHref="/demo-confirmation"
-        body={
-          <>
-            Tie wallets, clicks, and conversions back to the KOL who drove them —
-            across X, YouTube, Telegram, and TikTok.
-            <br />
-            <br />
-            Measure what each KOL actually delivered, settle payouts against real
-            on-chain results, and double down on the channels that convert.
-          </>
-        }
-      />
-
-      <EverythingElse />
-
-      <KitTestimonials
-        heading="Outcomes from crypto teams running on Kolio"
-        quotes={[
-          {
-            brand: 'Arbitrum',
-            quote:
-              'We stopped paying for inflated follower counts. Filtering by tier and proof score, we backed 18 micro and mid KOLs who actually held the token — and tracked every wallet they drove.',
-            name: 'A. Mendes',
-            role: 'KOL Marketing Lead',
-            metrics: [
-              { value: '4.2x', label: 'ROAS vs. last campaign' },
-              { value: '−71%', label: 'Vetting time' },
-              { value: '18', label: 'KOLs activated' },
-              { value: '92', label: 'Avg proof score' },
-            ],
-          },
-          {
-            brand: 'OKX',
-            quote:
-              'For a listing push we needed macro reach and trustworthy data fast. Kolio surfaced the right trading KOLs in days, and on-chain attribution showed exactly who drove volume.',
-            name: 'M. Niilus',
-            role: 'KOL Campaign Specialist',
-            metrics: [
-              { value: '$3.1M', label: 'Attributed volume' },
-              { value: '240+', label: 'KOLs sourced' },
-              { value: '6 days', label: 'Discovery to live' },
-              { value: '0', label: 'Disputed payouts' },
-            ],
-          },
-        ]}
-      />
-
-      <BottomCta />
+      {/* calm close */}
+      <section className="canvas-warm2 py-20 md:py-28">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="display-light text-[2.5rem] leading-[1.03] text-foreground md:text-[4rem]">
+              Shortlist your first <span className="text-gradient-brand">campaign</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-md text-body-md text-foreground/60">
+              Browse the index free, filter by proof and tier, and book the KOLs who
+              will actually move your token — paid in escrow, settled on-chain.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                to="/influencer-database"
+                className="inline-flex items-center gap-2 rounded-pill bg-brand px-6 py-3.5 font-semibold text-white shadow-float-sm transition hover:opacity-90"
+              >
+                Search the database <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/demo-confirmation"
+                className="inline-flex items-center gap-2 rounded-pill border border-black/10 bg-white px-6 py-3.5 font-semibold text-foreground transition hover:border-black/20"
+              >
+                Talk to us
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }

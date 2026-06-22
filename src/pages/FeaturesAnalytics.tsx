@@ -1,21 +1,44 @@
-import Hero from '@/components/pages/features-analytics/Hero';
-import DataNoTabs from '@/components/pages/features-analytics/DataNoTabs';
-import FeatureRow from '@/components/pages/features-analytics/FeatureRow';
-import MetricGrid from '@/components/pages/features-analytics/MetricGrid';
-import OnchainDashboard from '@/components/pages/features-analytics/OnchainDashboard';
-import CtaBlock from '@/components/pages/features-analytics/CtaBlock';
-import LiveStats from '@/components/live/LiveStats';
-import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import HeroPanel from '@/components/kit/HeroPanel';
 import StatTrio from '@/components/kit/StatTrio';
 import Testimonials from '@/components/kit/Testimonial';
+import LiveStats from '@/components/live/LiveStats';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import AnalyticsFloatingCards from '@/components/pages/features-analytics/AnalyticsFloatingCards';
+import OnchainConsole from '@/components/pages/features-analytics/OnchainConsole';
+import AnalyticsClose from '@/components/pages/features-analytics/AnalyticsClose';
 
-const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
-
-/** Kolio — KOL analytics & vetting for web3 campaigns. */
+/** Kolio — KOL analytics & vetting for web3 campaigns.
+ *  Calm-premium rebuild: HeroPanel hero, floating analytics cards with intentional
+ *  charts, a dark on-chain console focal, live platform numbers, and a calm close. */
 export default function FeaturesAnalytics() {
   return (
-    <main>
-      <Hero />
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="Analytics & vetting for crypto KOLs"
+        title={
+          <>
+            Know exactly who you&rsquo;re paying — before you{' '}
+            <span className="text-gradient-brand">pay</span>
+          </>
+        }
+        subtitle="Real-follower growth, bot-filtered audiences, and on-chain attribution for every KOL across X, YouTube, TikTok and Telegram."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Find KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
+      <AnalyticsFloatingCards />
 
       <StatTrio
         stats={[
@@ -26,95 +49,9 @@ export default function FeaturesAnalytics() {
         source="Source: Kolio platform aggregate, Q2 2026."
       />
 
-      <MetricGrid />
+      <OnchainConsole />
 
-      <LiveStats heading="Analytics on real creators" />
-
-      <LiveCreatorRail
-        title="Open any creator for full analytics"
-        subtitle="Each profile has live follower-growth charts and audience breakdowns."
-        count={8}
-      />
-
-      <DataNoTabs />
-
-      <FeatureRow
-        heading="See every campaign a KOL has run before"
-        body={
-          <>
-            Pull up a KOL&rsquo;s sponsorship history across X, YouTube, and
-            Telegram — which projects they shilled, what they posted, and how
-            those calls actually landed. Compare paid versus organic engagement
-            so you know whether their audience trusts a sponsored mention or
-            scrolls past it.
-          </>
-        }
-        image={`${CDN}/68407cf0a997aa0a3110da19_img_analytics_02.avif`}
-        imageAlt="KOL campaign history timeline"
-        reverse={false}
-        cta={{
-          label: 'Start vetting KOLs',
-          href: '/demo-confirmation',
-        }}
-      />
-
-      <FeatureRow
-        heading="Screen out bots and bought followers"
-        body={
-          <>
-            Crypto is full of inflated follower counts and engagement farms.
-            Kolio scores every audience for authenticity so you can spot padded
-            numbers instantly — and pay only for KOLs whose reach is real.
-          </>
-        }
-        image={`${CDN}/68407cfc94443a66df98489c_img_analytics_03.avif`}
-        imageAlt="Fake follower and bot audit"
-        reverse
-        cta={{
-          label: 'Start vetting KOLs',
-          href: '/demo-confirmation',
-        }}
-      />
-
-      <FeatureRow
-        heading="Know which format actually moves your token"
-        body={
-          <>
-            Break down reach, engagement rate, and watch time by content type —
-            a thread versus a quote-tweet on X, a Short versus a deep-dive on
-            YouTube, or a pinned message in a Telegram channel. Predict how each
-            format will perform before you brief your KOL.
-          </>
-        }
-        image={`${CDN}/68407d05b9629ec4c85ed833_img_analytics_04.avif`}
-        imageAlt="Compare KOL content formats"
-        reverse={false}
-        cta={{
-          label: 'Start vetting KOLs',
-          href: '/demo-confirmation',
-        }}
-      />
-
-      <OnchainDashboard />
-
-      <FeatureRow
-        heading="Outreach that reaches KOLs where they live"
-        body={
-          <>
-            Send up to 100 personalized intros in one pass, then let sequences
-            handle the follow-ups across email and Telegram. Cut the repetitive
-            DMs, stay consistent, and keep every pitch feeling 1:1 — even when
-            you&rsquo;re lining up a hundred KOLs for a launch.
-          </>
-        }
-        image={`${CDN}/68ca79df7549b2082bdb44a9_img_email_sequences.avif`}
-        imageAlt="KOL outreach and sequences"
-        reverse
-        cta={{
-          label: 'Book a demo',
-          href: '/demo-confirmation',
-        }}
-      />
+      <LiveStats heading="Analytics on real creators, live from the platform" />
 
       <Testimonials
         heading="Brands that stopped paying KOLs on vibes"
@@ -148,7 +85,7 @@ export default function FeaturesAnalytics() {
         ]}
       />
 
-      <CtaBlock />
+      <AnalyticsClose />
     </main>
   );
 }

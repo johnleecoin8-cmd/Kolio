@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Search, Eye, Heart, Users, BadgeCheck, Play } from 'lucide-react';
+import { Search, Eye, Heart, Users, BadgeCheck, Play, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 /** Deterministic mock crypto-KOL profiles keyed by handle so the result card
@@ -14,7 +14,7 @@ type Profile = {
   engagement: string;
   /** recent video view counts (used to compute average views) */
   recent: number[];
-  avatarBg: string;
+  initials: string;
 };
 
 const PROFILES: Record<string, Profile> = {
@@ -25,7 +25,7 @@ const PROFILES: Record<string, Profile> = {
     followers: '1.2M',
     engagement: '4.6%',
     recent: [184_000, 92_000, 310_000, 145_000, 121_000, 168_000],
-    avatarBg: 'from-pink-light via-pink to-pink-hot',
+    initials: 'CB',
   },
   defidegen: {
     handle: 'defidegen',
@@ -34,19 +34,9 @@ const PROFILES: Record<string, Profile> = {
     followers: '486K',
     engagement: '6.1%',
     recent: [74_000, 58_000, 91_000, 63_000, 47_000, 82_000],
-    avatarBg: 'from-violet-light via-violet to-violet-dark',
+    initials: 'DD',
   },
 };
-
-/** Pale accent gradients so the recent-video thumbnails read as real cards. */
-const THUMB_BG = [
-  'from-pink-light to-pink',
-  'from-violet-light to-violet',
-  'from-orange-light to-orange',
-  'from-coral-light to-coral',
-  'from-purple-light to-purple',
-  'from-pink-bg to-pink-light',
-];
 
 const formatViews = (n: number) => {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -54,7 +44,9 @@ const formatViews = (n: number) => {
   return `${n}`;
 };
 
-/** Hero: H1 + subtext + the TikTok average-views calculator widget. */
+/** Calculator section in the calm-premium language: white surface, light-weight
+ *  display heading, a soft pill search bar, and a floating result card that reads
+ *  as a real product mini-UI (Proof-style profile + intentional bar chart). */
 export default function HeroCalculator() {
   const [query, setQuery] = useState('');
 
@@ -68,138 +60,126 @@ export default function HeroCalculator() {
     return total / profile.recent.length;
   }, [profile]);
 
-  return (
-    <section className="bg-background pt-16 pb-16 md:pt-24 md:pb-24">
-      <Container>
-        <div className="flex justify-center">
-          <span className="eyebrow">Free TikTok reach check</span>
-        </div>
-        <h1 className="display-lg mx-auto mt-4 max-w-[18ch] text-center font-display text-[2.75rem] uppercase text-foreground md:text-[5rem]">
-          TikTok KOL{' '}
-          <span className="text-gradient-brand">Views</span> Calculator
-        </h1>
-        <p className="mx-auto mt-6 max-w-[620px] text-center text-body text-foreground/75 md:text-body-md">
-          See any crypto KOL's real average views, engagement, and recent
-          performance on TikTok before you spend a dollar on a campaign. Free,
-          no sign-up — proof over promises.
-        </p>
+  const peak = Math.max(...profile.recent);
 
-        {/* Search bar — single rounded container */}
-        <div className="mx-auto mt-10 flex max-w-[560px] items-center gap-3 rounded-pill bg-background-soft p-2 pl-5">
-          <Search size={20} className="shrink-0 text-foreground/40" />
+  return (
+    <section className="bg-white py-20 md:py-28">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Free TikTok reach check</span>
+          <h2 className="display-light mt-4 text-[2.5rem] leading-[1.04] text-foreground md:text-[3.75rem]">
+            TikTok views, <span className="text-gradient-brand">measured</span> — not guessed
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-body-md text-foreground/60">
+            See any crypto KOL&apos;s real average views, engagement, and recent
+            performance on TikTok before a dollar of budget moves. Free, no sign-up —
+            proof over promises.
+          </p>
+        </div>
+
+        {/* Soft pill search bar */}
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="mx-auto mt-9 flex w-full max-w-lg items-center gap-2 rounded-pill border border-black/10 bg-white p-1.5 pl-5 shadow-float-sm"
+        >
+          <Search size={18} className="shrink-0 text-foreground/40" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="@cryptobanter"
-            className="h-11 flex-1 bg-transparent text-body text-foreground outline-none placeholder:text-foreground/40 md:text-body-md"
+            className="h-10 flex-1 bg-transparent text-body text-foreground outline-none placeholder:text-foreground/40"
           />
-          <button className="inline-flex h-12 shrink-0 items-center justify-center rounded-pill bg-ink px-6 text-body font-semibold text-white transition hover:opacity-90">
-            Check KOL
+          <button
+            type="submit"
+            className="inline-flex shrink-0 items-center gap-2 rounded-pill bg-brand px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
+          >
+            Check KOL <ArrowRight className="h-4 w-4" />
           </button>
-        </div>
+        </form>
 
-        {/* Result card — violet-bordered widget frame */}
-        <div className="mx-auto mt-10 max-w-[920px] rounded-xl bg-background-soft p-2 md:p-3">
-          <div className="rounded-lg border-2 border-violet/50 bg-white p-5 md:p-8">
-            {/* Profile header */}
-            <div className="flex flex-col gap-5 border-b border-black/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div
-                  className={`h-16 w-16 shrink-0 rounded-full bg-gradient-to-br ${profile.avatarBg}`}
-                />
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-body-md font-semibold text-foreground">
-                      {profile.name}
-                    </span>
-                    <BadgeCheck size={18} className="text-[#4AABED]" />
-                  </div>
-                  <span className="text-body-sm text-foreground/55">
-                    @{profile.handle} · {profile.niche}
-                  </span>
+        {/* Floating result card */}
+        <div className="card-kit relative mx-auto mt-12 w-full max-w-4xl rounded-2xl p-6 text-left shadow-float md:p-9">
+          {/* Profile header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-hairline pb-6">
+            <div className="flex items-center gap-4">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-pill bg-gradient-brand text-body font-bold text-white">
+                {profile.initials}
+              </span>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-body-md font-semibold text-foreground">{profile.name}</span>
+                  <BadgeCheck size={18} className="text-brand" />
                 </div>
+                <span className="font-mono-tnum text-body-sm text-foreground/50">
+                  @{profile.handle} · {profile.niche}
+                </span>
               </div>
-              <a
-                href="/demo-confirmation"
-                className="inline-flex h-11 items-center justify-center rounded-pill bg-ink px-5 text-body-sm font-semibold text-white transition hover:opacity-90"
-              >
-                View full report
-              </a>
             </div>
+            <a
+              href="/demo-confirmation"
+              className="inline-flex items-center gap-2 rounded-pill border border-black/10 px-5 py-2.5 text-body-sm font-semibold text-foreground transition hover:bg-black/[0.03]"
+            >
+              View full report <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
 
-            {/* Metrics */}
-            <div className="grid grid-cols-1 gap-3 py-6 sm:grid-cols-3">
-              <Metric
-                icon={<Eye size={20} />}
-                label="Average views"
-                value={formatViews(avgViews)}
-                chip="Real reach"
-                accent
-              />
-              <Metric
-                icon={<Heart size={20} />}
-                label="Engagement rate"
-                value={profile.engagement}
-              />
-              <Metric
-                icon={<Users size={20} />}
-                label="Followers"
-                value={profile.followers}
-              />
+          {/* Metrics */}
+          <div className="grid grid-cols-1 gap-3 py-6 sm:grid-cols-3">
+            <Metric icon={<Eye size={18} />} label="Average views" value={formatViews(avgViews)} chip="Real reach" accent />
+            <Metric icon={<Heart size={18} />} label="Engagement rate" value={profile.engagement} />
+            <Metric icon={<Users size={18} />} label="Followers" value={profile.followers} />
+          </div>
+
+          {/* Intentional bar chart: shared baseline, consistent brand fill, tabular axis */}
+          <div className="border-t border-hairline pt-6">
+            <div className="mb-3 flex items-center justify-between">
+              <p className="text-eyebrow text-foreground/50">Views by video · last {profile.recent.length}</p>
+              <span className="chip chip-onchain">Real reach, not followers</span>
             </div>
-
-            {/* Views by video — intentional bar chart (real proportions) */}
-            <div className="border-b border-black/10 pb-6">
-              <div className="mb-3 flex items-center justify-between">
-                <p className="text-body-sm font-semibold text-foreground/70">
-                  Views by video · last {profile.recent.length}
-                </p>
-                <span className="chip chip-onchain">Real reach, not followers</span>
-              </div>
-              <div className="flex h-28 items-end gap-2">
+            <div className="relative h-32">
+              <div className="pointer-events-none absolute inset-x-0 top-1/2 border-t border-dashed border-hairline" />
+              <div className="absolute inset-x-0 bottom-0 flex h-full items-end gap-2 border-b border-foreground/15">
                 {profile.recent.map((v, i) => {
-                  const max = Math.max(...profile.recent);
-                  const pct = Math.round((v / max) * 100);
+                  const h = Math.max(Math.round((v / peak) * 100), 10);
                   return (
-                    <div
-                      key={i}
-                      className="group relative flex flex-1 flex-col items-center justify-end"
-                    >
-                      <span className="mb-1 font-mono-tnum text-[0.6rem] font-semibold text-foreground/45">
+                    <div key={i} className="group relative flex flex-1 flex-col items-center justify-end">
+                      <span className="mb-1 font-mono-tnum text-[0.6rem] font-semibold text-foreground/40">
                         {formatViews(v)}
                       </span>
                       <div
-                        className="w-full rounded-t bg-gradient-brand"
-                        style={{ height: `${Math.max(pct, 8)}%` }}
+                        className="w-full rounded-t bg-brand/85 transition-colors hover:bg-brand"
+                        style={{ height: `${h}%` }}
                       />
                     </div>
                   );
                 })}
               </div>
-              <div className="mt-2 h-px w-full bg-black/10" />
             </div>
+            <div className="mt-2 flex justify-between font-mono-tnum text-[11px] tabular-nums text-foreground/40">
+              <span>V1</span>
+              <span>peak {formatViews(peak)}</span>
+              <span>V{profile.recent.length}</span>
+            </div>
+          </div>
 
-            {/* Top videos */}
-            <div className="pt-6">
-              <p className="mb-3 text-body-sm font-semibold text-foreground/70">
-                Recent videos
-              </p>
-              <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                {profile.recent.map((v, i) => (
-                  <div
-                    key={i}
-                    className={`relative flex aspect-[9/16] flex-col justify-end overflow-hidden rounded-lg bg-gradient-to-br ${THUMB_BG[i % THUMB_BG.length]} p-2`}
-                  >
-                    <span className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 shadow-sm">
-                      <Play size={13} className="ml-0.5 fill-ink text-ink" />
-                    </span>
-                    <span className="relative inline-flex items-center gap-1 self-start rounded-pill bg-ink/70 px-1.5 py-0.5 text-[0.65rem] font-semibold text-white">
-                      <Eye size={10} />
-                      {formatViews(v)}
-                    </span>
-                  </div>
-                ))}
-              </div>
+          {/* Recent videos */}
+          <div className="border-t border-hairline pt-6">
+            <p className="mb-3 text-eyebrow text-foreground/50">Recent videos</p>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+              {profile.recent.map((v, i) => (
+                <div
+                  key={i}
+                  className="relative flex aspect-[9/16] flex-col justify-end overflow-hidden rounded-xl bg-surface-ink p-2"
+                >
+                  <span className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                    <Play size={12} className="ml-0.5 fill-foreground text-foreground" />
+                  </span>
+                  <span className="relative inline-flex items-center gap-1 self-start rounded-pill bg-white/10 px-1.5 py-0.5 text-[0.65rem] font-semibold text-white backdrop-blur">
+                    <Eye size={10} />
+                    {formatViews(v)}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -223,19 +203,13 @@ function Metric({
 }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 rounded-lg p-5 text-center ${
-        accent ? 'bg-ink text-white' : 'bg-background-soft text-foreground'
+      className={`flex flex-col items-center justify-center gap-2 rounded-2xl p-5 text-center ${
+        accent ? 'surface-onchain text-white' : 'bg-black/[0.03] text-foreground'
       }`}
     >
-      <span className={accent ? 'text-pink' : 'text-foreground/70'}>{icon}</span>
-      <span className="num-display font-mono-tnum text-[1.75rem] leading-none">
-        {value}
-      </span>
-      <span
-        className={`text-body-sm ${accent ? 'text-white/70' : 'text-foreground/55'}`}
-      >
-        {label}
-      </span>
+      <span className={accent ? 'text-mint' : 'text-foreground/50'}>{icon}</span>
+      <span className="num-display font-mono-tnum text-[1.75rem] leading-none">{value}</span>
+      <span className={`text-body-sm ${accent ? 'text-white/65' : 'text-foreground/55'}`}>{label}</span>
       {chip && <span className="chip chip-onchain mt-0.5">{chip}</span>}
     </div>
   );

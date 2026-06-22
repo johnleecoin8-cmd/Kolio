@@ -21,7 +21,7 @@ export default function PlatformSection({ platform }: { platform: Platform }) {
       <div className="mb-1 text-eyebrow font-semibold tracking-wide text-foreground/35">
         {String(num).padStart(2, '0')} / 19
       </div>
-      <h2 className="display-lg font-display text-[1.875rem] leading-tight text-foreground md:text-[2.375rem]">
+      <h2 className="display-light text-[1.875rem] leading-[1.08] text-foreground md:text-[2.375rem]">
         {name}
       </h2>
 

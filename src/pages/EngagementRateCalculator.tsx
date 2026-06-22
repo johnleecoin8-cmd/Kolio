@@ -1,30 +1,49 @@
-import Hero from '@/components/pages/engagement-rate-calculator/Hero';
-import AnalyzeBlock from '@/components/pages/engagement-rate-calculator/AnalyzeBlock';
+import { Link } from 'react-router-dom';
+import HeroPanel from '@/components/kit/HeroPanel';
+import ToolBlock from '@/components/pages/engagement-rate-calculator/ToolBlock';
 import LiveBenchmark from '@/components/pages/engagement-rate-calculator/LiveBenchmark';
-import GoodRate from '@/components/pages/engagement-rate-calculator/GoodRate';
-import HowToCheck from '@/components/pages/engagement-rate-calculator/HowToCheck';
-import ContentFormat from '@/components/pages/engagement-rate-calculator/ContentFormat';
-import Proof from '@/components/pages/engagement-rate-calculator/Proof';
-import RestCta from '@/components/pages/engagement-rate-calculator/RestCta';
-import EveryPlatform from '@/components/pages/engagement-rate-calculator/EveryPlatform';
-import Faq from '@/components/pages/engagement-rate-calculator/Faq';
+import HowItReads from '@/components/pages/engagement-rate-calculator/HowItReads';
+import CloseCta from '@/components/pages/engagement-rate-calculator/CloseCta';
 
-/** Kolio /engagement-rate-calculator — crypto KOL engagement tool. Top-to-bottom sections. */
+/**
+ * Kolio /engagement-rate-calculator — rebuilt in the calm-premium language.
+ * HeroPanel top → embedded free tool on warm canvas with worked-example card →
+ * live network benchmark → signature floating cards → calm closing CTA.
+ */
 export default function EngagementRateCalculator() {
   return (
     <main>
-      <Hero />
-      <LiveBenchmark />
-      <AnalyzeBlock />
-      <GoodRate />
-      <div className="bg-gray-50">
-        <Proof />
+      <HeroPanel
+        eyebrow="Free crypto KOL engagement tool"
+        title={
+          <>
+            See the engagement you can{' '}
+            <span className="accent text-gradient-brand">trust</span>
+          </>
+        }
+        subtitle="Measure any crypto KOL's real reach on X before you spend a token — likes, replies and reposts against followers, with a Proof Score on top."
+      >
+        <a
+          href="#tool"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm"
+        >
+          Try the calculator
+        </a>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
+      <div id="tool">
+        <ToolBlock />
       </div>
-      <HowToCheck />
-      <ContentFormat />
-      <RestCta />
-      <EveryPlatform />
-      <Faq />
+
+      <LiveBenchmark />
+      <HowItReads />
+      <CloseCta />
     </main>
   );
 }

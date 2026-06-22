@@ -22,21 +22,21 @@ const ARTICLES = [
  * gradient panels (no external imagery), with a styled "K" wordmark badge. */
 export default function RecentArticles() {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="canvas-warm py-20 md:py-28">
       <Container>
         <p className="eyebrow mb-2">Keep reading</p>
-        <h2 className="display-lg mb-8 font-display text-h4 leading-tight text-foreground">
-          Recent Articles
+        <h2 className="display-light mb-8 text-[2rem] leading-[1.05] text-foreground md:text-[2.75rem]">
+          Recent articles
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ARTICLES.map((a, i) => (
             <a
               key={i}
               href="#"
-              className="card-kit group flex flex-col p-5 transition hover:-translate-y-0.5"
+              className="card-kit shadow-float-sm group flex flex-col rounded-2xl p-5 transition hover:-translate-y-0.5"
             >
-              <div className="flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
-                <span className="font-display text-[1.75rem] uppercase leading-none text-foreground/15">
+              <div className="flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-brand/10">
+                <span className="num-display text-[1.75rem] leading-none text-brand/30">
                   Kolio
                 </span>
               </div>

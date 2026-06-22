@@ -1,56 +1,39 @@
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
-import LiveStats from '@/components/live/LiveStats';
 import StatTrio from '@/components/kit/StatTrio';
 import Hero from '@/components/pages/search-engine/Hero';
-import RelevanceSpine from '@/components/pages/search-engine/RelevanceSpine';
-import FilterShowcase from '@/components/pages/search-engine/FilterShowcase';
-import AnalyzeFeature from '@/components/pages/search-engine/AnalyzeFeature';
-import EmailsFeature from '@/components/pages/search-engine/EmailsFeature';
-import Quote from '@/components/pages/search-engine/Quote';
-import Faq from '@/components/pages/search-engine/Faq';
-import GrowCta from '@/components/pages/search-engine/GrowCta';
+import SearchMock from '@/components/pages/search-engine/SearchMock';
+import RelevancePillars from '@/components/pages/search-engine/RelevancePillars';
+import Close from '@/components/pages/search-engine/Close';
 
-/** Kolio /search-engine — web3 KOL discovery & vetting, search-engine framing. */
+/** Kolio /search-engine — calm-premium rebuild: HeroPanel hero, a floating
+ *  search + results mini-UI, live creator rail, relevance pillars, calm close. */
 export default function SearchEngine() {
   return (
     <main>
-      {/* white — focal search + results mock */}
+      {/* soft warm canvas + big rounded dark hero panel */}
       <Hero />
 
-      {/* live data (keep) */}
-      <LiveCreatorRail title="Search results, powered by Kolio" count={8} />
-      <LiveStats />
+      {/* signature floating search + results mini-UI */}
+      <SearchMock />
+
+      {/* live backend data — real KOLs, each with a Proof Score */}
+      <LiveCreatorRail title="Search results, powered by live data" count={8} />
 
       {/* cited proof stats */}
       <StatTrio
         stats={[
           { value: 120, suffix: 'K+', label: 'Vetted crypto KOLs indexed' },
-          { value: 4, label: 'Platforms: X, YouTube, TikTok, Telegram' },
+          { value: 38, label: 'Signals scored per KOL' },
           { value: 96, suffix: '%', label: 'Avg. relevance match on top results' },
         ]}
         source="Source: Kolio index, Q2 2026 — across X, YouTube, TikTok & Telegram."
       />
 
-      {/* soft neutral — relevance-sort spine */}
-      <RelevanceSpine />
+      {/* white — how relevance ranking works */}
+      <RelevancePillars />
 
-      {/* soft neutral — query inputs as chips */}
-      <FilterShowcase />
-
-      {/* DARK punctuation — on-chain vetting terminal */}
-      <AnalyzeFeature />
-
-      {/* white — outreach + escrow */}
-      <EmailsFeature />
-
-      {/* soft neutral — quantified testimonials */}
-      <Quote />
-
-      {/* white — FAQ */}
-      <Faq />
-
-      {/* the single red gradient moment + marquee */}
-      <GrowCta />
+      {/* calm close */}
+      <Close />
     </main>
   );
 }

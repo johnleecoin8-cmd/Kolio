@@ -1,37 +1,35 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import { ButtonLink } from '@/components/ui/Button';
 
-/** Closing CTA banner on a warm brand-gradient panel. */
+/** Calm closing moment — light-weight headline + pill CTAs on a deeper warm
+ *  surface. No loud gradient band; the page lands softly. */
 export default function CtaBanner() {
   return (
-    <section className="bg-white">
-      <Container className="py-16 md:py-24">
-        <div className="rounded-2xl bg-gradient-brand px-8 py-12 text-white md:px-12 md:py-14">
-          <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-            <h2 className="display-lg font-display text-h4 leading-tight md:text-h3">
-              Want to run crypto KOL campaigns as cleanly as Arbiscan?
-            </h2>
-            <div className="md:justify-self-end md:text-right">
-              <div className="flex flex-wrap gap-3 md:justify-end">
-                <ButtonLink
-                  to="/demo-confirmation"
-                  variant="primary"
-                  className="uppercase tracking-wide"
-                >
-                  Start free
-                </ButtonLink>
-                <ButtonLink
-                  to="/demo-confirmation"
-                  variant="secondary"
-                  className="uppercase tracking-wide"
-                >
-                  Talk to sales
-                </ButtonLink>
-              </div>
-              <p className="mt-3 text-body-sm text-white/80">
-                Free to explore&middot;No card, no wallet connect required
-              </p>
-            </div>
+    <section className="canvas-warm2 py-20 md:py-28">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Your record, next</span>
+          <h2 className="display-light mt-4 text-[2.5rem] leading-[1.03] text-foreground md:text-[4rem]">
+            Write a case file you can <span className="text-gradient-brand">prove</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-body-md text-foreground/60">
+            Discover vetted crypto KOLs, fund escrow in USDC, and let on-chain
+            attribution settle the result. Start free — no wallet connect required.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/influencer-database"
+              className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+            >
+              Find crypto KOLs <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/demo-confirmation"
+              className="inline-flex items-center gap-2 rounded-pill border border-black/10 bg-white px-6 py-3.5 font-semibold text-foreground transition hover:bg-white/70"
+            >
+              Book a demo
+            </Link>
           </div>
         </div>
       </Container>

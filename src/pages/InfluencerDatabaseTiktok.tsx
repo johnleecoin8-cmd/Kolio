@@ -1,37 +1,74 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 import LiveStats from '@/components/live/LiveStats';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
-import StatTrio from '@/components/kit/StatTrio';
-import Hero from '@/components/pages/influencer-database-tiktok/Hero';
-import SearchFilter from '@/components/pages/influencer-database-tiktok/SearchFilter';
-import GoodFit from '@/components/pages/influencer-database-tiktok/GoodFit';
-import BulkEmail from '@/components/pages/influencer-database-tiktok/BulkEmail';
-import ApiSection from '@/components/pages/influencer-database-tiktok/ApiSection';
-import EverythingElse from '@/components/pages/influencer-database-tiktok/EverythingElse';
-import Testimonials from '@/components/pages/influencer-database-tiktok/Testimonials';
-import EndCta from '@/components/pages/influencer-database-tiktok/EndCta';
+import TierChips from '@/components/pages/influencer-database-tiktok/TierChips';
 
-/** Kolio /influencer-database/tiktok — crypto KOL discovery for TikTok. Sections render top-to-bottom. */
+/** Kolio /influencer-database/tiktok — calm-premium rebuild.
+ *  Crypto-KOL discovery for TikTok: HeroPanel hero, live creator graph,
+ *  graded creator tiers with a floating sample card, and a calm CTA close. */
 export default function InfluencerDatabaseTiktok() {
   return (
     <main>
-      <Hero />
-      <StatTrio
-        stats={[
-          { value: 1.04, suffix: 'B', label: 'TikTok monthly active users', decimals: 2 },
-          { value: 18, suffix: '%', label: 'Gen Z who first heard of crypto on TikTok', decimals: 0 },
-          { value: 4.25, suffix: '%', label: 'Median TikTok engagement rate (vs 0.6% IG)', decimals: 2 },
-        ]}
-        source="Source: TikTok newsroom (1.04B MAU, 2024); Pew Research crypto-awareness; Socialinsider 2024 engagement benchmarks."
-      />
+      <HeroPanel
+        eyebrow="The TikTok crypto KOL index"
+        title={
+          <>
+            Find TikTok KOLs your token can actually{' '}
+            <span className="accent text-gradient-brand">trust</span>
+          </>
+        }
+        subtitle="Every creator graded on real, on-chain audience quality — not raw follower counts. Discover, vet, and book in escrow on one rail."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Browse TikTok KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
       <LiveStats heading="The TikTok creator graph, live" />
-      <LiveCreatorRail title="Top TikTok creators" filters={{ platform: 'tiktok' }} count={8} />
-      <SearchFilter />
-      <GoodFit />
-      <BulkEmail />
-      <ApiSection />
-      <EverythingElse />
-      <Testimonials />
-      <EndCta />
+
+      <LiveCreatorRail
+        title="Top TikTok creators right now"
+        subtitle="Ranked by engagement and Proof Score across the live index."
+        filters={{ platform: 'tiktok' }}
+        count={8}
+      />
+
+      <TierChips />
+
+      {/* Calm close — HeroPanel-style CTA */}
+      <HeroPanel
+        title={
+          <>
+            Your first proof-based TikTok campaign starts{' '}
+            <span className="accent text-gradient-brand">here</span>
+          </>
+        }
+        subtitle="Shortlist vetted crypto creators, fund a slot into escrow, and pay only on verified delivery. No wallet connect required to explore."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Start exploring <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Talk to us
+        </Link>
+      </HeroPanel>
     </main>
   );
 }

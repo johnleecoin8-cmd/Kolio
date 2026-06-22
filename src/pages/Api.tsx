@@ -1,53 +1,50 @@
-import Hero from '@/components/pages/api/Hero';
-import Foundation from '@/components/pages/api/Foundation';
-import ProductFeature from '@/components/pages/api/ProductFeature';
-import Testimonials from '@/components/pages/api/Testimonials';
-import UseCases from '@/components/pages/api/UseCases';
-import DeveloperExperience from '@/components/pages/api/DeveloperExperience';
-import CodeSample from '@/components/pages/api/CodeSample';
-import GettingStarted from '@/components/pages/api/GettingStarted';
-import Faq from '@/components/pages/api/Faq';
-import FinalCta from '@/components/pages/api/FinalCta';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
+import StatTrio from '@/components/kit/StatTrio';
+import Terminal from '@/components/pages/api/Terminal';
+import Endpoints from '@/components/pages/api/Endpoints';
+import GetStarted from '@/components/pages/api/GetStarted';
 
-/** Kolio Web3 KOL Data API page. */
+/** Kolio Web3 KOL Data API — calm-premium rebuild:
+ *  HeroPanel hero, floating dark on-chain code terminal, endpoint cards on a
+ *  warm canvas, calm get-started close. */
 export default function Api() {
   return (
-    <main>
-      <Hero />
-      <Foundation />
-      <ProductFeature
-        title="Discovery API"
-        intro="The proof-based search engine for the entire crypto KOL economy."
-        bullets={[
-          'Query a vetted database of crypto KOLs across X, YouTube, TikTok, and Telegram.',
-          'Find KOLs with AI search, or filter by niche — DeFi, NFTs, L1/L2, trading, gaming — region, and audience quality.',
-          'Surface real reach and audience authenticity, not vanity follower counts.',
-          'Pull verification reports: engagement rate, average views, audience overlap, and fake-follower scoring.',
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="The proof API for crypto KOL data"
+        title={<>One API for crypto KOL reach you can <span className="accent text-gradient-brand">prove</span></>}
+        subtitle="Query vetted KOLs, score real audiences, and settle USDC escrow — straight from your own stack. REST, typed SDKs, on-chain attribution."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Get an API key <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="inline-flex items-center gap-2 rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
+      <Terminal />
+
+      <StatTrio
+        stats={[
+          { value: 41280, label: 'Crypto KOLs indexed and Proof-Scored' },
+          { value: 99.95, suffix: '%', decimals: 2, label: 'Endpoint uptime, trailing 90 days' },
+          { value: 120, suffix: 'ms', label: 'Median p50 response, edge-cached' },
         ]}
-        image="chart"
-        imageAlt="Kolio Discovery API audience-quality analytics"
-        learnMore="/demo-confirmation"
+        source="Source: Kolio platform telemetry, rolling 90-day window (2026)."
       />
-      <ProductFeature
-        title="Raw API"
-        intro="Stream live campaign and on-chain performance data as it happens."
-        bullets={[
-          'Query live, unfiltered data straight from KOL profiles across every crypto-native channel.',
-          'Track sponsored posts, monitor token mentions, and watch campaign momentum in real time.',
-          'Tie social activity to on-chain attribution — wallet conversions, referral clicks, and post-level ROI.',
-        ]}
-        image="stream"
-        imageAlt="Kolio Raw API live profile and on-chain attribution data"
-        learnMore="/demo-confirmation"
-        reverse
-      />
-      <Testimonials />
-      <UseCases />
-      <DeveloperExperience />
-      <CodeSample />
-      <GettingStarted />
-      <Faq />
-      <FinalCta />
+
+      <Endpoints />
+
+      <GetStarted />
     </main>
   );
 }

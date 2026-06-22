@@ -1,42 +1,47 @@
-import Hero from '@/components/pages/features-discovery/Hero';
-import ProblemIntro from '@/components/pages/features-discovery/ProblemIntro';
-import OldVsNew from '@/components/pages/features-discovery/OldVsNew';
-import FeatureBlocks from '@/components/pages/features-discovery/FeatureBlocks';
-import LogoStrip from '@/components/pages/features-discovery/LogoStrip';
-import EverythingGrid from '@/components/pages/features-discovery/EverythingGrid';
-import PartnershipsBanner from '@/components/pages/features-discovery/PartnershipsBanner';
-import FitSection from '@/components/pages/features-discovery/FitSection';
-import DemoSection from '@/components/pages/features-discovery/DemoSection';
-import Testimonials from '@/components/pages/features-discovery/Testimonials';
-import WorkflowGrid from '@/components/pages/features-discovery/WorkflowGrid';
-import Faq from '@/components/pages/features-discovery/Faq';
-import FinalCta from '@/components/pages/features-discovery/FinalCta';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import HeroPanel from '@/components/kit/HeroPanel';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
-import LiveStats from '@/components/live/LiveStats';
+import DiscoveryBoard from '@/components/pages/features-discovery/DiscoveryBoard';
+import DiscoveryFeatures from '@/components/pages/features-discovery/DiscoveryFeatures';
+import DiscoveryClose from '@/components/pages/features-discovery/DiscoveryClose';
 
-/** Kolio /features/influencer-discovery — crypto KOL discovery. Sections render top-to-bottom. */
+/** Kolio /features/influencer-discovery — calm-premium rebuild.
+ *  Soft warm canvas, big rounded dark hero, a floating discovery mini-UI,
+ *  live real-data proof rail, calm feature cards, calm get-started close. */
 export default function FeaturesDiscovery() {
   return (
-    <main>
-      <Hero />
+    <main className="canvas-warm">
+      <HeroPanel
+        eyebrow="Discovery, scored on-chain"
+        title={<>Find crypto KOLs you can actually <span className="accent text-gradient-brand">trust</span></>}
+        subtitle="Search 40,000+ vetted crypto creators by chain, narrative, and audience quality. Every handle carries a Proof Score, so reach is something you verify, not something you hope for."
+      >
+        <Link
+          to="/influencer-database"
+          className="pill-light inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-semibold shadow-float-sm transition hover:opacity-90"
+        >
+          Find KOLs <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          to="/demo-confirmation"
+          className="inline-flex items-center gap-2 rounded-pill border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+        >
+          Book a demo
+        </Link>
+      </HeroPanel>
+
+      <DiscoveryBoard />
+
       <LiveCreatorRail
         title="Discover real creators now"
-        subtitle="A live slice of the Kolio discovery index."
+        subtitle="A live slice of the Kolio discovery index. Open any card for the full proof report."
+        filters={{ category: 'crypto' }}
         count={8}
       />
-      <ProblemIntro />
-      <OldVsNew />
-      <FeatureBlocks />
-      <LogoStrip />
-      <EverythingGrid />
-      <PartnershipsBanner />
-      <FitSection />
-      <DemoSection />
-      <Testimonials />
-      <WorkflowGrid />
-      <LiveStats />
-      <Faq />
-      <FinalCta />
+
+      <DiscoveryFeatures />
+      <DiscoveryClose />
     </main>
   );
 }

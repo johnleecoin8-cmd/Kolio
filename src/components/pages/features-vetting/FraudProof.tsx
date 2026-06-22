@@ -1,132 +1,114 @@
+import { Bot, Users, Sparkles } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import ProofScore from '@/components/kit/ProofScore';
-import { ShieldCheck, AlertTriangle, Bot } from 'lucide-react';
+import ProofScore, { computeProofScore } from '@/components/kit/ProofScore';
 
-/** Anti-fraud focal section. A dark on-chain terminal panel (page punctuation)
- *  exposing True Reach vs raw follower count, bot/fake-follower share, and a
- *  worked ProofScore example. Mint chips = verified, red chips = flagged. */
+/** Floating fraud-proof surface: True Reach vs raw followers, a live bot-share
+ *  chip, and a worked-out large Proof Score — built as overlapping mini-UI
+ *  cards in the calm-premium language. */
 export default function FraudProof() {
+  // Worked example — one creator, scored deterministically by the shared kit.
+  const sample = { engagement_rate: 0.061, fake_follower_pct: 0.14, is_verified: true, followers: 184_000 };
+  const score = computeProofScore(sample);
+  const followers = 184_000;
+  const botPct = 14;
+  const trueReach = Math.round(followers * (1 - botPct / 100));
+  const fmt = (n: number) => n.toLocaleString('en-US');
+
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
+    <section className="canvas-warm2 py-20 md:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Anti-fraud engine</span>
-          <h2 className="mt-3 display-lg text-h3 text-foreground">
-            Followers lie. We measure the audience that actually exists.
-          </h2>
-          <p className="mt-4 text-body-md text-foreground/60">
-            Every profile is scored against bot networks, recycled engagement and
-            inflated reach — before a single dollar of budget moves.
-          </p>
-        </div>
-
-        {/* Focal dark terminal card */}
-        <div className="surface-onchain mx-auto mt-12 max-w-4xl rounded-2xl p-7 md:p-10">
-          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            {/* Left: handle + verdict + proof score */}
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="font-mono-tnum text-body-sm text-white/50">@degen.alpha</div>
-                <span className="chip chip-onchain">
-                  <ShieldCheck className="h-3 w-3" /> Verified
-                </span>
-              </div>
-              <div className="mt-6">
-                <ProofScore score={86} size="lg" />
-              </div>
-              <p className="mt-4 max-w-xs text-body-sm text-white/55">
-                Composite of audience authenticity, on-chain attribution and
-                engagement quality — weighted for crypto.
-              </p>
-            </div>
-
-            {/* Right: True Reach vs follower count + bot share */}
-            <div className="grid w-full max-w-sm grid-cols-2 gap-4">
-              <Metric
-                label="Stated followers"
-                value="412,000"
-                tone="muted"
-              />
-              <Metric
-                label="True Reach"
-                value="271,920"
-                tone="good"
-                chip={<span className="chip chip-onchain"><ShieldCheck className="h-3 w-3" /> Real</span>}
-              />
-              <Metric
-                label="Bot / fake followers"
-                value="18.4%"
-                tone="bad"
-                icon={<Bot className="h-4 w-4" />}
-                chip={<span className="chip chip-ink !bg-brand/15 !text-brand"><AlertTriangle className="h-3 w-3" /> Flagged</span>}
-              />
-              <Metric
-                label="Engagement authenticity"
-                value="93.1%"
-                tone="good"
-              />
-            </div>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* Copy column */}
+          <div>
+            <span className="eyebrow text-brand">Fraud, made obvious</span>
+            <h2 className="display-light mt-4 max-w-[16ch] text-h2 leading-[1.05] text-foreground">
+              A follower count hides the bots. <span className="text-gradient-brand">True Reach</span> removes them.
+            </h2>
+            <p className="mt-5 max-w-md text-body-md text-foreground/60">
+              Kolio re-counts every audience from scratch — purging bots, dormant
+              wallets, and pod activity — then folds authenticity, engagement
+              quality, and on-chain proof into one Proof Score you can rank on.
+            </p>
+            <dl className="mt-8 grid max-w-md grid-cols-3 gap-4">
+              {[
+                ['Audiences re-scored', '38k+'],
+                ['Avg. bots removed', '17%'],
+                ['Score signals', '4'],
+              ].map(([label, val]) => (
+                <div key={label} className="rounded-2xl border border-hairline bg-white/70 p-4">
+                  <div className="num-display text-[1.75rem] leading-none text-foreground">{val}</div>
+                  <div className="mt-1.5 text-eyebrow text-foreground/50">{label}</div>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* True Reach proportion bar */}
-          <div className="mt-9 border-t border-white/10 pt-7">
-            <div className="flex items-end justify-between">
-              <span className="text-body-sm font-medium text-white/70">
-                Of 412,000 stated followers, what is real?
-              </span>
-              <span className="font-mono-tnum text-body-sm text-mint">66% real reach</span>
+          {/* Floating card cluster */}
+          <div className="relative">
+            {/* True Reach card */}
+            <div className="card-kit shadow-float -rotate-1 rounded-2xl p-6 transition hover:rotate-0">
+              <div className="flex items-center justify-between">
+                <span className="chip chip-brand">True Reach</span>
+                <Users className="h-5 w-5 text-brand" />
+              </div>
+              <div className="mt-6 flex items-end justify-between gap-4">
+                <div>
+                  <div className="text-eyebrow text-foreground/45">Claimed followers</div>
+                  <div className="num-display mt-1 text-[1.5rem] leading-none text-foreground/35 line-through">{fmt(followers)}</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-eyebrow text-brand">Reachable after vetting</div>
+                  <div className="num-display mt-1 text-[2.75rem] leading-none text-foreground">{fmt(trueReach)}</div>
+                </div>
+              </div>
+              <div className="mt-5 h-2.5 overflow-hidden rounded-pill bg-gray-100">
+                <div className="h-full rounded-pill bg-gradient-brand" style={{ width: `${100 - botPct}%` }} />
+              </div>
+              <div className="mt-2 flex justify-between font-mono-tnum text-eyebrow text-foreground/50">
+                <span>{100 - botPct}% real audience</span>
+                <span>{botPct}% stripped</span>
+              </div>
             </div>
-            <div className="mt-3 flex h-3 w-full overflow-hidden rounded-pill bg-white/10">
-              <div className="h-full bg-mint" style={{ width: '66%' }} title="True reach" />
-              <div className="h-full bg-white/25" style={{ width: '15.6%' }} title="Inactive / low-quality" />
-              <div className="h-full bg-brand" style={{ width: '18.4%' }} title="Bot / fake followers" />
+
+            {/* Bot-share chip card, floating up-right */}
+            <div className="card-kit shadow-float-sm absolute -right-2 -top-7 hidden rotate-2 rounded-2xl p-4 transition hover:rotate-0 sm:block md:-right-6">
+              <div className="flex items-center gap-2">
+                <span className="grid h-8 w-8 place-items-center rounded-pill bg-coral-bg"><Bot className="h-4 w-4 text-brand" /></span>
+                <div>
+                  <div className="num-display text-body-md leading-none text-foreground">{botPct}%</div>
+                  <div className="text-eyebrow text-foreground/50">bots &amp; fakes</div>
+                </div>
+              </div>
             </div>
-            <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 font-mono-tnum text-eyebrow text-white/55">
-              <Legend color="bg-mint" label="True reach 66.0%" />
-              <Legend color="bg-white/25" label="Inactive 15.6%" />
-              <Legend color="bg-brand" label="Bot / fake 18.4%" />
+
+            {/* Worked Proof Score card, floating below */}
+            <div className="surface-onchain shadow-float relative z-10 mt-5 rotate-1 rounded-2xl p-6 text-white transition hover:rotate-0">
+              <div className="flex items-center justify-between">
+                <span className="chip chip-onchain">Proof Score</span>
+                <Sparkles className="h-5 w-5 text-mint" />
+              </div>
+              <div className="mt-5 flex items-center gap-5">
+                <div className="rounded-2xl bg-white/95 p-3">
+                  <ProofScore score={score} size="lg" />
+                </div>
+                <div className="min-w-0 flex-1 space-y-2 font-mono-tnum text-eyebrow">
+                  {[
+                    ['Real followers', `${100 - botPct}%`, 'text-mint'],
+                    ['Engagement quality', '6.1%', 'text-mint'],
+                    ['On-chain attribution', 'verified', 'text-mint'],
+                    ['Risk flags', 'none', 'text-white/70'],
+                  ].map(([l, v, c]) => (
+                    <div key={l} className="flex justify-between gap-3">
+                      <span className="text-white/60">{l}</span>
+                      <span className={c}>{v}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </Container>
     </section>
-  );
-}
-
-function Metric({
-  label,
-  value,
-  tone,
-  icon,
-  chip,
-}: {
-  label: string;
-  value: string;
-  tone: 'good' | 'bad' | 'muted';
-  icon?: React.ReactNode;
-  chip?: React.ReactNode;
-}) {
-  const valueColor =
-    tone === 'good' ? 'text-mint' : tone === 'bad' ? 'text-brand' : 'text-white/45';
-  return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-      <div className="flex items-center gap-1.5 text-eyebrow uppercase tracking-wide text-white/45">
-        {icon}
-        {label}
-      </div>
-      <div className={`num-display mt-2 font-mono-tnum text-h4 leading-none ${valueColor}`}>
-        {value}
-      </div>
-      {chip && <div className="mt-3">{chip}</div>}
-    </div>
-  );
-}
-
-function Legend({ color, label }: { color: string; label: string }) {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <span className={`h-2 w-2 rounded-pill ${color}`} />
-      {label}
-    </span>
   );
 }
