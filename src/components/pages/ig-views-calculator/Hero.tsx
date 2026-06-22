@@ -52,9 +52,39 @@ export default function Hero() {
         {/* hairline divider */}
         <div className="mx-auto mt-10 h-px w-full max-w-6xl bg-violet/20" />
 
-        {/* large bordered result / example card */}
-        <div className="mx-auto mt-10 w-full max-w-6xl rounded-2xl border border-violet/20 bg-white shadow-nav">
-          <div className="aspect-[16/9] w-full" />
+        {/* example reach result card */}
+        <div className="mx-auto mt-10 w-full max-w-6xl rounded-2xl border border-black/10 bg-white p-6 text-left shadow-nav md:p-9">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/5 pb-5">
+            <div className="flex items-center gap-3">
+              <span className="flex h-12 w-12 items-center justify-center rounded-pill bg-gradient-brand text-body font-bold text-white">VB</span>
+              <div>
+                <div className="text-body font-semibold text-foreground">Vitalik Buterin</div>
+                <div className="text-body-sm text-foreground/50">@VitalikButerin · crypto</div>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="font-display text-h3 leading-none text-brand">540.6K</div>
+              <div className="text-eyebrow uppercase tracking-wide text-foreground/50">Avg views / post</div>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-[1.6fr_1fr]">
+            <div>
+              <div className="mb-2 flex items-center justify-between text-eyebrow text-foreground/50"><span>Views by post · last 12</span><span>Real reach, not follower count</span></div>
+              <div className="flex h-32 items-end gap-2">
+                {[48, 63, 41, 72, 90, 58, 81, 67, 96, 74, 60, 85].map((h, i) => (
+                  <div key={i} className="flex-1 rounded-t bg-gradient-brand" style={{ height: `${h}%` }} />
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {[['Min', '120K'], ['Median', '498K'], ['Max', '1.4M'], ['Reels share', '62%']].map(([l, v]) => (
+                <div key={l} className="rounded-md bg-gray-50 px-3 py-4">
+                  <div className="font-display text-h5 leading-none text-foreground">{v}</div>
+                  <div className="mt-1 text-eyebrow text-foreground/50">{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>

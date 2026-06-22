@@ -1,24 +1,25 @@
 import { ButtonA } from '@/components/ui/Button';
 
 const PANELS = [
-  { bg: 'bg-orange-vivid', heading: 'Find and vet the right crypto KOLs for your project' },
-  { bg: 'bg-[#c08cf2]', heading: 'Keep every KOL deal organized from brief to delivery' },
-  { bg: 'bg-sand-dark', heading: 'Attribute campaign results from post to on-chain' },
-  { bg: 'bg-orange', heading: 'Pay KOLs on-chain, with escrow, anywhere' },
+  { bg: 'bg-brand', text: 'text-white', sub: 'text-white/80', heading: 'Find and vet the right crypto KOLs for your project', copy: 'Search the Kolio index by audience, niche, and on-chain proof — not vanity follower counts.' },
+  { bg: 'bg-brand-coral', text: 'text-white', sub: 'text-white/85', heading: 'Keep every KOL deal organized from brief to delivery', copy: 'Briefs, approvals, deliverables, and timelines live in one shared workflow.' },
+  { bg: 'bg-coral-bg', text: 'text-ink', sub: 'text-ink/65', heading: 'Attribute campaign results from post to on-chain', copy: 'Tie every KOL post to real outcomes — sign-ups, swaps, and mints.' },
+  { bg: 'bg-coral', text: 'text-white', sub: 'text-white/85', heading: 'Pay KOLs on-chain, with escrow, anywhere', copy: 'Hold budget in escrow, release on delivery, settle in stablecoins worldwide.' },
 ];
 
-/** Final stacked colored CTA panels (rounded full-width blocks) closing with the pink "upgrade to Kolio" panel. */
+/** Final stacked brand CTA panels (rounded full-width blocks) closing with the "run KOL marketing on Kolio" panel. */
 export default function CtaStack() {
   return (
-    <section className="flex flex-col gap-4 px-3 pb-4 md:gap-16">
+    <section className="flex flex-col gap-4 px-3 pb-4 md:gap-8">
       {PANELS.map((p) => (
         <div
           key={p.heading}
-          className={`${p.bg} flex min-h-[400px] items-center justify-center rounded-xl px-6 py-20 md:min-h-[640px] md:py-32`}
+          className={`${p.bg} flex min-h-[300px] flex-col items-center justify-center rounded-xl px-6 py-16 text-center md:min-h-[440px] md:py-24`}
         >
-          <h2 className="mx-auto max-w-[1000px] text-center font-display text-[2.5rem] uppercase leading-[0.95] text-ink md:text-[4.5rem]">
+          <h2 className={`mx-auto max-w-[1000px] font-display text-[2.25rem] uppercase leading-[0.95] ${p.text} md:text-[4rem]`}>
             {p.heading}
           </h2>
+          <p className={`mt-5 max-w-[42rem] text-body md:text-body-md ${p.sub}`}>{p.copy}</p>
         </div>
       ))}
 

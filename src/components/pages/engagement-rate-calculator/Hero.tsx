@@ -84,9 +84,37 @@ export default function Hero() {
               </form>
             </div>
 
-            {/* result placeholder area */}
-            <div className="mt-2 flex h-72 w-full max-w-[59rem] items-center justify-center rounded-lg border border-dashed border-violet bg-white shadow-[4px_4px_12px_rgba(214,218,255,0.4)]">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-violet border-t-transparent" />
+            {/* example result card */}
+            <div className="mt-2 w-full max-w-[59rem] rounded-lg border border-black/10 bg-white p-5 text-left shadow-nav md:p-7">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/5 pb-4">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-pill bg-gradient-brand text-body-sm font-bold text-white">VB</span>
+                  <div>
+                    <div className="text-body-sm font-semibold text-foreground">Vitalik Buterin</div>
+                    <div className="text-eyebrow text-foreground/50">@VitalikButerin · X (Twitter)</div>
+                  </div>
+                </div>
+                <div className="rounded-pill bg-coral-bg px-4 py-2 text-center">
+                  <div className="font-display text-h5 leading-none text-brand">4.8%</div>
+                  <div className="text-[10px] uppercase tracking-wide text-brand/70">Engagement rate</div>
+                </div>
+              </div>
+              <div className="mt-5 grid grid-cols-3 gap-3">
+                {[['Avg likes', '38.2K'], ['Avg replies', '2.1K'], ['Avg reposts', '6.4K']].map(([l, v]) => (
+                  <div key={l} className="rounded-md bg-gray-50 py-3 text-center">
+                    <div className="font-display text-h5 leading-none text-foreground">{v}</div>
+                    <div className="mt-1 text-eyebrow text-foreground/50">{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5">
+                <div className="mb-2 flex items-center justify-between text-eyebrow text-foreground/50"><span>Engagement by post · last 12</span><span>vs 1.9% niche median</span></div>
+                <div className="flex h-24 items-end gap-1.5">
+                  {[52, 67, 44, 78, 61, 88, 73, 96, 70, 84, 59, 91].map((h, i) => (
+                    <div key={i} className="flex-1 rounded-t bg-gradient-brand" style={{ height: `${h}%` }} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
