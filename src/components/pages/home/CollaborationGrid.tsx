@@ -29,7 +29,8 @@ export default function CollaborationGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mb-10 max-w-[640px] font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
+        <span className="eyebrow">Use cases</span>
+        <h2 className="mb-10 mt-3 max-w-[640px] display-lg font-display text-[2rem] leading-[1.05] text-foreground md:text-[2.5rem]">
           Manage every KOL collaboration from one place
         </h2>
 

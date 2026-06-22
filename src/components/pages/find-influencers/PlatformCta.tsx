@@ -4,19 +4,22 @@ export default function PlatformCta() {
     <section className="bg-background pb-16 md:pb-24">
       <div className="mx-auto w-full max-w-container px-4 sm:px-6">
         <div className="flex flex-col items-center justify-center rounded-xl bg-gradient-brand px-6 py-24 text-center">
-          <h2 className="mb-8 max-w-[820px] font-display text-[2.5rem] uppercase leading-[1.05] text-white md:text-[3.75rem]">
+          <h2 className="mb-8 max-w-[820px] font-display display-lg text-[2.5rem] text-white md:text-[3.75rem]">
             The web3 influencer marketing platform for crypto KOLs
           </h2>
 
-          {/* Stat callouts (later.com-inspired) */}
-          <div className="mb-10 grid w-full max-w-[680px] grid-cols-1 gap-6 sm:grid-cols-3">
+          {/* Stat callouts */}
+          <div className="mb-10 grid w-full max-w-[720px] grid-cols-1 gap-6 sm:grid-cols-3">
             {[
-              { stat: 'Proof-based', label: 'reach & audience vetting' },
-              { stat: 'On-chain', label: 'payments & escrow' },
-              { stat: 'Full-funnel', label: 'campaign attribution' },
+              { value: '100%', stat: 'Proof-based', label: 'reach & audience vetting' },
+              { value: 'USDC', stat: 'On-chain', label: 'payments & escrow' },
+              { value: 'End-to-end', stat: 'Full-funnel', label: 'campaign attribution' },
             ].map((s) => (
               <div key={s.label} className="text-white">
-                <p className="font-display text-[1.75rem] leading-none md:text-[2rem]">
+                <p className="num-display font-mono-tnum text-[1.5rem] leading-none text-white md:text-[1.75rem]">
+                  {s.value}
+                </p>
+                <p className="mt-2 font-display text-body-md font-semibold leading-none">
                   {s.stat}
                 </p>
                 <p className="mt-2 text-body-sm text-white/80">{s.label}</p>

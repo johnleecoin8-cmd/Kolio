@@ -51,25 +51,31 @@ export default function GuestsGrid() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center font-sans font-bold text-h4 md:text-h3 leading-tight tracking-tight text-navy">
-          Hear how leading exchanges &amp; protocols run crypto KOL
-          campaigns that actually convert
-        </h2>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-12">
+        <div className="mx-auto max-w-[760px] text-center">
+          <span className="eyebrow">The operators</span>
+          <h2 className="mt-3 display-lg font-display text-h4 md:text-h3 text-foreground">
+            Hear how leading exchanges &amp; protocols run crypto KOL campaigns
+            that actually convert
+          </h2>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {GUESTS.map((g) => (
-            <div key={g.name} className="flex flex-col items-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full ring-2 ring-blue bg-gradient-brand text-white font-bold text-body">
+            <div
+              key={g.name}
+              className="card-kit flex items-center gap-4 p-5"
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-pill bg-gradient-brand text-body-sm font-bold text-white">
                 {initials(g.name)}
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-body-sm font-bold text-foreground">
+                  {g.name}
+                </p>
+                <p className="truncate text-eyebrow text-foreground/50">
+                  {g.role}
+                </p>
+                <span className="chip chip-brand mt-2">{g.brand}</span>
               </div>
-              <p className="mt-3 text-body-sm font-bold text-foreground">
-                {g.name}
-              </p>
-              <p className="mt-1 text-eyebrow text-foreground/50 max-w-[220px]">
-                {g.role} @ {g.brand}
-              </p>
-              <p className="mt-3 text-body-sm font-bold tracking-wide text-foreground/70 uppercase">
-                {g.brand}
-              </p>
             </div>
           ))}
         </div>

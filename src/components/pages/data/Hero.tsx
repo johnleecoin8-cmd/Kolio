@@ -1,15 +1,13 @@
 import Container from '@/components/ui/Container';
 
-/** Data hero — "Our Data" eyebrow, big title with one highlighted word. */
+/** Data hero — refined eyebrow + editorial display heading on soft neutral. */
 export default function Hero() {
   return (
-    <section className="bg-background pt-12 md:pt-16">
+    <section className="bg-gray-50 pt-16 pb-12 md:pt-24 md:pb-16">
       <Container>
         <div className="mx-auto flex max-w-[1000px] flex-col items-center text-center">
-          <div className="mb-5 text-body-sm font-bold text-foreground/55">
-            Our Data
-          </div>
-          <h1 className="font-display text-[3rem] uppercase leading-[0.95] text-foreground sm:text-[5rem] md:text-[7rem]">
+          <span className="eyebrow">Our Data</span>
+          <h1 className="mt-5 display-xl font-display text-[3rem] uppercase text-foreground sm:text-[4.75rem] md:text-[6.5rem]">
             Web3 KOL data you can{' '}
             <span className="text-gradient-brand">prove</span>
           </h1>
@@ -18,34 +16,13 @@ export default function Hero() {
             reach, audience quality, and on-chain results across every crypto
             KOL on X, YouTube, TikTok, and Telegram.
           </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
+            <span className="chip chip-brand">120M+ profiles indexed</span>
+            <span className="chip chip-onchain">On-chain verified</span>
+            <span className="chip chip-ink">8 web3 niches</span>
+          </div>
         </div>
       </Container>
-
-      <div className="mt-10 md:mt-14">
-        <div className="bg-purple-light py-10 md:py-16">
-          <Container>
-            <div className="mx-auto grid w-full max-w-[1136px] gap-4 sm:grid-cols-3">
-              {[
-                { stat: '120M+', label: 'crypto-native profiles indexed' },
-                { stat: '30+', label: 'audience & reach signals per KOL' },
-                { stat: '8', label: 'web3 niches, from DeFi to gaming' },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl bg-background p-8 text-center shadow-sm"
-                >
-                  <div className="font-display text-[2.75rem] leading-none text-gradient-brand">
-                    {s.stat}
-                  </div>
-                  <div className="mt-3 text-body-sm text-foreground/70">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </div>
-      </div>
     </section>
   );
 }

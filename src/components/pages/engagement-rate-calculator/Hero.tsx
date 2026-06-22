@@ -1,8 +1,20 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import ProofScore, { computeProofScore } from '@/components/kit/ProofScore';
 
 const NAV_LINKS = ['Discovery', 'API', 'Brands', 'Resources', 'Pricing'];
+
+// last-12-post engagement, % (real proportions for the example chart)
+const POSTS = [3.9, 5.1, 3.3, 5.9, 4.6, 6.7, 5.5, 7.3, 5.3, 6.4, 4.5, 6.9];
+const NICHE_MEDIAN = 1.9;
+const CHART_MAX = 8;
+const EXAMPLE_SCORE = computeProofScore({
+  engagement_rate: 0.048,
+  fake_follower_pct: 0.04,
+  is_verified: true,
+  followers: 5_400_000,
+});
 
 /**
  * Hero: page H1 with a single gradient-highlighted word (later.com pattern),
@@ -16,8 +28,9 @@ export default function Hero() {
     <section className="bg-background pt-6 md:pt-10">
       <Container>
         <div className="flex flex-col items-center px-4 pb-6 pt-4 text-center md:pb-8 md:pt-8">
-          <h1 className="m-0 max-w-[60rem] text-center font-display text-4xl font-normal leading-tight text-foreground md:text-6xl xl:text-[5rem]">
-            Free Crypto KOL{' '}
+          <span className="eyebrow">Free tool · No login</span>
+          <h1 className="display-xl m-0 mt-4 max-w-[60rem] text-center font-display text-4xl text-foreground md:text-6xl xl:text-[5rem]">
+            Crypto KOL{' '}
             <span className="text-gradient-brand">Engagement Rate</span>{' '}
             Calculator
           </h1>
@@ -94,25 +107,48 @@ export default function Hero() {
                     <div className="text-eyebrow text-foreground/50">@VitalikButerin · X (Twitter)</div>
                   </div>
                 </div>
-                <div className="rounded-pill bg-coral-bg px-4 py-2 text-center">
-                  <div className="font-display text-h5 leading-none text-brand">4.8%</div>
-                  <div className="text-[10px] uppercase tracking-wide text-brand/70">Engagement rate</div>
+                <div className="flex items-center gap-4">
+                  <ProofScore score={EXAMPLE_SCORE} size="lg" />
+                  <div className="rounded-pill bg-coral-bg px-4 py-2 text-center">
+                    <div className="num-display text-h5 leading-none text-brand">4.8%</div>
+                    <div className="text-[10px] uppercase tracking-wide text-brand/70">Engagement rate</div>
+                  </div>
                 </div>
               </div>
               <div className="mt-5 grid grid-cols-3 gap-3">
                 {[['Avg likes', '38.2K'], ['Avg replies', '2.1K'], ['Avg reposts', '6.4K']].map(([l, v]) => (
                   <div key={l} className="rounded-md bg-gray-50 py-3 text-center">
-                    <div className="font-display text-h5 leading-none text-foreground">{v}</div>
+                    <div className="num-display text-h5 leading-none text-foreground">{v}</div>
                     <div className="mt-1 text-eyebrow text-foreground/50">{l}</div>
                   </div>
                 ))}
               </div>
-              <div className="mt-5">
-                <div className="mb-2 flex items-center justify-between text-eyebrow text-foreground/50"><span>Engagement by post · last 12</span><span>vs 1.9% niche median</span></div>
-                <div className="flex h-24 items-end gap-1.5">
-                  {[52, 67, 44, 78, 61, 88, 73, 96, 70, 84, 59, 91].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t bg-gradient-brand" style={{ height: `${h}%` }} />
+
+              {/* Engagement-by-post bar chart: labelled, with baseline + median guide */}
+              <div className="mt-6">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="eyebrow">Engagement by post · last 12</span>
+                  <span className="chip chip-onchain">Median {NICHE_MEDIAN}% niche</span>
+                </div>
+                <div className="relative flex h-28 items-end gap-1.5 border-b border-gray-200">
+                  {/* niche-median guide line */}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 border-t border-dashed border-foreground/25"
+                    style={{ bottom: `${(NICHE_MEDIAN / CHART_MAX) * 100}%` }}
+                  />
+                  {POSTS.map((v, i) => (
+                    <div
+                      key={i}
+                      className="group relative flex-1 rounded-t bg-gradient-brand"
+                      style={{ height: `${(v / CHART_MAX) * 100}%` }}
+                      title={`Post ${i + 1}: ${v.toFixed(1)}%`}
+                    />
                   ))}
+                </div>
+                <div className="mt-2 flex items-center justify-between font-mono-tnum text-[10px] text-foreground/45">
+                  <span>P1</span>
+                  <span>last 12 posts →</span>
+                  <span>P12</span>
                 </div>
               </div>
             </div>

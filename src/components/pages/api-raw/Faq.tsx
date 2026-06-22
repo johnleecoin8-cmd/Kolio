@@ -72,10 +72,11 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-background py-12 md:py-20">
+    <section className="bg-background py-16 md:py-24">
       <Container>
-        <div className="rounded-xl bg-background-soft p-8 md:p-14">
-          <h2 className="mb-8 text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+        <div className="card-kit p-8 md:p-14">
+          <p className="eyebrow mb-3">FAQ</p>
+          <h2 className="display-lg mb-8 font-display text-[1.75rem] text-foreground md:text-[2.1875rem]">
             Frequently asked questions
           </h2>
           <div className="divide-y divide-black/10">

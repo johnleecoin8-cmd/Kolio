@@ -85,29 +85,40 @@ const COLS: Col[] = [
   },
 ];
 
-function Row({ text }: { text: string }) {
+function Row({ text, dark }: { text: string; dark?: boolean }) {
   return (
     <div className="flex items-start gap-3">
-      <img
-        src={CHECK}
-        width={20}
-        height={20}
-        alt=""
-        loading="lazy"
-        className="mt-0.5 shrink-0"
-      />
-      <span className="text-body-sm text-foreground/65">{text}</span>
+      {dark ? (
+        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-pill bg-mint" />
+      ) : (
+        <img
+          src={CHECK}
+          width={20}
+          height={20}
+          alt=""
+          loading="lazy"
+          className="mt-0.5 shrink-0"
+        />
+      )}
+      <span
+        className={`font-mono-tnum text-body-sm ${
+          dark ? 'text-white/70' : 'text-foreground/65'
+        }`}
+      >
+        {text}
+      </span>
     </div>
   );
 }
 
-/** Three grey columns of grouped datapoints. */
+/** Three columns of grouped datapoints — first card is a dark on-chain terminal lead. */
 export default function DataPoints() {
   return (
-    <section className="bg-background py-12 md:py-20">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[640px] text-center">
-          <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+          <p className="eyebrow mb-3">The schema</p>
+          <h2 className="display-lg font-display text-[1.75rem] text-foreground md:text-[2.1875rem]">
             More than 30 datapoints, live and unfiltered
           </h2>
           <p className="mt-4 text-body-md text-foreground/70">
@@ -118,35 +129,68 @@ export default function DataPoints() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {COLS.map((col) => (
-            <div
-              key={col.title}
-              className="flex flex-col gap-8 rounded-lg bg-background-soft p-6 md:p-8"
-            >
-              <div>
-                <div className="flex items-center gap-3">
-                  <img src={col.icon} width={24} height={24} alt="" loading="lazy" />
-                  <h3 className="text-body-md font-semibold text-foreground">
-                    {col.title}
-                  </h3>
-                </div>
-                <p className="mt-3 text-body text-foreground/60">
-                  {col.subtitle}
-                </p>
-              </div>
-
-              {col.groups.map((g, gi) => (
-                <div key={gi}>
-                  {gi > 0 && <div className="mb-8 h-px w-full bg-black/10" />}
-                  <div className="flex flex-col gap-4">
-                    {g.items.map((it) => (
-                      <Row key={it} text={it} />
-                    ))}
+          {COLS.map((col, ci) => {
+            const dark = ci === 0;
+            return (
+              <div
+                key={col.title}
+                className={
+                  dark
+                    ? 'surface-onchain flex flex-col gap-8 rounded-xl p-6 md:p-8'
+                    : 'card-kit flex flex-col gap-8 p-6 md:p-8'
+                }
+              >
+                <div>
+                  <div className="flex items-center gap-3">
+                    {dark ? (
+                      <span className="chip chip-onchain font-mono-tnum">
+                        profile
+                      </span>
+                    ) : (
+                      <img
+                        src={col.icon}
+                        width={24}
+                        height={24}
+                        alt=""
+                        loading="lazy"
+                      />
+                    )}
+                    <h3
+                      className={`text-body-md font-semibold ${
+                        dark ? 'text-white' : 'text-foreground'
+                      }`}
+                    >
+                      {col.title}
+                    </h3>
                   </div>
+                  <p
+                    className={`mt-3 text-body ${
+                      dark ? 'text-white/55' : 'text-foreground/60'
+                    }`}
+                  >
+                    {col.subtitle}
+                  </p>
                 </div>
-              ))}
-            </div>
-          ))}
+
+                {col.groups.map((g, gi) => (
+                  <div key={gi}>
+                    {gi > 0 && (
+                      <div
+                        className={`mb-8 h-px w-full ${
+                          dark ? 'bg-white/10' : 'bg-black/10'
+                        }`}
+                      />
+                    )}
+                    <div className="flex flex-col gap-4">
+                      {g.items.map((it) => (
+                        <Row key={it} text={it} dark={dark} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

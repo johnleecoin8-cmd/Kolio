@@ -16,7 +16,7 @@ export default function TrustedBy() {
   return (
     <section className="bg-background pt-10 md:pt-14">
       <Container className="max-w-[896px]">
-        <p className="text-center text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
+        <p className="eyebrow flex justify-center text-foreground/40">
           Trusted by the teams building web3
         </p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12">

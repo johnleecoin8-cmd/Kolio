@@ -14,7 +14,8 @@ export default function ContentFormat() {
       <Container>
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-16">
           <div className="flex flex-col items-start justify-start gap-4 lg:order-2 lg:flex-1">
-            <h2 className="mb-4 w-full break-words font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
+            <span className="eyebrow">Per channel</span>
+            <h2 className="display-lg mb-4 w-full break-words font-display text-5xl text-foreground lg:text-7xl">
               Compare engagement across every crypto channel
             </h2>
             <div className="w-full break-words text-lg font-normal leading-relaxed text-foreground">
@@ -37,10 +38,11 @@ export default function ContentFormat() {
 
           {/* brand-neutral per-channel mockup */}
           <div className="flex w-full justify-center lg:order-1 lg:flex-1">
-            <div className="w-full max-w-[26rem] rounded-2xl border border-black/10 bg-white p-6 shadow-nav">
-              <span className="text-body-sm font-semibold text-foreground/60">
-                Engagement by channel
-              </span>
+            <div className="card-kit w-full max-w-[26rem] p-6">
+              <div className="flex items-center justify-between">
+                <span className="eyebrow">Engagement by channel</span>
+                <span className="chip chip-onchain">Verified</span>
+              </div>
               <div className="mt-5 flex flex-col gap-4">
                 {PLATFORMS.map((p) => (
                   <div key={p.name}>
@@ -48,7 +50,7 @@ export default function ContentFormat() {
                       <span className="font-medium text-foreground">
                         {p.name}
                       </span>
-                      <span className="font-semibold text-foreground/70">
+                      <span className="num-display font-mono-tnum text-foreground/70">
                         {p.rate}
                       </span>
                     </div>

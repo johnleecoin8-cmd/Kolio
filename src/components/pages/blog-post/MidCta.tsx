@@ -2,10 +2,10 @@
 export default function MidCta() {
   return (
     <section className="mt-16 border-t border-gray-200 pt-12">
-      <h2 className="text-[1.75rem] font-bold leading-tight text-foreground">
+      <h2 className="display-lg font-display text-[1.75rem] leading-tight text-foreground md:text-[2.125rem]">
         See why web3 brands run their KOL campaigns on Kolio
       </h2>
-      <p className="mt-4 text-body leading-relaxed text-foreground/80">
+      <p className="mt-4 text-body leading-[1.75] text-foreground/80">
         If you market a token, protocol, exchange, or app and you need one tool for the
         whole KOL workflow, you really have two choices:
       </p>
@@ -21,7 +21,7 @@ export default function MidCta() {
       </p>
       <p className="mt-4 text-body leading-relaxed text-foreground/80">
         See why by{' '}
-        <a href="/demo-confirmation" className="font-medium text-pink-dark underline">
+        <a href="/demo-confirmation" className="font-medium text-brand underline decoration-brand/30 underline-offset-2 hover:decoration-brand">
           trying Kolio for free
         </a>{' '}
         – we won’t even ask for your credit card details!

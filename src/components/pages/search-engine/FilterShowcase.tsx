@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react';
+import { Search, Users } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
 const KOL = [
@@ -19,55 +19,68 @@ const AUDIENCE = [
   'Languages',
 ];
 
-/** "Filter for crypto KOLs that actually convert" — two filter checklists + CTA. */
+/** "Every filter feeds the ranking" — two filter cards rendered as chip clusters. */
 export default function FilterShowcase() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <div className="flex flex-col items-center">
-          <h2 className="text-center font-display text-[2rem] leading-tight text-violet-dark md:text-[2.5rem]">
-            Filter for crypto KOLs that actually convert
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Query inputs</span>
+          <h2 className="mt-3 display-lg font-display text-[2rem] text-foreground md:text-[2.5rem]">
+            Every filter feeds the relevance score
           </h2>
-          <p className="mx-auto mt-6 max-w-[820px] text-center text-body text-foreground/80">
-            Kolio indexes key opinion leaders across X, YouTube, TikTok, and
-            Telegram &mdash; scored on real reach and audience quality, not
-            follower counts. The right voice for your token{' '}
-            <strong className="font-semibold">is</strong> out there; these are
-            the filters that surface them.
+          <p className="mx-auto mt-5 max-w-[640px] text-body text-foreground/70">
+            Stack KOL signals and audience signals into one query. Kolio weights
+            each one and re-sorts the results so the closest match &mdash; not the
+            biggest follower count &mdash; lands at position one.
           </p>
+        </div>
 
-          <div className="mt-12 grid w-full gap-10 md:grid-cols-2 md:gap-16">
-            <FilterCard title="KOL filters" items={KOL} />
-            <FilterCard title="Audience filters" items={AUDIENCE} />
-          </div>
-
-          <a
-            href="/demo-confirmation"
-            className="mt-12 inline-flex h-12 items-center justify-center rounded-sm bg-violet-dark px-6 text-body font-semibold uppercase tracking-wide text-white transition hover:opacity-90"
-          >
-            Try For Free
-          </a>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <FilterCard
+            icon={<Search className="h-5 w-5" />}
+            eyebrow="Filter the KOL"
+            items={KOL}
+            chip="chip-brand"
+          />
+          <FilterCard
+            icon={<Users className="h-5 w-5" />}
+            eyebrow="Filter the audience"
+            items={AUDIENCE}
+            chip="chip-onchain"
+          />
         </div>
       </Container>
     </section>
   );
 }
 
-function FilterCard({ title, items }: { title: string; items: string[] }) {
+function FilterCard({
+  icon,
+  eyebrow,
+  items,
+  chip,
+}: {
+  icon: React.ReactNode;
+  eyebrow: string;
+  items: string[];
+  chip: string;
+}) {
   return (
-    <div className="flex flex-col items-center text-center">
-      <h4 className="font-display text-h4 text-violet-dark">{title}</h4>
-      <ul className="mt-8 w-full max-w-[320px] space-y-4">
+    <div className="card-kit p-7">
+      <div className="flex items-center gap-3">
+        <span className="grid h-10 w-10 place-items-center rounded-lg bg-coral-bg text-brand">
+          {icon}
+        </span>
+        <h3 className="font-display text-h4 text-foreground">{eyebrow}</h3>
+      </div>
+      <div className="mt-6 flex flex-wrap gap-2.5">
         {items.map((it) => (
-          <li
-            key={it}
-            className="flex items-center gap-3 text-body text-foreground"
-          >
-            <CheckCircle2 className="h-6 w-6 shrink-0 text-brand" />
+          <span key={it} className={`chip ${chip}`}>
             {it}
-          </li>
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

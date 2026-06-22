@@ -10,9 +10,7 @@ export default function Faq() {
     <section className="bg-background pb-16 md:pb-24">
       <Container>
         <div className="rounded-xl bg-background-soft p-6 md:p-12">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-            FAQ
-          </p>
+          <span className="eyebrow">FAQ</span>
           <h2 className="mt-3 font-display text-[2.25rem] uppercase leading-[1.02] text-foreground sm:text-[3rem] md:text-[3.25rem]">
             Frequently asked questions
           </h2>

@@ -25,16 +25,14 @@ function CheckItem({ label }: { label: string }) {
 /** Brand-neutral KOL profile card built from divs. */
 function ProfileCard() {
   return (
-    <div className="rounded-xl border border-black/10 bg-background-soft p-6 shadow-sm">
+    <div className="card-kit p-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 shrink-0 rounded-full bg-gradient-brand" />
         <div className="min-w-0">
           <div className="text-body-md font-semibold text-foreground">@defi_signal</div>
           <div className="text-body-sm text-foreground/60">DeFi & L2 research・X / YouTube</div>
         </div>
-        <span className="ml-auto rounded-full bg-gradient-brand px-3 py-1 text-body-sm font-semibold text-white">
-          Verified
-        </span>
+        <span className="chip chip-onchain ml-auto">Verified</span>
       </div>
 
       <div className="mt-6 grid grid-cols-3 gap-4">
@@ -43,8 +41,8 @@ function ProfileCard() {
           { v: '6.2%', l: 'Engagement' },
           { v: '2.1%', l: 'Fake followers' },
         ].map((m) => (
-          <div key={m.l} className="rounded-lg border border-black/10 bg-white p-3 text-center">
-            <div className="font-display text-2xl text-foreground">{m.v}</div>
+          <div key={m.l} className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+            <div className="num-display text-2xl text-foreground">{m.v}</div>
             <div className="mt-1 text-body-sm text-foreground/60">{m.l}</div>
           </div>
         ))}
@@ -73,14 +71,15 @@ function ProfileCard() {
 /** First feature: contacts + all the KOL data, with a two-column checklist. */
 export default function DataFeature() {
   return (
-    <section className="py-16 md:py-32">
+    <section className="py-16 md:py-24">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
             <ProfileCard />
           </div>
           <div>
-            <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-h3">
+            <span className="eyebrow">Contacts + proof</span>
+            <h2 className="mt-3 display-lg font-display text-[2rem] text-foreground md:text-h3">
               Get KOL contacts, plus the proof you need to vet them
             </h2>
 

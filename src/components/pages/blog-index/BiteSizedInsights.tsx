@@ -37,18 +37,19 @@ export default function BiteSizedInsights() {
     <section className="bg-background py-12 md:py-16">
       <Container className="max-w-[896px]">
         <SectionHeader
+          eyebrow="Newsletter"
           title="Return on Influence - Bite-Sized Insights"
           href="/newsletter"
         />
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {ISSUES.map((n) => (
             <a
               key={n.issue}
               href={n.href}
-              className="flex min-h-[230px] flex-col rounded-xl bg-background-soft p-6 transition-shadow hover:shadow-nav"
+              className="card-kit flex min-h-[230px] flex-col p-6"
             >
-              <span className="inline-flex w-fit rounded-pill bg-purple px-3 py-1 text-eyebrow font-semibold text-white">
+              <span className="chip chip-ink w-fit">
                 {n.issue}
               </span>
               <span className="mt-4 text-body-md font-bold leading-snug text-foreground">

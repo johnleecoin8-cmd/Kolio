@@ -8,14 +8,12 @@ export default function Hero() {
       <Container>
         <div className="mx-auto flex max-w-[1080px] flex-col items-center text-center">
           {/* product tag */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-pill bg-pink-bg px-4 py-1.5">
-            <span className="h-2 w-2 rounded-full bg-gradient-brand" />
-            <span className="text-body-sm font-semibold text-foreground">
-              KOL Database
-            </span>
+          <div className="mb-6 inline-flex items-center gap-2">
+            <span className="chip chip-brand">KOL Database</span>
+            <span className="chip chip-onchain font-mono-tnum">1,284 verified</span>
           </div>
 
-          <h1 className="font-display font-normal uppercase text-[3rem] leading-[0.9] text-foreground sm:text-[5rem] md:text-[8.5rem]">
+          <h1 className="display-xl font-display font-normal uppercase text-[3rem] leading-[0.9] text-foreground sm:text-[5rem] md:text-[8.5rem]">
             The crypto KOL database, <span className="text-gradient-brand">verified</span>
           </h1>
 
@@ -54,10 +52,10 @@ export default function Hero() {
 }
 
 const ROWS = [
-  { name: 'DeFi Dad', handle: 'thedefidad', niche: 'DeFi', reach: '412K', quality: '94%' },
-  { name: 'Layah.eth', handle: 'layah_l2', niche: 'L1/L2', reach: '288K', quality: '91%' },
-  { name: 'NFTMaxi', handle: 'nft_maxi', niche: 'NFTs', reach: '176K', quality: '88%' },
-  { name: 'TradeDesk', handle: 'tradedesk', niche: 'Trading', reach: '534K', quality: '90%' },
+  { name: 'DeFi Dad', handle: 'thedefidad', niche: 'DeFi', tier: 'Mid', reach: '412K', score: 94 },
+  { name: 'Layah.eth', handle: 'layah_l2', niche: 'L1/L2', tier: 'Mid', reach: '288K', score: 91 },
+  { name: 'NFTMaxi', handle: 'nft_maxi', niche: 'NFTs', tier: 'Micro', reach: '176K', score: 88 },
+  { name: 'TradeDesk', handle: 'tradedesk', niche: 'Trading', tier: 'Macro', reach: '534K', score: 90 },
 ];
 
 /** Brand-neutral KOL discovery table mockup (no Modash imagery). */
@@ -77,8 +75,9 @@ function DatabaseMockup() {
           <tr>
             <th className="px-5 py-3 font-semibold">KOL</th>
             <th className="px-5 py-3 font-semibold">Niche</th>
+            <th className="px-5 py-3 font-semibold">Tier</th>
             <th className="px-5 py-3 text-right font-semibold">Real reach</th>
-            <th className="px-5 py-3 text-right font-semibold">Audience quality</th>
+            <th className="px-5 py-3 text-right font-semibold">Proof score</th>
           </tr>
         </thead>
         <tbody>
@@ -94,8 +93,14 @@ function DatabaseMockup() {
                 </div>
               </td>
               <td className="px-5 py-3 text-foreground/70">{r.niche}</td>
-              <td className="px-5 py-3 text-right font-semibold tabular-nums">{r.reach}</td>
-              <td className="px-5 py-3 text-right tabular-nums text-foreground/70">{r.quality}</td>
+              <td className="px-5 py-3">
+                <span className="chip chip-ink">{r.tier}</span>
+              </td>
+              <td className="px-5 py-3 text-right font-mono-tnum font-semibold">{r.reach}</td>
+              <td className="px-5 py-3 text-right">
+                <span className="font-mono-tnum font-semibold text-brand">{r.score}</span>
+                <span className="font-mono-tnum text-foreground/40">/100</span>
+              </td>
             </tr>
           ))}
         </tbody>

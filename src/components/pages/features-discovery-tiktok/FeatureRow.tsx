@@ -4,6 +4,7 @@ import { ButtonA } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 
 type Props = {
+  eyebrow?: string;
   heading: ReactNode;
   body: ReactNode;
   img?: string;
@@ -14,11 +15,12 @@ type Props = {
   ctaHref?: string;
   imageOn?: 'left' | 'right';
   /** Section background variant. */
-  bg?: 'white' | 'violet';
+  bg?: 'white' | 'soft';
 };
 
 /** Two-column feature row: heading + copy + CTA on one side, illustration on the other. */
 export default function FeatureRow({
+  eyebrow,
   heading,
   body,
   img,
@@ -31,14 +33,15 @@ export default function FeatureRow({
 }: Props) {
   const text = (
     <div className="flex flex-col justify-center">
-      <h2 className="font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
+      {eyebrow && <span className="eyebrow mb-4">{eyebrow}</span>}
+      <h2 className="display-lg font-display text-[2rem] text-foreground md:text-[2.5rem]">
         {heading}
       </h2>
-      <div className="mt-6 max-w-[480px] text-body-md text-violet-dark/80">
+      <div className="mt-6 max-w-[480px] text-body-md text-foreground/70">
         {body}
       </div>
       <div className="mt-8">
-        <ButtonA href={ctaHref} variant="accent">
+        <ButtonA href={ctaHref} variant="primary">
           {ctaLabel}
         </ButtonA>
       </div>
@@ -62,7 +65,7 @@ export default function FeatureRow({
     <section
       className={cn(
         'py-16 md:py-24',
-        bg === 'violet' ? 'bg-violet-light' : 'bg-background',
+        bg === 'soft' ? 'bg-gray-50' : 'bg-white',
       )}
     >
       <Container>

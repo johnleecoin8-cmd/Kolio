@@ -28,29 +28,41 @@ const ROLES: Role[] = [
 /** Open Roles — heading + list of job rows (title + team / location), divided rows. */
 export default function OpenRoles() {
   return (
-    <section id="open-roles" className="bg-background pb-16 md:pb-24">
+    <section id="open-roles" className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
-          Open Roles
-        </h2>
+        <div className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow mb-3">We&rsquo;re hiring</p>
+            <h2 className="display-lg font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
+              Open Roles
+            </h2>
+          </div>
+          <p className="font-mono-tnum text-body-sm text-foreground/45">
+            {ROLES.length} positions · remote-first, Europe
+          </p>
+        </div>
 
-        <div className="mt-8 border-t border-gray-200 md:mt-10">
+        <div className="mt-8 overflow-hidden rounded-xl border border-gray-200 md:mt-10">
           {ROLES.map((role, i) => (
             <a
               key={`${role.title}-${role.location}-${i}`}
               href="/demo-confirmation"
-              className="flex items-center justify-between gap-6 border-b border-gray-200 py-5 transition hover:bg-gray-50/60"
+              className="group flex items-center justify-between gap-6 border-b border-gray-200 bg-white px-5 py-5 transition last:border-b-0 hover:bg-gray-50"
             >
-              <div>
-                <h3 className="text-body font-semibold text-foreground">
+              <div className="min-w-0">
+                <h3 className="truncate text-body font-semibold text-foreground transition group-hover:text-brand">
                   {role.title}
                 </h3>
-                <p className="mt-1 text-body-sm text-foreground/50">
-                  Team: {role.team}
-                </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <span className="chip chip-ink">{role.team}</span>
+                  <span className="chip chip-brand">{role.location}</span>
+                </div>
               </div>
-              <span className="shrink-0 text-right text-body-sm text-foreground/50">
-                {role.location}
+              <span
+                aria-hidden
+                className="shrink-0 text-h4 text-foreground/30 transition group-hover:translate-x-1 group-hover:text-brand"
+              >
+                &rarr;
               </span>
             </a>
           ))}

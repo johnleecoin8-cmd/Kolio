@@ -1,5 +1,5 @@
 import Container from '@/components/ui/Container';
-import { cn } from '@/lib/cn';
+import LogoMarquee from '@/components/kit/LogoMarquee';
 
 /** Web3 brands/exchanges that run campaigns on Kolio — rendered as styled text,
  *  not logos (the original Modash customer images are intentionally removed). */
@@ -18,14 +18,25 @@ const TRUSTED_BY = [
   'Magic Eden',
 ];
 
-/** Meet the Team — heading, 2-col copy, and a "trusted by" wall of web3 brand names. */
+/** Senior team, by discipline — branded initials tiles (no invented headshots). */
+const PODS = [
+  { initials: 'GR', name: 'Growth & Partnerships', note: 'Ex-exchange / protocol growth leads' },
+  { initials: 'DA', name: 'Data & Social Graph', note: 'Cross-chain indexing pipelines' },
+  { initials: 'AU', name: 'Audience Authenticity', note: 'Bot & fraud detection' },
+  { initials: 'ON', name: 'On-chain Engineering', note: 'Escrow, payouts, attribution' },
+];
+
+/** Meet the Team — heading, 2-col copy, branded discipline tiles, and a "trusted by" marquee. */
 export default function MeetTheTeam() {
   return (
-    <section className="bg-background pb-16 md:pb-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
-          Meet the Team
-        </h2>
+        <div className="text-center">
+          <p className="eyebrow mb-3 justify-center">Who you&rsquo;ll work with</p>
+          <h2 className="display-lg font-display text-h3 uppercase leading-tight text-foreground md:text-h2">
+            Meet the Team
+          </h2>
+        </div>
 
         <div className="mx-auto mt-8 grid max-w-[940px] gap-6 text-body-sm leading-relaxed text-foreground/70 md:mt-10 md:grid-cols-2 md:gap-10 md:text-body">
           <div className="space-y-4">
@@ -68,26 +79,28 @@ export default function MeetTheTeam() {
           </div>
         </div>
 
-        {/* Trusted by — web3 brands that run campaigns on Kolio */}
-        <div className="mx-auto mt-14 max-w-[1000px] text-center md:mt-20">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
-            Trusted by teams across web3
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
-            {TRUSTED_BY.map((name, i) => (
-              <span
-                key={name}
-                className={cn(
-                  'font-display text-h4 uppercase tracking-tight text-foreground/35 transition hover:text-foreground/70',
-                  i % 3 === 0 && 'text-foreground/45',
-                )}
-              >
-                {name}
-              </span>
-            ))}
-          </div>
+        {/* Discipline tiles — branded initials, not invented headshots */}
+        <div className="mx-auto mt-14 grid max-w-[1136px] grid-cols-2 gap-4 md:mt-20 md:grid-cols-4 md:gap-6">
+          {PODS.map((pod) => (
+            <div key={pod.initials} className="card-kit flex flex-col p-6 text-left">
+              <div className="bg-gradient-brand flex h-12 w-12 items-center justify-center rounded-lg font-display text-body-lg font-bold tracking-tight text-white">
+                {pod.initials}
+              </div>
+              <h3 className="mt-4 text-body font-semibold leading-tight text-foreground">
+                {pod.name}
+              </h3>
+              <p className="mt-1 text-body-sm leading-snug text-foreground/55">
+                {pod.note}
+              </p>
+            </div>
+          ))}
         </div>
       </Container>
+
+      {/* Trusted by — web3 brands that run campaigns on Kolio */}
+      <div className="mt-14 md:mt-20">
+        <LogoMarquee label="Trusted by teams across web3" names={TRUSTED_BY} />
+      </div>
     </section>
   );
 }

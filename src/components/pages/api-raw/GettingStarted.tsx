@@ -11,11 +11,14 @@ const STEPS = [
 /** "Getting started is easy" — three overlapping numbered blocks + CTA. */
 export default function GettingStarted() {
   return (
-    <section className="bg-background py-12 md:py-20">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-          Getting started is easy
-        </h2>
+        <div className="mx-auto max-w-[640px] text-center">
+          <p className="eyebrow mb-3">Onboarding</p>
+          <h2 className="display-lg font-display text-[1.75rem] text-foreground md:text-[2.1875rem]">
+            Getting started is easy
+          </h2>
+        </div>
 
         <div className="mx-auto mt-10 grid max-w-[760px] grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
           {STEPS.map((s, i) => (

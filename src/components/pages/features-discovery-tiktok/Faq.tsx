@@ -30,14 +30,17 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[820px]">
-          <h3 className="mb-8 text-center font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
-            Kolio crypto KOL discovery FAQs
-          </h3>
+          <div className="mb-8 text-center">
+            <span className="eyebrow">FAQ</span>
+            <h3 className="mt-3 display-lg font-display text-[2rem] text-foreground md:text-[2.5rem]">
+              Kolio crypto KOL discovery FAQs
+            </h3>
+          </div>
 
-          <div className="divide-y divide-black/10 border-y border-black/10">
+          <div className="divide-y divide-gray-200 border-y border-gray-200">
             {FAQS.map((f, i) => {
               const isOpen = open === i;
               return (
@@ -46,10 +49,10 @@ export default function Faq() {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-center justify-between gap-6 text-left"
                   >
-                    <span className="text-body-md font-semibold text-violet-dark">
+                    <span className="text-body-md font-semibold text-foreground">
                       {f.q}
                     </span>
-                    <span className="shrink-0 text-violet-dark">
+                    <span className="shrink-0 text-brand">
                       {isOpen ? (
                         <ChevronUp size={24} />
                       ) : (

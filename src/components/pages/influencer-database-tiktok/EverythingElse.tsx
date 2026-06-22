@@ -50,24 +50,48 @@ const FEATURES = [
 /** "Plus, everything else you need..." — centered heading + 3x2 feature grid. */
 export default function EverythingElse() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
-          Plus, everything else you need to run a profitable web3 KOL program
-        </h2>
+        <div className="mx-auto max-w-[760px] text-center">
+          <span className="eyebrow">The full loop</span>
+          <h2 className="display-lg mx-auto mt-3 font-display text-[2.1875rem] text-foreground">
+            Plus, everything else you need to run a profitable web3 KOL program
+          </h2>
+        </div>
 
-        <div className="mt-12 grid gap-x-12 gap-y-12 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
-          {FEATURES.map(({ Icon, title, body }) => (
-            <div key={title}>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-sm bg-brand/10 text-brand">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-4 text-body font-bold text-foreground">{title}</h3>
-              <p className="mt-2 text-body-sm leading-relaxed text-foreground/70">
-                {body}
-              </p>
-            </div>
-          ))}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
+          {FEATURES.map(({ Icon, title, body }, i) => {
+            const lead = i === 0;
+            return (
+              <div
+                key={title}
+                className={
+                  lead
+                    ? 'surface-onchain rounded-xl p-7 sm:col-span-2 lg:col-span-1 lg:row-span-2'
+                    : 'card-kit p-7'
+                }
+              >
+                <span
+                  className={
+                    lead
+                      ? 'inline-flex h-11 w-11 items-center justify-center rounded-sm bg-white/10 text-white'
+                      : 'inline-flex h-11 w-11 items-center justify-center rounded-sm bg-coral-bg text-brand'
+                  }
+                >
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className={`mt-4 text-body font-bold ${lead ? 'text-white' : 'text-foreground'}`}>
+                  {title}
+                </h3>
+                <p className={`mt-2 text-body-sm leading-relaxed ${lead ? 'text-white/65' : 'text-foreground/70'}`}>
+                  {body}
+                </p>
+                {lead && (
+                  <span className="chip chip-onchain mt-5">Start here</span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

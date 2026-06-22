@@ -1,5 +1,6 @@
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
 import PageHeader from '@/components/pages/find-influencers/PageHeader';
+import TierMethodology from '@/components/pages/find-influencers/TierMethodology';
 import ResultsPanel from '@/components/pages/find-influencers/ResultsPanel';
 import RelatedSearches from '@/components/pages/find-influencers/RelatedSearches';
 import Faq from '@/components/pages/find-influencers/Faq';
@@ -18,6 +19,7 @@ export default function FindInfluencers() {
         filters={{ category: 'fitness' }}
         count={8}
       />
+      <TierMethodology />
       <ResultsPanel />
       <RelatedSearches />
       <Faq />

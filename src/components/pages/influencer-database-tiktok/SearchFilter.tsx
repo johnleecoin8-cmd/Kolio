@@ -40,26 +40,19 @@ function FilterList({ title, items }: { title: string; items: string[] }) {
 function FilterMockup() {
   const chips = ['DeFi', 'NFTs', 'L1 / L2', 'Trading', 'Gaming', 'Memecoins'];
   return (
-    <div className="rounded-lg bg-white p-5 shadow-nav">
-      <p className="text-body-sm font-semibold text-foreground/40">Search crypto KOLs</p>
-      <div className="mt-3 flex items-center gap-2 rounded-sm border border-black/10 px-3 py-2 text-body-sm text-foreground/50">
+    <div className="card-kit p-5">
+      <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">Search crypto KOLs</p>
+      <div className="mt-3 flex items-center gap-2 rounded-sm border border-hairline px-3 py-2 text-body-sm text-foreground/50">
         e.g. "DeFi creators with US audience over 100K"
       </div>
       <div className="mt-5 flex flex-wrap gap-2">
         {chips.map((c, i) => (
-          <span
-            key={c}
-            className={
-              i < 3
-                ? 'rounded-pill bg-brand/10 px-3 py-1 text-body-sm font-semibold text-brand'
-                : 'rounded-pill bg-background-soft px-3 py-1 text-body-sm text-foreground/60'
-            }
-          >
+          <span key={c} className={i < 3 ? 'chip chip-brand' : 'chip chip-ink'}>
             {c}
           </span>
         ))}
       </div>
-      <div className="mt-6 space-y-3">
+      <div className="mt-6 space-y-3 border-t border-gray-200 pt-5">
         {[
           ['Audience quality', '82%'],
           ['Real reach', '> 100K'],
@@ -67,7 +60,7 @@ function FilterMockup() {
         ].map(([label, val]) => (
           <div key={label} className="flex items-center justify-between text-body-sm">
             <span className="text-foreground/60">{label}</span>
-            <span className="font-semibold text-foreground">{val}</span>
+            <span className="font-mono-tnum font-semibold text-foreground">{val}</span>
           </div>
         ))}
       </div>
@@ -86,7 +79,8 @@ export default function SearchFilter() {
           </div>
 
           <div>
-            <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
+            <span className="eyebrow">Discover</span>
+            <h2 className="display-lg mt-3 font-display text-[2.1875rem] text-foreground">
               Search &amp; filter crypto KOLs on TikTok
             </h2>
             <p className="mt-4 max-w-[480px] text-body-md text-foreground/70">

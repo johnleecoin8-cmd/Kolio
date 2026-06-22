@@ -1,11 +1,7 @@
 import { Mail, Inbox, Filter } from 'lucide-react';
 
 function Frame({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="rounded-xl border border-black/10 bg-white p-5 shadow-sm">
-      {children}
-    </div>
-  );
+  return <div className="card-kit p-5">{children}</div>;
 }
 
 /** Bulk outreach mockup — a list of personalized KOL emails queued to send. */
@@ -23,15 +19,13 @@ export function BulkEmailMockup() {
         <span className="text-body font-semibold text-foreground">
           Outreach sequence
         </span>
-        <span className="ml-auto rounded-full bg-gradient-brand px-3 py-1 text-body-sm font-semibold text-white">
-          {rows.length} queued
-        </span>
+        <span className="chip chip-brand ml-auto">{rows.length} queued</span>
       </div>
       <div className="space-y-3">
         {rows.map((r) => (
           <div
             key={r.name}
-            className="flex items-center gap-3 rounded-lg border border-black/10 bg-background-soft p-3"
+            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 p-3"
           >
             <span className="h-8 w-8 shrink-0 rounded-full bg-gradient-brand" />
             <div className="min-w-0">
@@ -63,7 +57,7 @@ export function FilterMockup() {
       <div className="mb-4 flex items-center gap-2 border-b border-black/10 pb-3">
         <Filter className="h-5 w-5 text-foreground/70" />
         <span className="text-body font-semibold text-foreground">Filters</span>
-        <span className="ml-auto text-body-sm text-foreground/60">
+        <span className="ml-auto font-mono-tnum text-body-sm text-foreground/60">
           3,148 KOLs match
         </span>
       </div>

@@ -7,29 +7,27 @@ export default function FeaturedArticle() {
   return (
     <section className="bg-background pb-12 pt-16 md:pb-16 md:pt-20">
       <Container className="max-w-[896px]">
-        <div className="grid items-stretch gap-6 md:grid-cols-2">
+        <p className="eyebrow mb-5">Featured</p>
+        <div className="card-kit grid items-stretch gap-0 overflow-hidden p-0 md:grid-cols-2">
           <a
             href="/blog/web2-rigor-web3-kols"
-            className="block overflow-hidden rounded-xl"
+            className="block overflow-hidden"
           >
             <img
               src={`${CDN}/6a10227c1ea94049e2b114eb_Gifting%20Survey%20Cover.png`}
               alt="Web3 KOL vetting report cover"
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full min-h-[280px] w-full object-cover"
             />
           </a>
 
-          <div className="flex flex-col items-start justify-center rounded-xl bg-background-soft p-8 md:p-10">
-            <a
-              href="/category/kol-vetting"
-              className="rounded-pill bg-brand px-3 py-1 text-eyebrow font-semibold text-white"
-            >
+          <div className="flex flex-col items-start justify-center p-8 md:p-10">
+            <a href="/category/kol-vetting" className="chip chip-brand">
               Vetting
             </a>
             <a
               href="/blog/web2-rigor-web3-kols"
-              className="mt-4 text-[1.75rem] font-bold leading-[1.2] text-foreground md:text-[2rem]"
+              className="mt-5 font-display display-lg text-[1.75rem] text-foreground md:text-[2.25rem]"
             >
               [Report] How Much of a Crypto KOL's Reach Is Actually Real?
             </a>

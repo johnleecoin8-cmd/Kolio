@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { BadgeCheck } from 'lucide-react';
 import type { Creator } from '@/api/types';
 import { fmt, pct, PLATFORM_LABEL } from './format';
+import ProofScore, { computeProofScore } from '@/components/kit/ProofScore';
 
 /** Proof-based creator card → links to the full profile report. */
 export default function CreatorCard({ c }: { c: Creator }) {
   const initials = (c.display_name || c.handle || '?')
     .split(' ').map((p) => p[0]).join('').slice(0, 2).toUpperCase();
+  const score = computeProofScore(c);
   return (
     <Link
       to={`/creator/${c.id}`}
@@ -23,6 +25,7 @@ export default function CreatorCard({ c }: { c: Creator }) {
           </div>
           <div className="truncate text-eyebrow text-foreground/50">@{c.handle} · {PLATFORM_LABEL[c.platform] ?? c.platform}</div>
         </div>
+        <ProofScore score={score} />
       </div>
       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
         <Stat label="Followers" value={fmt(c.followers)} />
@@ -30,9 +33,7 @@ export default function CreatorCard({ c }: { c: Creator }) {
         <Stat label="Avg views" value={fmt(c.avg_views)} />
       </div>
       {c.category && (
-        <span className="mt-3 self-start rounded-pill bg-coral-bg px-2 py-0.5 text-eyebrow font-semibold capitalize text-brand">
-          {c.category}
-        </span>
+        <span className="mt-3 self-start chip chip-brand capitalize">{c.category}</span>
       )}
     </Link>
   );

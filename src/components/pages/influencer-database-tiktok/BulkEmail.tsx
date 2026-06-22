@@ -9,24 +9,24 @@ function OutreachMockup() {
     { handle: '@chart.degen', via: 'Telegram', status: 'In deal' },
   ];
   return (
-    <div className="mx-auto w-full max-w-[480px] rounded-lg bg-white p-5 shadow-nav">
+    <div className="card-kit mx-auto w-full max-w-[480px] p-5">
       <div className="flex items-center justify-between">
-        <p className="text-body-sm font-semibold text-foreground/40">Outreach queue</p>
-        <span className="rounded-pill bg-brand/10 px-3 py-1 text-body-sm font-semibold text-brand">
-          24 KOLs
-        </span>
+        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">Outreach queue</p>
+        <span className="chip chip-brand">24 KOLs</span>
       </div>
       <div className="mt-4 space-y-3">
         {contacts.map((c) => (
           <div
             key={c.handle}
-            className="flex items-center justify-between rounded-sm border border-black/5 px-4 py-3 text-body-sm"
+            className="flex items-center justify-between rounded-sm border border-hairline px-4 py-3 text-body-sm"
           >
             <div>
               <p className="font-semibold text-foreground">{c.handle}</p>
               <p className="text-foreground/50">{c.via}</p>
             </div>
-            <span className="text-foreground/70">{c.status}</span>
+            <span className={c.status === 'In deal' ? 'chip chip-onchain' : 'chip chip-ink'}>
+              {c.status}
+            </span>
           </div>
         ))}
       </div>
@@ -38,7 +38,8 @@ function OutreachMockup() {
 export default function BulkEmail() {
   return (
     <FeatureRow imageSide="left" image={<OutreachMockup />}>
-      <h2 className="text-[2.1875rem] font-semibold leading-[1.15] text-foreground">
+      <span className="eyebrow">Reach out</span>
+      <h2 className="display-lg mt-3 font-display text-[2.1875rem] text-foreground">
         Find the contact, reach out at scale
       </h2>
       <div className="mt-6 max-w-[480px] space-y-4 text-body-md text-foreground/70">

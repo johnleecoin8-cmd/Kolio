@@ -42,8 +42,12 @@ export default function Hero() {
           <span className="font-normal text-blue-dark">KOLs</span>
         </nav>
 
-        {/* headline — later.com pattern: bold display with one highlighted word */}
-        <h1 className="mx-auto max-w-[1000px] text-center font-display text-[2.25rem] leading-[1.04] text-foreground sm:text-[3rem] md:text-[3.75rem]">
+        <div className="mb-5 flex justify-center">
+          <span className="eyebrow">KOL content library</span>
+        </div>
+
+        {/* headline — editorial display, one highlighted word */}
+        <h1 className="mx-auto max-w-[1000px] text-center display-xl font-display text-[2.25rem] leading-[1.04] text-foreground sm:text-[3rem] md:text-[3.75rem]">
           Find the crypto{' '}
           <span className="text-gradient-brand">KOLs</span> who have run campaigns with
         </h1>

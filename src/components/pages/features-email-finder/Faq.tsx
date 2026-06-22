@@ -65,10 +65,8 @@ export default function Faq() {
       <Container>
         <div className="rounded-xl bg-background-soft px-6 py-12 md:px-16 md:py-16">
           <div className="mx-auto max-w-[760px]">
-            <div className="mb-3 text-body-sm font-semibold text-foreground/50">
-              FAQ
-            </div>
-            <h3 className="text-[2.25rem] font-bold leading-[1.1] tracking-tight text-foreground">
+            <span className="eyebrow mb-3">FAQ</span>
+            <h3 className="display-lg text-[2.25rem] text-foreground">
               Stuff teams ask before they request&nbsp;a&nbsp;demo
             </h3>
 

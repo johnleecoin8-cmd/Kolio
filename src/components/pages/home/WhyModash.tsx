@@ -41,10 +41,8 @@ export default function WhyModash() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 max-w-[640px] text-center">
-          <p className="text-body-sm font-bold text-foreground/50">
-            Why Kolio
-          </p>
-          <h2 className="mt-3 font-sans text-[2rem] font-extrabold leading-[1.1] text-foreground md:text-[2.5rem]">
+          <span className="eyebrow">Why Kolio</span>
+          <h2 className="mt-3 display-lg font-display text-[2rem] leading-[1.05] text-foreground md:text-[2.5rem]">
             Web3 KOL marketing that just flows
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-body-md text-foreground/75">
@@ -53,16 +51,16 @@ export default function WhyModash() {
           </p>
         </div>
 
-        <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
           {FEATURES.map((f) => (
-            <div key={f.title} className="flex flex-col items-center text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-coral-bg text-brand">
-                <f.Icon className="h-6 w-6" />
+            <div key={f.title} className="card-kit flex flex-col p-6">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-coral-bg text-brand">
+                <f.Icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-4 text-body-md font-semibold text-foreground">
+              <h3 className="mt-5 text-body-md font-semibold text-foreground">
                 {f.title}
               </h3>
-              <p className="mt-2 max-w-[300px] text-body-sm text-foreground/60">
+              <p className="mt-2 text-body-sm text-foreground/60">
                 {f.body}
               </p>
             </div>

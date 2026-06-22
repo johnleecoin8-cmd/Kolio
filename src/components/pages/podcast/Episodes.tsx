@@ -75,22 +75,33 @@ const EPISODES: Episode[] = [
   },
 ];
 
-function GuestByline({ ep }: { ep: Episode }) {
-  const initials = ep.guest
+function initials(name: string) {
+  return name
     .split(' ')
     .map((p) => p[0])
     .slice(0, 2)
     .join('');
+}
+
+function GuestByline({ ep, dark = false }: { ep: Episode; dark?: boolean }) {
   return (
     <div className="flex items-center gap-3">
       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-brand text-white text-eyebrow font-bold">
-        {initials}
+        {initials(ep.guest)}
       </span>
       <div>
-        <p className="text-body-sm font-bold text-foreground leading-tight">
+        <p
+          className={`text-body-sm font-bold leading-tight ${
+            dark ? 'text-white' : 'text-foreground'
+          }`}
+        >
           {ep.guest}
         </p>
-        <p className="text-eyebrow text-foreground/50 leading-tight">
+        <p
+          className={`text-eyebrow leading-tight ${
+            dark ? 'text-white/50' : 'text-foreground/50'
+          }`}
+        >
           {ep.guestRole}
         </p>
       </div>
@@ -100,8 +111,8 @@ function GuestByline({ ep }: { ep: Episode }) {
 
 function Thumb({ label }: { label: string }) {
   return (
-    <div className="flex w-full items-center justify-center rounded-lg aspect-video bg-gradient-brand p-6">
-      <span className="text-center font-sans font-bold text-white text-body-md leading-snug line-clamp-3">
+    <div className="flex aspect-video w-full items-center justify-center rounded-md bg-gradient-brand p-6">
+      <span className="line-clamp-3 text-center font-display text-body-md font-bold leading-snug text-white">
         {label}
       </span>
     </div>
@@ -110,60 +121,68 @@ function Thumb({ label }: { label: string }) {
 
 export default function Episodes() {
   return (
-    <section id="episodes" className="bg-background pb-16 md:pb-24">
+    <section id="episodes" className="bg-gray-50 py-16 md:py-24">
       <Container>
-        {/* Featured */}
+        <span className="eyebrow">Latest episodes</span>
+        <h2 className="mt-3 display-lg font-display text-h4 md:text-h3 text-foreground">
+          Inside the campaigns that converted
+        </h2>
+
+        {/* Featured — dark on-chain lead card, sets the hierarchy */}
         <a
           href={FEATURED.href}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start no-underline group"
+          className="surface-onchain group mt-10 grid grid-cols-1 items-center gap-8 rounded-lg p-6 no-underline md:grid-cols-2 md:p-8"
         >
           <Thumb label={FEATURED.guest} />
           <div>
-            <h3 className="font-sans font-bold text-h4 leading-tight tracking-tight text-foreground group-hover:text-blue transition">
+            <span className="chip chip-onchain">Featured episode</span>
+            <h3 className="mt-4 font-display text-h4 font-bold leading-tight tracking-tight text-white transition group-hover:text-coral">
               {FEATURED.title}
             </h3>
-            <p className="mt-4 text-body-sm text-foreground/70">
-              {FEATURED.blurb}
-            </p>
-            <div className="mt-5">
-              <GuestByline ep={FEATURED} />
+            <p className="mt-4 text-body-sm text-white/70">{FEATURED.blurb}</p>
+            <div className="mt-6 border-t border-white/10 pt-5">
+              <GuestByline ep={FEATURED} dark />
             </div>
           </div>
         </a>
 
-        {/* Grid */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        {/* Grid — premium white cards */}
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EPISODES.map((ep) => (
             <a
               key={ep.title}
               href={ep.href}
-              className="flex flex-col no-underline group"
+              className="card-kit group flex flex-col overflow-hidden no-underline transition hover:-translate-y-0.5"
             >
-              <Thumb label={ep.guest} />
-              <h3 className="mt-4 font-sans font-bold text-body-md leading-snug text-foreground group-hover:text-blue transition">
-                {ep.title}
-              </h3>
-              <p className="mt-3 text-body-sm text-foreground/70 flex-1">
-                {ep.blurb}
-              </p>
-              <div className="mt-4">
-                <GuestByline ep={ep} />
+              <div className="p-3 pb-0">
+                <Thumb label={ep.guest} />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="font-display text-body-md font-bold leading-snug text-foreground transition group-hover:text-brand">
+                  {ep.title}
+                </h3>
+                <p className="mt-3 flex-1 text-body-sm text-foreground/65">
+                  {ep.blurb}
+                </p>
+                <div className="mt-5 border-t border-gray-100 pt-4">
+                  <GuestByline ep={ep} />
+                </div>
               </div>
             </a>
           ))}
         </div>
 
         {/* Platform buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/demo-confirmation"
-            className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-sm bg-blue text-white text-body-sm font-semibold transition hover:opacity-90"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-brand px-6 text-body-sm font-semibold text-white transition hover:opacity-90"
           >
             Watch on YouTube
           </a>
           <a
             href="/demo-confirmation"
-            className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-sm bg-white text-navy border border-gray-300 text-body-sm font-semibold transition hover:bg-gray-50"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-sm border border-hairline bg-white px-6 text-body-sm font-semibold text-foreground transition hover:bg-gray-50"
           >
             Listen on Spotify
           </a>

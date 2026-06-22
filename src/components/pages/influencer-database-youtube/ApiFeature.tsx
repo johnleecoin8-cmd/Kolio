@@ -8,7 +8,8 @@ export default function ApiFeature() {
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+            <span className="eyebrow">Developers</span>
+            <h2 className="mt-3 display-lg font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.1875rem]">
               A reliable crypto KOL data API
             </h2>
             <div className="mt-6 space-y-4 text-body-md text-foreground/75">

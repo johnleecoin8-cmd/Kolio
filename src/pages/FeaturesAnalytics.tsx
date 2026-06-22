@@ -1,10 +1,13 @@
 import Hero from '@/components/pages/features-analytics/Hero';
 import DataNoTabs from '@/components/pages/features-analytics/DataNoTabs';
 import FeatureRow from '@/components/pages/features-analytics/FeatureRow';
-import Testimonial from '@/components/pages/features-analytics/Testimonial';
+import MetricGrid from '@/components/pages/features-analytics/MetricGrid';
+import OnchainDashboard from '@/components/pages/features-analytics/OnchainDashboard';
 import CtaBlock from '@/components/pages/features-analytics/CtaBlock';
 import LiveStats from '@/components/live/LiveStats';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
+import StatTrio from '@/components/kit/StatTrio';
+import Testimonials from '@/components/kit/Testimonial';
 
 const CDN = 'https://cdn.prod.website-files.com/5ef4691542433bca43839ceb';
 
@@ -13,6 +16,17 @@ export default function FeaturesAnalytics() {
   return (
     <main>
       <Hero />
+
+      <StatTrio
+        stats={[
+          { value: 12418, label: 'Crypto KOLs indexed across X, YT, TikTok & Telegram' },
+          { value: 78, suffix: '%', label: 'Median real-follower share after bot filtering' },
+          { value: 0, label: 'Payout disputes — escrow releases on delivery' },
+        ]}
+        source="Source: Kolio platform aggregate, Q2 2026."
+      />
+
+      <MetricGrid />
 
       <LiveStats heading="Analytics on real creators" />
 
@@ -81,6 +95,8 @@ export default function FeaturesAnalytics() {
         }}
       />
 
+      <OnchainDashboard />
+
       <FeatureRow
         heading="Outreach that reaches KOLs where they live"
         body={
@@ -100,7 +116,37 @@ export default function FeaturesAnalytics() {
         }}
       />
 
-      <Testimonial />
+      <Testimonials
+        heading="Brands that stopped paying KOLs on vibes"
+        quotes={[
+          {
+            quote:
+              'We vetted every profile for real reach and bot ratio first, ran each deal through escrow, and tracked it down to wallet connects. 80+ KOLs onboarded for our token launch — zero payout disputes.',
+            name: 'Maya Renaud',
+            role: 'Head of Growth',
+            brand: 'Arbitrum',
+            metrics: [
+              { value: '80+', label: 'KOLs onboarded' },
+              { value: '0', label: 'payout disputes' },
+              { value: '3.2x', label: 'on wallet ROAS' },
+              { value: '11d', label: 'launch to live' },
+            ],
+          },
+          {
+            quote:
+              'Kolio caught two creators with 40%+ bought followers before we wired a cent. We reallocated the budget to vetted KOLs and watched cost-per-real-reach drop by more than half.',
+            name: 'Devon Park',
+            role: 'Marketing Lead',
+            brand: 'LayerZero',
+            metrics: [
+              { value: '-54%', label: 'cost / real reach' },
+              { value: '2', label: 'bot KOLs filtered' },
+              { value: '6.1%', label: 'avg organic eng.' },
+              { value: '94', label: 'proof score' },
+            ],
+          },
+        ]}
+      />
 
       <CtaBlock />
     </main>

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import SectionHeading from './SectionHeading';
 
 const FAQS = [
   {
@@ -53,7 +52,10 @@ export default function Faq() {
   return (
     <section className="bg-background-soft py-16 md:py-24">
       <Container>
-        <SectionHeading as="h3">Frequently asked questions</SectionHeading>
+        <span className="eyebrow">FAQ</span>
+        <h2 className="mt-3 display-lg font-display text-[1.75rem] leading-[1.15] md:text-[2.5rem] text-foreground">
+          Frequently asked questions
+        </h2>
         <div className="mt-8">
           {FAQS.map((f, idx) => {
             const isOpen = open === idx;

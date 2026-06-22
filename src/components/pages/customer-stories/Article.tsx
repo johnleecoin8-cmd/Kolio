@@ -17,20 +17,20 @@ function VettingMockup() {
     { handle: '@onchain_sara', reach: '76K', real: '97%', niche: 'Trading' },
   ];
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-nav">
-      <div className="flex items-center justify-between border-b border-black/5 px-5 py-4">
+    <div className="card-kit w-full overflow-hidden">
+      <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
         <span className="font-semibold text-foreground">
           KOL discovery &middot; audience match
         </span>
-        <span className="rounded-full bg-violet-bg px-3 py-1 text-body-sm text-foreground/70">
-          Filter: EN &middot; crypto-native &middot; verified reach
+        <span className="chip chip-onchain">
+          EN &middot; crypto-native &middot; verified
         </span>
       </div>
-      <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] gap-px bg-black/5 text-body-sm">
+      <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] gap-px bg-gray-200 text-body-sm">
         {['Creator', 'Real reach', 'Real audience', 'Niche'].map((h) => (
           <div
             key={h}
-            className="bg-violet-bg px-5 py-3 font-semibold text-foreground/70"
+            className="bg-gray-50 px-5 py-3 font-semibold text-foreground/60"
           >
             {h}
           </div>
@@ -59,37 +59,22 @@ function Fragmentish({
       <div className="bg-white px-5 py-4 font-medium text-foreground">
         {handle}
       </div>
-      <div className="bg-white px-5 py-4 text-foreground/80">{reach}</div>
+      <div className="bg-white px-5 py-4 font-mono-tnum text-foreground/80">{reach}</div>
       <div className="bg-white px-5 py-4">
-        <span className="font-semibold text-pink-hot">{real}</span>
+        <span className="font-mono-tnum font-semibold text-brand">{real}</span>
       </div>
       <div className="bg-white px-5 py-4 text-foreground/80">{niche}</div>
     </>
   );
 }
 
-function Eyebrow({
-  children,
-  color,
-}: {
-  children: ReactNode;
-  color: string;
-}) {
-  return (
-    <p
-      className={cn(
-        'text-eyebrow font-semibold uppercase tracking-wide',
-        color,
-      )}
-    >
-      {children}
-    </p>
-  );
+function Eyebrow({ children }: { children: ReactNode }) {
+  return <span className="eyebrow">{children}</span>;
 }
 
 function Heading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mt-3 font-display text-h4 leading-tight text-violet-dark md:text-h3">
+    <h2 className="display-lg mt-3 font-display text-h4 leading-tight text-foreground md:text-h3">
       {children}
     </h2>
   );
@@ -101,7 +86,9 @@ function P({ children }: { children: ReactNode }) {
 
 function Pullquote({ children }: { children: ReactNode }) {
   return (
-    <blockquote className="border-l-4 border-violet py-1 pl-5 text-body-md font-bold italic text-violet-dark">
+    <blockquote className={cn(
+      'border-l-2 border-brand py-1 pl-5 text-body-md font-semibold italic text-foreground',
+    )}>
       {children}
     </blockquote>
   );
@@ -115,11 +102,12 @@ export default function Article() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[280px_1fr] md:gap-16">
           {/* Sidebar */}
           <aside className="md:sticky md:top-28 md:self-start">
-            <div className="space-y-6 rounded-xl bg-violet-bg p-6">
+            <div className="card-kit space-y-5 p-6">
+              <span className="eyebrow">Company</span>
               {FACTS.map((f) => (
                 <div key={f.label}>
-                  <p className="font-semibold text-foreground">{f.label}</p>
-                  <p className="mt-1 text-body text-foreground/75">{f.value}</p>
+                  <p className="text-eyebrow uppercase tracking-wide text-foreground/45">{f.label}</p>
+                  <p className="mt-1 font-semibold text-foreground">{f.value}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +117,7 @@ export default function Article() {
           <div className="max-w-2xl space-y-12">
             {/* CHALLENGE */}
             <div className="space-y-5">
-              <Eyebrow color="text-purple-dark">Challenge</Eyebrow>
+              <Eyebrow>Challenge</Eyebrow>
               <Heading>
                 Filtering signal from noise across a sea of crypto KOLs
               </Heading>
@@ -163,7 +151,7 @@ export default function Article() {
 
             {/* SOLUTION */}
             <div className="space-y-5">
-              <Eyebrow color="text-coral-dark">Solution</Eyebrow>
+              <Eyebrow>Solution</Eyebrow>
               <Heading>
                 Using Kolio to surface crypto KOLs with proven reach &amp; the
                 right audience
@@ -215,7 +203,7 @@ export default function Article() {
 
             {/* IMPACT */}
             <div className="space-y-5">
-              <Eyebrow color="text-pink-hot">Impact</Eyebrow>
+              <Eyebrow>Impact</Eyebrow>
               <Heading>2 hours saved a day by killing manual vetting</Heading>
               <P>
                 Today, KOL marketing at Arbiscan supports every other growth

@@ -2,6 +2,7 @@ import { Search, Calendar } from 'lucide-react';
 import { profiles } from './data';
 import InfluencerCard from './InfluencerCard';
 import SearchInterstitial from './SearchInterstitial';
+import LogoMarquee from '@/components/kit/LogoMarquee';
 
 const TRUSTED_BY = [
   'Ledger',
@@ -10,6 +11,9 @@ const TRUSTED_BY = [
   'OKX',
   'Polygon',
   'Optimism',
+  'Lido',
+  'Aave',
+  'Uniswap',
 ];
 
 /** Soft rounded panel holding the title bar, intro, and the full KOL list. */
@@ -19,30 +23,26 @@ export default function ResultsPanel() {
 
   return (
     <section className="bg-background pb-16">
-      <div className="mx-auto w-full max-w-container px-4 sm:px-6">
-        {/* Trusted-by web3 brand row (text, not logos) */}
-        <div className="mb-8 flex flex-col items-center gap-3 text-center">
-          <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
-            Trusted by web3 teams running KOL campaigns
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            {TRUSTED_BY.map((name) => (
-              <span
-                key={name}
-                className="text-body-md font-display font-semibold uppercase tracking-tight text-foreground/30"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
+      {/* Auto-scrolling partner wordmarks (replaces flat gray logo row) */}
+      <div className="mb-12">
+        <LogoMarquee
+          label="Trusted by web3 teams running KOL campaigns"
+          names={TRUSTED_BY}
+        />
+      </div>
 
-        <div className="rounded-xl bg-background-soft p-6 md:p-10">
+      <div className="mx-auto w-full max-w-container px-4 sm:px-6">
+        <div className="card-kit p-6 md:p-10">
           {/* Title bar */}
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <h2 className="max-w-[640px] text-[1.5rem] font-semibold leading-tight text-foreground md:text-[2.25rem]">
-              We tracked 690 DeFi KOLs on Crypto Twitter
-            </h2>
+            <div className="max-w-[640px]">
+              <span className="eyebrow mb-3">The ranking</span>
+              <h2 className="font-display display-lg text-[1.6rem] text-foreground md:text-[2.25rem]">
+                We tracked{' '}
+                <span className="num-display text-brand">690</span> DeFi KOLs on
+                Crypto Twitter
+              </h2>
+            </div>
             <div className="flex shrink-0 items-center gap-3">
               <span className="flex items-center gap-2 rounded-pill border border-black/5 bg-white px-3 py-2 text-body-sm">
                 <Calendar size={15} className="text-foreground/40" />

@@ -36,37 +36,38 @@ export default function SearchFilter() {
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           {/* filter-panel mockup */}
           <div className="flex items-center justify-center rounded-xl bg-background-soft p-6 sm:p-10">
-            <div className="w-full max-w-[460px] rounded-lg border border-black/10 bg-white p-5 shadow-sm">
-              <p className="text-body-sm font-semibold uppercase tracking-wide text-foreground/50">
-                Filters
-              </p>
+            <div className="card-kit w-full max-w-[460px] p-5">
+              <p className="eyebrow">Filters</p>
               <div className="mt-4 space-y-3">
                 {[
-                  { label: 'Niche', value: 'DeFi · Trading' },
-                  { label: 'Min. avg. views', value: '50,000' },
-                  { label: 'Audience country', value: 'United States' },
-                  { label: 'Audience quality', value: '≥ 85%' },
+                  { label: 'Niche', value: 'DeFi · Trading', mono: false },
+                  { label: 'Min. avg. views', value: '50,000', mono: true },
+                  { label: 'Audience country', value: 'United States', mono: false },
+                  { label: 'Audience quality', value: '≥ 85%', mono: true },
                 ].map((f) => (
                   <div
                     key={f.label}
-                    className="flex items-center justify-between rounded-md border border-black/10 bg-background-soft px-3 py-2.5"
+                    className="flex items-center justify-between rounded-md border border-hairline bg-gray-50 px-3 py-2.5"
                   >
                     <span className="text-body-sm text-foreground/60">{f.label}</span>
-                    <span className="text-body-sm font-semibold text-foreground">
+                    <span
+                      className={`text-body-sm font-semibold text-foreground ${f.mono ? 'font-mono-tnum' : ''}`}
+                    >
                       {f.value}
                     </span>
                   </div>
                 ))}
               </div>
               <div className="mt-5 rounded-md bg-gradient-brand px-4 py-3 text-center text-body-sm font-semibold text-white">
-                1,284 matching crypto KOLs
+                <span className="font-mono-tnum">1,284</span> matching crypto KOLs
               </div>
             </div>
           </div>
 
           {/* copy */}
           <div>
-            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+            <span className="eyebrow">Discover</span>
+            <h2 className="mt-3 display-lg text-[1.75rem] font-display leading-[1.15] text-foreground md:text-[2.1875rem]">
               Search &amp; filter crypto YouTube KOLs
             </h2>
 

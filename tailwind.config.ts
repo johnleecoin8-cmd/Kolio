@@ -72,6 +72,13 @@ const config: Config = {
         },
         positive: hsl('--positive'),
         negative: hsl('--negative'),
+        mint: hsl('--mint'),
+        hairline: hsl('--hairline'),
+        surface: {
+          ink: hsl('--surface-ink'),
+          onchain: hsl('--surface-onchain'),
+          elevated: hsl('--surface-elevated'),
+        },
       },
       fontFamily: {
         sans: ['"Pretendard Variable"', 'Pretendard', 'system-ui', 'sans-serif'],

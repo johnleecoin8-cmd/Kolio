@@ -16,27 +16,28 @@ export default function ArticleBody() {
           </aside>
 
           {/* Article content */}
-          <article className="max-w-[720px]">
-            {/* intro */}
-            <p className="text-body leading-relaxed text-foreground/80">
+          <article className="max-w-[680px]">
+            {/* intro — first paragraph gets a slightly larger lede */}
+            <p className="text-[1.1875rem] leading-[1.7] text-foreground/85">
               Most influencer marketing tools were built for web2 — lifestyle creators,
               ecommerce shipping, PayPal payouts. Run a token launch or a protocol
               campaign through one of them and you quickly hit the wall: no real coverage
               of crypto KOLs on X and Telegram, no on-chain settlement, and no way to
-              attribute the conversions that actually matter 🤦
+              attribute the conversions that actually matter.
             </p>
-            <p className="mt-4 text-body leading-relaxed text-foreground/80">
+            <p className="mt-5 text-body leading-[1.75] text-foreground/80">
               To save you weeks of trial and error, we rounded up 19 platforms marketers
               reach for when working with KOLs and compared them on what matters for web3:
             </p>
-            <ul className="mt-4 space-y-2 pl-5 text-body leading-relaxed text-foreground/80">
-              <li className="list-disc">Pricing (where available)</li>
-              <li className="list-disc">Crypto KOL coverage and proof-based vetting</li>
-              <li className="list-disc">On-chain payments, escrow, and attribution</li>
-              <li className="list-disc">Strengths and weaknesses</li>
-            </ul>
-            <p className="mt-4 text-body leading-relaxed text-foreground/80">
-              Let’s get into it…
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="chip chip-ink">Pricing</span>
+              <span className="chip chip-brand">Proof-based vetting</span>
+              <span className="chip chip-onchain">On-chain escrow</span>
+              <span className="chip chip-onchain">Attribution</span>
+              <span className="chip chip-ink">Strengths &amp; weaknesses</span>
+            </div>
+            <p className="mt-5 text-body leading-[1.75] text-foreground/80">
+              Let’s get into it.
             </p>
 
             {/* platform sections */}

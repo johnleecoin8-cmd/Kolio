@@ -33,7 +33,7 @@ const FILTER_CHIPS = ['DeFi', 'Real reach 100K+', 'Eng. 4%+', 'Bots < 10%', 'EN 
 /** First feature — image left, headline + two-column filter checklist right. */
 export default function SearchFilterFeature() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-gray-50">
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className="order-2 md:order-1">
@@ -46,33 +46,37 @@ export default function SearchFilterFeature() {
                 <Sliders className="ml-auto h-4 w-4 text-foreground/40" />
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {FILTER_CHIPS.map((chip) => (
-                  <span
-                    key={chip}
-                    className="rounded-pill bg-pink-bg px-3 py-1 text-eyebrow font-semibold text-foreground/80"
-                  >
+                {FILTER_CHIPS.map((chip, i) => (
+                  <span key={chip} className={`chip ${i === 0 ? 'chip-brand' : 'chip-ink'}`}>
                     {chip}
                   </span>
                 ))}
               </div>
-              <div className="mt-5 space-y-3">
+              <div className="mt-5 space-y-2.5">
                 {[
-                  { n: 'DeFi Dad', h: 'thedefidad', r: '412K' },
-                  { n: 'Layah.eth', h: 'layah_l2', r: '288K' },
-                  { n: 'TradeDesk', h: 'tradedesk', r: '534K' },
+                  { n: 'DeFi Dad', h: 'thedefidad', tier: 'Mid', r: '412K', s: 94 },
+                  { n: 'Layah.eth', h: 'layah_l2', tier: 'Mid', r: '288K', s: 91 },
+                  { n: 'TradeDesk', h: 'tradedesk', tier: 'Macro', r: '534K', s: 90 },
                 ].map((c) => (
                   <div
                     key={c.h}
                     className="flex items-center gap-3 rounded-lg border border-gray-100 px-3 py-2.5"
                   >
                     <span className="h-9 w-9 rounded-full bg-gradient-brand opacity-80" />
-                    <div className="flex-1">
-                      <div className="text-body-sm font-semibold text-foreground">{c.n}</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-body-sm font-semibold text-foreground">{c.n}</span>
+                        <span className="chip chip-ink">{c.tier}</span>
+                      </div>
                       <div className="text-eyebrow text-foreground/50">@{c.h}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-body-sm font-semibold tabular-nums">{c.r}</div>
+                      <div className="font-mono-tnum text-body-sm font-semibold">{c.r}</div>
                       <div className="text-eyebrow text-foreground/50">real reach</div>
+                    </div>
+                    <div className="w-12 text-right">
+                      <div className="font-mono-tnum text-body-sm font-semibold text-brand">{c.s}</div>
+                      <div className="text-eyebrow text-foreground/50">proof</div>
                     </div>
                   </div>
                 ))}
@@ -81,7 +85,8 @@ export default function SearchFilterFeature() {
           </div>
 
           <div className="order-1 md:order-2">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+            <span className="eyebrow">Discover</span>
+            <h2 className="mt-3 display-lg text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
               Search &amp; filter every crypto KOL that matters
             </h2>
 

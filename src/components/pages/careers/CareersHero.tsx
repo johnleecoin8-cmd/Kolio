@@ -6,10 +6,8 @@ export default function CareersHero() {
     <section className="bg-background pt-10 md:pt-14">
       <Container>
         <div className="flex flex-col items-center text-center">
-          <p className="mb-4 text-eyebrow font-semibold uppercase tracking-wide text-foreground/40">
-            Careers
-          </p>
-          <h1 className="font-display uppercase leading-[0.95] text-foreground text-[2.75rem] sm:text-[4rem] md:text-[5rem]">
+          <p className="eyebrow mb-4">Careers at Kolio</p>
+          <h1 className="display-xl font-display uppercase text-foreground text-[2.75rem] sm:text-[4rem] md:text-[5rem]">
             Build the future of
             <br />
             <span className="text-gradient-brand">web3</span> marketing
@@ -37,9 +35,12 @@ export default function CareersHero() {
         </div>
       </Container>
 
-      {/* full-width stat band — later.com-inspired big stat callouts on a warm gradient panel */}
+      {/* full-width stat band — the ONE red moment on this page */}
       <div className="mx-auto mt-10 w-full max-w-[1376px] px-4 sm:px-6 md:mt-14">
         <div className="bg-gradient-brand rounded-xl px-6 py-14 text-white md:py-20">
+          <div className="mb-8 flex justify-center">
+            <span className="chip bg-white/15 text-white">The product is the standard we hire for</span>
+          </div>
           <div className="mx-auto grid max-w-[1000px] grid-cols-2 gap-8 text-center md:grid-cols-4">
             {[
               { n: '120K+', l: 'Crypto KOLs profiled' },
@@ -48,7 +49,7 @@ export default function CareersHero() {
               { n: 'On-chain', l: 'Escrow & payouts' },
             ].map(({ n, l }) => (
               <div key={l}>
-                <div className="font-display text-h3 leading-none md:text-h2">
+                <div className="num-display font-display text-h3 leading-none md:text-h2">
                   {n}
                 </div>
                 <div className="mt-2 text-body-sm text-white/80">{l}</div>

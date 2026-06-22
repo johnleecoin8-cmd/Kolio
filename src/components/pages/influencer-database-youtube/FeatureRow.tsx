@@ -7,6 +7,8 @@ type Props = {
   body: ReactNode;
   /** brand-neutral mockup node (charts/cards/divs) */
   media: ReactNode;
+  /** refined section label above the heading */
+  eyebrow?: string;
   /** true = media on left, text on right */
   imageLeft?: boolean;
   cta?: string;
@@ -18,6 +20,7 @@ export default function FeatureRow({
   title,
   body,
   media,
+  eyebrow,
   imageLeft = false,
   cta = 'Get started free',
   ctaVariant = 'primary',
@@ -30,7 +33,8 @@ export default function FeatureRow({
 
   const copyBlock = (
     <div>
-      <h2 className="text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
+      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      <h2 className="mt-3 display-lg font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.1875rem]">
         {title}
       </h2>
       <div className="mt-6 space-y-4 text-body-md text-foreground/75">{body}</div>

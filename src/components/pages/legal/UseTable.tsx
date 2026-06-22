@@ -9,7 +9,7 @@ import { USE_TABLE } from './data';
  */
 export default function UseTable() {
   return (
-    <div className="my-8">
+    <div className="my-10 lg:w-[min(72rem,90vw)] lg:max-w-none">
       {/* Header row — desktop only */}
       <div className="hidden md:grid grid-cols-[1fr_1.3fr_1.2fr] gap-x-10 pb-6">
         <div className="text-body-md font-bold text-foreground">Purpose</div>

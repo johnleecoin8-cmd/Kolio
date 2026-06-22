@@ -1,32 +1,79 @@
-/** Podcast hero — brand band with title, subtitle, two CTAs. */
+import Container from '@/components/ui/Container';
+
+/** Podcast hero — editorial title on soft neutral, with a dark on-chain stat panel adjacent. */
 export default function Hero() {
   return (
-    <section className="bg-[#d6daff] pt-12 pb-20 md:pt-16 md:pb-28">
-      <div className="mx-auto w-full max-w-container px-4 sm:px-6 text-center">
-        <h1 className="font-sans font-bold text-h4 md:text-h2 leading-tight tracking-tight text-navy">
-          The <span className="text-gradient-brand">Web3 KOL</span> Marketing Podcast
-        </h1>
-        <p className="mx-auto mt-5 max-w-[640px] text-body text-navy/80">
-          Real playbooks from the teams running crypto KOL campaigns that
-          actually convert. Kolio sits down with growth leads at exchanges,
-          protocols, and projects to unpack how they find, vet, and pay
-          KOLs across X, YouTube, Telegram, and TikTok — and how they prove ROI.
-        </p>
-        <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="#episodes"
-            className="inline-flex items-center justify-center h-10 px-5 rounded-sm bg-blue text-white text-body-sm font-semibold uppercase tracking-wide transition hover:opacity-90"
-          >
-            See all episodes
-          </a>
-          <a
-            href="#guest"
-            className="inline-flex items-center justify-center h-10 px-5 rounded-sm bg-white text-navy border border-gray-300 text-body-sm font-semibold uppercase tracking-wide transition hover:bg-gray-50"
-          >
-            Become a guest
-          </a>
+    <section className="bg-gray-50 pt-14 pb-16 md:pt-20 md:pb-24">
+      <Container>
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          {/* Left: editorial title */}
+          <div>
+            <span className="eyebrow">Kolio Podcast</span>
+            <h1 className="mt-4 display-xl font-display text-h3 md:text-h1 text-foreground">
+              The Web3 KOL Marketing Podcast
+            </h1>
+            <p className="mt-5 max-w-[560px] text-body text-foreground/70">
+              Real playbooks from the teams running crypto KOL campaigns that
+              actually convert. Kolio sits down with growth leads at exchanges,
+              protocols, and projects to unpack how they find, vet, and pay
+              KOLs across X, YouTube, Telegram, and TikTok — and how they
+              prove ROI.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href="#episodes"
+                className="inline-flex h-11 items-center justify-center rounded-sm bg-brand px-6 text-body-sm font-semibold text-white transition hover:opacity-90"
+              >
+                See all episodes
+              </a>
+              <a
+                href="#guest"
+                className="inline-flex h-11 items-center justify-center rounded-sm border border-hairline bg-white px-6 text-body-sm font-semibold text-foreground transition hover:bg-gray-50"
+              >
+                Become a guest
+              </a>
+            </div>
+          </div>
+
+          {/* Right: dark on-chain terminal panel as punctuation */}
+          <div className="surface-onchain glow-brand rounded-lg p-7 md:p-8">
+            <div className="flex items-center justify-between">
+              <span className="chip chip-onchain">On air</span>
+              <span className="font-mono-tnum text-eyebrow text-white/45">
+                kolio.fm/feed
+              </span>
+            </div>
+            <div className="mt-7 grid grid-cols-3 gap-5">
+              {[
+                { v: '42', l: 'Episodes' },
+                { v: '6.4K', l: 'KOLs covered' },
+                { v: '1.2K+', l: 'Brands listening' },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="num-display text-h4 leading-none text-white">
+                    {s.v}
+                  </div>
+                  <div className="mt-1 text-eyebrow text-white/45">{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-7 space-y-2 border-t border-white/10 pt-5">
+              {[
+                ['LATEST', 'George Hu · Arbitrum'],
+                ['NEXT', 'Rugile Petraitis · Polygon'],
+              ].map(([tag, who]) => (
+                <div
+                  key={tag}
+                  className="flex items-center justify-between font-mono-tnum text-body-sm"
+                >
+                  <span className="text-mint">{tag}</span>
+                  <span className="text-white/80">{who}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

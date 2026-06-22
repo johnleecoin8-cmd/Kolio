@@ -7,7 +7,8 @@ export default function HowToCheck() {
       <Container>
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-16">
           <div className="flex flex-col items-start justify-start gap-4 lg:flex-1">
-            <h2 className="mb-4 w-full break-words font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
+            <span className="eyebrow">Method</span>
+            <h2 className="display-lg mb-4 w-full break-words font-display text-5xl text-foreground lg:text-7xl">
               How to check a crypto KOL&rsquo;s engagement rate
             </h2>
             <div className="w-full break-words text-lg font-normal leading-relaxed text-foreground">
@@ -28,17 +29,15 @@ export default function HowToCheck() {
 
           {/* brand-neutral metric mockup */}
           <div className="flex w-full justify-center lg:flex-1">
-            <div className="w-full max-w-[26rem] rounded-2xl border border-black/10 bg-white p-6 shadow-nav">
+            <div className="card-kit w-full max-w-[26rem] p-6">
               <div className="flex items-center justify-between">
                 <span className="text-body-sm font-semibold text-foreground/60">
                   @defi_kol
                 </span>
-                <span className="rounded-full bg-positive/10 px-2.5 py-1 text-eyebrow font-semibold uppercase tracking-wide text-positive">
-                  Verified reach
-                </span>
+                <span className="chip chip-onchain">Verified reach</span>
               </div>
               <div className="mt-5 flex items-baseline gap-2">
-                <span className="text-gradient-brand font-display text-5xl font-semibold leading-none">
+                <span className="text-gradient-brand num-display font-display text-5xl leading-none">
                   4.82%
                 </span>
                 <span className="text-body-sm text-foreground/50">
@@ -55,7 +54,7 @@ export default function HowToCheck() {
                     key={m.k}
                     className="rounded-lg bg-background-soft px-3 py-3"
                   >
-                    <div className="font-display text-lg font-semibold text-foreground">
+                    <div className="num-display text-lg font-semibold text-foreground">
                       {m.v}
                     </div>
                     <div className="text-eyebrow uppercase tracking-wide text-foreground/50">
@@ -64,14 +63,23 @@ export default function HowToCheck() {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 flex items-end gap-1.5">
-                {[40, 62, 35, 78, 52, 90, 48, 70, 58].map((h, i) => (
-                  <div
-                    key={i}
-                    className="bg-gradient-brand flex-1 rounded-t"
-                    style={{ height: `${h}px` }}
-                  />
-                ))}
+
+              {/* per-post engagement, real proportions on a shared baseline */}
+              <div className="mt-6">
+                <div className="mb-2 flex items-center justify-between text-eyebrow text-foreground/50">
+                  <span>Engagement by post · last 9</span>
+                  <span className="font-mono-tnum">peak 5.4%</span>
+                </div>
+                <div className="flex h-20 items-end gap-1.5 border-b border-gray-200">
+                  {[2.4, 3.7, 2.1, 4.7, 3.1, 5.4, 2.9, 4.2, 3.5].map((v, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t bg-gradient-brand"
+                      style={{ height: `${(v / 6) * 100}%` }}
+                      title={`Post ${i + 1}: ${v.toFixed(1)}%`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

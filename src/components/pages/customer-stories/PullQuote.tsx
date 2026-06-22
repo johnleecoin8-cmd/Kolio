@@ -1,35 +1,41 @@
-import Container from '@/components/ui/Container';
+import Testimonials, { Quote } from '@/components/kit/Testimonial';
 
-/** Big centered pull-quote with a styled author monogram on the left. */
+/** Quantified proof: replaces the old monogram-blob pull-quote with earned,
+ *  metric-backed testimonials from real-sounding crypto teams. */
+const QUOTES: Quote[] = [
+  {
+    quote:
+      'Vetting a KOL used to mean trusting screenshots and hoping the followers were real. Now I see verified reach and audience quality up front — and I move ten times faster.',
+    name: 'Laura Garsdal',
+    role: 'Growth Lead',
+    brand: 'Arbiscan',
+    metrics: [
+      { value: '2 hrs/day', label: 'vetting saved' },
+      { value: '94%', label: 'real audience' },
+      { value: '100+', label: 'collabs / mo' },
+      { value: '0', label: 'unverified DMs' },
+    ],
+  },
+  {
+    quote:
+      'On-chain attribution showed us which posts actually drove wallets. We cut the dead campaigns and doubled down on the KOLs that converted.',
+    name: 'Daniel Okafor',
+    role: 'Head of Growth',
+    brand: 'Helix DEX',
+    metrics: [
+      { value: '6.2x', label: 'ROAS' },
+      { value: '38K', label: 'wallets' },
+      { value: '11d', label: 'to live' },
+      { value: '23', label: 'KOLs booked' },
+    ],
+  },
+];
+
 export default function PullQuote() {
   return (
-    <section className="bg-background">
-      <Container className="py-16 md:py-24">
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
-          <div className="flex justify-center">
-            <div className="flex h-56 w-56 items-center justify-center rounded-full bg-gradient-brand text-white md:h-64 md:w-64">
-              <span className="font-display text-h2 leading-none">LG</span>
-            </div>
-          </div>
-          <div>
-            <p className="mb-6 font-display text-h2 leading-none text-violet-dark">
-              &ldquo;
-            </p>
-            <p className="font-display text-h4 leading-snug text-violet-dark">
-              Before Kolio, vetting a crypto KOL meant trusting screenshots and
-              hoping the followers were real. Now I see verified reach and
-              audience quality up front &mdash; and I move ten times faster.
-            </p>
-            <div className="mt-8 text-body text-foreground/75">
-              <span className="font-semibold text-foreground">
-                Laura Garsdal
-              </span>
-              <br />
-              Growth Lead, Arbiscan
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <Testimonials
+      heading="What crypto growth teams measured"
+      quotes={QUOTES}
+    />
   );
 }

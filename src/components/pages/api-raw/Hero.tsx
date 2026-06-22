@@ -3,30 +3,22 @@ import Container from '@/components/ui/Container';
 const DEMO = '/demo-confirmation';
 const DOCS = '/demo-confirmation';
 
-/** Kolio Raw API hero — pale section, oversized display headline with one gradient word, floating role pills. */
+/** Kolio Raw API hero — soft neutral section, editorial display headline, on-chain chips, endpoint preview. */
 export default function Hero() {
   return (
-    <section className="bg-pink-light">
+    <section className="bg-gray-50">
       <Container>
-        <div className="relative mx-auto flex max-w-[1040px] flex-col items-center pt-24 pb-24 text-center md:pt-32 md:pb-28">
-          {/* floating role pills */}
-          <span className="absolute left-1/2 top-[10%] z-10 hidden -translate-x-1/2 rotate-3 rounded-pill bg-pink-dark px-3 py-1 text-body-sm font-semibold text-white shadow-btn md:inline-block">
-            Protocols
-            <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 bg-pink-dark" />
-          </span>
-          <span className="absolute left-[22%] top-[64%] z-10 hidden -rotate-6 rounded-pill bg-purple px-3 py-1 text-body-sm font-semibold text-purple-dark shadow-btn md:inline-block">
-            Exchanges
-            <span className="absolute -bottom-1.5 left-5 h-3 w-3 rotate-45 bg-purple" />
-          </span>
-          <span className="absolute right-[20%] top-[64%] z-10 hidden rotate-6 rounded-pill bg-orange px-3 py-1 text-body-sm font-semibold text-orange-dark shadow-btn md:inline-block">
-            Builders
-            <span className="absolute -bottom-1.5 left-4 h-3 w-3 rotate-45 bg-orange" />
-          </span>
+        <div className="relative mx-auto flex max-w-[1040px] flex-col items-center pt-24 pb-20 text-center md:pt-32 md:pb-24">
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
+            <span className="chip chip-onchain font-mono-tnum">GET /v1/raw</span>
+            <span className="chip chip-ink">Protocols</span>
+            <span className="chip chip-ink">Exchanges</span>
+            <span className="chip chip-ink">Builders</span>
+          </div>
 
-          <h1 className="font-display text-[2.75rem] uppercase leading-[0.92] text-ink sm:text-[4.5rem] md:text-[6rem]">
-            The API Layer For
-            <br />
-            <span className="text-gradient-brand">Verified</span> Crypto KOLs
+          <h1 className="display-xl font-display text-[2.75rem] text-ink sm:text-[4.25rem] md:text-[5.5rem]">
+            The data layer for{' '}
+            <span className="text-gradient-brand">verified</span> crypto KOLs
           </h1>
 
           <p className="mx-auto mt-8 max-w-[640px] text-body-md text-ink/80">
@@ -51,20 +43,34 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* later.com-inspired stat callouts */}
-          <div className="mt-14 grid w-full max-w-[760px] grid-cols-1 gap-6 sm:grid-cols-3">
-            {[
-              { stat: '4', label: 'channels: X, YouTube, TikTok & Telegram' },
-              { stat: 'Live', label: 'on-demand reach & audience data' },
-              { stat: '30+', label: 'datapoints per KOL profile' },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="font-display text-[2.5rem] leading-none text-ink md:text-[3rem]">
-                  {s.stat}
+          {/* endpoint preview — terminal punctuation under the fold */}
+          <div className="surface-onchain mt-14 w-full max-w-[760px] overflow-hidden rounded-xl p-5 text-left md:p-6">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-pill bg-white/20" />
+              <span className="h-2.5 w-2.5 rounded-pill bg-white/20" />
+              <span className="h-2.5 w-2.5 rounded-pill bg-white/20" />
+              <span className="ml-2 font-mono-tnum text-[11px] uppercase tracking-wide text-white/40">
+                api.kolio.io
+              </span>
+            </div>
+            <pre className="font-mono-tnum overflow-x-auto text-[12px] leading-[1.7] text-white/80 md:text-[13px]">
+{`$ curl https://api.kolio.io/v1/raw/x/kol-info?handle=cryptodefiana
+{ "is_verified": true, "real_follower_count": 318000, "niche": "DeFi" }`}
+            </pre>
+            <div className="mt-5 grid grid-cols-3 gap-4 border-t border-white/10 pt-5">
+              {[
+                { stat: '4', label: 'channels' },
+                { stat: 'Live', label: 'on-demand data' },
+                { stat: '30+', label: 'datapoints / KOL' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="num-display text-[1.75rem] leading-none text-white md:text-[2rem]">
+                    {s.stat}
+                  </div>
+                  <p className="mt-2 text-body-sm text-white/55">{s.label}</p>
                 </div>
-                <p className="mt-2 text-body-sm text-ink/70">{s.label}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Container>

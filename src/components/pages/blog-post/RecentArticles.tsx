@@ -24,7 +24,8 @@ export default function RecentArticles() {
   return (
     <section className="bg-background py-12 md:py-16">
       <Container>
-        <h2 className="mb-8 font-display text-h4 uppercase leading-tight text-foreground">
+        <p className="eyebrow mb-2">Keep reading</p>
+        <h2 className="display-lg mb-8 font-display text-h4 leading-tight text-foreground">
           Recent Articles
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -32,17 +33,15 @@ export default function RecentArticles() {
             <a
               key={i}
               href="#"
-              className="group flex flex-col transition hover:-translate-y-0.5"
+              className="card-kit group flex flex-col p-5 transition hover:-translate-y-0.5"
             >
-              <div className="flex aspect-[16/12] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-brand">
-                <span className="font-display text-[2.5rem] uppercase leading-none text-white/90">
+              <div className="flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-lg bg-gray-50">
+                <span className="font-display text-[1.75rem] uppercase leading-none text-foreground/15">
                   Kolio
                 </span>
               </div>
               <div className="flex flex-1 flex-col pt-4">
-                <span className="mb-3 w-fit rounded-pill bg-orange-light px-3 py-1 text-eyebrow font-semibold text-orange-dark">
-                  Web3 KOL
-                </span>
+                <span className="chip chip-brand mb-3 w-fit">Web3 KOL</span>
                 <h3 className="text-body-md font-bold leading-snug text-foreground">
                   {a.title}
                 </h3>

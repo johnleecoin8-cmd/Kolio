@@ -13,20 +13,25 @@ export default function TableOfContents() {
   };
   return (
     <nav aria-label="Table of contents" className="text-body-sm">
-      <p className="border-b border-gray-200 pb-3 text-body font-bold text-foreground">
-        Table of Contents
-      </p>
-      <ul>
-        {PLATFORMS.map((p) => (
-          <li key={p.num} className="border-b border-gray-200">
-            <a
-              href={`#${slug(p.num)}`}
-              className="block py-3 text-foreground/65 transition hover:text-foreground"
-            >
-              {labels[p.num] ?? `${p.num}. ${p.name}`}
-            </a>
-          </li>
-        ))}
+      <p className="eyebrow mb-3">On this page</p>
+      <ul className="border-t border-gray-200">
+        {PLATFORMS.map((p) => {
+          const full = labels[p.num] ?? `${p.num}. ${p.name}`;
+          const name = full.replace(/^\d+\.\s*/, '');
+          return (
+            <li key={p.num} className="border-b border-gray-200">
+              <a
+                href={`#${slug(p.num)}`}
+                className="group flex items-baseline gap-2.5 py-2.5 text-foreground/65 transition hover:text-foreground"
+              >
+                <span className="num-display w-6 shrink-0 text-body-sm text-foreground/35 group-hover:text-brand">
+                  {String(p.num).padStart(2, '0')}
+                </span>
+                <span className="leading-snug">{name}</span>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

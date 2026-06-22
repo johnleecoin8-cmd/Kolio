@@ -9,6 +9,8 @@ type Props = {
   title: string;
   intro: string;
   bullets: string[];
+  /** refined red section label above the heading */
+  eyebrow?: string;
   /** when true, image sits on the right (text left) */
   reversed?: boolean;
 };
@@ -19,23 +21,27 @@ export default function FeatureRow({
   title,
   intro,
   bullets,
+  eyebrow,
   reversed = false,
 }: Props) {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="bg-background py-14 md:py-20">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className={reversed ? 'md:order-2' : ''}>
-            <img
-              src={image}
-              width={560}
-              alt=""
-              loading="lazy"
-              className="w-full"
-            />
+            <div className="card-kit overflow-hidden p-2">
+              <img
+                src={image}
+                width={560}
+                alt=""
+                loading="lazy"
+                className="w-full rounded-lg"
+              />
+            </div>
           </div>
           <div className={reversed ? 'md:order-1' : ''}>
-            <h2 className="text-[1.5rem] font-semibold leading-[1.15] text-foreground md:text-[1.75rem]">
+            {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+            <h2 className="display-lg font-display text-[1.625rem] text-foreground md:text-[2rem]">
               {title}
             </h2>
             <p className="mt-4 text-body-md text-foreground/70">{intro}</p>

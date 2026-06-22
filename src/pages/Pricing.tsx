@@ -3,6 +3,7 @@ import PricingCards from '@/components/pages/pricing/PricingCards';
 import ValueAccordion from '@/components/pages/pricing/ValueAccordion';
 import PlanHelpCta from '@/components/pages/pricing/PlanHelpCta';
 import LogoCarousel from '@/components/pages/pricing/LogoCarousel';
+import Proof from '@/components/pages/pricing/Proof';
 import CreatorBenefits from '@/components/pages/pricing/CreatorBenefits';
 import Faq from '@/components/pages/pricing/Faq';
 import FinalCta from '@/components/pages/pricing/FinalCta';
@@ -16,6 +17,7 @@ export default function Pricing() {
       <ValueAccordion />
       <PlanHelpCta />
       <LogoCarousel />
+      <Proof />
       <CreatorBenefits />
       <Faq />
       <FinalCta />

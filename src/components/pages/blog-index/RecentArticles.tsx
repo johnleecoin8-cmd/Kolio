@@ -14,10 +14,10 @@ type Article = {
   read: string;
 };
 
-// Tag styles built from brand tokens (red / coral / ink) — no hard-coded hex.
-const TAG_BRAND = 'bg-brand text-white';
-const TAG_CORAL = 'bg-coral text-ink';
-const TAG_INK = 'bg-background-soft text-foreground';
+// Tag styles use the foundation chip system (brand / on-chain / ink).
+const TAG_BRAND = 'chip chip-brand';
+const TAG_CORAL = 'chip chip-onchain';
+const TAG_INK = 'chip chip-ink';
 
 const ARTICLES: Article[] = [
   {
@@ -99,12 +99,15 @@ export default function RecentArticles() {
   return (
     <section className="bg-background py-12 md:py-16">
       <Container className="max-w-[896px]">
-        <SectionHeader title="Recent Articles" href="/category/all" />
+        <SectionHeader eyebrow="Latest" title="Recent Articles" href="/category/all" />
 
-        <div className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
           {ARTICLES.map((a) => (
-            <div key={a.href} className="flex flex-col">
-              <a href={a.href} className="block overflow-hidden rounded-xl">
+            <div
+              key={a.href}
+              className="card-kit flex flex-col overflow-hidden p-0"
+            >
+              <a href={a.href} className="block overflow-hidden">
                 <img
                   src={a.img}
                   alt=""
@@ -112,9 +115,10 @@ export default function RecentArticles() {
                   className="aspect-[4/3] w-full object-cover"
                 />
               </a>
+              <div className="flex flex-1 flex-col p-5">
               <a
                 href={`/category/${a.tag.toLowerCase()}`}
-                className={`mt-4 inline-flex w-fit rounded-pill px-3 py-1 text-eyebrow font-semibold ${a.tagClass}`}
+                className={`w-fit ${a.tagClass}`}
               >
                 {a.tag}
               </a>
@@ -124,7 +128,7 @@ export default function RecentArticles() {
               >
                 {a.title}
               </a>
-              <div className="mt-4 flex items-center gap-3">
+              <div className="mt-auto flex items-center gap-3 pt-4">
                 <div className="flex -space-x-2">
                   {a.authors.map((src) => (
                     <img
@@ -141,6 +145,7 @@ export default function RecentArticles() {
                   <span>•</span>
                   <span>{a.read}</span>
                 </div>
+              </div>
               </div>
             </div>
           ))}

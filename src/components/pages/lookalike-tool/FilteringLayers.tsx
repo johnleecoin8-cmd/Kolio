@@ -16,7 +16,7 @@ export default function FilteringLayers() {
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <div className="rounded-xl border border-black/5 bg-white p-6 shadow-nav">
+            <div className="card-kit p-6">
               <div className="mb-4 text-body font-semibold text-foreground">
                 Filters
               </div>
@@ -35,16 +35,17 @@ export default function FilteringLayers() {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 inline-flex rounded-sm bg-gradient-brand px-4 py-2 text-body-sm font-semibold text-white">
-                312 matching KOLs
+              <div className="mt-5 inline-flex items-center gap-2 rounded-sm bg-gradient-brand px-4 py-2 text-body-sm font-semibold text-white">
+                <span className="num-display">312</span> matching KOLs
               </div>
             </div>
           </div>
           <div>
-            <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
+            <span className="eyebrow">Narrow the field</span>
+            <h2 className="mt-3 display-lg font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
               Stack filters to find the perfect fit
             </h2>
-            <p className="mt-6 max-w-[480px] text-body text-foreground/75">
+            <p className="mt-6 max-w-[480px] text-body text-foreground/70">
               Say your best-performing KOL covers DeFi for a US audience, and you
               want the same profile but reaching traders in Korea. Add a filter
               for audience region, niche, or verified reach, and Kolio narrows
@@ -52,11 +53,7 @@ export default function FilteringLayers() {
               follower counts.
             </p>
             <div className="mt-8">
-              <ButtonLink
-                to="/demo-confirmation"
-                variant="primary"
-                className="!bg-blue !text-white hover:!opacity-90"
-              >
+              <ButtonLink to="/demo-confirmation" variant="primary">
                 Try for free
               </ButtonLink>
             </div>

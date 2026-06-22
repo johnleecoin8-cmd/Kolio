@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
+import ProofScore from '@/components/kit/ProofScore';
 
 type Tab = {
   title: string;
@@ -16,29 +17,31 @@ function PerformanceVisual() {
     ['Sponsored post reach', '142K', 'w-[64%]'],
   ];
   return (
-    <div className="w-full rounded-xl border border-black/10 bg-white p-6 shadow-nav md:p-8">
+    <div className="card-kit w-full p-6 md:p-8">
       <div className="flex items-center gap-3">
         <div className="h-10 w-10 rounded-full bg-gradient-brand" />
         <div>
-          <div className="text-body font-semibold text-violet-dark">
+          <div className="text-body font-semibold text-foreground">
             @defi.daily
           </div>
-          <div className="text-body-sm text-violet-dark/60">
+          <div className="text-body-sm text-foreground/55">
             218K followers · Trading & DeFi
           </div>
         </div>
-        <span className="ml-auto rounded-full bg-violet-light px-3 py-1 text-body-sm font-semibold text-violet-dark">
-          Verified
+        <span className="ml-auto">
+          <ProofScore score={88} size="sm" />
         </span>
       </div>
       <div className="mt-6 space-y-4">
         {rows.map(([label, value, width]) => (
           <div key={label}>
-            <div className="flex items-center justify-between text-body-sm text-violet-dark/80">
+            <div className="flex items-center justify-between text-body-sm text-foreground/70">
               <span>{label}</span>
-              <span className="font-semibold text-violet-dark">{value}</span>
+              <span className="font-mono-tnum font-semibold text-foreground">
+                {value}
+              </span>
             </div>
-            <div className="mt-1.5 h-2 w-full rounded-full bg-black/5">
+            <div className="mt-1.5 h-2 w-full rounded-full bg-gray-100">
               <div className={`h-2 rounded-full bg-gradient-brand ${width}`} />
             </div>
           </div>
@@ -57,8 +60,8 @@ function AudienceVisual() {
     ['Brazil', '9%', 'w-[9%]'],
   ];
   return (
-    <div className="w-full rounded-xl border border-black/10 bg-white p-6 shadow-nav md:p-8">
-      <div className="text-body font-semibold text-violet-dark">
+    <div className="card-kit w-full p-6 md:p-8">
+      <div className="text-body font-semibold text-foreground">
         Audience breakdown
       </div>
       <div className="mt-5 grid grid-cols-3 gap-3">
@@ -69,21 +72,23 @@ function AudienceVisual() {
         ].map(([label, value]) => (
           <div
             key={label}
-            className="rounded-lg bg-violet-light p-3 text-center"
+            className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center"
           >
-            <div className="font-display text-xl text-violet-dark">{value}</div>
-            <div className="mt-1 text-body-sm text-violet-dark/60">{label}</div>
+            <div className="num-display text-xl text-foreground">{value}</div>
+            <div className="mt-1 text-body-sm text-foreground/55">{label}</div>
           </div>
         ))}
       </div>
       <div className="mt-6 space-y-3">
         {geo.map(([label, value, width]) => (
           <div key={label}>
-            <div className="flex items-center justify-between text-body-sm text-violet-dark/80">
+            <div className="flex items-center justify-between text-body-sm text-foreground/70">
               <span>{label}</span>
-              <span className="font-semibold text-violet-dark">{value}</span>
+              <span className="font-mono-tnum font-semibold text-foreground">
+                {value}
+              </span>
             </div>
-            <div className="mt-1.5 h-2 w-full rounded-full bg-black/5">
+            <div className="mt-1.5 h-2 w-full rounded-full bg-gray-100">
               <div className={`h-2 rounded-full bg-gradient-brand ${width}`} />
             </div>
           </div>
@@ -111,13 +116,14 @@ export default function PerformanceTabs() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-violet-dark md:text-[2.5rem]">
+          <span className="eyebrow">Proof, not vanity</span>
+          <h2 className="mt-4 display-lg font-display text-[2rem] text-foreground md:text-[2.5rem]">
             Check the performance, audience &amp; posts of any crypto KOL
           </h2>
-          <p className="mx-auto mt-6 max-w-[680px] text-body-md text-violet-dark/80">
+          <p className="mx-auto mt-6 max-w-[680px] text-body-md text-foreground/70">
             Forget running campaigns in the dark. See what's happening behind
             the profile and make smart, confident decisions about your KOL
             partnerships.
@@ -125,7 +131,7 @@ export default function PerformanceTabs() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-8 md:mt-16 md:grid-cols-[minmax(0,360px)_1fr] md:gap-12">
-          <div className="flex flex-col gap-4 rounded-xl bg-violet-bg p-6 md:p-8">
+          <div className="flex flex-col gap-4 rounded-xl border border-gray-200 bg-gray-50 p-6 md:p-8">
             {TABS.map((t, i) => {
               const isActive = active === i;
               return (
@@ -137,19 +143,19 @@ export default function PerformanceTabs() {
                   <div className="flex items-center gap-2">
                     <span
                       className={`inline-block h-2.5 w-2.5 rounded-full ${
-                        isActive ? 'bg-violet' : 'bg-transparent'
+                        isActive ? 'bg-brand' : 'bg-transparent'
                       }`}
                     />
                     <span
                       className={`text-body font-semibold ${
-                        isActive ? 'text-violet-dark' : 'text-violet-dark/55'
+                        isActive ? 'text-foreground' : 'text-foreground/50'
                       }`}
                     >
                       {t.title}
                     </span>
                   </div>
                   {isActive && (
-                    <p className="mt-3 text-body-sm text-violet-dark/80">
+                    <p className="mt-3 text-body-sm text-foreground/70">
                       {t.copy}
                     </p>
                   )}
@@ -163,7 +169,7 @@ export default function PerformanceTabs() {
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <ButtonA href="/demo-confirmation" variant="accent">
+            <ButtonA href="/demo-confirmation" variant="primary">
               Find crypto KOLs
             </ButtonA>
             <ButtonA href="/demo-confirmation" variant="secondary">
@@ -171,7 +177,7 @@ export default function PerformanceTabs() {
             </ButtonA>
           </div>
         </div>
-        <p className="mt-4 text-center text-body-sm text-violet-dark/60">
+        <p className="mt-4 text-center text-body-sm text-foreground/55">
           Free trial・No credit card required
         </p>
       </Container>

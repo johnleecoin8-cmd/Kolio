@@ -15,6 +15,8 @@ type Plan = {
   isEnterprise?: boolean;
   monthly: string;
   yearly: string;
+  /** Strikethrough list-price anchor shown above the live price. */
+  anchor?: string;
   yearlyTotal: string;
   discount: string;
   cta: string;
@@ -33,6 +35,7 @@ const PLANS: Plan[] = [
     tagline: 'Validate web3 influencer marketing before you scale.',
     monthly: '$299',
     yearly: '$199',
+    anchor: '$299',
     yearlyTotal: '$2,388 paid yearly',
     discount: '-33%',
     cta: 'Start free',
@@ -96,6 +99,7 @@ const PLANS: Plan[] = [
     recommended: true,
     monthly: '$599',
     yearly: '$499',
+    anchor: '$599',
     yearlyTotal: '$5,988 paid yearly',
     discount: '-16%',
     cta: 'Start free',
@@ -221,6 +225,33 @@ export default function PricingCards() {
             ))}
           </div>
         </div>
+
+        {/* On-chain settlement note — dark punctuation band */}
+        <div className="surface-onchain mt-6 overflow-hidden rounded-2xl px-7 py-9 md:px-12 md:py-11">
+          <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-[640px]">
+              <span className="chip chip-onchain">On-chain settlement</span>
+              <h3 className="display-lg mt-4 font-display text-[1.6rem] leading-tight text-white md:text-[2rem]">
+                Enterprise volume settles in stablecoins, on-chain.
+              </h3>
+              <p className="mt-3 text-body-sm leading-snug text-white/65">
+                Above $250K in annual payouts, Kolio routes KOL settlement,
+                referral attribution, and escrow release through audited on-chain
+                rails — with custom fee tiers, a dedicated success manager, and
+                wallet-level reporting your finance team can reconcile.
+              </p>
+            </div>
+            <div className="shrink-0 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-5">
+              <p className="text-eyebrow uppercase tracking-wide text-white/45">
+                Settled to date
+              </p>
+              <p className="num-display font-mono-tnum mt-2 text-[2.25rem] leading-none text-white">
+                $48.2M
+              </p>
+              <p className="mt-2 font-mono-tnum text-body-sm text-mint">USDC · 180+ countries</p>
+            </div>
+          </div>
+        </div>
       </Container>
     </section>
   );
@@ -230,19 +261,24 @@ function PlanCard({ plan }: { plan: Plan }) {
   const [yearly, setYearly] = useState(true);
   const price = yearly ? plan.yearly : plan.monthly;
 
+  const showAnchor = !plan.isEnterprise && yearly && plan.anchor && plan.anchor !== price;
+
   return (
     <div
       className={cn(
-        'relative flex flex-col rounded-xl bg-white p-6 md:p-7',
-        plan.recommended
-          ? 'border-2 border-pink shadow-nav lg:-mt-9 lg:self-start lg:pt-9'
-          : 'border border-black/[0.07]',
+        'card-kit relative flex flex-col p-6 md:p-7',
+        plan.recommended &&
+          'border-2 border-brand shadow-nav glow-brand lg:-mt-9 lg:self-start lg:pt-9',
       )}
     >
-      {plan.recommended && (
-        <span className="mb-4 block text-body-sm text-foreground/80">Recommended</span>
+      {plan.recommended ? (
+        <span className="chip chip-brand mb-4 self-start">Recommended</span>
+      ) : (
+        <span className="chip chip-ink mb-4 self-start">
+          {plan.isEnterprise ? 'Custom' : 'Starter'}
+        </span>
       )}
-      <h3 className="text-[1.9rem] font-bold leading-none text-foreground">{plan.name}</h3>
+      <h3 className="display-lg text-[1.9rem] leading-none text-foreground">{plan.name}</h3>
       <p className="mt-4 text-body-sm text-foreground/60">{plan.subtitle}</p>
       <p className="mt-1 text-body-sm font-semibold text-foreground">{plan.tagline}</p>
 
@@ -252,7 +288,12 @@ function PlanCard({ plan }: { plan: Plan }) {
           Starts at
         </p>
         <div className="mt-1 flex items-baseline gap-2">
-          <span className="text-[2.4rem] font-extrabold leading-none text-foreground">{price}</span>
+          {showAnchor && (
+            <span className="num-display text-[1.5rem] leading-none text-foreground/35 line-through">
+              {plan.anchor}
+            </span>
+          )}
+          <span className="num-display text-[2.4rem] leading-none text-foreground">{price}</span>
           <span className="text-body-sm text-foreground/55">
             {plan.isEnterprise ? 'Yearly' : '/ month'}
           </span>

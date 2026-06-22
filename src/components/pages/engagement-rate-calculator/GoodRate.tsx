@@ -64,10 +64,11 @@ export default function GoodRate() {
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="flex w-full flex-col items-center gap-8">
-          <h2 className="mb-4 w-full break-words text-center font-display text-5xl font-normal leading-tight text-foreground lg:text-7xl">
+          <span className="eyebrow">Benchmarks</span>
+          <h2 className="display-lg w-full max-w-[44rem] break-words text-center font-display text-5xl text-foreground lg:text-7xl">
             What is a good crypto KOL engagement rate?
           </h2>
-          <p className="w-full break-words text-center text-lg font-normal leading-relaxed text-foreground">
+          <p className="w-full max-w-[48rem] break-words text-center text-lg font-normal leading-relaxed text-foreground/80">
             A good engagement rate on X (Twitter) depends largely on audience
             size, but in general, anything above 3% is strong, and above 6% is
             excellent for smaller KOLs (under 5K followers). As accounts grow,
@@ -91,7 +92,7 @@ export default function GoodRate() {
                   <tr>
                     <th className="p-3 text-left font-semibold text-foreground" />
                     {COLS.map((c) => (
-                      <th key={c} className="px-3 pb-2 font-semibold text-foreground">
+                      <th key={c} className="font-mono-tnum px-3 pb-2 font-semibold text-foreground/70">
                         {c}
                       </th>
                     ))}
@@ -112,7 +113,7 @@ export default function GoodRate() {
                         <td
                           key={i}
                           className={cn(
-                            'p-4 text-foreground',
+                            'font-mono-tnum p-4 text-foreground',
                             i === r.cells.length - 1 && 'rounded-r-lg',
                             r.highlight && 'border-y border-purple',
                             r.highlight && i === r.cells.length - 1 && 'border-r',

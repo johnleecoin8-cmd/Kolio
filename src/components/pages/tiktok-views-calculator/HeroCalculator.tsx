@@ -71,7 +71,10 @@ export default function HeroCalculator() {
   return (
     <section className="bg-background pt-16 pb-16 md:pt-24 md:pb-24">
       <Container>
-        <h1 className="mx-auto max-w-[18ch] text-center font-display text-[2.75rem] uppercase leading-[1.0] text-foreground md:text-[5rem]">
+        <div className="flex justify-center">
+          <span className="eyebrow">Free TikTok reach check</span>
+        </div>
+        <h1 className="display-lg mx-auto mt-4 max-w-[18ch] text-center font-display text-[2.75rem] uppercase text-foreground md:text-[5rem]">
           TikTok KOL{' '}
           <span className="text-gradient-brand">Views</span> Calculator
         </h1>
@@ -130,6 +133,7 @@ export default function HeroCalculator() {
                 icon={<Eye size={20} />}
                 label="Average views"
                 value={formatViews(avgViews)}
+                chip="Real reach"
                 accent
               />
               <Metric
@@ -144,8 +148,39 @@ export default function HeroCalculator() {
               />
             </div>
 
+            {/* Views by video — intentional bar chart (real proportions) */}
+            <div className="border-b border-black/10 pb-6">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="text-body-sm font-semibold text-foreground/70">
+                  Views by video · last {profile.recent.length}
+                </p>
+                <span className="chip chip-onchain">Real reach, not followers</span>
+              </div>
+              <div className="flex h-28 items-end gap-2">
+                {profile.recent.map((v, i) => {
+                  const max = Math.max(...profile.recent);
+                  const pct = Math.round((v / max) * 100);
+                  return (
+                    <div
+                      key={i}
+                      className="group relative flex flex-1 flex-col items-center justify-end"
+                    >
+                      <span className="mb-1 font-mono-tnum text-[0.6rem] font-semibold text-foreground/45">
+                        {formatViews(v)}
+                      </span>
+                      <div
+                        className="w-full rounded-t bg-gradient-brand"
+                        style={{ height: `${Math.max(pct, 8)}%` }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-2 h-px w-full bg-black/10" />
+            </div>
+
             {/* Top videos */}
-            <div>
+            <div className="pt-6">
               <p className="mb-3 text-body-sm font-semibold text-foreground/70">
                 Recent videos
               </p>
@@ -178,11 +213,13 @@ function Metric({
   label,
   value,
   accent = false,
+  chip,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   accent?: boolean;
+  chip?: string;
 }) {
   return (
     <div
@@ -191,12 +228,15 @@ function Metric({
       }`}
     >
       <span className={accent ? 'text-pink' : 'text-foreground/70'}>{icon}</span>
-      <span className="text-[1.75rem] font-semibold leading-none">{value}</span>
+      <span className="num-display font-mono-tnum text-[1.75rem] leading-none">
+        {value}
+      </span>
       <span
         className={`text-body-sm ${accent ? 'text-white/70' : 'text-foreground/55'}`}
       >
         {label}
       </span>
+      {chip && <span className="chip chip-onchain mt-0.5">{chip}</span>}
     </div>
   );
 }

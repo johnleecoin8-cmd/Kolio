@@ -28,25 +28,28 @@ export default function Faq() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center font-display text-[1.75rem] leading-tight text-violet-dark md:text-[2rem]">
-          Kolio KOL search engine FAQs
-        </h2>
+        <div className="text-center">
+          <span className="eyebrow">Questions</span>
+          <h2 className="mt-3 display-lg font-display text-[1.75rem] leading-tight text-foreground md:text-[2rem]">
+            Kolio KOL search engine FAQs
+          </h2>
+        </div>
 
         <div className="mx-auto mt-10 max-w-[1040px]">
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="border-b border-foreground/15">
+              <div key={f.q} className="border-b border-gray-200">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                 >
-                  <span className="text-body-md font-semibold text-violet-dark">
+                  <span className="text-body-md font-semibold text-foreground">
                     {f.q}
                   </span>
                   <ChevronDown
                     size={22}
-                    className={`shrink-0 text-violet-dark transition-transform ${
+                    className={`shrink-0 text-brand transition-transform ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />

@@ -4,35 +4,39 @@ const FORM = '/demo-confirmation';
 
 const CARDS = [
   {
+    tag: 'attribution',
     title: 'Campaign analytics & attribution',
     body: 'Build live dashboards for every funded campaign. Track post performance, sentiment, and follower changes as they happen, then tie reach back to on-chain conversions.',
   },
   {
+    tag: 'vetting',
     title: 'KOL vetting & enrichment',
     body: 'Enrich your KOL CRM with proof-based reach and audience quality. Connect crypto handles to your database and keep follower lists and stats fresh before you sign a deal.',
   },
   {
+    tag: 'intelligence',
     title: 'Market & competitor intelligence',
     body: 'Monitor KOL content and project mentions in real time. Pull recent posts, cashtags, and narrative shifts as they launch — not after a token is already trending.',
   },
 ];
 
-/** "What will you build?" — three grey use-case cards + closing CTA. */
+/** "What will you build?" — three premium use-case cards + closing CTA. */
 export default function WhatYouBuild() {
   return (
-    <section className="bg-background py-12 md:py-20">
+    <section className="bg-background py-16 md:py-24">
       <Container>
-        <h2 className="text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-          What will you build?
-        </h2>
+        <div className="mx-auto max-w-[640px] text-center">
+          <p className="eyebrow mb-3">Use cases</p>
+          <h2 className="display-lg font-display text-[1.75rem] text-foreground md:text-[2.1875rem]">
+            What will you build?
+          </h2>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {CARDS.map((c) => (
-            <div
-              key={c.title}
-              className="rounded-lg bg-background-soft p-6 md:p-8"
-            >
-              <h3 className="text-body-md font-semibold text-foreground">
+            <div key={c.title} className="card-kit p-6 md:p-8">
+              <span className="chip chip-brand font-mono-tnum">{c.tag}</span>
+              <h3 className="mt-4 text-body-md font-semibold text-foreground">
                 {c.title}
               </h3>
               <p className="mt-3 text-body text-foreground/60">{c.body}</p>

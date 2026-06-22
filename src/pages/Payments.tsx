@@ -5,6 +5,8 @@ import FeatureBlocks from '@/components/pages/payments/FeatureBlocks';
 import LogoStrip from '@/components/pages/payments/LogoStrip';
 import EverythingGrid from '@/components/pages/payments/EverythingGrid';
 import HowItWorks from '@/components/pages/payments/HowItWorks';
+import OnchainFlow from '@/components/pages/payments/OnchainFlow';
+import PayoutStats from '@/components/pages/payments/PayoutStats';
 import TeamSpeed from '@/components/pages/payments/TeamSpeed';
 import RightForYou from '@/components/pages/payments/RightForYou';
 import CreatorBenefits from '@/components/pages/payments/CreatorBenefits';
@@ -21,12 +23,14 @@ export default function Payments() {
     <main>
       <Hero />
       <LiveStats heading="Paying real creators, on-chain" />
+      <PayoutStats />
       <Problem />
       <Comparison />
       <FeatureBlocks />
       <LogoStrip />
       <EverythingGrid />
       <HowItWorks />
+      <OnchainFlow />
       <TeamSpeed />
       <RightForYou />
       <CreatorBenefits />

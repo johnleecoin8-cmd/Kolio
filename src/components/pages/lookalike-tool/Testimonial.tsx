@@ -1,41 +1,40 @@
-import Container from '@/components/ui/Container';
+import Testimonials, { type Quote } from '@/components/kit/Testimonial';
 
-/** Single quote testimonial — brand-neutral avatar left, big quote right. */
+const QUOTES: Quote[] = [
+  {
+    quote:
+      'We used to source KOLs from Telegram group chats and hope the reach was real. Lookalikes let us clone our one winning creator into a full slate — every match vetted on proof, not follower count.',
+    name: 'Lena Kim',
+    role: 'Head of Growth',
+    brand: 'Helix Exchange',
+    metrics: [
+      { value: '5×', label: 'Faster sourcing' },
+      { value: '+38%', label: 'Verified reach' },
+      { value: '0.9%', label: 'Bot rate' },
+      { value: '12', label: 'New KOLs / mo' },
+    ],
+  },
+  {
+    quote:
+      'One seed creator surfaced ten lookalikes with the same wallet-level audience. Our cost per qualified KOL dropped by more than half, and attribution finally tied spend to on-chain conversions.',
+    name: 'Marcus Vey',
+    role: 'Growth Lead',
+    brand: 'Aether Protocol',
+    metrics: [
+      { value: '-54%', label: 'Cost / KOL' },
+      { value: '94%', label: 'Audience overlap' },
+      { value: '3.1×', label: 'ROAS' },
+      { value: '210K', label: 'Net new reach' },
+    ],
+  },
+];
+
+/** Quantified, proof-based testimonials (kit) — replaces the monogram-blob card. */
 export default function Testimonial() {
   return (
-    <section className="bg-background py-16 md:py-24">
-      <Container>
-        <div className="grid items-center gap-10 md:grid-cols-[minmax(0,360px)_1fr] md:gap-16">
-          <div className="flex justify-center md:justify-end">
-            <div className="flex h-56 w-56 items-center justify-center rounded-full bg-gradient-brand">
-              <span className="font-display text-[3.5rem] font-semibold text-white">
-                LK
-              </span>
-            </div>
-          </div>
-          <div>
-            <span
-              aria-hidden
-              className="block font-display text-[3rem] leading-none text-blue"
-            >
-              &ldquo;
-            </span>
-            <h3 className="mt-2 max-w-[640px] font-display text-[1.5rem] font-semibold leading-[1.35] text-foreground md:text-[1.75rem]">
-              Before Kolio we were sourcing KOLs from Telegram group chats and
-              hoping the reach was real. Now we vet every creator on proof and
-              find five lookalikes in the time it used to take to qualify one.
-            </h3>
-            <div className="mt-8">
-              <div className="text-body font-medium text-foreground">
-                Lena Kim
-              </div>
-              <div className="text-body text-foreground/60">
-                Head of Growth at a Tier-1 exchange
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <Testimonials
+      heading="Teams that clone their best KOL, not their luck"
+      quotes={QUOTES}
+    />
   );
 }

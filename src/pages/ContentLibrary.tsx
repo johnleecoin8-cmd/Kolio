@@ -1,4 +1,5 @@
 import Hero from '@/components/pages/content-library/Hero';
+import ContentExamples from '@/components/pages/content-library/ContentExamples';
 import CollabList from '@/components/pages/content-library/CollabList';
 import Faq from '@/components/pages/content-library/Faq';
 import LiveCreatorRail from '@/components/live/LiveCreatorRail';
@@ -8,6 +9,7 @@ export default function ContentLibrary() {
   return (
     <main>
       <Hero />
+      <ContentExamples />
       <LiveCreatorRail title="Creators with standout content" count={8} />
       <CollabList />
       <Faq />

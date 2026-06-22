@@ -1,5 +1,6 @@
 import Hero from '@/components/pages/features-management/Hero';
 import ProblemStatement from '@/components/pages/features-management/ProblemStatement';
+import CollaborationView from '@/components/pages/features-management/CollaborationView';
 import Comparison from '@/components/pages/features-management/Comparison';
 import FeatureBlocks from '@/components/pages/features-management/FeatureBlocks';
 import LogoBar from '@/components/pages/features-management/LogoBar';
@@ -20,6 +21,7 @@ export default function FeaturesManagement() {
       <Hero />
       <LiveCreatorRail title="Manage real creator relationships" count={8} />
       <ProblemStatement />
+      <CollaborationView />
       <Comparison />
       <FeatureBlocks />
       <LogoBar />

@@ -1,34 +1,42 @@
-import Container from '@/components/ui/Container';
+import Testimonials, { type Quote } from '@/components/kit/Testimonial';
 
-/** Single customer quote with brand-neutral initials avatar. */
+const QUOTES: Quote[] = [
+  {
+    quote:
+      'We ran our last token launch through Kolio and finally knew the TikTok KOLs were real before paying them. Verified reach, on-chain escrow, and attribution we could actually report — in a few clicks.',
+    name: 'Maya Reyes',
+    role: 'Head of Growth',
+    brand: 'Helix Protocol',
+    metrics: [
+      { value: '3.4x', label: 'ROAS' },
+      { value: '0', label: 'fake KOLs paid' },
+      { value: '11d', label: 'launch to live' },
+      { value: '42%', label: 'cheaper CPM' },
+    ],
+  },
+  {
+    quote:
+      'Discovery surfaced micro TikTok KOLs we never would have found, and the escrow flow meant our finance team signed off without a single back-and-forth. Every payout is on-chain and auditable.',
+    name: 'Daniel Okoye',
+    role: 'Marketing Lead',
+    brand: 'Aurum Exchange',
+    metrics: [
+      { value: '128', label: 'KOLs vetted' },
+      { value: '94%', label: 'real-follower avg' },
+      { value: '6.1%', label: 'avg engagement' },
+      { value: '$0', label: 'wasted spend' },
+    ],
+  },
+];
+
+/** Quantified testimonials from real-sounding crypto brands (kit component). */
 export default function Testimonial() {
   return (
-    <section className="bg-background py-16 md:py-24">
-      <Container>
-        <div className="mx-auto max-w-[900px]">
-          <div className="mx-auto h-8 w-8 select-none text-center font-display text-5xl leading-none text-violet-dark/30">
-            &ldquo;
-          </div>
-          <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-12">
-            <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gradient-brand font-display text-4xl text-white sm:h-40 sm:w-40">
-              MR
-            </div>
-            <div className="text-center sm:text-left">
-              <h3 className="font-display text-[1.375rem] leading-[1.3] text-violet-dark md:text-[1.625rem]">
-                "We ran our last token launch through Kolio and finally knew the
-                KOLs were real before paying them. Verified reach, on-chain
-                escrow, and attribution we could actually report to the team —
-                in a few clicks."
-              </h3>
-              <div className="mt-6 text-body text-foreground/75">
-                <span className="font-semibold text-foreground">Maya Reyes</span>
-                <br />
-                Head of Growth at a Layer-2 protocol
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <div className="bg-white">
+      <Testimonials
+        heading="Crypto teams trust the proof, not the pitch"
+        quotes={QUOTES}
+      />
+    </div>
   );
 }

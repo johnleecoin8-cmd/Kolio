@@ -3,7 +3,7 @@ import Container from '@/components/ui/Container';
 const CARDS = [
   {
     tag: 'Sourcing',
-    tagClass: 'bg-orange-light text-orange-dark',
+    chipClass: 'chip chip-brand',
     read: '11 mins read',
     // Brand-neutral gradient tile (replaces modash-branded blog screenshot).
     cover: 'from-brand to-brand-coral',
@@ -15,7 +15,7 @@ const CARDS = [
   },
   {
     tag: 'Campaigns',
-    tagClass: 'bg-pink text-ink',
+    chipClass: 'chip chip-ink',
     read: '4 mins read',
     cover: 'from-brand-coral to-pink',
     coverLabel: 'KOL Survey 2026',
@@ -26,7 +26,7 @@ const CARDS = [
   },
   {
     tag: 'Attribution',
-    tagClass: 'bg-pink-dark text-white',
+    chipClass: 'chip chip-onchain',
     read: '14 mins read',
     cover: 'from-purple to-brand',
     coverLabel: 'On-Chain ROI',
@@ -37,43 +37,61 @@ const CARDS = [
   },
 ];
 
-/** "More web3 KOL marketing resources" — 3 blog cards with brand-neutral gradient covers. */
+/** "More web3 KOL marketing resources" — 3 blog cards on card-kit tiles. */
 export default function MoreResources() {
   return (
-    <section className="bg-background py-12 md:py-20">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <h2 className="mb-10 text-center font-display text-[1.75rem] font-normal leading-tight text-violet-dark md:mb-14 md:text-h3">
-          More web3 KOL marketing resources
-        </h2>
+        <div className="mb-10 md:mb-14">
+          <span className="eyebrow">Keep reading</span>
+          <h2 className="display-lg mt-3 font-display text-[2rem] text-foreground md:text-[2.5rem]">
+            More web3 KOL marketing resources
+          </h2>
+        </div>
 
         <div className="grid gap-8 md:grid-cols-3">
           {CARDS.map((c) => (
-            <a key={c.title} href={c.href} className="group flex flex-col no-underline">
+            <a
+              key={c.title}
+              href={c.href}
+              className="card-kit group flex flex-col overflow-hidden no-underline transition hover:-translate-y-1"
+            >
               <div
-                className={`flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br ${c.cover} transition group-hover:scale-[1.02]`}
+                className={`relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-gradient-to-br ${c.cover}`}
               >
-                <span className="px-6 text-center font-display text-[1.5rem] font-bold leading-tight text-white">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 opacity-[0.16]"
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px)',
+                    backgroundSize: '30px 30px',
+                  }}
+                />
+                <span className="relative px-6 text-center font-display text-[1.5rem] font-bold leading-tight text-white drop-shadow-sm">
                   {c.coverLabel}
                 </span>
               </div>
-              <div className="mt-4 flex items-center gap-3">
-                <span className={`rounded-sm px-2 py-1 text-body-sm font-semibold ${c.tagClass}`}>
-                  {c.tag}
-                </span>
-                <span className="text-body-sm text-foreground/55">
-                  <span className="font-semibold text-foreground/80">
-                    {c.read.replace(' read', '')}
-                  </span>{' '}
-                  read
+              <div className="flex flex-1 flex-col p-5">
+                <div className="flex items-center gap-3">
+                  <span className={c.chipClass}>{c.tag}</span>
+                  <span className="font-mono-tnum text-body-sm text-foreground/55">
+                    <span className="font-semibold text-foreground/80">
+                      {c.read.replace(' read', '')}
+                    </span>{' '}
+                    read
+                  </span>
+                </div>
+                <h3 className="mt-3 text-[1.125rem] font-semibold leading-snug text-foreground">
+                  {c.title}
+                </h3>
+                {c.body && (
+                  <p className="mt-2 text-body-sm text-foreground/60">{c.body}</p>
+                )}
+                <span className="mt-auto pt-4 text-eyebrow text-foreground/45">
+                  {c.date}
                 </span>
               </div>
-              <h3 className="mt-3 text-[1.125rem] font-semibold leading-snug text-violet-dark">
-                {c.title}
-              </h3>
-              {c.body && (
-                <p className="mt-2 text-body-sm text-foreground/60">{c.body}</p>
-              )}
-              <span className="mt-3 text-eyebrow text-foreground/45">{c.date}</span>
             </a>
           ))}
         </div>

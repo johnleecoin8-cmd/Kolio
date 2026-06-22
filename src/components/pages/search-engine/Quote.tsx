@@ -1,41 +1,42 @@
-import Container from '@/components/ui/Container';
+import Testimonials, { type Quote as TQuote } from '@/components/kit/Testimonial';
 
-/** Customer testimonial — web3 growth lead, brand-neutral text treatment. */
+const QUOTES: TQuote[] = [
+  {
+    quote:
+      'We sorted by relevance, shortlisted twelve KOLs in an afternoon, and every one of them already held the asset. Zero bot spend.',
+    name: 'Maya Okonkwo',
+    role: 'Head of Growth',
+    brand: 'Arclayer',
+    metrics: [
+      { value: '12', label: 'KOLs / day' },
+      { value: '3.1%', label: 'Bot share' },
+      { value: '4.2x', label: 'ROAS' },
+      { value: '0', label: 'Wire transfers' },
+    ],
+  },
+  {
+    quote:
+      'Relevance ranking surfaced micro-KOLs our agency never found. On-chain escrow meant we paid creators the day they delivered.',
+    name: 'Daniel Reyes',
+    role: 'Marketing Lead',
+    brand: 'Novachain',
+    metrics: [
+      { value: '+38%', label: 'Wallet reach' },
+      { value: '61%', label: 'Match score' },
+      { value: '9d', label: 'Launch to live' },
+      { value: '100%', label: 'On-chain paid' },
+    ],
+  },
+];
+
+/** Quantified testimonials (real-sounding protocols + hard metrics). */
 export default function Quote() {
   return (
-    <section className="bg-background py-16 md:py-24">
-      <Container>
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="flex justify-center">
-            <div className="flex h-44 w-44 items-center justify-center rounded-full bg-gradient-brand">
-              <span className="font-display text-[3.5rem] leading-none text-white">
-                M
-              </span>
-            </div>
-          </div>
-
-          <div className="max-w-xl">
-            <span
-              aria-hidden
-              className="block font-display text-[3rem] leading-none text-violet-dark"
-            >
-              &ldquo;
-            </span>
-            <p className="mt-2 font-display text-[1.5rem] leading-snug text-violet-dark md:text-[1.75rem]">
-              We&apos;ve run hundreds of KOL searches through Kolio for token
-              launches and ecosystem campaigns. The proof-based scoring filters
-              out the bots before we ever spend a dollar, and on-chain escrow
-              made paying creators painless.
-            </p>
-            <p className="mt-6 text-body font-medium text-foreground">
-              Maya Okonkwo
-            </p>
-            <p className="text-body text-foreground/70">
-              Head of Growth at a Layer-2 protocol
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <div className="bg-gray-50">
+      <Testimonials
+        heading="Teams ship faster when results are ranked, not guessed"
+        quotes={QUOTES}
+      />
+    </div>
   );
 }

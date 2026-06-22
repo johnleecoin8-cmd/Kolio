@@ -29,9 +29,12 @@ export default function HowItWorks() {
   return (
     <section className="bg-background pt-16 md:pt-24">
       <Container>
-        <h2 className="mb-12 text-center font-sans text-[1.75rem] font-bold leading-tight text-foreground md:text-[2.25rem]">
-          How it works
-        </h2>
+        <div className="mb-12 text-center">
+          <span className="eyebrow">The pipeline</span>
+          <h2 className="mt-3 display-lg font-display text-h3 text-foreground">
+            How the data is built
+          </h2>
+        </div>
         <div className="grid gap-6 md:grid-cols-3 md:gap-0">
           {STEPS.map((s, i) => (
             <div

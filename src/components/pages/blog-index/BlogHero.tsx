@@ -21,7 +21,8 @@ export default function BlogHero() {
   return (
     <section className="bg-background pt-24 md:pt-40">
       <Container className="max-w-[896px]">
-        <h1 className="text-center font-display text-[3.25rem] uppercase leading-[0.95] text-foreground md:text-[5.5rem]">
+        <p className="eyebrow flex justify-center">The Kolio Journal</p>
+        <h1 className="mt-4 text-center font-display display-xl text-[3.25rem] uppercase text-foreground md:text-[5.5rem]">
           The <span className="text-gradient-brand">web3</span> KOL playbook
         </h1>
         <p className="mx-auto mt-6 max-w-[640px] text-center text-body-md text-foreground/60">

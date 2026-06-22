@@ -41,19 +41,35 @@ const ITEMS = [
   },
 ];
 
-/** "Plus, everything else..." — centered heading + 3-col / 2-row icon grid. */
+/** "Plus, everything else..." — eyebrow + editorial heading, lead card + card-kit grid. */
 export default function PlusGrid() {
+  const [lead, ...rest] = ITEMS;
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
-        <h2 className="mx-auto max-w-[760px] text-center text-[1.75rem] font-semibold leading-[1.15] text-foreground md:text-[2.1875rem]">
-          Plus, everything else you need to run a profitable crypto KOL program
-        </h2>
+        <div className="mx-auto max-w-[760px] text-center">
+          <span className="eyebrow">Full stack</span>
+          <h2 className="mt-3 display-lg font-display text-[1.75rem] leading-[1.15] text-foreground md:text-[2.1875rem]">
+            Plus, everything else you need to run a profitable crypto KOL program
+          </h2>
+        </div>
 
-        <div className="mt-12 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
-          {ITEMS.map(({ Icon, title, body }) => (
-            <div key={title}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-pink-light text-brand">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
+          {/* lead card — dark focal tile spanning two columns on large screens */}
+          <div className="surface-onchain flex flex-col justify-between rounded-xl p-7 sm:col-span-2 lg:col-span-1 lg:row-span-2">
+            <div>
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-brand text-white">
+                <lead.Icon className="h-5 w-5" strokeWidth={2.25} />
+              </span>
+              <h3 className="mt-5 font-display text-h5 text-white">{lead.title}</h3>
+              <p className="mt-3 text-body text-white/70">{lead.body}</p>
+            </div>
+            <span className="mt-6 chip chip-onchain w-fit">Discovery at scale</span>
+          </div>
+
+          {rest.map(({ Icon, title, body }) => (
+            <div key={title} className="card-kit p-7">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-coral-bg text-brand">
                 <Icon className="h-5 w-5" strokeWidth={2.25} />
               </span>
               <h3 className="mt-4 text-body-md font-semibold text-foreground">

@@ -7,7 +7,8 @@ export default function EndToEndCta() {
     <section className="bg-gradient-brand py-24 md:py-32">
       <Container>
         <div className="flex flex-col items-center text-center">
-          <h2 className="max-w-[1000px] font-display text-[2.75rem] uppercase leading-[0.95] text-white md:text-[5rem]">
+          <p className="eyebrow mb-5 flex justify-center text-white/70">From playbook to platform</p>
+          <h2 className="max-w-[1000px] font-display display-xl text-[2.75rem] uppercase text-white md:text-[5rem]">
             End-to-end KOL marketing for web3
           </h2>
           <p className="mt-6 max-w-[560px] text-body-md text-white/80">

@@ -49,10 +49,11 @@ export default function FindLookalikes() {
     <section className="bg-background pt-16 md:pt-24">
       <Container>
         <div className="mx-auto max-w-[840px] text-center">
-          <h2 className="font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
+          <span className="eyebrow">Any handle in</span>
+          <h2 className="mt-3 display-lg font-display text-[2rem] leading-[1.1] text-foreground md:text-[2.75rem]">
             Find KOL lookalikes for any profile
           </h2>
-          <p className="mx-auto mt-8 max-w-[760px] text-body-md text-foreground/75">
+          <p className="mx-auto mt-6 max-w-[760px] text-body-md text-foreground/70">
             Kolio indexes crypto KOLs across X, YouTube, TikTok, and Telegram —
             every profile verified for real reach and audience quality, not
             follower counts. Search any handle and get KOLs who cover the same
@@ -63,7 +64,7 @@ export default function FindLookalikes() {
       </Container>
 
       {/* gradient band wrapping the mockup + CTA row */}
-      <div className="mt-12 bg-gradient-to-b from-[#f1f2ff] to-[#d8dcff] pb-16 pt-14 md:mt-16 md:pb-24 md:pt-20">
+      <div className="mt-12 bg-gray-50 pb-16 pt-14 md:mt-16 md:pb-24 md:pt-20">
         <div className="relative mx-auto w-full max-w-[1200px] px-4 sm:px-6">
           <div className="relative">
             {/* brand-neutral product mockup: a KOL result table */}
@@ -71,7 +72,7 @@ export default function FindLookalikes() {
               <div className="flex items-center justify-between border-b border-black/5 px-5 py-4">
                 <div className="text-body font-semibold text-foreground">
                   Lookalikes for{' '}
-                  <span className="text-blue">@your_top_kol</span>
+                  <span className="text-brand">@your_top_kol</span>
                 </div>
                 <div className="hidden text-body-sm text-foreground/50 sm:block">
                   {tab.results.length} matches · verified reach
@@ -100,7 +101,7 @@ export default function FindLookalikes() {
                   <span className="text-right text-body-sm font-medium text-foreground">
                     {r.reach}
                   </span>
-                  <span className="text-right text-body-sm font-semibold text-blue">
+                  <span className="text-right font-mono-tnum text-body-sm font-semibold text-brand">
                     {r.match}%
                   </span>
                 </div>
@@ -123,7 +124,7 @@ export default function FindLookalikes() {
                     <span
                       className={cn(
                         'text-body-md font-semibold',
-                        on ? 'text-blue' : 'text-foreground',
+                        on ? 'text-brand' : 'text-foreground',
                       )}
                     >
                       {t.label}
@@ -141,11 +142,7 @@ export default function FindLookalikes() {
 
           <div className="mt-12 flex flex-col items-center gap-4 md:mt-16">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <ButtonLink
-                to="/demo-confirmation"
-                variant="primary"
-                className="!bg-blue !text-white hover:!opacity-90"
-              >
+              <ButtonLink to="/demo-confirmation" variant="primary">
                 Find KOLs for free
               </ButtonLink>
               <ButtonLink to="/demo-confirmation" variant="secondary">

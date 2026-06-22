@@ -1,10 +1,12 @@
 import Container from '@/components/ui/Container';
 import { ButtonA } from '@/components/ui/Button';
+import { ArrowUpRight } from 'lucide-react';
 
 type Feature = { title: string; body: string };
 
 type Row = {
   eyebrow: string;
+  heading: string;
   features: Feature[];
   cta?: string;
   mockup: 'overview' | 'performance' | 'attribution';
@@ -13,7 +15,8 @@ type Row = {
 
 const ROWS: Row[] = [
   {
-    eyebrow: 'Capture every KOL post automatically',
+    eyebrow: 'Capture',
+    heading: 'Every KOL post, captured automatically',
     features: [
       {
         title: 'Campaign overview at a glance',
@@ -32,7 +35,8 @@ const ROWS: Row[] = [
     mockup: 'overview',
   },
   {
-    eyebrow: 'Track verified reach, not vanity metrics',
+    eyebrow: 'Measure',
+    heading: 'Verified reach, not vanity metrics',
     features: [
       {
         title: 'Proof-based performance dashboard',
@@ -52,7 +56,8 @@ const ROWS: Row[] = [
     reverse: true,
   },
   {
-    eyebrow: 'Connect on-chain results to each KOL automatically',
+    eyebrow: 'Attribute',
+    heading: 'On-chain results, wired to each KOL',
     features: [
       {
         title: 'Tracking links and referral codes',
@@ -72,94 +77,111 @@ const ROWS: Row[] = [
   },
 ];
 
-/** Brand-neutral product mockup built with divs (no external imagery). */
-function Mockup({ kind }: { kind: Row['mockup'] }) {
-  if (kind === 'overview') {
-    return (
-      <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
-        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-          Campaign feed
-        </p>
-        <div className="mt-4 flex flex-col gap-3">
-          {[
-            { h: '@defi_degen', p: 'X · Thread', v: '212K' },
-            { h: '@onchain_alpha', p: 'YouTube · Review', v: '88K' },
-            { h: '@tg_signals', p: 'Telegram · Broadcast', v: '41K' },
-            { h: '@l2_maxi', p: 'X · Quote post', v: '156K' },
-          ].map((r) => (
-            <div
-              key={r.h}
-              className="flex items-center justify-between rounded-lg bg-background-soft px-4 py-3"
-            >
-              <div className="flex items-center gap-3">
-                <span className="h-8 w-8 rounded-full bg-gradient-brand" aria-hidden />
-                <div>
-                  <p className="text-body-sm font-semibold text-foreground">{r.h}</p>
-                  <p className="text-body-sm text-foreground/55">{r.p}</p>
-                </div>
-              </div>
-              <span className="text-body-sm font-semibold text-foreground/80">
-                {r.v}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-  if (kind === 'performance') {
-    return (
-      <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
-        <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-          Verified reach
-        </p>
-        <div className="mt-4 flex items-end gap-2 rounded-lg bg-background-soft p-4">
-          {[52, 71, 60, 88, 74, 96, 81, 90, 66, 84, 78, 99].map((h, i) => (
-            <span
-              key={i}
-              className="flex-1 rounded-t bg-gradient-brand"
-              style={{ height: `${h}px` }}
-              aria-hidden
-            />
-          ))}
-        </div>
-        <div className="mt-4 grid grid-cols-3 gap-3">
-          {[
-            { l: 'Real reach', v: '6.1M' },
-            { l: 'Audience quality', v: '92%' },
-            { l: 'Cost / conv.', v: '$1.84' },
-          ].map((s) => (
-            <div key={s.l} className="rounded-lg bg-background-soft p-3">
-              <p className="text-body-md font-bold text-foreground">{s.v}</p>
-              <p className="text-body-sm text-foreground/55">{s.l}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+/* ---------- Overview mockup (light card) ---------- */
+function OverviewMockup() {
   return (
-    <div className="rounded-xl border border-black/10 bg-white p-5 shadow-nav">
-      <p className="text-eyebrow font-semibold uppercase tracking-wide text-foreground/50">
-        On-chain attribution
-      </p>
-      <div className="mt-4 flex flex-col gap-3">
+    <div className="card-kit p-5">
+      <div className="flex items-center justify-between">
+        <span className="eyebrow">Campaign feed</span>
+        <span className="chip chip-onchain">Live</span>
+      </div>
+      <div className="mt-4 flex flex-col gap-2.5">
         {[
-          { h: '@defi_degen', code: 'DEGEN10', conv: '1,204', vol: '$312K' },
-          { h: '@onchain_alpha', code: 'ALPHA', conv: '880', vol: '$198K' },
-          { h: '@l2_maxi', code: 'L2MAXI', conv: '642', vol: '$141K' },
+          { h: '@defi_degen', p: 'X · Thread', v: '212K' },
+          { h: '@onchain_alpha', p: 'YouTube · Review', v: '88K' },
+          { h: '@tg_signals', p: 'Telegram · Broadcast', v: '41K' },
+          { h: '@l2_maxi', p: 'X · Quote post', v: '156K' },
         ].map((r) => (
           <div
             key={r.h}
-            className="flex items-center justify-between rounded-lg bg-background-soft px-4 py-3"
+            className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3"
           >
-            <div>
-              <p className="text-body-sm font-semibold text-foreground">{r.h}</p>
-              <p className="text-body-sm text-foreground/55">code {r.code}</p>
+            <div className="flex items-center gap-3">
+              <span className="h-8 w-8 rounded-full bg-gradient-brand" aria-hidden />
+              <div>
+                <p className="text-body-sm font-semibold text-foreground">{r.h}</p>
+                <p className="text-body-sm text-foreground/55">{r.p}</p>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-body-sm font-semibold text-foreground">{r.vol}</p>
-              <p className="text-body-sm text-foreground/55">{r.conv} conv.</p>
+            <span className="num-display text-body-md text-foreground/80">{r.v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Performance mockup (intentional bar chart + deltas) ---------- */
+const PERF_BARS = [
+  { m: 'Jan', v: 1.8 },
+  { m: 'Feb', v: 2.4 },
+  { m: 'Mar', v: 2.1 },
+  { m: 'Apr', v: 3.2 },
+  { m: 'May', v: 2.9 },
+  { m: 'Jun', v: 3.8 },
+  { m: 'Jul', v: 4.6 },
+  { m: 'Aug', v: 6.1 },
+];
+const PERF_MAX = 6.1;
+
+function PerformanceMockup() {
+  return (
+    <div className="card-kit p-5">
+      <div className="flex items-start justify-between">
+        <div>
+          <span className="eyebrow">Verified reach</span>
+          <p className="mt-1 num-display text-h4 leading-none text-foreground">6.1M</p>
+        </div>
+        <span className="chip chip-onchain inline-flex items-center gap-1">
+          <ArrowUpRight size={13} />
+          +38.2%
+        </span>
+      </div>
+
+      {/* labeled bars with a real baseline + y-grid */}
+      <div className="mt-5 rounded-lg bg-gray-50 p-4">
+        <div className="relative flex h-[132px] items-end gap-2 border-b border-gray-200">
+          {/* baseline gridline */}
+          <span
+            className="absolute inset-x-0 top-1/2 border-t border-dashed border-gray-200"
+            aria-hidden
+          />
+          {PERF_BARS.map((b) => (
+            <div key={b.m} className="flex flex-1 flex-col items-center justify-end gap-1.5">
+              <span
+                className="w-full rounded-t bg-gradient-brand"
+                style={{ height: `${(b.v / PERF_MAX) * 100}%` }}
+                aria-hidden
+              />
+            </div>
+          ))}
+        </div>
+        <div className="mt-1.5 flex gap-2">
+          {PERF_BARS.map((b) => (
+            <span
+              key={b.m}
+              className="flex-1 text-center font-mono-tnum text-[0.6rem] text-foreground/40"
+            >
+              {b.m}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* stat row with mint %-change deltas */}
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        {[
+          { l: 'Real reach', v: '6.1M', d: '+38%' },
+          { l: 'Audience quality', v: '92%', d: '+6pt' },
+          { l: 'Cost / conv.', v: '$1.84', d: '−21%' },
+        ].map((s) => (
+          <div key={s.l} className="rounded-lg bg-gray-50 p-3">
+            <p className="num-display text-body-lg text-foreground">{s.v}</p>
+            <div className="mt-1 flex items-center justify-between">
+              <span className="text-body-sm text-foreground/55">{s.l}</span>
+              <span className="font-mono-tnum text-[0.65rem] font-semibold text-mint">
+                {s.d}
+              </span>
             </div>
           </div>
         ))}
@@ -168,19 +190,77 @@ function Mockup({ kind }: { kind: Row['mockup'] }) {
   );
 }
 
+/* ---------- Attribution mockup (DARK on-chain punctuation) ---------- */
+const ATTR_ROWS = [
+  { h: '@defi_degen', code: 'DEGEN10', kind: 'swaps', conv: '1,204', vol: '$312K', d: '+44%' },
+  { h: '@onchain_alpha', code: 'ALPHA', kind: 'mints', conv: '880', vol: '$198K', d: '+27%' },
+  { h: '@l2_maxi', code: 'L2MAXI', kind: 'swaps', conv: '642', vol: '$141K', d: '+12%' },
+];
+
+function AttributionMockup() {
+  return (
+    <div className="surface-onchain glow-brand rounded-xl p-5">
+      <div className="flex items-center justify-between">
+        <span className="eyebrow">On-chain attribution</span>
+        <span className="inline-flex items-center gap-2 rounded-pill bg-white/5 px-3 py-1 text-body-sm text-white/70">
+          <span className="h-2 w-2 rounded-full bg-mint" />
+          Wallet-verified
+        </span>
+      </div>
+
+      <div className="mt-4 flex flex-col gap-2.5">
+        {ATTR_ROWS.map((r) => (
+          <div
+            key={r.h}
+            className="flex items-center justify-between rounded-lg bg-white/[0.04] px-4 py-3 ring-1 ring-white/[0.06]"
+          >
+            <div className="min-w-0">
+              <p className="text-body-sm font-semibold text-white">{r.h}</p>
+              <div className="mt-1 flex items-center gap-2">
+                <span className="font-mono-tnum text-[0.7rem] text-white/45">
+                  {r.code}
+                </span>
+                <span className="chip chip-onchain">{r.kind}</span>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="font-mono-tnum text-body-md text-white">{r.vol}</p>
+              <p className="font-mono-tnum text-[0.7rem] text-mint">
+                {r.conv} conv · {r.d}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
+        <span className="text-body-sm text-white/55">Attributed volume</span>
+        <span className="num-display text-body-lg text-white">$651K</span>
+      </div>
+    </div>
+  );
+}
+
+function Mockup({ kind }: { kind: Row['mockup'] }) {
+  if (kind === 'overview') return <OverviewMockup />;
+  if (kind === 'performance') return <PerformanceMockup />;
+  return <AttributionMockup />;
+}
+
 /** "Track campaigns automatically" — 3 alternating mockup/feature rows. */
 export default function TrackCampaigns() {
   return (
     <section className="bg-background py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="text-[1.75rem] font-bold leading-[1.15] text-foreground md:text-[2rem]">
+          <span className="eyebrow">The tracking loop</span>
+          <h2 className="mt-3 display-lg font-display text-h4 text-foreground md:text-h3">
             Track KOL campaigns automatically
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-body-md text-foreground/70">
-            Let Kolio capture every KOL post, verify every reach number, and wire
-            on-chain results back to each creator, so you can focus on scaling what
-            actually works.
+            Capture every KOL post, verify every reach number, and wire on-chain
+            results back to each creator, so you can focus on scaling what actually
+            works.
           </p>
         </div>
 
@@ -197,8 +277,9 @@ export default function TrackCampaigns() {
 
               {/* text */}
               <div className={row.reverse ? 'md:order-1' : ''}>
-                <h3 className="mb-6 text-[1.5rem] font-bold leading-tight text-foreground">
-                  {row.eyebrow}
+                <span className="eyebrow">{row.eyebrow}</span>
+                <h3 className="mb-6 mt-3 display-lg text-h4 text-foreground">
+                  {row.heading}
                 </h3>
                 <div className="flex flex-col gap-6">
                   {row.features.map((f) => (
